@@ -10,11 +10,22 @@ jar {
     }
 }
 
+ext {
+    akkaVersion = '2.3.9'
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile 'com.typesafe.akka:akka-actor_2.11:' + akkaVersion
+    compile 'com.typesafe.akka:akka-remote_2.11:' + akkaVersion
+    compile 'com.typesafe.akka:akka-kernel_2.11:' + akkaVersion
+    //compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.1'
+    compile 'org.slf4j:slf4j-simple:1.7.10'
+    compile 'org.slf4j:jcl-over-slf4j:1.7.10'
+    testCompile 'org.testng:testng:6.8.21'
 }
 
 test {
