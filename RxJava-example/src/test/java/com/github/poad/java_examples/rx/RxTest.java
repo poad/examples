@@ -11,10 +11,10 @@ public class RxTest {
     @Test
     public static void test() {
         Observable
-        .just(100, 200, 100, 300, 100)
-        .concatMap(ms -> Observable.just(ms).delay(ms, TimeUnit.MILLISECONDS))
-        .timeInterval()
-        .toBlocking()
-        .forEach(n -> System.out.println(n));
+                .just(100, 200, 100, 300, 100)
+                .concatMap(
+                        ms -> Observable.just(ms).delay(ms,
+                                TimeUnit.MILLISECONDS)).timeInterval()
+                .toBlocking().forEach(n -> System.out.println(n));
     }
 }
