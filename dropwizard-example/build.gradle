@@ -1,0 +1,99 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = '0.0.1'
+
+ext {
+    dropwizardVersion = '0.8.0-rc2'
+}
+repositories {
+    mavenCentral()
+}
+
+defaultTasks 'clean', 'test', 'jars'
+
+jar {
+    version             = project.version
+    manifest {
+        attributes(
+            "Implementation-Title"      : project.name,
+            "Implementation-Version"    : project.version,
+            "Gradle-Version"            : project.gradle.gradleVersion,
+            "Created-By"                : 'Kenji Saito'
+        )
+    }
+}
+
+test {
+  // enable TestNG support (default is JUnit)
+  useTestNG()
+
+  // listen to events in the test execution lifecycle
+  beforeTest { descriptor ->
+     logger.lifecycle("Running test: " + descriptor)
+  }
+
+  // listen to standard out and standard error of the test JVM(s)
+  onOutput { descriptor, event ->
+     logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+  }
+}
+
+// Source Jar
+task sourceJar(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+
+    version             = project.version
+    manifest {
+        attributes(
+            "Implementation-Title"      : project.name,
+            "Implementation-Version"    : project.version,
+            "Gradle-Version"            : project.gradle.gradleVersion,
+            "Created-By"                : 'Kenji Saito'
+        )
+    }
+}
+
+// JavaDoc Jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = "javadoc"
+    from javadoc.destinationDir
+
+    version             = project.version
+    manifest {
+        attributes(
+            "Implementation-Title"      : project.name,
+            "Implementation-Version"    : project.version,
+            "Gradle-Version"            : project.gradle.gradleVersion,
+            "Created-By"                : 'Kenji Saito'
+        )
+    }
+}
+
+// Make all Jars
+task jars {
+    dependsOn jar, sourceJar, javadocJar
+}
+
+dependencies {
+    compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion
+    compile 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+    compile 'io.dropwizard:dropwizard-client:' + dropwizardVersion
+    
+    testCompile 'org.testng:testng:6.8.21'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
