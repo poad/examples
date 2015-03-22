@@ -24,7 +24,7 @@ dependencies {
     compile 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
     
     
-    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.2.9.v20150224'
+    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.2.10.v20150310'
     testCompile 'org.testng:testng:6.8.21'
 }
 
