@@ -6,7 +6,7 @@ targetCompatibility = 1.8
 version = '1.0'
 
 ext {
-    dropwizardVersion = '0.8.0'
+    dropwizardVersion = '0.8.1'
 }
 
 jar {
