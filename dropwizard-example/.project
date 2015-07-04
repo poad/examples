@@ -20,4 +20,24 @@
 		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1436010116402</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.orFilterMatcher</id>
+				<arguments>
+					<matcher>
+						<id>org.eclipse.core.resources.regexFilterMatcher</id>
+						<arguments>build</arguments>
+					</matcher>
+					<matcher>
+						<id>org.eclipse.core.resources.regexFilterMatcher</id>
+						<arguments>.gradle</arguments>
+					</matcher>
+				</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>
