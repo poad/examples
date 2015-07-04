@@ -1,0 +1,105 @@
+apply plugin: 'scala'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+defaultTasks 'clean', 'test', 'jars'
+
+jar {
+    version             = project.version
+    manifest {
+        attributes(
+            "Implementation-Title"      : 'scalatra-examples',
+            "Implementation-Version"    : project.version,
+            "Gradle-Version"            : project.gradle.gradleVersion,
+            "Created-By"                : 'Kenji Saito'
+        )
+    }
+}
+
+test {
+  // enable TestNG support (default is JUnit)
+  useTestNG()
+
+  // listen to events in the test execution lifecycle
+  beforeTest { descriptor ->
+     logger.lifecycle("Running test: " + descriptor)
+  }
+
+  // listen to standard out and standard error of the test JVM(s)
+  onOutput { descriptor, event ->
+     logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+  }
+}
+
+// Source Jar
+task sourceJar(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+
+    version             = project.version
+    manifest {
+        attributes(
+            "Implementation-Title"      : 'scalatra-example',
+            "Implementation-Version"    : project.version,
+            "Gradle-Version"            : project.gradle.gradleVersion,
+            "Created-By"                : 'Kenji Saito'
+        )
+    }
+}
+
+// JavaDoc Jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = "javadoc"
+    from javadoc.destinationDir
+
+    version             = project.version
+    manifest {
+        attributes(
+            "Implementation-Title"      : 'scalatra-example',
+            "Implementation-Version"    : project.version,
+            "Gradle-Version"            : project.gradle.gradleVersion,
+            "Created-By"                : 'Kenji Saito'
+        )
+    }
+}
+
+// Make all Jars
+task jars {
+    dependsOn jar, sourceJar, javadocJar
+}
+
+dependencies {
+    compile 'org.scalatra:scalatra_2.11:2.3.1'
+    compile 'org.scalatra:scalatra-scalate_2.11:2.3.1'
+    compile 'org.scalatra:scalatra-auth_2.11:2.3.1'
+    compile 'org.scalatra:scalatra-jetty_2.11:2.3.1'
+    compile 'org.scalatra:scalatra-json_2.11:2.3.1'
+    
+    compile 'org.eclipse.jetty:jetty-webapp:9.3.0.v20150612'
+    
+    compile 'org.scala-lang:scala-library:2.11.7'
+    compile 'org.scala-lang:scala-actors:2.11.7'
+    compile 'org.scala-lang:scala-reflect:2.11.7'
+
+    testCompile 'org.scalatest:scalatest_2.11:2.2.5'
+    testCompile 'junit:junit:4.12'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
