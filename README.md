@@ -1,2 +1,2 @@
-# java-examples
-The example projects of Java
+# examples
+The example projects
