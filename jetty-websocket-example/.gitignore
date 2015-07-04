@@ -1,3 +1,7 @@
-/test-output/
-/bin/*
+/bin/
 /build/
+/test-output/
+/.DS_Store
+/.gradle
+/.classpath
+/.project
