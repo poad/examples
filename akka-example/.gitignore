@@ -2,3 +2,7 @@
 /build/
 /test-output/
 /.DS_Store
+/.gradle/*.*-*/**
+/.classpath
+/.project
+/.settings
