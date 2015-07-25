@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.6.0'
-    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.2.10.v20150310'
+    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.3.1.v20150714'
     testCompile 'org.testng:testng:6.9.6'
 }
 
