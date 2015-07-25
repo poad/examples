@@ -11,7 +11,7 @@ jar {
 }
 
 ext {
-    akkaVersion = '2.3.9'
+    akkaVersion = '2.3.12'
 }
 
 repositories {
@@ -24,7 +24,7 @@ dependencies {
     compile 'com.typesafe.akka:akka-kernel_2.11:' + akkaVersion
     compile 'org.slf4j:slf4j-simple:1.7.12'
     compile 'org.slf4j:jcl-over-slf4j:1.7.12'
-    testCompile 'org.testng:testng:6.9.4'
+    testCompile 'org.testng:testng:6.9.6'
 }
 
 test {

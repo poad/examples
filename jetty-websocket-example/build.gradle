@@ -6,7 +6,7 @@ targetCompatibility = 1.8
 version = '1.0'
 
 ext {
-    dropwizardVersion = '0.8.1'
+    dropwizardVersion = '0.8.2'
 }
 
 jar {
@@ -25,7 +25,7 @@ dependencies {
     
     
     compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.2.10.v20150310'
-    testCompile 'org.testng:testng:6.8.21'
+    testCompile 'org.testng:testng:6.9.6'
 }
 
 test {

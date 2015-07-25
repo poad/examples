@@ -6,7 +6,7 @@ targetCompatibility = 1.8
 version = '0.0.1'
 
 ext {
-    dropwizardVersion = '0.8.1'
+    dropwizardVersion = '0.8.2'
 }
 repositories {
     mavenCentral()
@@ -83,7 +83,7 @@ dependencies {
     compile 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
     compile 'io.dropwizard:dropwizard-client:' + dropwizardVersion
     
-    testCompile 'org.testng:testng:6.8.21'
+    testCompile 'org.testng:testng:6.9.6'
 }
 
 test {
