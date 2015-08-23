@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="output" path="bin"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+	<classpathentry kind="src" path="src/main/scala">
+		<attributes>
+			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/test/scala">
+		<attributes>
+			<attribute name="FROM_GRADLE_MODEL" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry sourcepath="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.reactivex/rxscala_2.11/0.25.0/1d140419e276f95fe903acbf8a15d5ebb5f96739/rxscala_2.11-0.25.0-sources.jar" kind="lib" path="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.reactivex/rxscala_2.11/0.25.0/2870b857a26dd70d665a227bfcfe34cd9a67f225/rxscala_2.11-0.25.0.jar"/>
-	<classpathentry sourcepath="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.12/58697792617f38bf86d8e26bc004aac505e516a9/slf4j-api-1.7.12-sources.jar" kind="lib" path="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.12/8e20852d05222dc286bf1c71d78d0531e177c317/slf4j-api-1.7.12.jar"/>
-	<classpathentry sourcepath="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.6/81e74f4ba7915a8256022e6bc1436a00a916fdbe/scala-library-2.11.6-sources.jar" kind="lib" path="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.6/be3457b4b748df35bffba675d8cddf44e9df4f7b/scala-library-2.11.6.jar"/>
-	<classpathentry sourcepath="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.11/9f21deefd9943413c1d5232a111e24653ba86e31/rxjava-1.0.11-sources.jar" kind="lib" path="/Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.11/8eb541fb917b86ce451e23916bd89f8259660638/rxjava-1.0.11.jar"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
