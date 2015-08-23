@@ -1,0 +1,7 @@
+/bin/
+**/.DS_Store
+/.project
+/.settings/
+/.vertx/
+/gradle/
+/.classpath
