@@ -1,0 +1,8 @@
+{
+  "main": "poad.exampleservice.services.ExampleServiceVerticle",
+  "options": {
+    "config": {
+      "address": "exampleservice.product"
+    }
+  }
+}
