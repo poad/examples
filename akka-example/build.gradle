@@ -11,7 +11,7 @@ jar {
 }
 
 ext {
-    akkaVersion = '2.3.12'
+    akkaVersion = '2.3.13'
 }
 
 repositories {
