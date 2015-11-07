@@ -10,14 +10,19 @@ jar {
     }
 }
 
+ext {
+    jacksonVersion = '2.6.3'
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.6.1'
-    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.3.3.v20150827'
-    testCompile 'org.testng:testng:6.9.6'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:' + jacksonVersion
+    compile 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
+    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.3.5.v20151012'
+    testCompile 'org.testng:testng:6.9.9'
 }
 
 test {

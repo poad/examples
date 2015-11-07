@@ -20,7 +20,7 @@ dependencies {
 
     compile 'org.slf4j:slf4j-api:1.7.12'
     
-    testCompile 'org.scalatest:scalatest_2.11:2.2.4'
+    testCompile 'org.scalatest:scalatest_2.11:2.2.5'
 }
 
 test {
