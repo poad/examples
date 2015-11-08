@@ -31,7 +31,7 @@ ext {
     rxJavaVersion = '1.0.15'
     rxScalaVersion = '0.25.0'
     scalatraVersion = '2.3.1'
-    vertxVersion = '3.0.0'
+    vertxVersion = '3.1.0'
 
     testNgVersion = '6.9.9'
     junitVersion = '4.12'
