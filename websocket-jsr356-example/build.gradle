@@ -19,10 +19,10 @@ repositories {
 }
 
 dependencies {
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:' + jacksonVersion
-    compile 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
-    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.3.5.v20151012'
-    testCompile 'org.testng:testng:6.9.9'
+    compile rootProject
+    
+    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:' + jettyVersion
+    testCompile 'org.testng:testng:' + testNgVersion
 }
 
 test {

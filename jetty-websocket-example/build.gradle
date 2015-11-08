@@ -20,12 +20,10 @@ repositories {
 }
 
 dependencies {
-    compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion
-    compile 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+    compile rootProject
     
-    
-    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.2.13.v20150730'
-    testCompile 'org.testng:testng:6.9.9'
+    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:' + jettyVersionOfDropwizard
+    testCompile 'org.testng:testng:' + testNgVersion
 }
 
 test {

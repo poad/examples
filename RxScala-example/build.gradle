@@ -16,11 +16,9 @@ repositories {
 }
 
 dependencies {
-    compile 'io.reactivex:rxscala_2.11:0.25.0'
-
-    compile 'org.slf4j:slf4j-api:1.7.12'
+    compile rootProject
     
-    testCompile 'org.scalatest:scalatest_2.11:2.2.5'
+    testCompile 'org.scalatest:scalatest_2.11:' + scalaTestVersion
 }
 
 test {

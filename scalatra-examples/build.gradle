@@ -76,20 +76,12 @@ task jars {
 }
 
 dependencies {
-    compile 'org.scalatra:scalatra_2.11:2.3.1'
-    compile 'org.scalatra:scalatra-scalate_2.11:2.3.1'
-    compile 'org.scalatra:scalatra-auth_2.11:2.3.1'
-    compile 'org.scalatra:scalatra-jetty_2.11:2.3.1'
-    compile 'org.scalatra:scalatra-json_2.11:2.3.1'
-    
-    compile 'org.eclipse.jetty:jetty-webapp:9.3.0.v20150612'
-    
-    compile 'org.scala-lang:scala-library:2.11.7'
-    compile 'org.scala-lang:scala-actors:2.11.7'
-    compile 'org.scala-lang:scala-reflect:2.11.7'
+    compile rootProject
 
-    testCompile 'org.scalatest:scalatest_2.11:2.2.5'
-    testCompile 'junit:junit:4.12'
+    compile 'org.eclipse.jetty:jetty-webapp:' + jettyVersion
+
+    testCompile 'org.scalatest:scalatest_2.11:' + scalaTestVersion
+    testCompile 'junit:junit:' + junitVersion
 }
 
 test {
