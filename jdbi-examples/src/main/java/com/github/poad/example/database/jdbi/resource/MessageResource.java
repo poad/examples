@@ -15,7 +15,7 @@ import com.github.poad.example.database.jdbi.mapper.MessageMapper;
  * このインタフェースの実装はありません。SQLの発行やマッピングクラスの呼び出しは、JDBIにより行われ、ユーザー(開発者)には隠蔽されます。
  */
 @RegisterMapper(MessageMapper.class)
-public interface MessageResource {
+public interface MessageResource extends AutoCloseable {
 
 	@SqlUpdate("insert into message (message) values (:message)")
 	void create(@Bind("message") String message);
@@ -31,4 +31,9 @@ public interface MessageResource {
 	
 	@SqlUpdate("delete from message where id = :id")
 	void delete(@Bind("id") long id);
+	
+	/**
+	 * DBのコネクションを閉じます
+	 */
+	void close();
 }
