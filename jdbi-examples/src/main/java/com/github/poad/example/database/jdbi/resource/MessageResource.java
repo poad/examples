@@ -10,6 +10,10 @@ import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 import com.github.poad.example.database.jdbi.entity.Message;
 import com.github.poad.example.database.jdbi.mapper.MessageMapper;
 
+/**
+ * {@link MessageResource} インタフェースは、messageテーブルへアクセスするためのJDBI用インタフェースです。<br>
+ * このインタフェースの実装はありません。SQLの発行やマッピングクラスの呼び出しは、JDBIにより行われ、ユーザー(開発者)には隠蔽されます。
+ */
 @RegisterMapper(MessageMapper.class)
 public interface MessageResource {
 
