@@ -16,8 +16,12 @@ repositories {
 }
 
 dependencies {
-    compile rootProject
-    
+	compile 'io.reactivex:rxscala_2.11:' + rxScalaVersion
+
+    compile 'org.scala-lang:scala-library:' + scalaVersion
+    compile 'org.scala-lang:scala-actors:' + scalaVersion
+    compile 'org.scala-lang:scala-reflect:' + scalaVersion
+
     testCompile 'org.scalatest:scalatest_2.11:' + scalaTestVersion
 }
 

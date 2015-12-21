@@ -15,7 +15,8 @@ repositories {
 }
 
 dependencies {
-    compile rootProject
+	compile 'io.reactivex:rxjava:' + rxJavaVersion
+
     testCompile 'org.testng:testng:' + testNgVersion
 }
 

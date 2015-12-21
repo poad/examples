@@ -21,14 +21,14 @@ repositories {
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
-    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'org.slf4j:slf4j-simple:' + slf4jVersion
+    compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 
-	compile 'org.jdbi:jdbi:2.70'
+	compile 'org.jdbi:jdbi:' + jdbiVersion
 
-	compile 'org.apache.commons:commons-dbcp2:2.1.1'
+	compile 'org.apache.commons:commons-dbcp2:' + dbcp2Version
 
-
-    runtime 'com.h2database:h2:1.4.190'
+    runtime 'com.h2database:h2:' + h2Version
 
     testCompile 'org.testng:testng:' + testNgVersion
 }

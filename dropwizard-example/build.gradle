@@ -76,7 +76,13 @@ task jars {
 }
 
 dependencies {
-    compile rootProject
+    compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion
+    compile 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+    compile 'io.dropwizard:dropwizard-client:' + dropwizardVersion
+
+    compile 'org.slf4j:slf4j-simple:' + slf4jVersion
+    compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
+
     testCompile 'org.testng:testng:' + testNgVersion
 }
 
