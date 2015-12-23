@@ -40,6 +40,9 @@ ext {
     hibernateVersion = '5.0.6.Final'
     jtaApiVersion = '1.2'
     hibernateJpa2_1Version = '1.0.0.Final'
+    mysqlConnectorVersion = '5.1.38'
+
+    flywayPluginVersion = '3.2.1'
 
     slf4jVersion = '1.7.13'
 
