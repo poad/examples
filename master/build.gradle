@@ -7,6 +7,16 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.6'
+    }
+}
+apply plugin: 'info.solidsoft.pitest'
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
@@ -53,4 +63,19 @@ ext {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
+    testCompile 'org.testng:testng:' + testNgVersion
+}
+
+test {
+    useTestNG()
+}
+
+pitest {
+    targetClasses = ['com.github.poad.*']
+    pitestVersion = '1.1.6'
+    if (project.name in ['master', 'akka-example', 'akka-example', 'dropwizard-example', 'jetty-websocket-example', 'rxjava-example', 'rxscala-example', 'scalatra-examples', 'vertx-examples', 'websocket-jsr356-example', 'spray-example', 'hibernate-examples', 'jdbi-examples', 'flyway-example', 'cobertura-example', 'jacoco-example']) {
+        failWhenNoMutations = false
+    }
+    threads = 4
+    outputFormats = ['XML', 'HTML']
 }
