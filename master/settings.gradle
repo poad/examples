@@ -10,6 +10,6 @@
  */
 
 // To declare projects as part of a multi-project build use the 'include' method
-includeFlat 'akka-example', 'dropwizard-example', 'jetty-websocket-example', 'rxjava-example', 'rxscala-example', 'scalatra-examples', 'vertx-examples', 'websocket-jsr356-example', 'spray-example', 'hibernate-examples', 'jdbi-examples', 'flyway-example', 'cobertura-example', 'jacoco-example', 'pit-example'
+includeFlat 'akka-example', 'dropwizard-example', 'jetty-websocket-example', 'rxjava-example', 'rxscala-example', 'scalatra-examples', 'vertx-examples', 'websocket-jsr356-example', 'spray-example', 'hibernate-examples', 'jdbi-examples', 'flyway-example', 'cobertura-example', 'jacoco-example', 'pit-example', 'jmockit-coverage-examole'
 
 rootProject.name = 'master'

@@ -1,0 +1,10 @@
+.classpath
+.project
+.settings/
+.gradle/
+gradle/
+coverage-report/
+
+/bin/
+/build/
+/test-output/

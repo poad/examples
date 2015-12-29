@@ -56,6 +56,8 @@ ext {
 
     slf4jVersion = '1.7.13'
 
+    jmockitVersion = '1.20'
+
     testNgVersion = '6.9.10'
     junitVersion = '4.12'
     scalaTestVersion = '2.2.5'
