@@ -21,6 +21,8 @@ repositories {
 // In this section you declare the dependencies for your production and test code
 dependencies {
     compile 'org.slf4j:slf4j-api:' + slf4jVersion
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:' + jacksonVersion
+    compile 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
 
     runtime 'com.h2database:h2:' + h2Version
 
