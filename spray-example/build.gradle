@@ -10,6 +10,7 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'scala'
+apply plugin: 'eclipse'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -24,9 +25,14 @@ dependencies {
     compile 'org.scala-lang:scala-actors:' + scalaVersion
     compile 'org.scala-lang:scala-reflect:' + scalaVersion
 
+    compile 'com.typesafe.akka:akka-actor_2.11:' + akkaVersion
+
 	compile 'io.spray:spray-can_2.11:' + sprayVersion
     compile 'io.spray:spray-routing_2.11:' + sprayVersion
     compile 'io.spray:spray-json_2.11:' + '1.3.2'
+    
+    compile 'org.json4s:json4s-ext_2.11:' + json4sVersoin
+    compile 'org.json4s:json4s-native_2.11:' + json4sVersoin
     
     testCompile 'junit:junit:' + junitVersion
 }
