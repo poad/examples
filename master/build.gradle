@@ -57,6 +57,7 @@ ext {
     mysqlConnectorVersion = '6.0.2'
     
     cglibVersion = '3.2.2'
+    stringUtilsVersion = '3.4'
 
     flywayVersion = '4.0.1'
 
