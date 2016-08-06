@@ -36,8 +36,11 @@ dependencies {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
     compile 'org.springframework.boot:spring-boot-starter-jetty'
+    compile('org.springframework.boot:spring-boot-starter-data-jpa') {
+        exclude group: 'org.hibernate', module: 'hibernate-entitymanager'
+    }
 
-    compile 'org.eclipse.persistence:eclipselink:2.6.3'
+    compile 'org.eclipse.persistence:org.eclipse.persistence.jpa:2.6.3'
 
     compile 'javax.transaction:javax.transaction-api:1.2'
 
