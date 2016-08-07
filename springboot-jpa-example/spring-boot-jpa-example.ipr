@@ -70,7 +70,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-jpa-example.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-jpa-example.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-jpa-example.iml" filepath="$PROJECT_DIR$/spring-boot-jpa-example.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-jpa-example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-jpa-example_main.iml" group="spring-boot-jpa-example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot-jpa-example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot-jpa-example_test.iml" group="spring-boot-jpa-example" />
     </modules>
@@ -1079,6 +1078,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.2.RELEASE/f0e4e72a7af722a285dc46cff641f058a46071db/spring-web-4.3.2.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.springframework:springloaded:1.2.6.RELEASE">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/springloaded/1.2.6.RELEASE/df364cd5f36ae9a01ac4e73ecd138daa735fbbc8/springloaded-1.2.6.RELEASE.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/springloaded/1.2.6.RELEASE/f29b088f30f23d9a4b8ec2e822d1614343fe10f0/springloaded-1.2.6.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: org.testng:testng:6.9.10">
