@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output/>
+    <orderEntry type="inheritedJdk"/>
+    <content url="file://$MODULE_DIR$/">
+      <excludeFolder url="file://$MODULE_DIR$/build"/>
+      <excludeFolder url="file://$MODULE_DIR$/.gradle"/>
+    </content>
+    <orderEntry type="sourceFolder" forTests="false"/>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.github.docker-java/docker-java/3.0.1/7235f4ebcd838feb9a2cd5dcbf6c0c2474736cc/docker-java-3.0.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.github.docker-java/docker-java/3.0.1/5974d4b3350955d536c922803c3f6010918ceabf/docker-java-3.0.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/139535a69a4239db087de9bab0bee568bf8e0b70/slf4j-api-1.7.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/f285ac123f201fb4b028bac556928d7cf527ef48/slf4j-api-1.7.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.6.4/af58422baf7aff5502436e34e7418c56b1153ba6/jackson-jaxrs-json-provider-2.6.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.6.4/d1384ee84f19a3dddfb34225723c20c1f6007a14/jackson-jaxrs-json-provider-2.6.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.connectors/jersey-apache-connector/2.23.1/1b3ea142403ceed191491b15f9f537f05c16dcd0/jersey-apache-connector-2.23.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.connectors/jersey-apache-connector/2.23.1/aff6bdff6fbf370bdd9b668d169677774c40d7f7/jersey-apache-connector-2.23.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.5/e7501a1b34325abb00d17dde96150604a0658b54/httpcore-4.4.5.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.5/542498265bc5a238dcb0275172b8070bd51e30af/httpcore-4.4.5-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5/a1e6cbb3cc2c5f210dd1310ff9fcb2c09c0d1438/httpclient-4.5.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5/c9504d3448744739d334bde12bfbc91fd7f85115/httpclient-4.5-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.core/jersey-client/2.23.1/c985d8c0ea1e704dcb2645f3de86d64b5d4902ab/jersey-client-2.23.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.core/jersey-client/2.23.1/f2ac0d7c2d759ed1eac5845a82b1261fad8349f0/jersey-client-2.23.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/de.gesellix/unix-socket-factory/2015-01-27T15-02-14/4eb74703185a49baa775bf2ef82797c3cf85b97b/unix-socket-factory-2015-01-27T15-02-14.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/de.gesellix/unix-socket-factory/2015-01-27T15-02-14/5e67b7696be02e51c98f6f8adf22b8e2e19774c1/unix-socket-factory-2015-01-27T15-02-14-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.12/84caa68576e345eb5e7ae61a0e5a9229eb100d7b/commons-compress-1.12.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.12/1fdd1a2fed15cdf08780ed564279c0ddbff46419/commons-compress-1.12-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/11fb3d88ae7e3b757d70237064210ceb954a5a04/commons-codec-1.10-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/ce1edb914c94ebc388f086c6827e8bdeec71ac2/commons-lang-2.6.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-lang/commons-lang/2.6/67313d715fbf0ea4fd0bdb69217fb77f807a8ce5/commons-lang-2.6-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.5/2852e6e05fbb95076fc091f6d1780f1f8fe35e0f/commons-io-2.5.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.5/caf033a4a7c37b4a8ff3ea084cba591539b0b69/commons-io-2.5-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.21/331b564a3a42f002a0004b039c1c430da89062cd/jcl-over-slf4j-1.7.21.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.21/c565ca9c1239b38fe4a70e4101086c4e880f6358/jcl-over-slf4j-1.7.21-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/19.0/6ce200f6b23222af3d8abb6b6459e6c44f4bb0e9/guava-19.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/19.0/91a4d115400e904f22b03a78deb355e9ea803cd4/guava-19.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk15on/1.54/b11bfee99bb11eea344de6e4a07fe89212c55c02/bcpkix-jdk15on-1.54.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk15on/1.54/d821c78eae9e1abe83ec52985a0f5e206bfd61ab/bcpkix-jdk15on-1.54-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.3.Final/62fdf3c43f2674a61ad761b3d164b34dbe76e6cc/netty-codec-http-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.3.Final/296c4c279354a267627c68b90c4cac6a7fea593f/netty-codec-http-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.3.Final/fff45bdc544a4eeceb5b4c6e3e571627af9fdb6/netty-handler-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.3.Final/9536a1ef7154a46b7194c2b1e36b68bc4ab7383b/netty-handler-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler-proxy/4.1.3.Final/87692ff3904963837779d67e8ade4a50bf2cbf0d/netty-handler-proxy-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler-proxy/4.1.3.Final/410b3e677b8b6f062692a9820529560c1a0fff68/netty-handler-proxy-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.3.Final/a34e312dda9947e11f78967ac1ee6cb720942702/netty-transport-native-epoll-4.1.3.Final-linux-x86_64.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.3.Final/bf21d0c1e9ac2249784edb2e32b9481cecea2d77/netty-transport-native-epoll-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.6.4/26ba91883f9963698e5b839c397f75e3db9e1d97/jackson-jaxrs-base-2.6.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.6.4/78df00e144de55d8d1a6612a64e4948421324014/jackson-jaxrs-base-2.6.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.6.4/27d3a9f7bbdcf72d93c9b2da7017e39551bfa9fb/jackson-core-2.6.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.6.4/cf6acd4a1c8a03b72eaa4880241c7dd52bcff0c4/jackson-core-2.6.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.4/f2abadd10891512268b16a1a1a6f81890f3e2976/jackson-databind-2.6.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.4/b4a661c12421c38a7d02f729e41bb7e840ed853b/jackson-databind-2.6.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.6.4/1a2ec7b97be69c289a7a79e0da2edd8079ca5894/jackson-module-jaxb-annotations-2.6.4.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.6.4/e94a43339b5f9a92db30240bb9f2c584a05eef41/jackson-module-jaxb-annotations-2.6.4-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.core/jersey-common/2.23.1/c005266f2291703324c16e67eee654193ddc42b6/jersey-common-2.23.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.core/jersey-common/2.23.1/70c4551ed8eb50560c5d952aeb7ac8e79005514e/jersey-common-2.23.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/javax.ws.rs/javax.ws.rs-api/2.0.1/104e9c2b5583cfcfeac0402316221648d6d8ea6b/javax.ws.rs-api-2.0.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/javax.ws.rs/javax.ws.rs-api/2.0.1/a20db7429fd8dfff74335ec867472b71c345049b/javax.ws.rs-api-2.0.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/ecf26c7507d67782a3bbd148d170b31dfad001aa/commons-logging-1.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-api/2.4.0-b34/1017432e219dbd1d4a1121b2d7e87c5b2f0bcfb9/hk2-api-2.4.0-b34.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-api/2.4.0-b34/97dc4ce8d908a948f35a5ef67e1e1cc1dbe3459b/hk2-api-2.4.0-b34-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/javax.inject/2.4.0-b34/a6a3d4935af7b03e44126b5aac2c2a0ce98fe6e9/javax.inject-2.4.0-b34.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/javax.inject/2.4.0-b34/785c39e9ed81111cf109665d6f635af1ca58fd71/javax.inject-2.4.0-b34-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-locator/2.4.0-b34/1451fc3e5b7f00d7a5ca0feaff2c1bf68be5ac91/hk2-locator-2.4.0-b34.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-locator/2.4.0-b34/668f1f61ed8d42e1dde22d2069b3ae187c58b16e/hk2-locator-2.4.0-b34-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk15on/1.54/1acdedeb89f1d950d67b73d481eb7736df65eedb/bcprov-jdk15on-1.54.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk15on/1.54/27cf7631a904e6b98d9842db13e09a22e524eee4/bcprov-jdk15on-1.54-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.3.Final/790174576b97ab75a4edafd320f9a964a5473cdb/netty-codec-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.3.Final/9b4aa27f7ea40059c7dfef41dd5c983b6dcd7a12/netty-codec-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.3.Final/e507ffb52a1d134679ed244ff819a99e96782dc4/netty-buffer-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.3.Final/56232fa8568b7e489a99a850ffac932a94d77642/netty-buffer-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.3.Final/2f17fe8c5c3b3f90908ed2d0649631a11beb3904/netty-transport-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.3.Final/bbbde849c85de50e080750939dc1c042280e2ad0/netty-transport-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-socks/4.1.3.Final/da539561a8153d2331613791809f95cc99dc5186/netty-codec-socks-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-socks/4.1.3.Final/8a147b464ef3ffeaefd22c1034529c37ae88f4dc/netty-codec-socks-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.3.Final/620faa6dd83a08eb607c9d5c077a9b4edde3056b/netty-common-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.3.Final/31f15abac2dca430c7432b734a023e01abe2c39/netty-common-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.6.0/a0990e2e812ac6639b6ce955c91b13228500476e/jackson-annotations-2.6.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.6.0/7bcb615d523d88acbc121c92aafeba8d37a83792/jackson-annotations-2.6.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/ad18a02db08eaee697f812e333f692fc51129e4a/javax.annotation-api-1.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.bundles.repackaged/jersey-guava/2.23.1/4596e4b19ea1a3249d86ea2d01f71c64d2d943f1/jersey-guava-2.23.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.bundles.repackaged/jersey-guava/2.23.1/ae027ceffcde4a79d3d210c24758affe27900c36/jersey-guava-2.23.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/osgi-resource-locator/1.0.1/4ed2b2d4738aed5786cfa64cba5a332779c4c708/osgi-resource-locator-1.0.1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/osgi-resource-locator/1.0.1/b5685f8eaa7d83351b185a82a92abcd1b8b87fc8/osgi-resource-locator-1.0.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-utils/2.4.0-b34/aacce18411fffef9621d8fc91464ca0477119c38/hk2-utils-2.4.0-b34.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2/hk2-utils/2.4.0-b34/a7b78d3bcc34b4aad3d63dc6575007d35df5fd88/hk2-utils-2.4.0-b34-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/aopalliance-repackaged/2.4.0-b34/3d5e856dbc91a3a2b0bcb3a3424f8b62421ae4cf/aopalliance-repackaged-2.4.0-b34.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.glassfish.hk2.external/aopalliance-repackaged/2.4.0-b34/cca0345c03644f636c838444207372f9c56b97b3/aopalliance-repackaged-2.4.0-b34-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.18.1-GA/d9a09f7732226af26bf99f19e2cffe0ae219db5b/javassist-3.18.1-GA.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.18.1-GA/d8d089f3a8845cce22d3006e02ab1403dd73b5b6/javassist-3.18.1-GA-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.3.Final/fe4ba2ed19e4e8667068e917665f5725ee0290ea/netty-resolver-4.1.3.Final.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.3.Final/5c5b99cbd4de269f270748e7093fe9cb517fe511/netty-resolver-4.1.3.Final-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/a00123f261762a7c5e0ec916a2c7c8298d29c400/javax.inject-1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/ken-yo/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/1dc37250fbc78e23a65a67fbbaf71d2e9cbc3c0b/hamcrest-core-1.3-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+  <component name="ModuleRootManager"/>
+</module>
