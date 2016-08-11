@@ -10,6 +10,7 @@ import com.github.dockerjava.api.model.SearchItem;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.DockerClientConfig;
+import com.github.dockerjava.core.RemoteApiVersion;
 import com.github.dockerjava.core.command.ExecStartResultCallback;
 import com.github.dockerjava.core.command.PullImageResultCallback;
 import com.github.dockerjava.core.command.WaitContainerResultCallback;
@@ -19,6 +20,7 @@ import org.flywaydb.core.Flyway;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 
@@ -30,7 +32,7 @@ public class Application {
     private static final String NAME = "mysql";
 
     public static void main(String... args) throws InterruptedException {
-        DockerClient client = buildDockerClient();
+        DockerClient client = buildDockerClient(Optional.of("unix:///var/run/docker.sock"));
 
         String containerID = setUpDockerContainer(client);
 
@@ -52,11 +54,14 @@ public class Application {
         tearDownDockerContainer(client, containerID);
     }
 
-    private static DockerClient buildDockerClient() {
-        DockerClientConfig config = DefaultDockerClientConfig.createDefaultConfigBuilder()
-                .withApiVersion("1.23")
-                .withRegistryUrl("https://index.docker.io/v1/")
-                .build();
+    private static DockerClient buildDockerClient(Optional<String> host) {
+        DefaultDockerClientConfig.Builder builder = DefaultDockerClientConfig.createDefaultConfigBuilder()
+                .withApiVersion(RemoteApiVersion.VERSION_1_23)
+                .withRegistryUrl("https://index.docker.io/v1/");
+
+        host.ifPresent(h -> builder.withDockerHost(h));
+
+        DockerClientConfig config = builder.build();
 
         // using jaxrs/jersey implementation here (netty impl is also available)
         DockerCmdExecFactory dockerCmdExecFactory = new JerseyDockerCmdExecFactory()
@@ -89,7 +94,7 @@ public class Application {
 
         List<Container> containers = client.listContainersCmd().withShowAll(true).exec();
         String containerID = containers.stream()
-                .filter(container -> container.getImage().equals(IMAGE) && Arrays.asList(container.getNames()).contains("/" + NAME))
+                .filter(container -> Arrays.asList(container.getNames()).contains("/" + NAME))
                 .findFirst()
                 .map(Container::getId).orElseGet(() -> client.createContainerCmd(IMAGE)
                         .withName(NAME)
@@ -120,6 +125,10 @@ public class Application {
                 .filter(filter)
                 .findFirst()
                 .isPresent()) {
+            /*
+             * 動かない場合は
+             * docker run --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=testdb -e MYSQL_USER=root -p 0.0.0.0:3306:3306 -d mysql
+             */
             client.startContainerCmd(containerID).exec();
         }
         return containerID;
