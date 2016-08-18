@@ -3,10 +3,7 @@ package org.bitbucket.poad1010.example.docker;
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.DockerCmdExecFactory;
 import com.github.dockerjava.api.command.ExecCreateCmdResponse;
-import com.github.dockerjava.api.model.Container;
-import com.github.dockerjava.api.model.Image;
-import com.github.dockerjava.api.model.RestartPolicy;
-import com.github.dockerjava.api.model.SearchItem;
+import com.github.dockerjava.api.model.*;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.DockerClientConfig;
@@ -33,6 +30,7 @@ public class Application {
 
     public static void main(String... args) throws InterruptedException {
         DockerClient client = buildDockerClient(Optional.of("unix:///var/run/docker.sock"));
+//        DockerClient client = buildDockerClient(Optional.of("tcp://localhost:2375/"));
 
         String containerID = setUpDockerContainer(client);
 
@@ -43,7 +41,7 @@ public class Application {
                 new ExecStartResultCallback(System.out, System.err)).awaitCompletion();
 
         HikariDataSource ds = new HikariDataSource();
-        ds.setJdbcUrl("jdbc:mysql://localhost:3306/testdb?useSSL=true");
+        ds.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/testdb?useSSL=true");
         ds.setUsername("root");
 
 
@@ -56,7 +54,7 @@ public class Application {
 
     private static DockerClient buildDockerClient(Optional<String> host) {
         DefaultDockerClientConfig.Builder builder = DefaultDockerClientConfig.createDefaultConfigBuilder()
-                .withApiVersion(RemoteApiVersion.VERSION_1_23)
+                .withApiVersion(RemoteApiVersion.VERSION_1_24)
                 .withRegistryUrl("https://index.docker.io/v1/");
 
         host.ifPresent(h -> builder.withDockerHost(h));
@@ -92,6 +90,11 @@ public class Application {
             });
         }
 
+        ExposedPort tcp3306 = ExposedPort.tcp(3306);
+
+        Ports portBindings = new Ports();
+        portBindings.bind(tcp3306, Ports.Binding.bindPort(3306));
+
         List<Container> containers = client.listContainersCmd().withShowAll(true).exec();
         String containerID = containers.stream()
                 .filter(container -> Arrays.asList(container.getNames()).contains("/" + NAME))
@@ -102,8 +105,9 @@ public class Application {
                         .withRestartPolicy(RestartPolicy.alwaysRestart())
                         .withNetworkMode("host")
                         .withCmd("--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci")
-//                        .withPortBindings(new PortBinding(Ports.Binding.bindIpAndPort("0.0.0.0", 3306), ExposedPort.tcp(3306)))
-                        .withPortSpecs("0.0.0.0:3306:3306/tcp")
+                        .withExposedPorts(tcp3306)
+                        .withPortBindings(portBindings)
+                        .withPublishAllPorts(true)
                         .exec()
                         .getId());
 
