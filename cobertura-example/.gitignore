@@ -1,9 +1,0 @@
-.classpath
-.project
-.settings/
-.gradle/
-gradle/
-
-/bin/
-/build/
-/test-output/

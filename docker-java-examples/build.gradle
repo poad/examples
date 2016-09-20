@@ -20,7 +20,7 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile 'com.github.docker-java:docker-java:3.0.5'
+    compile 'com.github.docker-java:docker-java:3.0.6'
     compile 'org.flywaydb:flyway-core:4.0.3'
 
     compile 'com.zaxxer:HikariCP:2.4.7'
@@ -37,8 +37,8 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
 
-    runtime 'com.kohlschutter.junixsocket:junixsocket-common:2.0.4' // for gradle-docker-plugin using Unix sockets
-    runtime 'com.kohlschutter.junixsocket:junixsocket-native-common:2.0.4'
+    //runtime 'com.kohlschutter.junixsocket:junixsocket-common:2.0.4' // for gradle-docker-plugin using Unix sockets
+    //runtime 'com.kohlschutter.junixsocket:junixsocket-native-common:2.0.4'
     // for gradle-docker-plugin using Unix sockets
     runtime 'cglib:cglib:3.2.0'
 
