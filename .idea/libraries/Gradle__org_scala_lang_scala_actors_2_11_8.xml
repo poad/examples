@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.scala-lang:scala-actors:2.11.8">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.sdkman/candidates/gradle/3.1/caches/modules-2/files-2.1/org.scala-lang/scala-actors/2.11.8/443c78484d24797af1ef4ec8a84da40c356dbaf6/scala-actors-2.11.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.sdkman/candidates/gradle/3.1/caches/modules-2/files-2.1/org.scala-lang/scala-actors/2.11.8/264113d15a4e8d31cc7c87194a1ea98b4d314ed1/scala-actors-2.11.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":pit-example:test" external.linked.project.path="$MODULE_DIR$/../../../pit-example" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="java-examples" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+    <output-test url="file://$MODULE_DIR$/../../../pit-example/build/classes/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../pit-example/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../pit-example/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../pit-example/src/test/resources" type="java-test-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="pit-example_main" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.testng:testng:6.9.10" level="project" />
+    <orderEntry type="library" name="Gradle: org.beanshell:bsh:2.0b4" level="project" />
+    <orderEntry type="library" name="Gradle: com.beust:jcommander:1.48" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="pit-example_main" />
+</module>

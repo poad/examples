@@ -1,16 +1,13 @@
 package com.github.poad.examples.database.resource;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import com.github.poad.examples.database.entity.Message;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.testng.annotations.Test;
-
-import com.github.poad.examples.database.entity.Message;
+import static org.testng.Assert.*;
 
 public class MessageResourceTest {
 

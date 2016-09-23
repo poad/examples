@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.scalatra:scalatra_2.11:2.4.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.sdkman/candidates/gradle/3.1/caches/modules-2/files-2.1/org.scalatra/scalatra_2.11/2.4.1/d0eb9ffe86e73cd12f016cc198b833e0a5d8e3cb/scalatra_2.11-2.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.sdkman/candidates/gradle/3.1/caches/modules-2/files-2.1/org.scalatra/scalatra_2.11/2.4.1/35f6eea06f7a3993102e851119d7c56441f9ffb5/scalatra_2.11-2.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

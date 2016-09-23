@@ -22,3 +22,6 @@ hs_err_pid*
 /.cache-tests
 /gradle
 /test-output
+script/
+src/main/
+src/test/resources/

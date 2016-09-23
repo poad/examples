@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jvnet.mimepull:mimepull:1.9.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.sdkman/candidates/gradle/3.1/caches/modules-2/files-2.1/org.jvnet.mimepull/mimepull/1.9.5/4ae665c707798da16886f916cda02ec61ea538f6/mimepull-1.9.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.sdkman/candidates/gradle/3.1/caches/modules-2/files-2.1/org.jvnet.mimepull/mimepull/1.9.5/5b8fcbebc4a90092a00048cfac5eaa9cc2fc6e42/mimepull-1.9.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

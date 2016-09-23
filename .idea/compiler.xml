@@ -18,6 +18,57 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="akka-example_main" target="1.8" />
+      <module name="akka-example_test" target="1.8" />
+      <module name="cglib-example_main" target="1.8" />
+      <module name="cglib-example_test" target="1.8" />
+      <module name="cobertura-example_main" target="1.8" />
+      <module name="cobertura-example_test" target="1.8" />
+      <module name="dbunit-examples_main" target="1.8" />
+      <module name="dbunit-examples_test" target="1.8" />
+      <module name="docker-java-examples_main" target="1.8" />
+      <module name="docker-java-examples_test" target="1.8" />
+      <module name="dropwizard-example_main" target="1.8" />
+      <module name="dropwizard-example_test" target="1.8" />
+      <module name="flyway-example_main" target="1.8" />
+      <module name="flyway-example_test" target="1.8" />
+      <module name="hibernate-examples_main" target="1.8" />
+      <module name="hibernate-examples_test" target="1.8" />
+      <module name="jacoco-example_main" target="1.8" />
+      <module name="jacoco-example_test" target="1.8" />
+      <module name="java-examples_main" target="1.8" />
+      <module name="java-examples_test" target="1.8" />
+      <module name="jdbi-examples_main" target="1.8" />
+      <module name="jdbi-examples_test" target="1.8" />
+      <module name="jetty-websocket-example_main" target="1.8" />
+      <module name="jetty-websocket-example_test" target="1.8" />
+      <module name="jmockit-coverage-examole_main" target="1.8" />
+      <module name="jmockit-coverage-examole_test" target="1.8" />
+      <module name="kotlin-script_main" target="1.8" />
+      <module name="kotlin-script_test" target="1.8" />
+      <module name="pit-example_main" target="1.8" />
+      <module name="pit-example_test" target="1.8" />
+      <module name="rxjava-example_main" target="1.8" />
+      <module name="rxjava-example_test" target="1.8" />
+      <module name="rxscala-example_main" target="1.8" />
+      <module name="rxscala-example_test" target="1.8" />
+      <module name="scala-interpreter_main" target="1.8" />
+      <module name="scala-interpreter_test" target="1.8" />
+      <module name="scalatra-examples_main" target="1.8" />
+      <module name="scalatra-examples_test" target="1.8" />
+      <module name="SheSo_main" target="1.8" />
+      <module name="SheSo_test" target="1.8" />
+      <module name="spark-example_main" target="1.8" />
+      <module name="spark-example_test" target="1.8" />
+      <module name="spray-example_main" target="1.8" />
+      <module name="spray-example_test" target="1.8" />
+      <module name="springboot-example_main" target="1.8" />
+      <module name="springboot-example_test" target="1.8" />
+      <module name="vertx-examples_main" target="1.8" />
+      <module name="vertx-examples_test" target="1.8" />
+      <module name="websocket-jsr356-example_main" target="1.8" />
+      <module name="websocket-jsr356-example_test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
