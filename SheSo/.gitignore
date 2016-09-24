@@ -20,7 +20,7 @@ hs_err_pid*
 build/
 
 # Ignore Gradle GUI config
-gradle-app.setting
+gradle-Application.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar

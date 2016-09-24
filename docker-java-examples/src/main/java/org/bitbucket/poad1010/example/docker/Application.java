@@ -25,7 +25,7 @@ import java.util.function.Predicate;
  * Created by ken-yo on 2016/08/08.
  */
 public class Application {
-    private static final String IMAGE = "mysql";
+    private static final String IMAGE = "mysql-server";
     private static final String NAME = "mysql";
 
     public static void main(String... args) throws InterruptedException {
