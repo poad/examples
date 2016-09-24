@@ -37,5 +37,6 @@ include 'springboot-example'
 include 'spring-boot-jpa-example'
 include 'vertx-examples'
 include 'websocket-jsr356-example'
+include 'akka-http-example'
 
 rootProject.name = 'java-examples'
