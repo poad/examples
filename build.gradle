@@ -32,17 +32,17 @@ repositories {
 }
 
 ext {
-	scalaVersion = '2.11.8'
+    scalaVersion = '2.12.0'
 
     jettyVersionOfDropwizard = '9.3.9.v20160517'
-    jettyVersion = '9.3.13.v20161014'
+    jettyVersion = '9.3.14.v20161028'
 
     akkaVersion = '2.4.10'
     dropwizardVersion = '1.0.2'
     jacksonVersion = '2.7.6'
     rxJavaVersion = '1.2.1'
     rxScalaVersion = '0.26.3'
-    scalatraVersion = '2.4.1'
+    scalatraVersion = '2.5.0-RC1'
     vertxVersion = '3.3.3'
     sparkVersion = '2.5.1'
 
@@ -88,11 +88,6 @@ ext {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile 'org.scala-lang:scala-library:' + scalaVersion
-    compile 'org.scala-lang:scala-actors:' + scalaVersion
-    compile 'org.scala-lang:scala-reflect:' + scalaVersion
-
-    testCompile 'org.testng:testng:' + testNgVersion
 }
 
 test {

@@ -1,1 +1,0 @@
-1 to 10 withFilter { _ % 2 == 0 } map { _ * 2 }
