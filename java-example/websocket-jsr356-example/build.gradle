@@ -1,17 +1,8 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 version = '1.0'
 jar {
     manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version
     }
-}
-
-ext {
-    jacksonVersion = '2.6.3'
 }
 
 repositories {
@@ -22,7 +13,6 @@ dependencies {
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:' + jacksonVersion
     compile 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
     compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:' + jettyVersion
-    testCompile 'org.testng:testng:' + testNgVersion
 }
 
 test {

@@ -28,8 +28,6 @@ dependencies {
     compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
     
     compile 'com.sparkjava:spark-core:' + sparkVersion
-
-    testCompile 'org.testng:testng:' + testNgVersion
 }
 
 test {

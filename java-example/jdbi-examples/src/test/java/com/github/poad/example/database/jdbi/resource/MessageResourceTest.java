@@ -1,7 +1,5 @@
 package com.github.poad.example.database.jdbi.resource;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 import javax.sql.DataSource;
 
@@ -11,18 +9,21 @@ import org.apache.commons.dbcp2.PoolableConnectionFactory;
 import org.apache.commons.dbcp2.PoolingDataSource;
 import org.apache.commons.pool2.ObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.Handle;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class MessageResourceTest {
 
-	private Handle h = null;
+	private static Handle h = null;
 
-	@BeforeTest
-	public void beforeTest() {
+	@BeforeClass
+	public static void beforeClass() {
 		DBI dbi = new DBI("jdbc:h2:mem:test");
 		Handle h = dbi.open().begin();
 		try {
@@ -33,8 +34,8 @@ public class MessageResourceTest {
 		}
 	}
 
-	@AfterTest
-	public void afterTest() {
+	@AfterClass
+	public static void afterClass() {
 		if (h != null) {
 			h.close();
 		}

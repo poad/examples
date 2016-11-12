@@ -31,7 +31,6 @@ dependencies {
     testCompile 'org.flywaydb:flyway-core:' + flywayVersion
 
     testCompile 'org.dbunit:dbunit:' + dbUnitVersion
-    testCompile 'org.testng:testng:' + testNgVersion
 }
 
 test {

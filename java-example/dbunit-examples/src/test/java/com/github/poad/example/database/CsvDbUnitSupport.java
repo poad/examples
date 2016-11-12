@@ -15,7 +15,7 @@ import org.dbunit.operation.DatabaseOperation;
 
 public class CsvDbUnitSupport {
 
-	protected void load(File csvDir, DataSource dataSource) throws SQLException, DatabaseUnitException {
+	protected static void load(File csvDir, DataSource dataSource) throws SQLException, DatabaseUnitException {
 		Connection conn = dataSource.getConnection();
 		IDatabaseConnection dc = new DatabaseConnection(conn);
 		IDataSet dataset = new CsvDataSet(csvDir);

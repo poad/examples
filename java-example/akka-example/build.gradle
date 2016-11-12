@@ -22,7 +22,7 @@ dependencies {
     compile 'org.slf4j:slf4j-simple:' + slf4jVersion
     compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 
-    testCompile 'org.testng:testng:' + testNgVersion
+    testCompile 'junit:junit:' + junitVersion
 }
 
 test {

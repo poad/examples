@@ -1,13 +1,13 @@
 package com.github.poad.examples.database.resource;
 
 import com.github.poad.examples.database.entity.Message;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.testng.Assert.*;
+import static org.junit.Assert.*;
 
 public class MessageResourceTest {
 

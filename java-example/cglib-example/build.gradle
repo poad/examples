@@ -30,7 +30,7 @@ dependencies {
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
 
-    testCompile 'org.testng:testng:' + testNgVersion
+    testCompile 'junit:junit:' + junitVersion
 }
 
 test {

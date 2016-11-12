@@ -78,12 +78,11 @@ task jars {
 dependencies {
     compile 'org.scalatra:scalatra_2.12:' + scalatraVersion
     compile 'org.scalatra:scalatra-scalate_2.12:' + scalatraVersion
-    compile 'org.scalatra:scalatra-auth_2.112' + scalatraVersion
+    compile 'org.scalatra:scalatra-auth_2.12:' + scalatraVersion
     compile 'org.scalatra:scalatra-jetty_2.12:' + scalatraVersion
     compile 'org.scalatra:scalatra-json_2.12:' + scalatraVersion
 
     compile 'org.scala-lang:scala-library:' + scalaVersion
-    compile 'org.scala-lang:scala-actors:' + scalaVersion
     compile 'org.scala-lang:scala-reflect:' + scalaVersion
 
     compile 'org.eclipse.jetty:jetty-webapp:' + jettyVersion

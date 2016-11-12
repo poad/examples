@@ -1,8 +1,9 @@
 package org.bitbucket.poad1010.examples.kotlin;
 
+import org.junit.Test;
+
 import java.io.File;
 
-import org.testng.annotations.Test;
 
 public class KotlinDynamicCompilerTest {
 

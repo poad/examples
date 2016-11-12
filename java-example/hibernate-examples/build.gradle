@@ -21,8 +21,6 @@ repositories {
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
-    compile 'org.slf4j:slf4j-api:' + slf4jVersion
-    
     compile 'org.hibernate:hibernate-core:' + hibernateVersion
     compile 'org.hibernate:hibernate-entitymanager:' + hibernateVersion
     compile 'org.hibernate:hibernate-java8:' + hibernateVersion
@@ -31,8 +29,6 @@ dependencies {
 
 	runtime 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:' + hibernateJpa2_1Version
     runtime 'com.h2database:h2:' + h2Version
-
-    testCompile 'org.testng:testng:' + testNgVersion
 }
 
 test {

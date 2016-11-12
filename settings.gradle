@@ -34,7 +34,6 @@ include 'scala-example'
 include 'scala-example:akka-http-example'
 include 'scala-example:rxscala-example'
 include 'scala-example:scalatra-examples'
-include 'scala-example:spray-example'
 include 'kotlin-example'
 include 'groovy-example'
 

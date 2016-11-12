@@ -1,10 +1,10 @@
 package com.github.poad.java_examples.akka;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
@@ -15,13 +15,13 @@ public class AkkaExample {
     
     public static ActorSystem system;
     
-    @BeforeTest
+    @BeforeClass
     public static void setUp() {
         system = ActorSystem.create("system");
     }
     
     @Test
-    public static void test() {
+    public void test() {
         ActorRef ref = system.actorOf(Props.create(SimpleActor.class), "simpleActor");
 
         String message = "hello.";
@@ -36,7 +36,7 @@ public class AkkaExample {
 
     }
     
-    @AfterTest
+    @AfterClass
     public static void tearDown() {
         system.shutdown();
         

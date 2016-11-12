@@ -11,9 +11,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.bitbucket.poad1010.example.database.config.DatabaseConfig;
 import org.dbunit.DatabaseUnitException;
 import org.flywaydb.core.Flyway;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.junit.*;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -22,8 +20,8 @@ public class H2DbTest extends CsvDbUnitSupport {
 
 	private static final String DB_URL = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MYSQL;DB_CLOSE_ON_EXIT=FALSE;IGNORECASE=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS \"public\"\\;";
 
-	@BeforeTest
-	public static void setup() throws JsonParseException, JsonMappingException, IOException {
+	@BeforeClass
+	public static void setup() throws JsonParseException, JsonMappingException, IOException, SQLException, DatabaseUnitException {
 		DatabaseConfig config = DatabaseConfig.load();
 		
 		// Create the Flyway instance
@@ -34,11 +32,7 @@ public class H2DbTest extends CsvDbUnitSupport {
 
 		// Start the migration
 		flyway.migrate();
-	}
 
-	@BeforeClass
-	public void prepareDb() throws SQLException, DatabaseUnitException, JsonParseException, JsonMappingException, IOException {
-		DatabaseConfig config = DatabaseConfig.load();
 		try (BasicDataSource dataSource = new BasicDataSource()) {
 			dataSource.setDriverClassName(config.getDriver());
 			dataSource.setUrl(config.getUrl());
@@ -52,7 +46,7 @@ public class H2DbTest extends CsvDbUnitSupport {
 	}
 
 	@Test
-	public static void test() throws SQLException {
+	public void test() throws SQLException {
 		try (BasicDataSource dataSource = new BasicDataSource()) {
 			dataSource.setDriverClassName("org.h2.Driver");
 			dataSource.setUrl(DB_URL);

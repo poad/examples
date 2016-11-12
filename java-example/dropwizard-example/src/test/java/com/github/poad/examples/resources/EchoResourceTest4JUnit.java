@@ -13,7 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
-import org.testng.Assert;
+import org.junit.Assert;
 
 import com.github.poad.examples.ExampleServer;
 

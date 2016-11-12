@@ -15,9 +15,6 @@ buildscript {
 
 // Apply the java plugin to add support for Java
 apply plugin: 'idea'
-apply plugin: 'java'
-apply plugin: 'scala'
-apply plugin: 'groovy'
 
 group = 'com.github.poad'
 
@@ -33,12 +30,10 @@ dependencies {
 }
 
 subprojects {
+    apply plugin: 'idea'
+
     repositories {
         mavenCentral()
     }
-}
-
-project(':java-example') {
-    apply plugin: 'java'
 }
 

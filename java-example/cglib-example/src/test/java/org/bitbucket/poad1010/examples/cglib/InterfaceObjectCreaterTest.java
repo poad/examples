@@ -1,6 +1,6 @@
 package org.bitbucket.poad1010.examples.cglib;
 
-import org.testng.annotations.Test;
+import org.junit.*;
 
 public class InterfaceObjectCreaterTest {
 
