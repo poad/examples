@@ -1,0 +1,24 @@
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'info.cukes:cucumber-junit:' + cucumberVersion
+    testCompile 'info.cukes:cucumber-java8:' + cucumberVersion
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

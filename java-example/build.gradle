@@ -79,6 +79,12 @@ ext {
     flywayVersion = '4.0.3'
 
     flywayPluginVersion = flywayVersion
+    springBootBatchVersion = '3.0.7.RELEASE'
+    springBootVersion = '1.4.2.RELEASE'
+    springLoadedVersion = '1.2.6.RELEASE'
+
+    eclipseLinkVersion = '2.6.3'
+    transactionApiVersion = '1.2'
 
     slf4jVersion = '1.7.21'
 
@@ -87,6 +93,8 @@ ext {
     jmockitVersion = '1.28'
 
     dbUnitVersion = '2.5.3'
+
+    cucumberVersion = '1.2.5'
 
     junitVersion = '4.12'
     scalaTestVersion = '3.0.0'

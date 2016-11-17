@@ -15,7 +15,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:' + springBootVersion
     }
 }
 apply plugin: 'spring-boot'
@@ -39,22 +39,13 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa') {
         exclude group: 'org.hibernate', module: 'hibernate-entitymanager'
     }
-    compile 'org.springframework:springloaded:1.2.6.RELEASE'
+    compile 'org.springframework:springloaded:' + springLoadedVersion
 
-    compile 'org.eclipse.persistence:org.eclipse.persistence.jpa:2.6.3'
+    compile 'org.eclipse.persistence:org.eclipse.persistence.jpa:'+ eclipseLinkVersion
 
-    compile 'javax.transaction:javax.transaction-api:1.2'
+    compile 'javax.transaction:javax.transaction-api:' + transactionApiVersion
 
-    runtime 'com.h2database:h2:1.4.192'
-
-    // The production code uses the SLF4J logging API at compile time
-    compile 'org.slf4j:slf4j-api:1.7.21'
-
-    // Declare the dependency for your favourite test framework you want to use in your tests.
-    // TestNG is also supported by the Gradle Test task. Just change the
-    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
-    // 'test.useTestNG()' to your build script.
-    testCompile 'org.testng:testng:6.9.10'
+    runtime 'com.h2database:h2:' + h2Version
 }
 
 test {
