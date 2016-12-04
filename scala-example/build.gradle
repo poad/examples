@@ -53,4 +53,8 @@ dependencies {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'scala'
+
+    dependencies {
+        compile 'org.scala-lang:scala-library:' + scalaVersion
+    }
 }
