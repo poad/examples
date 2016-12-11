@@ -38,6 +38,7 @@ include 'scala-example:curring-example'
 include 'scala-example:rxscala-example'
 include 'scala-example:scalatra-examples'
 include 'scala-example:hello'
+include 'scala-example:functional-training01'
 include 'kotlin-example'
 include 'groovy-example'
 
