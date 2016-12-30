@@ -28,11 +28,13 @@ repositories {
 ext {
     jettyVersion = '9.3.14.v20161028'
 
-    scalaVersion = '2.12.0'
+    scalaVersion = '2.12.1'
 
-    akkaVersion = '2.4.10'
+    akkaVersion = '2.4.16'
+    akkaHttpVersion = '10.0.1'
+
     rxScalaVersion = '0.26.4'
-    scalatraVersion = '2.5.0-RC1'
+    scalatraVersion = '2.5.0'
 
     json4s4sprayVersoin = '3.2.9'
 
