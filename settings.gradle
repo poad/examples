@@ -41,6 +41,8 @@ include 'scala-example:hello'
 include 'scala-example:functional-training01'
 include 'kotlin-example'
 include 'groovy-example'
+include 'clojure-example'
+include 'clojure-example:hello-clojure'
 
 
 rootProject.name = 'examples'
