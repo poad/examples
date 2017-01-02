@@ -10,16 +10,16 @@ import java.net.URI;
 
 public class WebSocketTest {
 
-    private WebSocketServer server;
+    private static WebSocketServer server;
 
     @BeforeClass
-    public void setUp() throws Exception {
+    public static void setUp() throws Exception {
         server = new WebSocketServer();
         server.start("default.yml");
     }
 
     @AfterClass
-    public void tearDown() throws Exception {
+    public static void tearDown() throws Exception {
         server.stop();
     }
 

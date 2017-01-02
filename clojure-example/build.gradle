@@ -36,6 +36,10 @@ repositories {
 
 ext {
     clojureVersion = "1.8.0"
+    scalaMinorVersion = '2.11'
+    scalaFullVersion = scalaMinorVersion + '.8'
+
+    sparkVersion = '2.1.0'
 }
 
 // In this section you declare the dependencies for your production and test code

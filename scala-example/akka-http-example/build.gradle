@@ -19,7 +19,7 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile 'com.typesafe.akka:akka-http-core_2.12:' + akkaHttpVersion
-    compile 'com.typesafe.akka:akka-http-jackson_2.12:' + akkaHttpVersion
-    compile 'com.typesafe.akka:akka-http-spray-json_2.12:' + akkaHttpVersion
+    compile 'com.typesafe.akka:akka-http-core_' + scalaMinorVersion + ':' + akkaHttpVersion
+    compile 'com.typesafe.akka:akka-http-jackson_' + scalaMinorVersion + ':' + akkaHttpVersion
+    compile 'com.typesafe.akka:akka-http-spray-json_' + scalaMinorVersion + ':' + akkaHttpVersion
 }

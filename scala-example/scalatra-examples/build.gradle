@@ -1,17 +1,14 @@
 apply plugin: 'scala'
 
 dependencies {
-    compile 'org.scalatra:scalatra_2.12:' + scalatraVersion
-    compile 'org.scalatra:scalatra-scalate_2.12:' + scalatraVersion
-    compile 'org.scalatra:scalatra-auth_2.12:' + scalatraVersion
-    compile 'org.scalatra:scalatra-jetty_2.12:' + scalatraVersion
-    compile 'org.scalatra:scalatra-json_2.12:' + scalatraVersion
-
-    compile 'org.scala-lang:scala-library:' + scalaVersion
-    compile 'org.scala-lang:scala-reflect:' + scalaVersion
+    compile 'org.scalatra:scalatra_' + scalaMinorVersion + ':' + scalatraVersion
+    compile 'org.scalatra:scalatra-scalate_' + scalaMinorVersion + ':' + scalatraVersion
+    compile 'org.scalatra:scalatra-auth_' + scalaMinorVersion + ':' + scalatraVersion
+    compile 'org.scalatra:scalatra-jetty_' + scalaMinorVersion + ':'+ scalatraVersion
+    compile 'org.scalatra:scalatra-json_' + scalaMinorVersion + ':' + scalatraVersion
 
     compile 'org.eclipse.jetty:jetty-webapp:' + jettyVersion
 
-    testCompile 'org.scalatest:scalatest_2.12:' + scalaTestVersion
+    testCompile 'org.scalatest:scalatest_' + scalaMinorVersion + ':' + scalaTestVersion
     testCompile 'junit:junit:' + junitVersion
 }

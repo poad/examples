@@ -16,12 +16,9 @@ repositories {
 }
 
 dependencies {
-	compile 'io.reactivex:rxscala_2.12:' + rxScalaVersion
+	compile 'io.reactivex:rxscala_' + scalaMinorVersion + ':' + rxScalaVersion
 
-    compile 'org.scala-lang:scala-library:' + scalaVersion
-    compile 'org.scala-lang:scala-reflect:' + scalaVersion
-
-    testCompile 'org.scalatest:scalatest_2.12:' + scalaTestVersion
+    testCompile 'org.scalatest:scalatest_' + scalaMinorVersion + ':' + scalaTestVersion
 }
 
 test {

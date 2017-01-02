@@ -28,12 +28,22 @@ repositories {
 ext {
     jettyVersion = '9.3.14.v20161028'
 
-    scalaVersion = '2.12.1'
+    scalaMinorVersion = '2.11'
+    scalaFullVersion = scalaMinorVersion + '.8'
+
+    scalaVersion = scalaFullVersion
+
+    sparkScalaMinorVersion = '2.11'
+    sparkScalaFullVersion = scalaMinorVersion + '.8'
+
+    sparkScalaVersion = scalaFullVersion
+
+    sparkVersion = '2.1.0'
 
     akkaVersion = '2.4.16'
     akkaHttpVersion = '10.0.1'
 
-    rxScalaVersion = '0.26.4'
+    rxScalaVersion = '0.26.5'
     scalatraVersion = '2.5.0'
 
     json4s4sprayVersoin = '3.2.9'
@@ -58,5 +68,6 @@ subprojects {
 
     dependencies {
         compile 'org.scala-lang:scala-library:' + scalaVersion
+        compile 'org.scala-lang:scala-reflect:' + scalaVersion
     }
 }
