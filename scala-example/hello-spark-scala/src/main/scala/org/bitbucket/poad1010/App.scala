@@ -9,8 +9,10 @@ object App {
 
   def main(args : Array[String]) = {
     //Configuration
-    val sparkConf = new SparkConf().setMaster("local[*]").setAppName("DataFrame sample")
-    new SparkContext(sparkConf)
+    new SparkContext(
+      new SparkConf()
+        .setMaster("local[*]")
+        .setAppName("DataFrame sample"))
       .parallelize(Array("Hello", "World", "!"))
       .foreach(println)
   }
