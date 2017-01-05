@@ -4,22 +4,13 @@
            (java.util ArrayList)))
 
 (defn -main []
-  (
-    (with-open [sc (JavaSparkContext. "local" "Hello World")]
-      (let [list (ArrayList.)]
-        (
-          (. list add "Hello")
-          (. list add "World")
-          (. list add "!")
-
-          (let [rdd (. sc parallelize list)]
-            (. rdd foreach (reify VoidFunction
-                             (call [this v]
-                               (println (v)))))
-
-            )
-          (flush)
-          )
-        ))
-    )
-  )
+  (with-open [sc (JavaSparkContext. "local" "Hello World")]
+    (let [list (doto (ArrayList.)
+                 (.add "Hello")
+                 (.add "World")
+                 (.add "!"))
+          rdd (.parallelize sc list)]
+      (.foreach rdd (reify VoidFunction
+                      (call [this v]
+                        (println (v)))))
+      (flush))))
