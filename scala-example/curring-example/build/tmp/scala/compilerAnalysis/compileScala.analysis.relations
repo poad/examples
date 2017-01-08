@@ -1,0 +1,15 @@
+products:
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> scala-example/curring-example/build/classes/main/org/bitbucket/poad1010/example/scala/curring/Curring$$anonfun$curryAdd$1$$anonfun$apply$1.class
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> scala-example/curring-example/build/classes/main/org/bitbucket/poad1010/example/scala/curring/Curring$$anonfun$curryAdd$1.class
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> scala-example/curring-example/build/classes/main/org/bitbucket/poad1010/example/scala/curring/Curring$.class
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> scala-example/curring-example/build/classes/main/org/bitbucket/poad1010/example/scala/curring/Curring.class
+binary dependencies:
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/rt.jar
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> /Users/ken-yo/.sdkman/candidates/gradle/3.3/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.8/ddd5a8bced249bedd86fb4578a39b9fb71480573/scala-library-2.11.8.jar
+source dependencies:
+external dependencies:
+class names:
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> org.bitbucket.poad1010.example.scala.curring.Curring
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> org.bitbucket.poad1010.example.scala.curring.Curring$
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> org.bitbucket.poad1010.example.scala.curring.Curring$$anonfun$curryAdd$1
+   scala-example/curring-example/src/main/scala/org/bitbucket/poad1010/example/scala/curring/Curring.scala -> org.bitbucket.poad1010.example.scala.curring.Curring$$anonfun$curryAdd$1$$anonfun$apply$1

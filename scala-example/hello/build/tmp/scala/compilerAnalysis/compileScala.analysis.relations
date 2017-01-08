@@ -1,0 +1,11 @@
+products:
+   scala-example/hello/src/main/scala/org/bitbucket/poad1010/examples/HelloApp.scala -> scala-example/hello/build/classes/main/org/bitbucket/poad1010/examples/HelloApp$.class
+   scala-example/hello/src/main/scala/org/bitbucket/poad1010/examples/HelloApp.scala -> scala-example/hello/build/classes/main/org/bitbucket/poad1010/examples/HelloApp.class
+binary dependencies:
+   scala-example/hello/src/main/scala/org/bitbucket/poad1010/examples/HelloApp.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/rt.jar
+   scala-example/hello/src/main/scala/org/bitbucket/poad1010/examples/HelloApp.scala -> /Users/ken-yo/.sdkman/candidates/gradle/3.3/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.8/ddd5a8bced249bedd86fb4578a39b9fb71480573/scala-library-2.11.8.jar
+source dependencies:
+external dependencies:
+class names:
+   scala-example/hello/src/main/scala/org/bitbucket/poad1010/examples/HelloApp.scala -> org.bitbucket.poad1010.examples.HelloApp
+   scala-example/hello/src/main/scala/org/bitbucket/poad1010/examples/HelloApp.scala -> org.bitbucket.poad1010.examples.HelloApp$

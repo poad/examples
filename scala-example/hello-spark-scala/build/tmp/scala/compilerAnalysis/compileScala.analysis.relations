@@ -1,0 +1,14 @@
+products:
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> scala-example/hello-spark-scala/build/classes/main/org/bitbucket/poad1010/App$$anonfun$main$1.class
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> scala-example/hello-spark-scala/build/classes/main/org/bitbucket/poad1010/App$.class
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> scala-example/hello-spark-scala/build/classes/main/org/bitbucket/poad1010/App.class
+binary dependencies:
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home/jre/lib/rt.jar
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> /Users/ken-yo/.sdkman/candidates/gradle/3.3/caches/modules-2/files-2.1/org.apache.spark/spark-core_2.11/2.1.0/724bfcfc939a1c8a4d6d3b95497c0032d9102ec6/spark-core_2.11-2.1.0.jar
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> /Users/ken-yo/.sdkman/candidates/gradle/3.3/caches/modules-2/files-2.1/org.scala-lang/scala-library/2.11.8/ddd5a8bced249bedd86fb4578a39b9fb71480573/scala-library-2.11.8.jar
+source dependencies:
+external dependencies:
+class names:
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> org.bitbucket.poad1010.App
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> org.bitbucket.poad1010.App$
+   scala-example/hello-spark-scala/src/main/scala/org/bitbucket/poad1010/App.scala -> org.bitbucket.poad1010.App$$anonfun$main$1

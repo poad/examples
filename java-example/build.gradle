@@ -26,7 +26,7 @@ repositories {
 }
 
 ext {
-    scalaVersion = '2.12.0'
+    scalaVersion = '2.12.1'
 
     jettyVersionOfDropwizard = '9.3.9.v20160517'
     jettyVersion = '9.3.14.v20161028'
@@ -61,7 +61,7 @@ ext {
     jtaApiVersion = '1.2'
     hibernateJpa2_1Version = '1.0.0.Final'
     mysqlConnectorVersion = '6.0.5'
-    
+
     cglibVersion = '3.2.4'
     stringUtilsVersion = '3.5'
 

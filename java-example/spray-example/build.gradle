@@ -26,6 +26,4 @@ dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-simple:' + slf4jVersion
     compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
-    
-    compile 'com.sparkjava:spark-core:' + sparkVersion
 }
