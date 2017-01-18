@@ -14,7 +14,8 @@ lazy val root = (project in file("."))
     scalatra_example,
     hello,
     functional_training01,
-    hello_spark_scala
+    hello_spark_scala,
+    spark_learnning
   )
 
 
@@ -59,4 +60,11 @@ settings(
   commonSettings
   // other settings
 )
+
+lazy val spark_learnning = (project in file("spark-learning")).
+  settings(
+    commonSettings
+    // other settings
+  )
+
 

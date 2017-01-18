@@ -213,6 +213,15 @@ scala-example/scalatra-examples/build/libs/
 scala-example/scalatra-examples/build/tmp/compileScala/
 scala-example/scalatra-examples/src/main/java/
 scala-example/scalatra-examples/src/test/
+scala-example/**/build/**
+scala-example/**/build/*
+scala-example/**/project/*
+scala-example/**/*.iml
+scala-example/**/src/main/*.iml
 scala-example/src/
 scala-example/target/
 **/build/*
+/spark-leraning/project/target/config-classes/$c1a380e83a400cb4e898.cache
+/spark-leraning/project/target/config-classes/
+/spark-leraning/target/resolution-cache/reports/
+/spark-leraning/target/resolution-cache/spark-learning/
