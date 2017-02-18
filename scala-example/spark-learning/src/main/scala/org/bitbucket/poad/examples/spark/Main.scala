@@ -3,7 +3,7 @@ package org.bitbucket.poad.examples.spark
 import org.apache.spark.sql.SparkSession
 
 /**
-  * .
+  * Sparkを使ってApacheのダミーアクセスログを解析するサンプルコードです.
   */
 object Main extends App {
 
