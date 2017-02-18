@@ -217,5 +217,3 @@ scala-example/src/
 scala-example/target/
 **/build/*
 **/*.log
-spark-learning/
-spark-leraning/

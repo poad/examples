@@ -221,7 +221,7 @@ scala-example/**/src/main/*.iml
 scala-example/src/
 scala-example/target/
 **/build/*
-/spark-leraning/project/target/config-classes/$c1a380e83a400cb4e898.cache
-/spark-leraning/project/target/config-classes/
-/spark-leraning/target/resolution-cache/reports/
-/spark-leraning/target/resolution-cache/spark-learning/
+/spark-learaning/project/target/config-classes/$c1a380e83a400cb4e898.cache
+/spark-learaning/project/target/config-classes/
+/spark-learaning/target/resolution-cache/reports/
+/spark-learaning/target/resolution-cache/spark-learning/
