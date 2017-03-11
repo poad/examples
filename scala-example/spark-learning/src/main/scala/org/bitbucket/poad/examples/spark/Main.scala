@@ -1,6 +1,11 @@
 package org.bitbucket.poad.examples.spark
 
 import org.apache.spark.sql.SparkSession
+import org.bitbuicket.poad1010.spark.Application.args
+
+case class AccessLog(host: String, user: String, method: String, code: Long, referer: String, size: Long, agent: String)
+
+case class AccessLog(host: String, user: String, method: String, code: Long, referer: String, size: Long, agent: String)
 
 case class AccessLog(host: String, user: String, method: String, code: Long, referer: String, size: Long, agent: String)
 
