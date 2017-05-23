@@ -24,6 +24,7 @@ include 'jersey-netty-example'
 include 'spark-example'
 include 'spray-example'
 include 'spring-boot-jpa-example'
+include 'tuple4j-example'
 include 'vertx-examples'
 include 'websocket-jsr356-example'
 
