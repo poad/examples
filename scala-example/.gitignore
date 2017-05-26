@@ -17,7 +17,7 @@ hs_err_pid*
 /.gradle
 /bin
 /build
-/project
+/project/target
 /.cache-main
 /.cache-tests
 /gradle
@@ -225,3 +225,4 @@ scala-example/target/
 /spark-learaning/project/target/config-classes/
 /spark-learaning/target/resolution-cache/reports/
 /spark-learaning/target/resolution-cache/spark-learning/
+/play2-example/.idea/
