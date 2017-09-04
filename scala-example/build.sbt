@@ -18,7 +18,8 @@ lazy val root = (project in file("."))
     spark_learnning,
     implicit_example,
     play2_mvc_example,
-    play2_example
+    play2_example,
+    slisp
   )
 
 
@@ -104,3 +105,11 @@ lazy val play2_example = (project in file("play2-example")).
     )
   )
   .enablePlugins(PlayScala)
+
+lazy val slisp = (project in file("slisp")).
+  settings(
+    commonSettings,
+    // other settings
+    scalaVersion := "2.12.3"
+  )
+
