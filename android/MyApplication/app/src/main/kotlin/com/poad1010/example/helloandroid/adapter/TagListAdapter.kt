@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.poad1010.example.helloandroid.model.Tag
+import com.poad1010.example.helloandroid.view.TagView
 
 class TagListAdapter(private val context: Context) : BaseAdapter() {
 
@@ -17,7 +18,11 @@ class TagListAdapter(private val context: Context) : BaseAdapter() {
     override fun getItemId(p0: Int): Long = 0
 
 
-    override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getView(position: Int,
+                         convertView: View?,
+                         parent: ViewGroup?): View {
+        return ((convertView as? TagView) ?: TagView(context)).apply {
+            setTag(tags[position].id)
+        }
     }
 }

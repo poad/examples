@@ -7,7 +7,10 @@ import android.widget.ListView
 import com.poad1010.example.helloandroid.adapter.TagListAdapter
 import com.poad1010.example.helloandroid.service.QiitaService
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import rx.schedulers.Schedulers
+import rx.android.schedulers.AndroidSchedulers
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,16 +24,26 @@ class MainActivity : AppCompatActivity() {
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://qiita.com")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build()
-
         val qiita = retrofit.create(QiitaService::class.java)
 
         val listView: ListView = findViewById(R.id.list_view) as ListView
         listView.adapter = listAdaptor
 
-//        val res = qiita.tags().execute()
-//        res.body()?.let { listAdaptor.tags = it}
+        try {
+            qiita.tags()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            {
+                                listAdaptor.tags = it
+                                listAdaptor.notifyDataSetChanged()
+                            }
+                    )
 
-//        listAdaptor.notifyDataSetChanged()
+        } catch (e : Exception) {
+            e.printStackTrace()
+        }
     }
 }

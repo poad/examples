@@ -1,9 +1,10 @@
 package com.poad1010.example.helloandroid.service
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertTrue
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import rx.schedulers.Schedulers
 
 class QiitaServiceTest {
 
@@ -15,11 +16,14 @@ class QiitaServiceTest {
                 .build()
 
         val qiita = retrofit.create(QiitaService::class.java)
-        val res = qiita.tags().execute()
 
-        assertTrue(res.isSuccessful)
-        assertFalse(res.body().orEmpty().isEmpty())
+        qiita.tags()
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(
+                        {
+                            assertTrue(it.isNotEmpty())
 
-        res.body().orEmpty().map({it.id}).forEach(System.out::println)
+                        }
+                )
     }
 }
