@@ -1,0 +1,16 @@
+<configuration>
+    <appenders>
+        <Console name="console">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} %-5level %logger{32} %msg%n" />
+        </Console>
+    </appenders>
+    <loggers>
+        <logger name="com.github.poad.example.doma2"
+                level="debug" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+        <root level="info">
+            <appender-ref ref="console" />
+        </root>
+    </loggers>
+</configuration>

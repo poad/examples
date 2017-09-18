@@ -10,19 +10,14 @@
  */
 
 // To declare projects as part of a multi-project build use the 'include' method
-include 'akka-example'
-include 'cglib-example'
 include 'cucumber-jvm-example'
 include 'dbunit-examples'
-include 'docker-java-examples'
+include 'doma2-example'
 include 'dropwizard-example'
-include 'ff4j-example'
 include 'flyway-example'
 include 'hibernate-examples'
 include 'jdbi-examples'
-include 'jersey-netty-example'
 include 'spark-example'
-include 'spray-example'
 include 'spring-boot-jpa-example'
 include 'tuple4j-example'
 include 'vertx-examples'
