@@ -22,7 +22,7 @@ class TagListAdapter(private val context: Context) : BaseAdapter() {
                          convertView: View?,
                          parent: ViewGroup?): View {
         return ((convertView as? TagView) ?: TagView(context)).apply {
-            setTag(tags[position].id)
+            setQiitaTag(tags[position])
         }
     }
 }

@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                             {
+                                it.forEach({
+                                    t -> println(t.id)
+                                })
                                 listAdaptor.tags = it
                                 listAdaptor.notifyDataSetChanged()
                             }
