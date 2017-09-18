@@ -18,15 +18,13 @@ import java.util.stream.Collectors;
 @Produces(MediaType.APPLICATION_JSON)
 public class DatabaseResource {
 
-    @Inject
-    private DatabaseConfig db;
-
     @GET
     @Path("index.json")
     @Produces(MediaType.APPLICATION_JSON)
     public List<String> all() {
         TestDao dao = new TestDaoImpl();
 
+        DatabaseConfig db = DatabaseConfig.singleton();
         TransactionManager tm = db.getTransactionManager();
         return tm.required(() -> dao
                 .all()
@@ -38,6 +36,7 @@ public class DatabaseResource {
     @Path("{id}")
     public String get(@PathParam("id") String id) {
         TestDao dao = new TestDaoImpl();
+        DatabaseConfig db = DatabaseConfig.singleton();
         TransactionManager tm = db.getTransactionManager();
         return tm.required(() -> Optional.ofNullable(
                 dao.get(id))
