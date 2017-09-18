@@ -1,5 +1,7 @@
 package com.github.poad.example.doma2;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.seasar.doma.SingletonConfig;
 import org.seasar.doma.jdbc.Config;
 import org.seasar.doma.jdbc.dialect.Dialect;
@@ -23,9 +25,34 @@ public class DatabaseConfig implements Config {
 
     private DatabaseConfig() {
         dialect = new MysqlDialect();
-        dataSource = new LocalTransactionDataSource(
-                "jdbc:mysql://localhost/testdb", "root", null
-        );
+        // HikariCPの初期化
+        HikariConfig config = new HikariConfig();
+
+        // MySQL用ドライバを設定
+        config.setDriverClassName("com.mysql.jdbc.Driver");
+
+        // 「jdbc:mysql://ホスト:ポート/DB名」の様なURLで指定
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/testdb");
+
+        // ユーザ名、パスワード指定
+        config.addDataSourceProperty("user", "root");
+
+        // キャッシュ系の設定(任意)
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        // サーバサイドプリペアードステートメントを使用する(任意)
+        config.addDataSourceProperty("useServerPrepStmts", "true");
+
+        // 最小接続数まで接続を確保できない時に例外を投げる
+        config.setInitializationFailFast(true);
+        // 接続をテストするためのクエリ
+        config.setConnectionInitSql("SELECT 1");
+
+        // 接続
+        HikariDataSource hikari = new HikariDataSource(config);
+
+        dataSource = new LocalTransactionDataSource(hikari);
         transactionManager = new LocalTransactionManager(
                 dataSource.getLocalTransaction(getJdbcLogger()));
     }
