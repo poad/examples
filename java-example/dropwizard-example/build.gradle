@@ -1,8 +1,18 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
+    }
+}
+
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'org.junit.platform.gradle.plugin'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 9
+targetCompatibility = 9
 version = '0.0.1'
 
 repositories {
@@ -70,9 +80,48 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     }
 }
 
+tasks.withType(JavaCompile) {
+    doFirst {
+        sourceCompatibility = 9
+        targetCompatibility = 9
+        options.compilerArgs = [
+                '--add-modules', 'java.se.ee',
+                '--add-exports', 'java.xml.bind/com.sun.istack.internal=ALL-UNNAMED'
+        ]
+    }
+}
+
+tasks.withType(Test) {
+    doFirst {
+        jvmArgs = [
+                '--add-modules', 'java.se.ee',
+                '-Djava.locale.providers=COMPAT,SPI',
+        ]
+    }
+}
+
 // Make all Jars
 task jars {
     dependsOn jar, sourceJar, javadocJar
+}
+
+junitPlatform {
+    // platformVersion '1.0.0'
+    filters {
+        engines {
+            // include 'junit-jupiter', 'junit-vintage'
+            // exclude 'custom-engine'
+        }
+        tags {
+            // include 'fast'
+            exclude 'slow'
+        }
+        // includeClassNamePattern '.*Test'
+    }
+    // configurationParameter 'junit.jupiter.conditions.deactivate', '*'
+    // enableStandardTestTask true
+    // reportsDir file('build/test-results/junit-platform') // this is the default
+    logManager 'org.apache.logging.log4j.jul.LogManager'
 }
 
 dependencies {

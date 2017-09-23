@@ -12,12 +12,9 @@
 // To declare projects as part of a multi-project build use the 'include' method
 include 'cucumber-jvm-example'
 include 'dbunit-examples'
-include 'doma2-example'
 include 'dropwizard-example'
 include 'flyway-example'
-include 'hibernate-examples'
 include 'jdbi-examples'
-include 'spark-example'
 include 'spring-boot-jpa-example'
 include 'tuple4j-example'
 include 'vertx-examples'

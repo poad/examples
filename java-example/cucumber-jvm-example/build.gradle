@@ -2,13 +2,24 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
+
+sourceCompatibility = 9
+targetCompatibility = 9
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile 'info.cukes:cucumber-junit:' + cucumberVersion
-    testCompile 'info.cukes:cucumber-java8:' + cucumberVersion
+    testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
+    testCompile 'io.cucumber:cucumber-java8:' + cucumberVersion
+}
+
+tasks.withType(JavaCompile) {
+    doFirst {
+        sourceCompatibility = 9
+        targetCompatibility = 9
+    }
 }
 
 test {

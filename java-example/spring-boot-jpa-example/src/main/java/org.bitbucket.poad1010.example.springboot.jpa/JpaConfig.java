@@ -2,6 +2,7 @@ package org.bitbucket.poad1010.example.springboot.jpa;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration;
+import org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.orm.jpa.vendor.AbstractJpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
@@ -17,8 +18,12 @@ import java.util.Map;
  */
 @Component
 public class JpaConfig extends JpaBaseConfiguration {
-    protected JpaConfig(DataSource dataSource, JpaProperties properties, ObjectProvider<JtaTransactionManager> jtaTransactionManagerProvider) {
-        super(dataSource, properties, jtaTransactionManagerProvider);
+    protected JpaConfig(
+            DataSource dataSource,
+            JpaProperties properties,
+            ObjectProvider<JtaTransactionManager> jtaTransactionManagerProvider,
+            ObjectProvider<TransactionManagerCustomizers> transactionManagerCustomizers) {
+        super(dataSource, properties, jtaTransactionManagerProvider, transactionManagerCustomizers);
     }
 
     @Override

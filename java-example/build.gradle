@@ -6,10 +6,12 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
-
 buildscript {
     repositories {
         mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
     }
 }
 
@@ -29,10 +31,10 @@ ext {
     scalaVersion = '2.12.1'
 
     jettyVersionOfDropwizard = '9.4.6.v20170531'
-    jettyVersion = '9.4.6.v20170531'
+    jettyVersion = '9.4.7.v20170914'
 
     akkaVersion = '2.4.10'
-    dropwizardVersion = '1.1.3'
+    dropwizardVersion = '1.1.4'
     jacksonVersion = '2.7.6'
     rxJavaVersion = '1.2.1'
     rxScalaVersion = '0.26.3'
@@ -54,10 +56,10 @@ ext {
     json4s4sprayVersoin = '3.2.9'
 
     json4sVersoin = '3.4.2'
-    jdbiVersion = '2.77'
+    jdbiVersion = '2.78'
     dbcp2Version = '2.1.1'
     h2Version = '1.4.192'
-    hibernateVersion = '5.2.3.Final'
+    hibernateVersion = '5.2.11.Final'
     jtaApiVersion = '1.2'
     hibernateJpa2_1Version = '1.0.0.Final'
     mysqlConnectorVersion = '6.0.5'
@@ -79,24 +81,27 @@ ext {
     flywayVersion = '4.0.3'
 
     flywayPluginVersion = flywayVersion
-    springBootBatchVersion = '3.0.7.RELEASE'
-    springBootVersion = '1.4.2.RELEASE'
-    springLoadedVersion = '1.2.6.RELEASE'
+    springBootBatchVersion = '3.0.8.RELEASE'
+    springBootVersion = '1.5.7.RELEASE'
+    springLoadedVersion = '1.2.8.RELEASE'
 
     eclipseLinkVersion = '2.6.3'
     transactionApiVersion = '1.2'
 
     slf4jVersion = '1.7.21'
 
-    log4jVersion = '2.7'
-
-    jmockitVersion = '1.28'
+    log4jVersion = '2.9.0'
 
     dbUnitVersion = '2.5.3'
 
-    cucumberVersion = '1.2.5'
+    cucumberVersion = '2.0.1'
 
     junitVersion = '4.12'
+    junit4Version        = '4.12'
+    junitVintageVersion  = '4.12.0'
+    junitPlatformVersion = '1.0.0'
+    junitJupiterVersion  = '5.0.0'
+
     scalaTestVersion = '3.0.0'
 }
 
@@ -106,11 +111,40 @@ dependencies {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'org.junit.platform.gradle.plugin'
+
+    sourceCompatibility = 9
+    targetCompatibility = 9
 
     dependencies {
         compile 'org.slf4j:slf4j-api:' + slf4jVersion
 
-        testCompile 'junit:junit:' + junitVersion
+        // JUnit Jupiter API and TestEngine implementation
+        testCompile "org.junit.jupiter:junit-jupiter-api:" + junitJupiterVersion
+        testRuntime "org.junit.jupiter:junit-jupiter-engine:" + junitJupiterVersion
+
+        // If you also want to support JUnit 3 and JUnit 4 tests
+        testCompile "junit:junit:" + junit4Version
+        testRuntime "org.junit.vintage:junit-vintage-engine:" + junitVintageVersion
+
+        testRuntime "org.apache.logging.log4j:log4j-core:" + log4jVersion
+        testRuntime "org.apache.logging.log4j:log4j-jul:" + log4jVersion
+
+        // Only needed to run tests in an (IntelliJ) IDE(A) that bundles an older version
+        testRuntime "org.junit.platform:junit-platform-launcher:" + junitPlatformVersion
     }
+
+    test {
+        // listen to events in the test execution lifecycle
+        beforeTest { descriptor ->
+            logger.lifecycle("Running test: " + descriptor)
+        }
+
+        // listen to standard out and standard error of the test JVM(s)
+        onOutput { descriptor, event ->
+            logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+        }
+    }
+
 }
 

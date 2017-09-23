@@ -1,1 +1,0 @@
-SELECT name FROM test WHERE id = /* id */'abc'
