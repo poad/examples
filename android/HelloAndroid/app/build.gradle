@@ -28,14 +28,18 @@ android {
 }
 
 buildscript {
-    ext.kotlin_version = '1.1.4-3'
+    ext {
+        kotlin_version = '1.1.51'
+        retrofitVersion = '2.3.0'
+        junitVersion = '5.0.0'
+        junit4Version = '4.12.0'
+    }
 
     repositories {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:2.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -46,20 +50,19 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:+'
+    compile "com.android.support:appcompat-v7:26.+"
+    compile "com.android.support.constraint:constraint-layout:+"
 
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
-    def retrofitVersion = '2.3.0'
+    compile "io.reactivex:rxandroid:1.2.1"
+    compile "io.reactivex:rxjava:1.1.6"
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile 'com.google.code.gson:gson:2.8.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    compile "com.google.code.gson:gson:2.8.1"
+    compile "com.squareup.okhttp3:logging-interceptor:3.3.1"
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.0'
-    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.0.0'
-    testCompile 'org.junit.vintage:junit-vintage-engine:4.12.0'
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testCompile "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testCompile "org.junit.vintage:junit-vintage-engine:$junit4Version"
 }
