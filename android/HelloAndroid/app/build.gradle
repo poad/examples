@@ -31,7 +31,7 @@ buildscript {
     ext {
         kotlin_version = '1.1.51'
         retrofitVersion = '2.3.0'
-        junitVersion = '5.0.0'
+        junitVersion = '5.0.1'
         junit4Version = '4.12.0'
     }
 
