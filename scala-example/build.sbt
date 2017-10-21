@@ -5,7 +5,7 @@ name := "scala-example"
 lazy val commonSettings = Seq(
   organization := "org.bitbuicket.poad1010",
   version := "0.0.1",
-  scalaVersion := "2.12.3"
+  scalaVersion := "2.12.4"
 )
 
 lazy val root = (project in file("."))
@@ -16,8 +16,6 @@ lazy val root = (project in file("."))
     scalatra_example,
     hello,
     functional_training01,
-    hello_spark_scala,
-    spark_learnning,
     implicit_example,
     play2_mvc_example,
     play2_example,
@@ -34,8 +32,8 @@ settings(
     "com.typesafe.akka" %% "akka-http-jackson" % "10.0.10",
     "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.10",
 
-    "org.scalactic" %% "scalactic" % "3.0.1",
-    "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+    "org.scalactic" %% "scalactic" % "3.0.4",
+      "org.scalatest" %% "scalatest" % "3.0.4" % "test"
   )
 )
 
@@ -52,8 +50,8 @@ settings(
   libraryDependencies ++= Seq(
     "io.reactivex" %% "rxscala" % "0.26.5",
 
-    "org.scalactic" %% "scalactic" % "3.0.1",
-    "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+    "org.scalactic" %% "scalactic" % "3.0.4",
+    "org.scalatest" %% "scalatest" % "3.0.4" % "test"
   )
 )
 
@@ -81,58 +79,41 @@ settings(
   commonSettings
   // other settings
 )
-
-lazy val hello_spark_scala = (project in file("hello-spark-scala")).
-settings(
-  commonSettings,
-  scalaVersion := "2.11.11",
-  // other settings
-  libraryDependencies ++= Seq(
-    "org.apache.spark" %% "spark-core" % "2.2.0"
-  )
-)
-
-lazy val spark_learnning = (project in file("spark-learning")).
-  settings(
-    commonSettings,
-    scalaVersion := "2.11.11",
-    // other settings
-    libraryDependencies ++= Seq(
-      "org.apache.spark" %% "spark-core" % "2.2.0",
-      "org.apache.spark" %% "spark-sql" % "2.2.0"
-    )
-  )
-
 lazy val implicit_example = (project in file("implicit-example")).
   settings(
     commonSettings
     // other settings
   )
 
-lazy val akkaVersion = "2.5.4"
-lazy val play2_mvc_example = (project in file("play2-mvc-example")).
-  settings(
+lazy val akkaVersion = "2.5.6"
+lazy val playVersion = "2.6.6"
+lazy val play2_mvc_example = (project in file("play2-mvc-example"))
+  .enablePlugins(PlayScala)
+  .settings(
     commonSettings,
     // other settings
     libraryDependencies ++= Seq(
-      "com.typesafe.play" %% "play" % "2.6.5"
+      guice,
+      "com.typesafe.play" %% "play" % playVersion
     )
   )
+  .enablePlugins(PlayScala)
 
-lazy val play2_example = (project in file("play2-example")).
-  settings(
+lazy val play2_example = (project in file("play2-example"))
+  .enablePlugins(PlayScala)
+  .settings(
     commonSettings,
     // other settings
     libraryDependencies ++= Seq(
-      "com.typesafe.play" %% "play" % "2.6.5",
-      "org.webjars" % "flot" % "0.8.3",
-      "org.webjars" % "bootstrap" % "3.3.6",
+      "com.typesafe.play" %% "play" % playVersion,
+      guice,
 
       "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
       "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
       "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
     )
   )
+
 
 lazy val slisp = (project in file("slisp")).
   settings(
