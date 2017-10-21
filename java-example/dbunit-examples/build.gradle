@@ -26,9 +26,19 @@ dependencies {
 
     runtime 'com.h2database:h2:' + h2Version
 
-    testCompile 'org.apache.commons:commons-dbcp2:' + dbcp2Version
+    testCompile 'com.zaxxer:HikariCP:' + hikariCpVersion
 
     testCompile 'org.flywaydb:flyway-core:' + flywayVersion
 
     testCompile 'org.dbunit:dbunit:' + dbUnitVersion
+}
+
+tasks.withType(Test) {
+    doFirst {
+        jvmArgs = [
+                '--add-modules', 'java.xml.ws.annotation',
+                '--add-modules', 'java.xml.bind',
+                '-Djava.locale.providers=COMPAT,SPI',
+        ]
+    }
 }

@@ -47,7 +47,3 @@ dependencies {
 
     runtime 'com.h2database:h2:' + h2Version
 }
-
-test {
-    useTestNG()
-}

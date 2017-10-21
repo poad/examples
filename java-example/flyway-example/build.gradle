@@ -7,6 +7,18 @@
  * user guide available at https://docs.gradle.org/2.9/userguide/tutorial_java_projects.html
  */
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'mysql:mysql-connector-java:' + mysqlConnectorVersion
+        classpath "gradle.plugin.com.boxfuse.client:flyway-release:" + flywayPluginVersion
+    }
+}
+
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -19,6 +31,19 @@ repositories {
     jcenter()
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'mysql:mysql-connector-java:' + mysqlConnectorVersion
+        classpath "gradle.plugin.com.boxfuse.client:flyway-release:" + flywayPluginVersion
+    }
+}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
@@ -29,20 +54,7 @@ dependencies {
     // 'test.useTestNG()' to your build script.
 }
 
-test {
-  // enable TestNG support (default is JUnit)
-  useTestNG()
-}
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'mysql:mysql-connector-java:' + mysqlConnectorVersion
-        classpath 'org.flywaydb:flyway-gradle-plugin:' + flywayPluginVersion
-    }
-}
 
 flyway {
     user = 'root'

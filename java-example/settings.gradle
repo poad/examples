@@ -11,9 +11,9 @@
 
 // To declare projects as part of a multi-project build use the 'include' method
 include 'cucumber-jvm-example'
-include 'dbunit-examples'
+include 'dbunit-examples'  // Flyway 5.0.0リリースされるまで
 include 'dropwizard-example'
-include 'flyway-example'
+//include 'flyway-example'  // Flyway 5.0.0リリースされるまで
 include 'jdbi-examples'
 include 'spring-boot-jpa-example'
 include 'tuple4j-example'

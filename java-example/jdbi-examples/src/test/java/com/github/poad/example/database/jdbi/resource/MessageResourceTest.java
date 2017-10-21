@@ -1,14 +1,7 @@
 package com.github.poad.example.database.jdbi.resource;
 
-
-import javax.sql.DataSource;
-
-import org.apache.commons.dbcp2.DriverManagerConnectionFactory;
-import org.apache.commons.dbcp2.PoolableConnection;
-import org.apache.commons.dbcp2.PoolableConnectionFactory;
-import org.apache.commons.dbcp2.PoolingDataSource;
-import org.apache.commons.pool2.ObjectPool;
-import org.apache.commons.pool2.impl.GenericObjectPool;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -43,12 +36,16 @@ public class MessageResourceTest {
 
 	@Test
 	public void test() {
-		PoolableConnectionFactory poolableConnectionFactory = new PoolableConnectionFactory(
-				new DriverManagerConnectionFactory("jdbc:h2:mem:test", null), null);
-		ObjectPool<PoolableConnection> connectionPool = new GenericObjectPool<>(poolableConnectionFactory);
-		poolableConnectionFactory.setPool(connectionPool);
+		HikariConfig config = new HikariConfig();
+		config.setJdbcUrl("jdbc:h2:mem:test");
 
-		DataSource ds = new PoolingDataSource<>(connectionPool);
+		config.addDataSourceProperty("dataSourceClassName", "org.h2.jdbcx.JdbcDataSource");
+		config.addDataSourceProperty("autoCommit", "false");
+		config.addDataSourceProperty("useServerPrepStmts", "true");
+		config.addDataSourceProperty("cachePrepStmts", "true");
+
+        HikariDataSource ds = new HikariDataSource(config);
+
 		DBI dbi = new DBI(ds);
 		try (MessageResource resource = dbi.open(MessageResource.class)) {
 			assertTrue(resource.list().isEmpty());

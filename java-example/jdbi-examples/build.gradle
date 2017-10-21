@@ -25,7 +25,10 @@ dependencies {
 
 	compile 'org.jdbi:jdbi:' + jdbiVersion
 
-	compile 'org.apache.commons:commons-dbcp2:' + dbcp2Version
+    compile 'com.zaxxer:HikariCP:' + hikariCpVersion
+
+
+//    compile 'org.apache.commons:commons-dbcp2:' + dbcp2Version
 
     runtime 'com.h2database:h2:' + h2Version
 }

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 public class DatabaseConfig {
 
 	private String driver;
+	private String dataSourceClassName;
 	private String url;
 	private String user;
 	private String password;
@@ -20,6 +21,14 @@ public class DatabaseConfig {
 
 	public void setDriver(String driver) {
 		this.driver = driver;
+	}
+
+	public String getDataSourceClassName() {
+		return dataSourceClassName;
+	}
+
+	public void setDataSourceClassName(String dataSourceClassName) {
+		this.dataSourceClassName = dataSourceClassName;
 	}
 
 	public String getUrl() {
@@ -46,7 +55,7 @@ public class DatabaseConfig {
 		this.password = password;
 	}
 
-	public static DatabaseConfig load() throws JsonParseException, JsonMappingException, IOException {
+	public static DatabaseConfig load() throws IOException {
 		return YamlLoader.load("database.yaml", DatabaseConfig.class);
 	}
 }
