@@ -33,7 +33,7 @@ settings(
     "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.10",
 
     "org.scalactic" %% "scalactic" % "3.0.4",
-      "org.scalatest" %% "scalatest" % "3.0.4" % "test"
+    "org.scalatest" %% "scalatest" % "3.0.4" % "test"
   )
 )
 
@@ -60,8 +60,8 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "org.scalatra" %% "scalatra" % "2.5.+",
-    "org.scalatra" %% "scalatra-scalate" % "2.5.+",
+    "org.scalatra" %% "scalatra" % "2.5.3",
+    "org.scalatra" %% "scalatra-scalate" % "2.5.3",
     "org.eclipse.jetty" % "jetty-server" % "9.4.7.v20170914",
     "org.eclipse.jetty" % "jetty-servlet" % "9.4.7.v20170914",
     "org.eclipse.jetty" % "jetty-webapp" % "9.4.7.v20170914",
