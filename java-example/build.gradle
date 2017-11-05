@@ -59,6 +59,8 @@ ext {
 
     cucumberVersion = '2.0.1'
 
+    jerseyVersion = '2.26'
+
     junitVersion = '4.12'
     junit4Version        = '4.12'
     junitVintageVersion  = '4.12.0'

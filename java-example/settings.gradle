@@ -15,10 +15,11 @@ include 'db-access-examples'
 include 'dbunit-examples'
 include 'dropwizard-example'
 //include 'flyway-example'  // Flyway 5.0.0リリースされるまで
-include 'jdbi-examples'
+include 'com.github.poad.example.webapi.jdbi-examples'
 include 'spring-boot-jpa-example'
 include 'tuple4j-example'
 include 'vertx-examples'
+include 'webapi-examples'
 include 'websocket-jsr356-example'
 
 
