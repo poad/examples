@@ -60,8 +60,8 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "org.scalatra" %% "scalatra" % "2.5.3",
-    "org.scalatra" %% "scalatra-scalate" % "2.5.3",
+    "org.scalatra" %% "scalatra" % "2.6.2",
+    "org.scalatra" %% "scalatra-scalate" % "2.6.2",
     "org.eclipse.jetty" % "jetty-server" % "9.4.7.v20170914",
     "org.eclipse.jetty" % "jetty-servlet" % "9.4.7.v20170914",
     "org.eclipse.jetty" % "jetty-webapp" % "9.4.7.v20170914",
@@ -85,8 +85,8 @@ lazy val implicit_example = (project in file("implicit-example")).
     // other settings
   )
 
-lazy val akkaVersion = "2.5.6"
-lazy val playVersion = "2.6.6"
+lazy val akkaVersion = "2.5.7"
+lazy val playVersion = "2.6.7"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
@@ -108,8 +108,8 @@ lazy val play2_example = (project in file("play2-example"))
       "com.typesafe.play" %% "play" % playVersion,
       guice,
 
-      "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
-      "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
+      "com.typesafe.akka" %% "akka-testkit" % "2.5.6" % Test,
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.6" % Test,
       "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
     )
   )
