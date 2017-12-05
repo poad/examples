@@ -28,9 +28,9 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "com.typesafe.akka" %% "akka-http-core" % "10.0.10",
-    "com.typesafe.akka" %% "akka-http-jackson" % "10.0.10",
-    "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.10",
+    "com.typesafe.akka" %% "akka-http-core" % "10.0.11",
+    "com.typesafe.akka" %% "akka-http-jackson" % "10.0.11",
+    "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.11",
 
     "org.scalactic" %% "scalactic" % "3.0.4",
     "org.scalatest" %% "scalatest" % "3.0.4" % "test"
