@@ -9,6 +9,19 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'idea'
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+    }
+}
+
+apply plugin: "io.spring.dependency-management"
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -49,12 +62,23 @@ tasks.withType(Test) {
     }
 }
 
+
+dependencyManagement {
+    imports {
+        mavenBom "org.jdbi:jdbi-bom:${jdbiVersion}"
+    }
+}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 
-    compile 'org.jdbi:jdbi:' + jdbiVersion
+    compile "org.jdbi:jdbi3-core:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-sqlobject:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-vavr:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-guava:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-jodatime2:${jdbiVersion}"
 
     compile 'org.eclipse.jetty:jetty-server:' + jettyVersion
     compile 'org.eclipse.jetty:jetty-servlet:' + jettyVersion

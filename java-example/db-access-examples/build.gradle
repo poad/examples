@@ -7,6 +7,7 @@
  * user guide available at https://docs.gradle.org/2.9/userguide/tutorial_java_projects.html
  */
 // Apply the java plugin to add support for Java
+
 apply plugin: 'java'
 apply plugin: 'idea'
 
@@ -23,15 +24,47 @@ buildscript {
     }
 }
 
+tasks.withType(JavaCompile) {
+    doFirst {
+        sourceCompatibility = 9
+        targetCompatibility = 9
+        options.compilerArgs = [
+                '--add-modules', 'java.se.ee',
+                '--add-modules', 'java.activation',
+                '--add-modules', 'java.xml.ws.annotation',
+                '--add-modules', 'java.xml.bind',
+                '--add-exports', 'java.xml.bind/com.sun.istack.internal=ALL-UNNAMED'
+        ]
+    }
+}
+
+tasks.withType(Test) {
+    doFirst {
+        jvmArgs = [
+                '--add-modules', 'java.se.ee',
+                '--add-modules', 'java.activation',
+                '--add-modules', 'java.xml.ws.annotation',
+                '--add-modules', 'java.xml.bind',
+                '-Djava.locale.providers=COMPAT,SPI',
+        ]
+    }
+}
+
 // In this section you declare the dependencies for your production and test code
 dependencies {
     // The production code uses the SLF4J logging API at compile time
+    // https://mvnrepository.com/artifact/com.github.docker-java/docker-java
     compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 
-    compile 'org.jdbi:jdbi:' + jdbiVersion
+    compile "org.jdbi:jdbi3-core:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-sqlobject:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-vavr:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-guava:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-jodatime2:${jdbiVersion}"
 
     compile 'com.zaxxer:HikariCP:' + hikariCpVersion
     compile 'mysql:mysql-connector-java:' + mysqlConnectorVersion
+    runtime 'com.h2database:h2:' + h2Version
 
 }
 

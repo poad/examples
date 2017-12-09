@@ -26,7 +26,8 @@ import com.github.poad.example.webapi.jdbi.resource.MessageResource;
 import com.github.poad.example.webapi.resource.Message;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.skife.jdbi.v2.DBI;
+import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.sqlobject.SqlObjectPlugin;
 
 import java.util.List;
 
@@ -43,30 +44,31 @@ public class MessageImpl implements Message {
     public com.github.poad.example.webapi.jdbi.entity.Message get(long id) {
         HikariDataSource ds = dataSource();
 
-        DBI dbi = new DBI(ds);
-        try (MessageResource resource = dbi.open(MessageResource.class)) {
-            return resource.get(id);
-        }
+        Jdbi jdbi = Jdbi.create(ds);
+        jdbi.installPlugin(new SqlObjectPlugin());
+        return jdbi.withExtension(MessageResource.class, resource ->
+            resource.get(id)
+        );
     }
 
     @Override
     public List<com.github.poad.example.webapi.jdbi.entity.Message> get() {
         HikariDataSource ds = dataSource();
 
-        DBI dbi = new DBI(ds);
-        try (MessageResource resource = dbi.open(MessageResource.class)) {
-            return resource.list();
-        }
+        Jdbi jdbi = Jdbi.create(ds);
+        jdbi.installPlugin(new SqlObjectPlugin());
+        return jdbi.withExtension(MessageResource.class, MessageResource::list);
     }
 
     @Override
     public void post(String message) {
         HikariDataSource ds = dataSource();
 
-        DBI dbi = new DBI(ds);
-        try (MessageResource resource = dbi.open(MessageResource.class)) {
-            resource.create(message);
-        }
+        Jdbi jdbi = Jdbi.create(ds);
+        jdbi.installPlugin(new SqlObjectPlugin());
+        jdbi.useExtension(MessageResource.class, resource ->
+            resource.create(message)
+        );
     }
 
 

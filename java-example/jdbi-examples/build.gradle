@@ -23,12 +23,14 @@ dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 
-	compile 'org.com.github.poad.example.webapi.jdbi:com.github.poad.example.webapi.jdbi:' + jdbiVersion
+    compile "org.jdbi:jdbi3-core:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-sqlobject:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-vavr:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-guava:${jdbiVersion}"
+    compile "org.jdbi:jdbi3-jodatime2:${jdbiVersion}"
+
 
     compile 'com.zaxxer:HikariCP:' + hikariCpVersion
-
-
-//    compile 'org.apache.commons:commons-dbcp2:' + dbcp2Version
 
     runtime 'com.h2database:h2:' + h2Version
 }

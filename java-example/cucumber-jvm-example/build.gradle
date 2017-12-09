@@ -11,8 +11,15 @@ repositories {
 }
 
 dependencies {
-    testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
-    testCompile 'io.cucumber:cucumber-java8:' + cucumberVersion
+    testCompile("org.junit.platform:junit-platform-launcher:1.0.2")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:5.0.2")
+    testCompile("org.junit.vintage:junit-vintage-engine:4.12.2")
+
+    testCompile "io.cucumber:cucumber-core:${cucumberVersion}"
+    testCompile("io.cucumber:cucumber-junit:${cucumberVersion}") {
+        exclude group: "junit", module: "junit"
+    }
+    testCompile "io.cucumber:cucumber-java8:${cucumberVersion}"
 }
 
 tasks.withType(JavaCompile) {
