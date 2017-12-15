@@ -4,7 +4,7 @@ import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertTrue
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import rx.schedulers.Schedulers
+import io.reactivex.schedulers.Schedulers
 
 class QiitaServiceTest {
 

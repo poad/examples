@@ -2,15 +2,14 @@ package com.poad1010.example.helloandroid
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.widget.ListView
 import com.poad1010.example.helloandroid.adapter.TagListAdapter
 import com.poad1010.example.helloandroid.service.QiitaService
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import rx.schedulers.Schedulers
-import rx.android.schedulers.AndroidSchedulers
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 .build()
         val qiita = retrofit.create(QiitaService::class.java)
 
-        val listView: ListView = findViewById(R.id.list_view) as ListView
+        val listView: ListView = findViewById<ListView>(R.id.list_view)
         listView.adapter = listAdaptor
 
         try {
