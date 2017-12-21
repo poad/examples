@@ -108,8 +108,8 @@ lazy val play2_example = (project in file("play2-example"))
       "com.typesafe.play" %% "play" % playVersion,
       guice,
 
-      "com.typesafe.akka" %% "akka-testkit" % "2.5.6" % Test,
-      "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.6" % Test,
+      "com.typesafe.akka" %% "akka-testkit" % "2.5.8" % Test,
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.8" % Test,
       "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
     )
   )
