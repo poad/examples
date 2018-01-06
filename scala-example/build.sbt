@@ -62,9 +62,9 @@ settings(
   libraryDependencies ++= Seq(
     "org.scalatra" %% "scalatra" % "2.6.2",
     "org.scalatra" %% "scalatra-scalate" % "2.6.2",
-    "org.eclipse.jetty" % "jetty-server" % "9.4.7.v20170914",
-    "org.eclipse.jetty" % "jetty-servlet" % "9.4.7.v20170914",
-    "org.eclipse.jetty" % "jetty-webapp" % "9.4.7.v20170914",
+    "org.eclipse.jetty" % "jetty-server" % "9.4.8.v20171121",
+    "org.eclipse.jetty" % "jetty-servlet" % "9.4.8.v20171121",
+    "org.eclipse.jetty" % "jetty-webapp" % "9.4.8.v20171121",
   )
 )
 
@@ -86,7 +86,7 @@ lazy val implicit_example = (project in file("implicit-example")).
   )
 
 lazy val akkaVersion = "2.5.8"
-lazy val playVersion = "2.6.9"
+lazy val playVersion = "2.6.10"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
