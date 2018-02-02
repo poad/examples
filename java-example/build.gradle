@@ -31,44 +31,44 @@ repositories {
 }
 
 ext {
-    jettyVersionOfDropwizard = '9.4.7.v20170914'
+    jettyVersionOfDropwizard = '9.4.8.v20171121'
     jettyVersion = '9.4.8.v20171121'
 
-    dropwizardVersion = '1.2.2'
-    jacksonVersion = '2.9.2'
+    dropwizardVersion = '1.2.3'
+    jacksonVersion = '2.9.3'
     vertxVersion = '3.5.0'
 
     jdbiVersion = '3.0.0'
-    hikariCpVersion = '2.7.4'
+    hikariCpVersion = '2.7.6'
     h2Version = '1.4.196'
     jtaApiVersion = '1.2'
     hibernateJpa2_1Version = '1.0.0.Final'
     mysqlConnectorVersion = '8.0.8-dmr'
 
-    flywayVersion = '5.0.2'
+    flywayVersion = '5.0.7'
 
     flywayPluginVersion = flywayVersion
-    springBootVersion = '1.5.9.RELEASE'
+    springBootVersion = '1.5.10.RELEASE'
     springLoadedVersion = '1.2.8.RELEASE'
 
-    eclipseLinkVersion = '2.7.0'
+    eclipseLinkVersion = '2.7.1'
     transactionApiVersion = '1.2'
 
     slf4jVersion = '1.7.25'
 
-    log4jVersion = '2.9.1'
+    log4jVersion = '2.10.0'
 
     dbUnitVersion = '2.5.4'
 
-    cucumberVersion = '2.1.0'
+    cucumberVersion = '2.3.1'
 
     jerseyVersion = '2.26'
 
     junitVersion = '4.12'
     junit4Version        = '4.12'
-    junitVintageVersion  = '4.12.2'
-    junitPlatformVersion = '1.0.2'
-    junitJupiterVersion  = '5.0.2'
+    junitVintageVersion  = '4.12.3'
+    junitPlatformVersion = '1.0.3'
+    junitJupiterVersion  = '5.0.3'
 }
 
 // In this section you declare the dependencies for your production and test code
