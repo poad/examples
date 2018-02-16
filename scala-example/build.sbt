@@ -50,8 +50,8 @@ settings(
   libraryDependencies ++= Seq(
     "io.reactivex" %% "rxscala" % "0.26.5",
 
-    "org.scalactic" %% "scalactic" % "3.0.4",
-    "org.scalatest" %% "scalatest" % "3.0.4" % "test"
+    "org.scalactic" %% "scalactic" % "3.0.5",
+    "org.scalatest" %% "scalatest" % "3.0.5" % "test"
   )
 )
 
@@ -85,8 +85,8 @@ lazy val implicit_example = (project in file("implicit-example")).
     // other settings
   )
 
-lazy val akkaVersion = "2.5.8"
-lazy val playVersion = "2.6.10"
+lazy val akkaVersion = "2.5.9"
+lazy val playVersion = "2.6.11"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
@@ -108,8 +108,8 @@ lazy val play2_example = (project in file("play2-example"))
       "com.typesafe.play" %% "play" % playVersion,
       guice,
 
-      "com.typesafe.akka" %% "akka-testkit" % "2.5.8" % Test,
-      "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.8" % Test,
+      "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
+      "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
       "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
     )
   )
