@@ -31,8 +31,8 @@ buildscript {
     ext {
         kotlin_version = '1.2.10'
         retrofitVersion = '2.3.0'
-        junitVersion = '5.0.1'
-        junit4Version = '4.12.0'
+        junitVersion = '5.0.3'
+        junit4Version = '4.12.3'
     }
 
     repositories {
@@ -58,13 +58,13 @@ dependencies {
     compile "com.android.support:appcompat-v7:27.+"
     compile "com.android.support.constraint:constraint-layout:+"
 
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.9'
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "com.google.code.gson:gson:2.8.1"
-    compile "com.squareup.okhttp3:logging-interceptor:3.3.1"
+    compile "com.google.code.gson:gson:2.8.2"
+    compile "com.squareup.okhttp3:logging-interceptor:3.9.1"
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
