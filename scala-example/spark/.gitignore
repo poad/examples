@@ -80,3 +80,4 @@ target/streams
 **/target/**
 **/target/*s
 **/target/streams
+hello-spark-scala/target/**
