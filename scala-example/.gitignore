@@ -229,3 +229,4 @@ scala-example/target/
 
 /target/*
 **/target/**
+spark/**/target/

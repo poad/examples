@@ -32,8 +32,8 @@ settings(
     "com.typesafe.akka" %% "akka-http-jackson" % "10.0.11",
     "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.11",
 
-    "org.scalactic" %% "scalactic" % "3.0.4",
-    "org.scalatest" %% "scalatest" % "3.0.4" % "test"
+    "org.scalactic" %% "scalactic" % "3.0.5",
+    "org.scalatest" %% "scalatest" % "3.0.5" % "test"
   )
 )
 
@@ -60,8 +60,8 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "org.scalatra" %% "scalatra" % "2.6.2",
-    "org.scalatra" %% "scalatra-scalate" % "2.6.2",
+    "org.scalatra" %% "scalatra" % "2.6.3",
+    "org.scalatra" %% "scalatra-scalate" % "2.6.3",
     "org.eclipse.jetty" % "jetty-server" % "9.4.8.v20171121",
     "org.eclipse.jetty" % "jetty-servlet" % "9.4.8.v20171121",
     "org.eclipse.jetty" % "jetty-webapp" % "9.4.8.v20171121",
@@ -85,8 +85,8 @@ lazy val implicit_example = (project in file("implicit-example")).
     // other settings
   )
 
-lazy val akkaVersion = "2.5.9"
-lazy val playVersion = "2.6.11"
+lazy val akkaVersion = "2.5.11"
+lazy val playVersion = "2.6.12"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
