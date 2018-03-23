@@ -19,9 +19,10 @@ buildscript {
     }
 }
 apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+sourceCompatibility = '1.9'
+targetCompatibility = '1.9'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -46,4 +47,5 @@ dependencies {
     compile 'javax.transaction:javax.transaction-api:' + transactionApiVersion
 
     runtime 'com.h2database:h2:' + h2Version
+    runtime("org.springframework.boot:spring-boot-properties-migrator")
 }

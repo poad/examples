@@ -36,7 +36,7 @@ public class MessageResourceImpl implements MessageResource {
 
     @Override
     public MessageResponse get(@NotNull @PathParam("id") String id) {
-        Optional<MessageEntity> entity = Optional.ofNullable(repository.findOne(id));
+        Optional<MessageEntity> entity = repository.findById(id);
         Optional<MessageResponse> response = entity.map(e -> MessageModel.of(e).toResponse());
         if (response.isPresent()) {
             return response.get();
@@ -64,6 +64,6 @@ public class MessageResourceImpl implements MessageResource {
 
     @Override
     public void delete(@NotNull @PathParam("id") String id) {
-        repository.delete(id);
+        repository.deleteById(id);
     }
 }

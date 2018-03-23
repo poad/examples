@@ -2,7 +2,7 @@ package org.bitbucket.poad1010.example.springboot.jpa;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  * Created by ken-yo on 2016/08/06.
