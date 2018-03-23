@@ -9,20 +9,23 @@
 
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
     }
 
     dependencies {
         classpath 'mysql:mysql-connector-java:' + mysqlConnectorVersion
-        classpath "gradle.plugin.com.boxfuse.client:flyway-release:" + flywayPluginVersion
     }
 }
 
 
 // Apply the java plugin to add support for Java
+apply plugin: 'org.flywaydb.flyway'
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'org.flywaydb.flyway'
+
+
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -31,18 +34,6 @@ repositories {
     jcenter()
 }
 
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath 'mysql:mysql-connector-java:' + mysqlConnectorVersion
-        classpath "gradle.plugin.com.boxfuse.client:flyway-release:" + flywayPluginVersion
-    }
-}
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
