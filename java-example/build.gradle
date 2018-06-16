@@ -8,7 +8,7 @@
  */
 buildscript {
     ext {
-        junitPlatformVersion = '1.1.0'
+        junitPlatformVersion = '1.2.0'
     }
     repositories {
         mavenCentral()
@@ -19,28 +19,28 @@ buildscript {
 }
 
 plugins {
-    id "org.flywaydb.flyway" version '5.0.7' apply false
+    id "org.flywaydb.flyway" version '5.1.1' apply false
 }
 
 
 ext {
-    jettyVersionOfDropwizard = '9.4.9.v20180320'
-    jettyVersion = '9.4.9.v20180320'
+    jettyVersionOfDropwizard = '9.4.10.v20180503'
+    jettyVersion = '9.4.11.v20180605'
 
-    dropwizardVersion = '1.3.1'
-    jacksonVersion = '2.9.5'
-    vertxVersion = '3.5.1'
+    dropwizardVersion = '1.3.4'
+    jacksonVersion = '2.9.6'
+    vertxVersion = '3.5.2'
 
-    jdbiVersion = '3.1.1'
-    hikariCpVersion = '3.0.0'
+    jdbiVersion = '3.3.0'
+    hikariCpVersion = '3.2.0'
     h2Version = '1.4.197'
     jtaApiVersion = '1.2'
     hibernateJpa2_1Version = '1.0.2.Final'
     mysqlConnectorVersion = '8.0.8-dmr'
 
-    flywayVersion = '5.0.7'
+    flywayVersion = '5.1.1'
 
-    springBootVersion = '2.0.1.RELEASE'
+    springBootVersion = '2.0.3.RELEASE'
     springLoadedVersion = '1.2.8.RELEASE'
 
     eclipseLinkVersion = '2.7.1'
@@ -52,15 +52,15 @@ ext {
 
     dbUnitVersion = '2.5.4'
 
-    cucumberVersion = '2.4.0'
+    cucumberVersion = '3.0.2'
 
-    jerseyVersion = '2.26'
+    jerseyVersion = '2.27'
 
     junitVersion = '4.12'
     junit4Version        = '4.12'
-    junitVintageVersion  = '5.1.0'
-    junitPlatformVersion = '1.1.0'
-    junitJupiterVersion  = '5.1.0'
+    junitVintageVersion  = '5.2.0'
+    junitPlatformVersion = '1.2.0'
+    junitJupiterVersion  = '5.2.0'
 }
 
 // Apply the java plugin to add support for Java
