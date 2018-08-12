@@ -11,8 +11,8 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.junit.platform.gradle.plugin'
 
-sourceCompatibility = 9
-targetCompatibility = 9
+sourceCompatibility = 10
+targetCompatibility = 10
 version = '0.0.1'
 
 repositories {
@@ -82,8 +82,8 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 
 tasks.withType(JavaCompile) {
     doFirst {
-        sourceCompatibility = 9
-        targetCompatibility = 9
+        sourceCompatibility = 10
+        targetCompatibility = 10
         options.compilerArgs = [
                 '--add-modules', 'java.se.ee',
                 '--add-exports', 'java.xml.bind/com.sun.istack.internal=ALL-UNNAMED'

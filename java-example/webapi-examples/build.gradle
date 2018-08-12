@@ -38,8 +38,8 @@ buildscript {
 
 tasks.withType(JavaCompile) {
     doFirst {
-        sourceCompatibility = 9
-        targetCompatibility = 9
+        sourceCompatibility = 10
+        targetCompatibility = 10
         options.compilerArgs = [
                 '--add-modules', 'java.se.ee',
                 '--add-modules', 'java.activation',
