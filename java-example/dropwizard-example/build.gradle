@@ -1,8 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
-sourceCompatibility = 10
-targetCompatibility = 10
+sourceCompatibility = 11
+targetCompatibility = 11
 version = '0.0.1'
 
 repositories {
@@ -72,8 +72,8 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 
 tasks.withType(JavaCompile) {
     doFirst {
-        sourceCompatibility = 10
-        targetCompatibility = 10
+        sourceCompatibility = 11
+        targetCompatibility = 11
         options.compilerArgs = [
                 '--add-modules', 'java.se.ee',
                 '--add-exports', 'java.xml.bind/com.sun.istack.internal=ALL-UNNAMED'

@@ -5,7 +5,7 @@ import play.api.mvc._
 /**
   * .
   */
-class Application extends Controller {
+class Application extends InjectedController {
   def index = Action {
     Ok("Hello, world!")
   }
