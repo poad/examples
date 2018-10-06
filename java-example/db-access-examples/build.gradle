@@ -28,25 +28,6 @@ tasks.withType(JavaCompile) {
     doFirst {
         sourceCompatibility = 11
         targetCompatibility = 11
-        options.compilerArgs = [
-                '--add-modules', 'java.se.ee',
-                '--add-modules', 'java.activation',
-                '--add-modules', 'java.xml.ws.annotation',
-                '--add-modules', 'java.xml.bind',
-                '--add-exports', 'java.xml.bind/com.sun.istack.internal=ALL-UNNAMED'
-        ]
-    }
-}
-
-tasks.withType(Test) {
-    doFirst {
-        jvmArgs = [
-                '--add-modules', 'java.se.ee',
-                '--add-modules', 'java.activation',
-                '--add-modules', 'java.xml.ws.annotation',
-                '--add-modules', 'java.xml.bind',
-                '-Djava.locale.providers=COMPAT,SPI',
-        ]
     }
 }
 
