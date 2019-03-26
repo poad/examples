@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "com.poad1010.example.helloandroid"
-        minSdkVersion 15
-        targetSdkVersion 27
+        minSdkVersion 28
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -29,10 +29,10 @@ android {
 
 buildscript {
     ext {
-        kotlin_version = '1.2.30'
-        retrofitVersion = '2.3.0'
-        junitVersion = '5.0.3'
-        junit4Version = '4.12.3'
+        kotlin_version = '1.2.50'
+        retrofitVersion = '2.4.0'
+        junitVersion = '5.2.0'
+        junit4Version = '5.2.0'
     }
 
     repositories {
@@ -55,16 +55,16 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "com.android.support:appcompat-v7:27.+"
+    compile "com.android.support:appcompat-v7:28.+"
     compile "com.android.support.constraint:constraint-layout:+"
 
     compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.9'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.14'
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "com.google.code.gson:gson:2.8.2"
-    compile "com.squareup.okhttp3:logging-interceptor:3.9.1"
+    compile "com.google.code.gson:gson:2.8.5"
+    compile "com.squareup.okhttp3:logging-interceptor:3.10.0"
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"

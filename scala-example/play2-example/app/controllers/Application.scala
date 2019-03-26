@@ -1,13 +1,13 @@
 package controllers
 
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.InjectedController
 
 case class Message(message: String)
 
 /**
   * .
   */
-class Application extends Controller {
+class Application extends InjectedController {
   import play.api.libs.json._
 
   implicit val messageWrites = new Writes[Message] {

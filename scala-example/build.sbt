@@ -5,7 +5,7 @@ name := "scala-example"
 lazy val commonSettings = Seq(
   organization := "org.bitbuicket.poad1010",
   version := "0.0.1",
-  scalaVersion := "2.12.5"
+  scalaVersion := "2.12.7"
 )
 
 lazy val root = (project in file("."))
@@ -28,9 +28,15 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "com.typesafe.akka" %% "akka-http-core" % "10.0.13",
-    "com.typesafe.akka" %% "akka-http-jackson" % "10.0.13",
-    "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.13",
+    "com.typesafe.akka" %% "akka-http-core" % "10.1.5",
+    "com.typesafe.akka" %% "akka-http-jackson" % "10.1.5",
+    "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5",
+
+    "com.typesafe.akka" %% "akka-actor" % "2.5.17",
+    "com.typesafe.akka" %% "akka-testkit" % "2.5.17" % Test,
+
+    "com.typesafe.akka" %% "akka-stream" % "2.5.17",
+    "com.typesafe.akka" %% "akka-stream-testkit" % "2.5.17" % Test,
 
     "org.scalactic" %% "scalactic" % "3.0.5",
     "org.scalatest" %% "scalatest" % "3.0.5" % "test"
@@ -62,9 +68,9 @@ settings(
   libraryDependencies ++= Seq(
     "org.scalatra" %% "scalatra" % "2.6.3",
     "org.scalatra" %% "scalatra-scalate" % "2.6.3",
-    "org.eclipse.jetty" % "jetty-server" % "9.4.8.v20171121",
-    "org.eclipse.jetty" % "jetty-servlet" % "9.4.8.v20171121",
-    "org.eclipse.jetty" % "jetty-webapp" % "9.4.8.v20171121",
+    "org.eclipse.jetty" % "jetty-server" % "9.4.12.v20180830",
+    "org.eclipse.jetty" % "jetty-servlet" % "9.4.12.v20180830",
+    "org.eclipse.jetty" % "jetty-webapp" % "9.4.12.v20180830",
   )
 )
 
@@ -85,8 +91,8 @@ lazy val implicit_example = (project in file("implicit-example")).
     // other settings
   )
 
-lazy val akkaVersion = "2.5.11"
-lazy val playVersion = "2.6.13"
+lazy val akkaVersion = "2.5.17"
+lazy val playVersion = "2.6.19"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
