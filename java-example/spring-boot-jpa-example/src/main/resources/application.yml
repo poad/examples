@@ -9,32 +9,13 @@ spring:
     username: sa
     password:
   jpa:
-    database: H2
     properties:
+      database: MySQL
       transaction-type: RESOURCE_LOCAL
-      # eclipselink.session.customizer: com.yourcompany.jpa.eclipselink.customizer.session.DefaultZomcatSessionCustomizer
-      # defined in org.eclipse.persistence.config.PersistenceUnitProperties
-      eclipselink.weaving: false
-      #eclipselink.ddl-generation.output-mode: both
-      # eclipselink.logging.logger: com.yourcompany.jpa.eclipselink.Slf4jSessionLog
-      eclipselink.persistence-context.flush-mode: COMMIT
-      #eclipselink.ddl-generation: create-tables
-      eclipselink.ddl-generation: create-or-extend-tables
-      eclipselink.ddl-generation.output-mode: database
+      show-sql: false
+      hibernate: ddl-auto=create-drop
 
-      # eclipselink.logging.file: eclipse-link-output.log
-      eclipselink.logging.timestamp: false
-      eclipselink.logging.session: false
-      eclipselink.logging.connection: false
-      eclipselink.logging.thread: false
-      eclipselink.logging.level.transaction: ALL
-      eclipselink.logging.level.sql: FINE
-      eclipselink.logging.level.event: ALL
-      eclipselink.logging.level.connection: ALL
-      eclipselink.logging.level.query: FINE
-      eclipselink.logging.level.cache: ALL
-      eclipselink.logging.level: ALL
-      eclipselink.logging.parameters: true
-    eclipselink:
-      ddl-generation: create-or-extend-tables
-      ddl-generation.output-mode: database
+  data:
+    jpa:
+      repositories:
+        enabled: true

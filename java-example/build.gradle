@@ -7,48 +7,53 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 plugins {
-    id "org.flywaydb.flyway" version '5.2.0' apply false
+    id "org.flywaydb.flyway" version '5.2.4' apply false
 }
 
 
 ext {
-    jettyVersionOfDropwizard = '9.4.11.v20180605'
-    jettyVersion = '9.4.12.v20180830'
+    jettyVersionOfDropwizard = '9.4.15.v20190215'
+    jettyVersion = '9.4.15.v20190215'
 
-    dropwizardVersion = '1.3.7'
-    jacksonVersion = '2.9.7'
-    vertxVersion = '3.5.4'
+    dropwizardVersion = '1.3.9'
+    jacksonVersion = '2.9.8'
+    vertxVersion = '3.6.3'
 
-    jdbiVersion = '3.5.1'
-    hikariCpVersion = '3.2.0'
-    h2Version = '1.4.197'
-    jtaApiVersion = '1.2'
-    hibernateJpa2_1Version = '1.0.2.Final'
-    mysqlConnectorVersion = '8.0.12'
+    jdbiVersion = '3.6.0'
+    hikariCpVersion = '3.3.1'
+    h2Version = '1.4.199'
+    mysqlConnectorVersion = '8.0.15'
 
-    flywayVersion = '5.2.0'
+    flywayVersion = '5.2.4'
 
-    springBootVersion = '2.0.5.RELEASE'
+    springBomVersion = '5.1.5.RELEASE'
+    springBootVersion = '2.1.3.RELEASE'
+    springBootDataVersion = '1.0.5.RELEASE'
     springLoadedVersion = '1.2.8.RELEASE'
 
-    eclipseLinkVersion = '2.7.3'
+    eclipseLinkVersion = '2.7.4'
     transactionApiVersion = '1.2'
 
     slf4jVersion = '1.7.25'
 
-    log4jVersion = '2.11.1'
+    jaxbApiVersion = '2.3.1'
+    p6spyVersion = '3.8.1'
+    tomcatJdbcPoolVersion = '9.0.16'
 
-    dbUnitVersion = '2.5.4'
+    log4jVersion = '2.11.2'
 
-    cucumberVersion = '4.0.1'
+    dbUnitVersion = '2.6.0'
 
-    jerseyVersion = '2.27'
+    cucumberVersion = '4.2.6'
+
+    jerseyVersion = '2.28'
 
     junitVersion = '4.12'
     junit4Version        = '4.12'
-    junitVintageVersion  = '5.3.1'
-    junitPlatformVersion = '1.3.1'
-    junitJupiterVersion  = '5.3.1'
+    junitVintageVersion  = '5.4.1'
+    junitPlatformVersion = '1.4.1'
+    junitJupiterVersion  = '5.4.1'
+    micronautVersion = '1.0.5'
 }
 
 // Apply the java plugin to add support for Java
@@ -72,8 +77,8 @@ subprojects {
 
     apply plugin: 'java'
 
-    sourceCompatibility = 11
-    targetCompatibility = 11
+    sourceCompatibility = 8
+    targetCompatibility = 8
 
     dependencies {
         compile "org.slf4j:slf4j-api:${slf4jVersion}"

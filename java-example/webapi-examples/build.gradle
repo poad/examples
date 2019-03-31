@@ -38,8 +38,8 @@ buildscript {
 
 tasks.withType(JavaCompile) {
     doFirst {
-        sourceCompatibility = 11
-        targetCompatibility = 11
+        sourceCompatibility = 8
+        targetCompatibility = 8
     }
 }
 

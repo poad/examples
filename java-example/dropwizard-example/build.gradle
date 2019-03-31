@@ -1,8 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = 8
+targetCompatibility = 8
 version = '0.0.1'
 
 repositories {
@@ -72,8 +72,8 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 
 tasks.withType(JavaCompile) {
     doFirst {
-        sourceCompatibility = 11
-        targetCompatibility = 11
+        sourceCompatibility = 8
+        targetCompatibility = 8
     }
 }
 
