@@ -53,7 +53,11 @@ ext {
     junitVintageVersion  = '5.4.1'
     junitPlatformVersion = '1.4.1'
     junitJupiterVersion  = '5.4.1'
+
     micronautVersion = '1.0.5'
+    micronautSpringVersion = '1.0.0.RC1'
+
+    xRayBomVersion = '2.2.1'
 }
 
 // Apply the java plugin to add support for Java
@@ -101,6 +105,8 @@ subprojects {
         beforeTest { descriptor ->
             logger.lifecycle("Running test: " + descriptor)
         }
+
+        useJUnitPlatform()
 
         // listen to standard out and standard error of the test JVM(s)
         onOutput { descriptor, event ->

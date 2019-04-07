@@ -86,7 +86,7 @@ lazy val implicit_example = (project in file("implicit-example")).
     // other settings
   )
 
-lazy val akkaVersion = "2.5.21"
+lazy val akkaVersion = "2.5.22"
 lazy val playVersion = "2.7.0"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)

@@ -13,13 +13,11 @@
 include 'cucumber-jvm-example'
 include 'db-access-examples'
 include 'dbunit-examples'
-include 'dropwizard-example'
 include 'flyway-example'
-include 'jdbi-examples'
 include 'spring-boot-jpa-example'
+//include 'spring-boot-jpa-micronaut-example'
 include 'tuple4j-example'
 include 'vertx-examples'
-include 'webapi-examples'
 include 'websocket-jsr356-example'
 
 
