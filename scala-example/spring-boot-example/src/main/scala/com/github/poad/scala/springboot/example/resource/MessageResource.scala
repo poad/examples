@@ -21,7 +21,7 @@ trait MessageResource {
 
   @Consumes(Array(MediaType.APPLICATION_JSON))
   @POST
-  def crate(message: Message): String
+  def create(message: Message): String
 
   @Consumes(Array(MediaType.APPLICATION_JSON))
   @PUT
