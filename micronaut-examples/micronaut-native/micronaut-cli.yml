@@ -1,0 +1,9 @@
+profile: service
+<<<<<<< HEAD
+defaultPackage: com.github.poad.example.micronaut
+=======
+defaultPackage: micronaut.native
+>>>>>>> 254f0ea37cb542c47a1dd46854a24c73abc1843e
+---
+testFramework: junit
+sourceLanguage: java

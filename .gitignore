@@ -20,7 +20,6 @@ hs_err_pid*
 /project
 /.cache-main
 /.cache-tests
-/gradle
 /test-output
 script/
 src/main/
@@ -96,8 +95,6 @@ clojure-example/hello-spark/hello-spark.iml
 clojure-example/hello-spark/target/
 clojure-example/hello-spark/test/
 clojure-example/target/
-gradlew
-gradlew.bat
 java-example/.gradle/
 java-example/akka-example/src/main/
 java-example/akka-example/src/test/resources/
@@ -127,9 +124,6 @@ java-example/ff4j-example/src/main/scala/
 java-example/ff4j-example/src/test/
 java-example/flyway-example/src/main/java/
 java-example/flyway-example/src/test/
-java-example/gradle/
-java-example/gradlew
-java-example/gradlew.bat
 java-example/hibernate-examples/src/main/main.iml
 java-example/hibernate-examples/src/test/test8.iml
 java-example/jdbi-examples/src/main/main5.iml

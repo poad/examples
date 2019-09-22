@@ -1,0 +1,50 @@
+---
+micronaut:
+<<<<<<< HEAD
+  server:
+    port: 8080
+  application:
+    name: micronaut-native
+=======
+  application:
+    name: micronaut-native
+
+---
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+
+---
+datasources.default: {}
+>>>>>>> 254f0ea37cb542c47a1dd46854a24c73abc1843e
+---
+datasources:
+  default:
+    url: jdbc:mysql://127.0.0.1:3306/micronaut
+    username: root
+    password: ""
+    driverClassName: com.mysql.cj.jdbc.Driver
+<<<<<<< HEAD
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+=======
+>>>>>>> 254f0ea37cb542c47a1dd46854a24c73abc1843e
+    connectionTimeout: 4000
+jpa:
+  default:
+    packages-to-scan:
+<<<<<<< HEAD
+      - 'com.github.poad.example.micronaut.entity'
+=======
+      - 'com.github.poad.example.entity'
+>>>>>>> 254f0ea37cb542c47a1dd46854a24c73abc1843e
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+
