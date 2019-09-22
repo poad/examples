@@ -1,0 +1,54 @@
+---
+micronaut:
+  application:
+    name: micronaut-server
+
+---
+micronaut:
+  metrics:
+    enabled: true
+
+---
+datasources:
+  default:
+    url: jdbc:h2:mem:example-app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+    dialect: org.hibernate.dialect.H2Dialect
+    connectionTimeout: 4000
+
+---
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+
+
+---
+micronaut:
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+
+---
+datasources.default: {}
+
+---
+jpa:
+  default:
+    packages-to-scan:
+      - 'micronaut.server.entity'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+
