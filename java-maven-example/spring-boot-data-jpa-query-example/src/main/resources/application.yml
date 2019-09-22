@@ -1,0 +1,35 @@
+server:
+  port: ${port:8089}
+#debug: true
+spring:
+  datasource:
+    continue-on-error: true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8&characterSetResults=UTF-8
+#    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#    url: jdbc:log4jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8&characterSetResults=UTF-8
+    username: root
+    password: ""
+    jmx-enabled: true
+    tomcat:
+#      jdbc-interceptors: com.amazonaws.xray.sql.mysql.TracingInterceptor
+      max-active: 20
+      min-idle: 10
+  jpa:
+    properties:
+      database: MySQL
+      transaction-type: RESOURCE_LOCAL
+      show-sql: false
+      hibernate:
+        ddl-auto: create-drop
+
+  data:
+    jpa:
+      repositories:
+        enabled: true
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        type: TRACE

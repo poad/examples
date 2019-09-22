@@ -1,0 +1,20 @@
+debug: false
+server:
+  port: 8089
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  datasource:
+    continue-on-error: true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: ""
+    jmx-enabled: true
+#    tomcat:
+#      jdbc-interceptors: com.amazonaws.xray.sql.mysql.TracingInterceptor

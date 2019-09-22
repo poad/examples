@@ -1,0 +1,16 @@
+server:
+  port: ${port:8089}
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test
+#    driverClassName: com.p6spy.engine.spy.P6SpyDriver
+#    url: jdbc:p6spy:mysql://127.0.0.1:3306/test
+    username: root
+    password: ""
+    jmx-enabled: true
+    tomcat:
+      # X-Ray トレースを使う場合は有効化する
+#      jdbc-interceptors: com.amazonaws.xray.sql.mysql.TracingInterceptor
+      max-active: 20
+      min-idle: 10

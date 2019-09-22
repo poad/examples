@@ -1,0 +1,39 @@
+logging:
+  level:
+    org.springframework.web: warn
+    org.seasar.doma.jdbc: warn
+    org.springframework.actuator: debug
+
+server:
+  port: ${port:8089}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+          - health
+          - prometheus
+          - metrics
+    jmx:
+      domain: com.github.poad.examples.java.webapps.spring
+
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+
+spring:
+  datasource:
+    continue-on-error: true
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: ""
+    jmx-enabled: true
+#    tomcat:
+#      jdbc-interceptors: com.amazonaws.xray.sql.mysql.TracingInterceptor
+
+debug: true

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
+        "http://www.seasar.org/dtd/components24.dtd">
+<components namespace="jta">
+    <component name="UserTransaction"
+               class="org.seasar.extension.jta.UserTransactionImpl"/>
+
+    <component name="TransactionManager"
+               class="org.seasar.extension.jta.TransactionManagerImpl"/>
+
+    <!-- TransactionManager を利用する TransactionSynchronizationRegistry -->
+    <component name="TransactionSynchronizationRegistry"
+               class="org.seasar.extension.jta.TransactionSynchronizationRegistryImpl"/>
+
+    <!-- JTA の TransactionManager を利用する TransactionManagerAdapter -->
+    <component
+            class="org.seasar.extension.tx.adapter.JTATransactionManagerAdapter"/>
+</components>

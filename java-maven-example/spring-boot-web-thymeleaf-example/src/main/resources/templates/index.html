@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
+    <title>Spring Boot with Thymeleaf</title>
+</head>
+<body>
+
+<form action="/artist" th:action="@{'/artist'}" method="post">
+    <label>アーティスト名
+        <input th:type="text" th:name="name" name="name" />
+    </label>
+    <label>
+        <input th:type="submit" name="追加">
+    </label>
+</form>
+
+
+<table id="artists">
+    <tr>
+        <th>アーティスト</th><th>楽曲</th>
+    </tr>
+    <tr th:each="artist : ${artists}">
+        <td><a th:href="@{'/artist/' + ${artist.id}}"><span th:text="${artist.name}"></span></a></td>
+        <td>
+            <ol th:if="${artist.songs}">
+                <li th:each="song : ${artist.songs}"><span th:text="${song.name}"></span></li>
+            </ol>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

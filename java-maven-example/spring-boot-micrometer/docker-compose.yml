@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  app:
+    image: docker.io/poad/spring-boot-micrometer
+    container_name: app
+    ports:
+      - 8089:8089
+    networks:
+      - prometheus-network
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - 9090:9090
+    networks:
+      - prometheus-network
+    links:
+      - app
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    networks:
+      - prometheus-network
+    links:
+      - prometheus
+networks:
+  prometheus-network:
+  default:
+    external:
+      name: prometheus-network

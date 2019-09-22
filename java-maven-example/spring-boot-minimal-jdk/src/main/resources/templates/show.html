@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" media="all" th:href="@{/css/style.css}"/>
+    <title th:text="${message.message}"></title>
+</head>
+<body>
+
+<h1 th:text="${message.message}"></h1>
+<p>
+    <form action="/update" th:action="@{'/update'}" method="post">
+        <input th:type="hidden" th:name="id" name="id" th:value="${message.id}" />
+        <label>
+            <input th:type="text" th:name="message" name="message" />
+        </label>
+        <label>
+            <input th:type="submit" value="更新">
+        </label>
+    </form>
+</p>
+<p>
+    <form action="/delete" th:action="@{'/delete'}" method="post">
+        <input th:type="hidden" th:name="id" name="id" th:value="${message.id}" />
+        <label>
+            <input th:type="submit" value="削除">
+        </label>
+    </form>
+</p>
+<p><a href="/">一覧へ戻る</a></p>
+
+</body>
+</html>

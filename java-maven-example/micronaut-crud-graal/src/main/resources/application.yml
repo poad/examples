@@ -1,0 +1,26 @@
+---
+micronaut:
+  application:
+    name: micronaut-crud-graal
+
+---
+datasources:
+  default:
+    url: jdbc:mysql://127.0.0.1:3306/test
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ''    
+jpa:
+  default:
+    entity-scan:
+      classpath: true
+      packages:
+        - "micronaut.crud.graal.domain"
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+
+
+---
+datasources.default: {}

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#messages {
+    border-collapse: collapse;
+}
+
+#messages th {
+    border: 1px solid #999;
+    background-color: #eee;
+}
+
+#messages td {
+    border: 1px solid #999;
+}

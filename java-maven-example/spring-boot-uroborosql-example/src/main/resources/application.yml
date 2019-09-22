@@ -1,0 +1,12 @@
+server:
+  port: 8089
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test
+    username: root
+    password: ""
+    jmx-enabled: true
+    jdbc-interceptors: com.amazonaws.xray.sql.mysql.TracingInterceptor
+example:
+  db-auto-init: false

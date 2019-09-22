@@ -1,0 +1,25 @@
+server:
+  port: ${port:8089}
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:example-app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    jmx-enabled: true
+    tomcat:
+      # X-Ray トレースを使う場合は有効化する
+      #      jdbc-interceptors: com.amazonaws.xray.sql.mysql.TracingInterceptor
+      max-active: 20
+      min-idle: 10
+
+
+  jersey:
+    application-path: message
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
