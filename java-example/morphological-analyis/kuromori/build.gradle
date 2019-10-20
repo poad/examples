@@ -1,0 +1,93 @@
+buildscript {
+    ext {
+        springBootVersion = '2.2.0.RELEASE'
+        kuromojiVersion = '0.9.0'
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.7.0"
+        classpath "org.asciidoctor:asciidoctor-gradle-jvm:2.3.0"
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'application'
+
+    group = 'com.github.poad.examples'
+    version = '0.0.1-SNAPSHOT'
+
+    sourceCompatibility = 11
+
+    repositories {
+        // Use jcenter for resolving dependencies.
+        // You can declare any Maven/Ivy/file repository here.
+        jcenter()
+        mavenCentral()
+    }
+
+    def defaultEncoding = 'UTF-8'
+    compileJava {
+        options.encoding = defaultEncoding
+    }
+    compileTestJava {
+        options.encoding = defaultEncoding
+    }
+}
+
+project(":app") {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.google.cloud.tools.jib'
+    apply plugin: "org.asciidoctor.convert"
+
+    ext {
+        set('snippetsDir', file("build/generated-snippets"))
+    }
+
+    configurations {
+        all*.exclude module: 'spring-boot-starter-logging'
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+        implementation "com.atilika.kuromoji:kuromoji-ipadic:${kuromojiVersion}"
+        implementation "com.atilika.kuromoji:kuromoji-jumandic:${kuromojiVersion}"
+        implementation "com.atilika.kuromoji:kuromoji-naist-jdic:${kuromojiVersion}"
+        implementation "com.atilika.kuromoji:kuromoji-unidic:${kuromojiVersion}"
+        implementation "com.atilika.kuromoji:kuromoji-unidic-kanaaccent:${kuromojiVersion}"
+
+        implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda'
+
+        implementation 'io.micrometer:micrometer-registry-prometheus'
+        implementation 'io.micrometer:micrometer-registry-jmx'
+        implementation 'io.micrometer:micrometer-registry-cloudwatch'
+
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+    }
+
+    test {
+        outputs.dir snippetsDir
+        useJUnitPlatform()
+    }
+
+    asciidoctor {
+        inputs.dir snippetsDir
+        dependsOn test
+    }
+
+    jib.from.image = 'mcr.microsoft.com/java/jdk:11u5-zulu-alpine'
+    jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
+    jib.container.ports = [ '8080' ]
+    jib.to.image = 'kuromoji-api-server:latest'
+}
