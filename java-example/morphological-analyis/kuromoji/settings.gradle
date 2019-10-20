@@ -1,2 +1,2 @@
-rootProject.name = 'kuromori'
+rootProject.name = 'kuromoji'
 include ":app"
