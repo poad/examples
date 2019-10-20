@@ -4,3 +4,14 @@ logging:
       INFO
     com.github.poad.examples.kuromori.service.MorphologicalAnalysisService: TRACE
 
+management:
+  endpoints:
+    web:
+      exposure:
+        #        include: "*"
+        include: "prometheus"
+
+#  metrics:
+#    export:
+#      cloudwatch:
+#        namespace: KuromojiApi
