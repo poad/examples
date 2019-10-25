@@ -5,7 +5,7 @@ name := "scala-example"
 lazy val commonSettings = Seq(
   organization := "org.bitbuicket.poad1010",
   version := "0.0.1",
-  scalaVersion := "2.12.9"
+  scalaVersion := "2.12.10"
 )
 
 lazy val root = (project in file("."))
@@ -29,9 +29,9 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "com.typesafe.akka" %% "akka-http-core" % "10.1.8",
-    "com.typesafe.akka" %% "akka-http-jackson" % "10.1.8",
-    "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.8",
+    "com.typesafe.akka" %% "akka-http-core" % "10.1.10",
+    "com.typesafe.akka" %% "akka-http-jackson" % "10.1.10",
+    "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.10",
 
     "org.scalactic" %% "scalactic" % "3.0.7",
     "org.scalatest" %% "scalatest" % "3.0.7" % "test"
@@ -86,8 +86,8 @@ lazy val implicit_example = (project in file("implicit-example")).
     // other settings
   )
 
-lazy val akkaVersion = "2.5.22"
-lazy val playVersion = "2.7.0"
+lazy val akkaVersion = "2.5.26"
+lazy val playVersion = "2.7.3"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
@@ -122,7 +122,7 @@ lazy val slisp = (project in file("slisp")).
     // other settings
   )
 
-lazy val springBootVersion = "2.1.4.RELEASE"
+lazy val springBootVersion = "2.2.0.RELEASE"
 lazy val springboot_example = (project in file("spring-boot-example")).
   settings(
     commonSettings,
@@ -135,8 +135,8 @@ lazy val springboot_example = (project in file("spring-boot-example")).
       "org.springframework.boot" % "spring-boot-starter-jersey" % springBootVersion exclude("org.springframework.boot", "spring-boot-starter-tomcat"),
       "org.springframework.boot" % "spring-boot-starter-actuator" % springBootVersion,
       "javax.persistence" % "javax.persistence-api" % "2.2",
-      "mysql" % "mysql-connector-java" % "8.0.15",
-      "org.apache.tomcat" % "tomcat-jdbc" % "9.0.16",
+      "mysql" % "mysql-connector-java" % "8.0.18",
+      "org.apache.tomcat" % "tomcat-jdbc" % "9.0.27",
     )
   )
 
