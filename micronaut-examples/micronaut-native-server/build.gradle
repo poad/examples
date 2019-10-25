@@ -1,5 +1,5 @@
 plugins {
-    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
     id "com.google.cloud.tools.jib" version "0.9.9"
     id "com.github.johnrengelman.shadow" version "4.0.2"
     id "application"
@@ -20,7 +20,7 @@ repositories {
 
 dependencyManagement {
     imports {
-        mavenBom 'io.micronaut:micronaut-bom:1.2.3'
+        mavenBom 'io.micronaut:micronaut-bom:1.2.5'
     }
 }
 

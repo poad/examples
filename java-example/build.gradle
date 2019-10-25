@@ -7,56 +7,56 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 plugins {
-    id "org.flywaydb.flyway" version '5.2.4' apply false
+    id "org.flywaydb.flyway" version '6.0.7' apply false
 }
 
 
 ext {
-    jettyVersionOfDropwizard = '9.4.15.v20190215'
-    jettyVersion = '9.4.15.v20190215'
+    jettyVersionOfDropwizard = '9.4.18.v20190429'
+    jettyVersion = '9.4.22.v20191022'
 
-    dropwizardVersion = '1.3.9'
-    jacksonVersion = '2.9.8'
-    vertxVersion = '3.6.3'
+    dropwizardVersion = '1.3.16'
+    jacksonVersion = '2.10.0'
+    vertxVersion = '3.8.3'
 
-    jdbiVersion = '3.6.0'
-    hikariCpVersion = '3.3.1'
-    h2Version = '1.4.199'
-    mysqlConnectorVersion = '8.0.15'
+    jdbiVersion = '3.10.1'
+    hikariCpVersion = '3.4.1'
+    h2Version = '1.4.200'
+    mysqlConnectorVersion = '8.0.18'
 
     flywayVersion = '5.2.4'
 
-    springBomVersion = '5.1.9.RELEASE'
-    springBootVersion = '2.1.8.RELEASE'
+    springBomVersion = '5.2.0.RELEASE'
+    springBootVersion = '2.2.0.RELEASE'
     springLoadedVersion = '1.2.8.RELEASE'
 
-    eclipseLinkVersion = '2.7.4'
-    transactionApiVersion = '1.2'
+//    eclipseLinkVersion = '2.7.4'
+    transactionApiVersion = '1.3'
 
-    slf4jVersion = '1.7.25'
+    slf4jVersion = '1.7.28'
 
     jaxbApiVersion = '2.3.1'
     p6spyVersion = '3.8.1'
-    tomcatJdbcPoolVersion = '9.0.16'
+    tomcatJdbcPoolVersion = '9.0.27'
 
-    log4jVersion = '2.11.2'
+    log4jVersion = '2.12.1'
 
     dbUnitVersion = '2.6.0'
 
-    cucumberVersion = '4.2.6'
+    cucumberVersion = '4.8.0'
 
-    jerseyVersion = '2.28'
+//    jerseyVersion = '2.28'
 
     junitVersion = '4.12'
     junit4Version        = '4.12'
-    junitVintageVersion  = '5.4.1'
-    junitPlatformVersion = '1.4.1'
-    junitJupiterVersion  = '5.4.1'
+    junitVintageVersion  = '5.5.2'
+    junitPlatformVersion = '1.5.2'
+    junitJupiterVersion  = '5.5.2'
 
-    micronautVersion = '1.0.5'
-    micronautSpringVersion = '1.0.0.RC1'
+    micronautVersion = '1.2.5'
+    micronautSpringVersion = '1.2.5'
 
-    xRayBomVersion = '2.2.1'
+    xRayBomVersion = '2.3.0'
 }
 
 // Apply the java plugin to add support for Java
