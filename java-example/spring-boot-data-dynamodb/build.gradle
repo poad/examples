@@ -1,0 +1,61 @@
+buildscript {
+    ext {
+        set('springBootVersion', "2.2.0.RELEASE")
+    }
+}
+
+plugins {
+	id 'org.springframework.boot' version "${springBootVersion}"
+	id 'org.asciidoctor.convert' version '1.5.8'
+    id 'com.google.cloud.tools.jib' version '1.7.0'
+	id 'java'
+}
+
+group = 'com.github.poad.examples'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+ext {
+	set('snippetsDir', file("build/generated-snippets"))
+	set('springCloudVersion', "Hoxton.RC1")
+    set('awsSdkVersion', "1.11.662")
+    set('springDataDynamoDBVersion', "5.1.0")
+}
+
+dependencies {
+    implementation platform("com.amazonaws:aws-java-sdk-bom:${awsSdkVersion}")
+    implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+
+    implementation "com.github.derjust:spring-data-dynamodb:${springDataDynamoDBVersion}"
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+
+test {
+	outputs.dir snippetsDir
+	useJUnitPlatform()
+}
+
+asciidoctor {
+	inputs.dir snippetsDir
+	dependsOn test
+}
+
+tasks.build.dependsOn tasks.jibDockerBuild
+
+jib.to.image = 'dynamo-front'
+jib.to.credHelper = 'osxkeychain'
+jib.container.environment = [ENV:'dev']
+jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'

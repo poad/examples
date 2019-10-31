@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: App Name
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.aws.autoconfigure.messaging.MessagingAutoConfiguration
+      - org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
+      - org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
+  main:
+    allow-bean-definition-overriding: true
+
+dynamodb:
+  endpoint: "http://172.17.0.1:8000"

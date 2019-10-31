@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: dynamodb
+    ports:
+      - 8000:8000
+    networks:
+      - dynamodb-spring-data
+  frontend:
+    image: dynamo-front
+    container_name: dynamo-front
+    environment:
+      ENV: dev
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_KEY: ${AWS_SECRET_KEY}
+    depends_on:
+      - dynamodb
+    ports:
+      - 8080:8080
+    networks:
+      - dynamodb-spring-data
+networks:
+  dynamodb-spring-data:
+  default:
+    external:
+      name: dynamodb-spring-data
