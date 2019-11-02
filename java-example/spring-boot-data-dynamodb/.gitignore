@@ -30,3 +30,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+dynamodb-data
+!dynamodb-data/.gitkeep

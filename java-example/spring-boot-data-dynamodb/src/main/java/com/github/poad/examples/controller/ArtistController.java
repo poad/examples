@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
-import java.util.stream.Collectors;
+import javax.validation.constraints.NotEmpty;
 
 @RestController
 @RequestMapping(path = "/artist", produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -22,9 +23,8 @@ public class ArtistController {
     }
 
     @GetMapping
-    public List<ArtistResponse> find(@NotBlank String name) {
-        return service.findByName(name).stream()
-                .map(artist -> new ArtistResponse(artist.getName(), artist.getAge()))
-                .collect(Collectors.toList());
+    public ArtistResponse find(@Valid @NotEmpty @NotBlank @RequestParam("name") String name) {
+        ArtistDynamoDBService.Artist artist = service.findByName(name);
+        return new ArtistResponse(artist.getName(), artist.getAge(), artist.getSex());
     }
 }

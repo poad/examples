@@ -2,7 +2,10 @@ version: '3.7'
 services:
   dynamodb:
     image: amazon/dynamodb-local
+    command: -jar DynamoDBLocal.jar -inMemory -sharedDb
     container_name: dynamodb
+    volumes:
+      - "./dynamodb-data:/home/dynamodblocal/data"
     ports:
       - 8000:8000
     networks:
@@ -11,7 +14,7 @@ services:
     image: dynamo-front
     container_name: dynamo-front
     environment:
-      ENV: dev
+      ENV: local
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_KEY: ${AWS_SECRET_KEY}
     depends_on:

@@ -1,15 +1,13 @@
 package com.github.poad.examples.controller;
 
+import com.github.poad.examples.model.SongListResponse;
 import com.github.poad.examples.model.SongResponse;
 import com.github.poad.examples.service.SongDynamoDBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -21,10 +19,16 @@ public class SongController {
         this.service = service;
     }
 
+    @GetMapping("/{artist}/{title}")
+    public SongResponse find(@NotBlank @PathVariable("artist") String artist, @NotBlank @PathVariable("title") String title) {
+        SongDynamoDBService.Song song = service.find(artist, title);
+        return new SongResponse(song.getTitle(), song.getArtist());
+    }
+
     @GetMapping
-    public List<SongResponse> find(@NotBlank String name) {
-        return service.findByTitle(name).stream()
-                .map(song -> new SongResponse(song.getTitle(), song.getArtist()))
-                .collect(Collectors.toList());
+    public SongListResponse list(@NotBlank @RequestParam("artist") String artist) {
+        return new SongListResponse(service.findByArtist(artist).stream()
+                .map(entity -> new SongListResponse.Song(entity.getTitle(), entity.getArtist()))
+                .collect(Collectors.toList()));
     }
 }

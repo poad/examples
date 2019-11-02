@@ -1,13 +1,20 @@
 spring:
   application:
     name: App Name
-  autoconfigure:
-    exclude:
-      - org.springframework.cloud.aws.autoconfigure.messaging.MessagingAutoConfiguration
-      - org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
-      - org.springframework.cloud.aws.autoconfigure.context.ContextRegionProviderAutoConfiguration
-  main:
-    allow-bean-definition-overriding: true
+  profiles:
+    active: "local"
+
+---
+spring:
+  profiles: "local"
 
 dynamodb:
-  endpoint: "http://172.17.0.1:8000"
+  endpoint: "http://localhost:8000"
+  region: ap-northeast-1
+---
+spring:
+  profiles: "compose"
+
+dynamodb:
+  endpoint: "http://dynamodb:8000"
+  region: ap-northeast-1

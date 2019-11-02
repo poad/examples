@@ -32,11 +32,10 @@ dependencies {
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
     implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
 
-    implementation "com.github.derjust:spring-data-dynamodb:${springDataDynamoDBVersion}"
+    implementation 'com.amazonaws:aws-java-sdk-dynamodb'
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.cloud:spring-cloud-starter-aws'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -55,7 +54,9 @@ asciidoctor {
 
 tasks.build.dependsOn tasks.jibDockerBuild
 
+jib.from.image = 'mcr.microsoft.com/java/jre-headless:11u5-zulu-alpine'
 jib.to.image = 'dynamo-front'
 jib.to.credHelper = 'osxkeychain'
-jib.container.environment = [ENV:'dev']
+jib.container.environment = [ENV:'local']
 jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
+jib.container.jvmFlags = [ '-Dspring.profiles.active=compose' ]
