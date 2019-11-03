@@ -15,8 +15,8 @@ services:
     container_name: dynamo-front
     environment:
       ENV: local
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_KEY: ${AWS_SECRET_KEY}
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_KEY: test
     depends_on:
       - dynamodb
     ports:
