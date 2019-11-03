@@ -25,8 +25,8 @@ public class SongController {
         return new SongResponse(song.getTitle(), song.getArtist());
     }
 
-    @GetMapping
-    public SongListResponse list(@NotBlank @RequestParam("artist") String artist) {
+    @GetMapping("/{artist}")
+    public SongListResponse list(@NotBlank @PathVariable("artist") String artist) {
         return new SongListResponse(service.findByArtist(artist).stream()
                 .map(entity -> new SongListResponse.Song(entity.getTitle(), entity.getArtist()))
                 .collect(Collectors.toList()));
