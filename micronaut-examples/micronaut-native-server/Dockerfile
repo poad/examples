@@ -1,4 +1,4 @@
-FROM oracle/graalvm-ce:19.3.0 as graalvm
+FROM oracle/graalvm-ce:19.3.0-java11 as graalvm
 RUN gu install native-image
 COPY . /home/app/micronaut-server
 WORKDIR /home/app/micronaut-server
