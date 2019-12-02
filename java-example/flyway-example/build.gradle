@@ -22,7 +22,6 @@ buildscript {
 // Apply the java plugin to add support for Java
 apply plugin: 'org.flywaydb.flyway'
 apply plugin: 'java'
-apply plugin: 'idea'
 
 
 

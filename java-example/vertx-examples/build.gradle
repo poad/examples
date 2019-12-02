@@ -9,7 +9,6 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-apply plugin: 'idea'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -20,11 +19,11 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile 'io.vertx:vertx-rx:' + vertxVersion
-    compile 'io.vertx:vertx-core:' + vertxVersion
+    implementation 'io.vertx:vertx-rx:' + vertxVersion
+    implementation 'io.vertx:vertx-core:' + vertxVersion
 
-    compile 'org.slf4j:slf4j-simple:' + slf4jVersion
-    compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
+    implementation 'org.slf4j:slf4j-simple:' + slf4jVersion
+    implementation 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 
-    testCompile 'junit:junit:' + junitVersion
+    testImplementation 'junit:junit:' + junitVersion
 }

@@ -26,26 +26,26 @@ buildscript {
 
 tasks.withType(JavaCompile) {
     doFirst {
-        sourceCompatibility = 8
-        targetCompatibility = 8
+        sourceCompatibility = 11
+        targetCompatibility = 11
     }
 }
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    // The production code uses the SLF4J logging API at compile time
+    // The production code uses the SLF4J logging API at implementation time
     // https://mvnrepository.com/artifact/com.github.docker-java/docker-java
-    compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
+    implementation 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 
-    compile "org.jdbi:jdbi3-core:${jdbiVersion}"
-    compile "org.jdbi:jdbi3-sqlobject:${jdbiVersion}"
-    compile "org.jdbi:jdbi3-vavr:${jdbiVersion}"
-    compile "org.jdbi:jdbi3-guava:${jdbiVersion}"
-    compile "org.jdbi:jdbi3-jodatime2:${jdbiVersion}"
+    implementation "org.jdbi:jdbi3-core:${jdbiVersion}"
+    implementation "org.jdbi:jdbi3-sqlobject:${jdbiVersion}"
+    implementation "org.jdbi:jdbi3-vavr:${jdbiVersion}"
+    implementation "org.jdbi:jdbi3-guava:${jdbiVersion}"
+    implementation "org.jdbi:jdbi3-jodatime2:${jdbiVersion}"
 
-    compile 'com.zaxxer:HikariCP:' + hikariCpVersion
-    compile 'mysql:mysql-connector-java:' + mysqlConnectorVersion
-    runtime 'com.h2database:h2:' + h2Version
+    implementation 'com.zaxxer:HikariCP:' + hikariCpVersion
+    implementation 'mysql:mysql-connector-java:' + mysqlConnectorVersion
+    runtimeOnly 'com.h2database:h2:' + h2Version
 
 }
 

@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        set('springBootVersion', "2.2.0.RELEASE")
+        set('springBootVersion', "2.2.1.RELEASE")
     }
 }
 
@@ -23,8 +23,7 @@ repositories {
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
 	set('springCloudVersion', "Hoxton.RC1")
-    set('awsSdkVersion', "1.11.662")
-    set('springDataDynamoDBVersion', "5.1.0")
+    set('awsSdkVersion', "1.11.683")
 }
 
 dependencies {
