@@ -9,7 +9,6 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-apply plugin: 'idea'
 buildscript {
     repositories {
         mavenCentral()
@@ -21,8 +20,8 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-sourceCompatibility = '8'
-targetCompatibility = '8'
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -35,19 +34,19 @@ repositories {
 dependencies {
     implementation platform('org.springframework:spring-framework-bom:' + springBomVersion)
 
-    compile ('org.springframework.boot:spring-boot-starter-jersey') {
+    implementation ('org.springframework.boot:spring-boot-starter-jersey') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
-    compile 'org.springframework.boot:spring-boot-starter-jetty'
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile 'org.springframework:springloaded:' + springLoadedVersion
+    implementation 'org.springframework.boot:spring-boot-starter-jetty'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation 'org.springframework:springloaded:' + springLoadedVersion
 
-    compile 'javax.transaction:javax.transaction-api:' + transactionApiVersion
-    compile 'javax.xml.bind:jaxb-api:' + jaxbApiVersion
-    compile 'com.fasterxml.jackson.datatype:jackson-datatype-joda:' + jacksonVersion
+    implementation 'javax.transaction:javax.transaction-api:' + transactionApiVersion
+    implementation 'javax.xml.bind:jaxb-api:' + jaxbApiVersion
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:' + jacksonVersion
 
-    runtime 'p6spy:p6spy:' + p6spyVersion
-    runtime 'com.h2database:h2:' + h2Version
-    runtime("org.springframework.boot:spring-boot-properties-migrator")
+    runtimeOnly 'p6spy:p6spy:' + p6spyVersion
+    runtimeOnly 'com.h2database:h2:' + h2Version
+    runtimeOnly("org.springframework.boot:spring-boot-properties-migrator")
 }

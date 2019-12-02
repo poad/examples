@@ -1,8 +1,7 @@
 apply plugin: 'java'
-apply plugin: 'idea'
 
-sourceCompatibility = 8
-targetCompatibility = 8
+sourceCompatibility = 11
+targetCompatibility = 11
 version = '0.0.1'
 
 repositories {
@@ -72,8 +71,8 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 
 tasks.withType(JavaCompile) {
     doFirst {
-        sourceCompatibility = 8
-        targetCompatibility = 8
+        sourceCompatibility = 11
+        targetCompatibility = 11
     }
 }
 
@@ -84,11 +83,11 @@ task jars {
 
 
 dependencies {
-    compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion
-    compile 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
-    compile 'io.dropwizard:dropwizard-client:' + dropwizardVersion
+    implementation 'io.dropwizard:dropwizard-core:' + dropwizardVersion
+    implementation 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+    implementation 'io.dropwizard:dropwizard-client:' + dropwizardVersion
 
-    compile 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
+    implementation 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
 }
 
 test {

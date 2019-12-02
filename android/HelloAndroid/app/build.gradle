@@ -50,24 +50,24 @@ buildscript {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('androidx.test.espresso:espresso-core:3.2.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile "com.android.support:appcompat-v7:28.+"
-    compile "com.android.support.constraint:constraint-layout:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:28.+"
+    implementation "com.android.support.constraint:constraint-layout:+"
 
-    compile 'io.reactivex.rxjava2:rxandroid:2.2.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.2.13'
-    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    compile "com.google.code.gson:gson:2.8.5"
-    compile "com.squareup.okhttp3:logging-interceptor:3.10.0"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.2.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.google.code.gson:gson:2.8.5"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testCompile "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    testCompile "org.junit.vintage:junit-vintage-engine:$junit4Version"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testImplementation "org.junit.vintage:junit-vintage-engine:$junit4Version"
 }

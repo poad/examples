@@ -80,23 +80,23 @@ subprojects {
 
     apply plugin: 'java'
 
-    sourceCompatibility = 8
-    targetCompatibility = 8
+    sourceCompatibility = 11
+    targetCompatibility = 11
 
     dependencies {
-        compile "org.slf4j:slf4j-api:${slf4jVersion}"
+        implementation "org.slf4j:slf4j-api:${slf4jVersion}"
 
         // JUnit Jupiter API and TestEngine implementation
-        testCompile "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
-        testRuntime "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
 
         // If you also want to support JUnit 3 and JUnit 4 tests
 
-        testRuntime "org.apache.logging.log4j:log4j-core:${log4jVersion}"
-        testRuntime "org.apache.logging.log4j:log4j-jul:${log4jVersion}"
+        testRuntimeOnly "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+        testRuntimeOnly "org.apache.logging.log4j:log4j-jul:${log4jVersion}"
 
         // Only needed to run tests in an (IntelliJ) IDE(A) that bundles an older version
-        testRuntime "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
+        testRuntimeOnly "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
     }
 
     test {

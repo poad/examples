@@ -9,7 +9,6 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-apply plugin: 'idea'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -20,15 +19,15 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile 'org.slf4j:slf4j-api:' + slf4jVersion
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:' + jacksonVersion
-    compile 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
+    implementation 'org.slf4j:slf4j-api:' + slf4jVersion
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:' + jacksonVersion
+    implementation 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
 
-    runtime 'com.h2database:h2:' + h2Version
+    runtimeOnly 'com.h2database:h2:' + h2Version
 
-    testCompile 'com.zaxxer:HikariCP:' + hikariCpVersion
+    testImplementation 'com.zaxxer:HikariCP:' + hikariCpVersion
 
-    testCompile 'org.flywaydb:flyway-core:' + flywayVersion
+    testImplementation 'org.flywaydb:flyway-core:' + flywayVersion
 
-    testCompile 'org.dbunit:dbunit:' + dbUnitVersion
+    testImplementation 'org.dbunit:dbunit:' + dbUnitVersion
 }
