@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.2.1.RELEASE'
+        springBootVersion = '2.2.2.RELEASE'
         kuromojiVersion = '0.9.0'
     }
     repositories {
@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.8.0"
+        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.8.1"
         classpath "org.asciidoctor:asciidoctor-gradle-jvm:2.3.0"
     }
 }

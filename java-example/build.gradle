@@ -34,7 +34,7 @@ ext {
 
     slf4jVersion = '1.7.28'
 
-    jaxbApiVersion = '2.3.1'
+    jaxbApiVersion = '2.3.2'
     p6spyVersion = '3.8.1'
     tomcatJdbcPoolVersion = '9.0.27'
 
@@ -48,8 +48,8 @@ ext {
     junitPlatformVersion = '1.5.2'
     junitJupiterVersion  = '5.5.2'
 
-    micronautVersion = '1.2.5'
-    micronautSpringVersion = '1.2.5'
+    micronautVersion = '1.2.7'
+    micronautSpringVersion = '1.2.7'
 
     xRayBomVersion = '2.3.0'
 }

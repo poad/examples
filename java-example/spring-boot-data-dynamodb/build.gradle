@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        set('springBootVersion', "2.2.1.RELEASE")
+        set('springBootVersion', "2.2.2.RELEASE")
     }
 }
 

@@ -1,7 +1,5 @@
 apply plugin: 'java'
 
-sourceCompatibility = 11
-targetCompatibility = 11
 version = '0.0.1'
 
 repositories {
@@ -39,7 +37,7 @@ test {
 
 // Source Jar
 task sourceJar(type: Jar, dependsOn: classes) {
-    classifier = "sources"
+    getArchiveClassifier().set("sources")
     from sourceSets.main.allSource
 
     version             = project.version
@@ -55,7 +53,7 @@ task sourceJar(type: Jar, dependsOn: classes) {
 
 // JavaDoc Jar
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = "javadoc"
+    getArchiveClassifier().set("javadoc")
     from javadoc.destinationDir
 
     version             = project.version
@@ -69,12 +67,9 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     }
 }
 
-tasks.withType(JavaCompile) {
-    doFirst {
-        sourceCompatibility = 11
-        targetCompatibility = 11
-    }
-}
+
+sourceCompatibility = 11
+targetCompatibility = 11
 
 // Make all Jars
 task jars {

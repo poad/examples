@@ -43,7 +43,7 @@ dependencies {
     implementation 'org.springframework:springloaded:' + springLoadedVersion
 
     implementation 'javax.transaction:javax.transaction-api:' + transactionApiVersion
-    implementation 'javax.xml.bind:jaxb-api:' + jaxbApiVersion
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:' + jaxbApiVersion
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:' + jacksonVersion
 
     runtimeOnly 'p6spy:p6spy:' + p6spyVersion
