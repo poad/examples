@@ -1,7 +1,6 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "5.0.0"
+    id "com.github.johnrengelman.shadow" version "5.2.0"
     id "application"
-    id "net.ltgt.apt-eclipse" version "0.21"
 }
 
 
@@ -60,7 +59,8 @@ shadowJar {
 
 run.classpath += configurations.developmentOnly
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
-tasks.withType(JavaCompile){
+
+compileJava {
     options.encoding = "UTF-8"
     options.compilerArgs.add('-parameters')
 }

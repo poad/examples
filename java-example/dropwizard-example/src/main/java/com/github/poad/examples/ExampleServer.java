@@ -9,8 +9,7 @@ import com.github.poad.examples.impl.EchoImpl;
 public class ExampleServer extends Application<Configuration> {
 
     @Override
-    public void run(Configuration configuration, Environment environment)
-            throws Exception {
+    public void run(Configuration configuration, Environment environment) {
         environment.jersey().packages("com.github.poad.examples.impl");
         environment.jersey().register(EchoImpl.class);
     }

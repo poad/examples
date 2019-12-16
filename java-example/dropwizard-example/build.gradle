@@ -1,7 +1,5 @@
 apply plugin: 'java'
 
-sourceCompatibility = 11
-targetCompatibility = 11
 version = '0.0.1'
 
 repositories {
@@ -11,7 +9,7 @@ repositories {
 defaultTasks 'clean', 'test', 'jars'
 
 jar {
-    version             = project.version
+    archiveVersion.set(project.version as String)
     manifest {
         attributes(
             "Implementation-Title"      : project.name,
@@ -39,10 +37,10 @@ test {
 
 // Source Jar
 task sourceJar(type: Jar, dependsOn: classes) {
-    classifier = "sources"
+    getArchiveClassifier().set("sources")
     from sourceSets.main.allSource
 
-    version             = project.version
+    archiveVersion.set(project.version as String)
     manifest {
         attributes(
             "Implementation-Title"      : project.name,
@@ -55,10 +53,10 @@ task sourceJar(type: Jar, dependsOn: classes) {
 
 // JavaDoc Jar
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = "javadoc"
+    getArchiveClassifier().set("javadoc")
     from javadoc.destinationDir
 
-    version             = project.version
+    archiveVersion.set(project.version as String)
     manifest {
         attributes(
             "Implementation-Title"      : project.name,
@@ -69,12 +67,9 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     }
 }
 
-tasks.withType(JavaCompile) {
-    doFirst {
-        sourceCompatibility = 11
-        targetCompatibility = 11
-    }
-}
+
+sourceCompatibility = 11
+targetCompatibility = 11
 
 // Make all Jars
 task jars {
@@ -83,11 +78,20 @@ task jars {
 
 
 dependencies {
-    implementation 'io.dropwizard:dropwizard-core:' + dropwizardVersion
-    implementation 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+    implementation platform("io.dropwizard:dropwizard-bom:${dropwizardVersion}")
+    implementation 'io.dropwizard:dropwizard-core'
     implementation 'io.dropwizard:dropwizard-client:' + dropwizardVersion
 
     implementation 'org.slf4j:jcl-over-slf4j:' + slf4jVersion
+
+    testImplementation('io.dropwizard:dropwizard-testing') {
+        exclude group: 'junit', module: 'junit'
+    }
+    testImplementation platform("org.glassfish.jersey:jersey-bom:${jerseyVersion}")
+    testImplementation('org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2') {
+        exclude group: 'javax.servlet', module: 'javax.servlet-api'
+        exclude group: 'junit', module: 'junit'
+    }
 }
 
 test {
