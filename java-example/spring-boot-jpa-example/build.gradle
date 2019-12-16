@@ -32,8 +32,6 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    implementation platform('org.springframework:spring-framework-bom:' + springBomVersion)
-
     implementation ('org.springframework.boot:spring-boot-starter-jersey') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }

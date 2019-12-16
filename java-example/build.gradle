@@ -7,36 +7,37 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 plugins {
-    id "org.flywaydb.flyway" version '6.0.7' apply false
+    id "org.flywaydb.flyway" version '6.1.1' apply false
 }
 
 
 ext {
-    jettyVersionOfDropwizard = '9.4.18.v20190429'
-    jettyVersion = '9.4.22.v20191022'
+    jettyVersionOfDropwizard = '9.4.24.v20191120'
+    jettyVersion = '9.4.24.v20191120'
 
-    dropwizardVersion = '1.3.16'
-    jacksonVersion = '2.10.0'
-    vertxVersion = '3.8.3'
+    dropwizardVersion = '2.0.0'
+    jerseyVersion = '2.29.1'
+    jacksonVersion = '2.10.1'
+    vertxVersion = '3.8.4'
 
-    jdbiVersion = '3.10.1'
+    jdbiVersion = '3.11.1'
     hikariCpVersion = '3.4.1'
     h2Version = '1.4.200'
     mysqlConnectorVersion = '8.0.18'
 
-    flywayVersion = '5.2.4'
+    flywayVersion = '6.1.1'
 
-    springBomVersion = '5.2.1.RELEASE'
-    springBootVersion = '2.2.1.RELEASE'
+    springBomVersion = '5.2.2.RELEASE'
+    springBootVersion = '2.2.2.RELEASE'
     springLoadedVersion = '1.2.8.RELEASE'
 
     transactionApiVersion = '1.3'
 
-    slf4jVersion = '1.7.28'
+    slf4jVersion = '1.7.29'
 
     jaxbApiVersion = '2.3.2'
-    p6spyVersion = '3.8.1'
-    tomcatJdbcPoolVersion = '9.0.27'
+    p6spyVersion = '3.8.6'
+    tomcatJdbcPoolVersion = '9.0.30'
 
     log4jVersion = '2.12.1'
 
@@ -51,11 +52,8 @@ ext {
     micronautVersion = '1.2.7'
     micronautSpringVersion = '1.2.7'
 
-    xRayBomVersion = '2.3.0'
+    xRayBomVersion = '2.4.0'
 }
-
-// Apply the java plugin to add support for Java
-apply plugin: 'idea'
 
 group = 'com.github.poad'
 

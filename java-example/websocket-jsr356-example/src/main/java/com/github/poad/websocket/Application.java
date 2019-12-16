@@ -50,11 +50,9 @@ public abstract class Application<T extends Configuration> {
         context.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         // Initialize the JSR-356 layer
-        ServerContainer container = WebSocketServerContainerInitializer
-                .configureContext(context);
-
-        // TODO ここ、DIで行きたい
-        container.addEndpoint(Hello.class);
+        WebSocketServerContainerInitializer.configure(context, (servletContext, serverContainer) -> {
+            serverContainer.addEndpoint(Hello.class);
+        });
         return server;
     }
 

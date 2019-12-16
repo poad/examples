@@ -23,11 +23,8 @@ public class H2DbTest extends CsvDbUnitSupport {
 
 		System.out.println(config.getDataSourceClassName());
 
-		// Create the Flyway instance
-		Flyway flyway = new Flyway();
-
 		// Point it to the database
-		flyway.setDataSource(config.getUrl(), config.getUser(), config.getPassword());
+        Flyway flyway = Flyway.configure().dataSource(config.getUrl(), config.getUser(), config.getPassword()).load();
 
 		// Start the migration
 		flyway.migrate();
