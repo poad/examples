@@ -4,31 +4,30 @@
     "module": "esnext",
     "moduleResolution": "node",
     "lib": [
-        "esnext",
-        "esnext.asynciterable",
-        "dom"
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
     ],
-    "strict": true,
     "esModuleInterop": true,
     "allowJs": true,
     "sourceMap": true,
+    "strict": true,
     "noEmit": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-        "~/*": [
-            "./*"
-        ],
-        "@/*": [
-            "./*"
-        ]
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     },
     "types": [
-        "@types/node",
-        "@nuxt/types"
-    ],
-    "forceConsistentCasingInFileNames": true
+      "@types/node",
+      "@nuxt/types"
+    ]
   },
   "exclude": [
-      "node_modules"
+    "node_modules"
   ]
 }

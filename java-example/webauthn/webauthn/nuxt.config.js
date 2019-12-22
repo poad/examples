@@ -40,9 +40,31 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/proxy'
   ],
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+    credentials: true,
+    proxy: true
+  },
+  proxy: {
+    '/attestation/options': 'http://localhost:8080'
+  },
+  typescript: {
+    typeCheck: {
+      eslint: false
+    }
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js', '.css', '.html' ],
+  },
+  srcDir: 'src',
   /*
    ** Build configuration
    */
@@ -50,14 +72,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  },
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-    credentials: true,
-    proxy: true
-  },
-  proxy: {
-    
+    extend(config, ctx) { }
   }
 }
