@@ -17,11 +17,11 @@ export default {
     },
     options() {
       axios
-        .post('http://localhost:3000/attestation/options', {
+        .post('/attestation/options', {
           email: this.email
         })
         .then((res) => {
-          const credential = this.createCredential(res.data);
+          return this.createCredential(res.data);
         });
     },
     createCredential(options) {
@@ -37,6 +37,19 @@ export default {
       return navigator.credentials.create({
         'publicKey': options
       });
+    },
+    registerFinish(credential){
+      axios.post('/attestation/result', {
+        'clientDataJSON': this.arrayBufferToBase64(
+          credential.response.clientDataJSON
+        ),
+        'attestationObject': arrayBufferToBase64(
+          credential.response.attestationObject
+        )}
+      )
+      .then((res) => {
+        return res.data;
+      })
     },
     stringToArrayBuffer(string) {
         return new TextEncoder().encode(string);

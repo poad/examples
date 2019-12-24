@@ -65,6 +65,9 @@ export default {
     extensions: [ '.tsx', '.ts', '.js', '.css', '.html' ],
   },
   srcDir: 'src',
+  server: {
+    host: '0.0.0.0'
+  },
   /*
    ** Build configuration
    */
