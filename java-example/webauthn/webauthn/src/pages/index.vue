@@ -1,64 +1,98 @@
 <template>
-  <div class="container">
-    <div>
-      <input id="email" v-model="email" type="text" />
-      <button type="button" @click="register">登録</button>
-    </div>
-  </div>
+  <v-container>
+    <v-form ref="form" v-model="valid" :lazy-validation="lazy">
+      <v-row>
+        <v-col cols="24">
+          <v-text-field
+            id="displayName"
+            v-model="displayName"
+            label="user name"
+            clearable="true"
+            required
+          />
+          <v-text-field
+            id="email"
+            v-model="email"
+            label="e-mail"
+            clearable="true"
+            required
+          />
+          <v-btn color="primary" @click="register">
+            登録
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="24" sm="12">
+          <v-alert v-show="!!status" :type="status" light="true">
+            {{ message }}
+          </v-alert>
+        </v-col>
+      </v-row>
+    </v-form>
+    <v-overlay :value="overlay">
+      <v-progress-linear
+        :active="active"
+        :background-opacity="opacity"
+        :buffer-value="buffer"
+        :indeterminate="indeterminate"
+        :value="100"
+        color="primary"
+      />
+    </v-overlay>
+  </v-container>
 </template>
 
-<script lang="es2018">
-import axios from 'axios'
+<script lang="ts">
+import { Vue, Component, Emit } from 'vue-property-decorator'
 
-export default {
-  methods: {
-    register() {
-      this.options()
-    },
-    options() {
-      axios
-        .post('/attestation/options', {
-          email: this.email
-        })
-        .then((res) => {
-          return this.createCredential(res.data);
-        });
-    },
-    createCredential(options) {
-    options.challenge = this.stringToArrayBuffer(options.challenge.value);
-    options.user.id = this.stringToArrayBuffer(options.user.id);
-    options.excludeCredentials =
-        options.excludeCredentials
-            .map(credential => Object.assign({},
-                credential, {
-                    id: this.base64ToArrayBuffer(credential.id),
-                }));
-      
-      return navigator.credentials.create({
-        'publicKey': options
-      });
-    },
-    registerFinish(credential){
-      axios.post('/attestation/result', {
-        'clientDataJSON': this.arrayBufferToBase64(
-          credential.response.clientDataJSON
-        ),
-        'attestationObject': arrayBufferToBase64(
-          credential.response.attestationObject
-        )}
+@Component
+export default class WebAuthn extends Vue {
+   displayName: string = ''
+   email: string = ''
+   status: string = ''
+   message: string = ''
+   overlay: Boolean = false
+
+   absolute: Boolean = false
+   active: Boolean = true
+   opacity: number = 0.3
+   bottom: Boolean = false
+   buffer: number = 100
+   fixed: Boolean = true
+   height: number = 4
+   indeterminate: Boolean = true
+   query: Boolean = false
+   rounded: Boolean = false
+   stream: Boolean = false
+   striped: Boolean = false
+   top: Boolean = false
+   value: number = 100
+
+  @Emit()
+  async register() {
+    try {
+      if (!window.PublicKeyCredential) {
+        this.status = 'error'
+        this.message = '未対応のブラウザです'
+        this.overlay = false
+        return
+      }
+      const options = await this.$attestationOptions(
+        this.email,
+        this.displayName
       )
-      .then((res) => {
-        return res.data;
-      })
-    },
-    stringToArrayBuffer(string) {
-        return new TextEncoder().encode(string);
-    },
-    base64ToArrayBuffer(base64String) {
-        return Uint8Array.from(atob(base64String), c => c.charCodeAt(0));
-    },
-    arrayBufferToBase64(arrayBuffer) {
-        return btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+      this.status = ''
+      this.overlay = true
+
+      const credential = await this.$createCredential(options)
+      const ret = await this.$registerFinish(credential)
+      this.overlay = false
+      return ret
+    } catch (error) {
+      this.status = 'error'
+      this.message = error
+      this.overlay = false
     }
   }
 }

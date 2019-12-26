@@ -153,7 +153,7 @@ public class WebAuthnRegistrationService {
         var userId = new byte[32];
         new SecureRandom().nextBytes(userId);
 
-        return new User(userId, email);
+        return new User(userId, email, displayName);
     }
 
 
