@@ -12,7 +12,4 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, byte[]> {
     @Query(nativeQuery = true, value = "SELECT * FROM user WHERE email = :email")
     Optional<User> find(@Param("email") String email);
-
-    @Query(nativeQuery = true, value = "INSERT INTO user VALUES (#{#user.id}, #{#user.email})")
-     void insert(User user);
 }

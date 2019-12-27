@@ -4,9 +4,6 @@ module.exports = {
     browser: true,
     node: true
   },
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
   extends: [
     '@nuxtjs',
     'prettier',
@@ -20,5 +17,8 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'vue/html-closing-bracket-newline': 'off',
+    'vue/html-self-closing': 'off',
+    'space-before-function-paren': 0
   }
 }

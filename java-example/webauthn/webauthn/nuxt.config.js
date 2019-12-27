@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -40,7 +40,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxt/typescript-build',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
   /*
    ** Nuxt.js modules
@@ -57,7 +57,10 @@ export default {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
     credentials: true,
-    proxy: true
+    proxy: true,
+    headers: {
+      'Content-Type':'application/json'
+    }
   },
   /*
    ** vuetify module configuration
@@ -89,7 +92,9 @@ export default {
   },
   proxy: {
     '/attestation/options': 'http://localhost:8080',
-    '/attestation/result': 'http://localhost:8080'
+    '/attestation/result': 'http://localhost:8080',
+    '/assertion/options': 'http://localhost:8080',
+    '/assertion/result': 'http://localhost:8080'
   },
   typescript: {
     typeCheck: {

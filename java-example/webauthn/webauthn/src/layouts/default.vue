@@ -49,9 +49,13 @@
 </template>
 
 <script lang="ts">
-import { Item } from '~/types/item'
-
 import { Vue, Component } from 'vue-property-decorator'
+
+export interface Item {
+  icon: string
+  title: string
+  to: string
+}
 
 @Component
 export default class DefaultLayout extends Vue {
@@ -59,12 +63,13 @@ export default class DefaultLayout extends Vue {
   drawer: Boolean = false
   fixed: Boolean = false
   items: Array<Item> = [
-      {
-        icon: 'mdi-apps',
-        title: 'Welcome',
-        to: '/'
-      }
-    ]
+    {
+      icon: 'mdi-apps',
+      title: 'Welcome',
+      to: '/'
+    }
+  ]
+
   miniVariant: Boolean = false
   right: Boolean = true
   rightDrawer: Boolean = false

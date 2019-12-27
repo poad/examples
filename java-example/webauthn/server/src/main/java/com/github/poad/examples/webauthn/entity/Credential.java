@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Immutable
 public class Credential {
     @Id
-    @Column(columnDefinition="VARBINARY(255)")
+    @Column(name = "credential_id", columnDefinition="VARBINARY(255)")
     private final byte[] credentialId;
 
     @ManyToOne(fetch = FetchType.LAZY)
