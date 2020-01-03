@@ -37,7 +37,7 @@ public class RegistrationController {
         private final String displayName;
 
 
-        // for deserialisation
+        // for deserialization
         AttestationOptionsParam() {
             this(null, null);
         }
@@ -62,7 +62,7 @@ public class RegistrationController {
         @JsonProperty("attestationObject")
         private final byte[] attestationObject;
 
-        // for deserialisation
+        // for deserialization
         AttestationResultParam() {
             this(null, null);
         }

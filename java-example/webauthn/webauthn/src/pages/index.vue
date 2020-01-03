@@ -46,6 +46,7 @@ export default class Auth extends Vue {
   email: string = ''
   status: string = ''
   message: string = ''
+  auth: Boolean = false
 
   @Emit()
   async authentication() {

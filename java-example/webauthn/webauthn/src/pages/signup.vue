@@ -53,6 +53,7 @@ export default class WebAuthn extends Vue {
   email: string = ''
   status: string = ''
   message: string = ''
+  auth: Boolean = false
 
   @Emit()
   async register() {

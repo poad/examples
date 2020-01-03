@@ -25,7 +25,7 @@ public class AuthenticationController {
         @JsonProperty("email")
         private final String email;
 
-        // for deserialisation
+        // for deserialization
         private AssertionOptionsParam() {
             this(null);
         }
@@ -69,7 +69,7 @@ public class AuthenticationController {
         @JsonProperty("userHandle")
         private final byte[] userHandle;
 
-        // for deserialisation
+        // for deserialization
         private AuthenticationResultParam() {
             this(null, null, null, null, null);
         }

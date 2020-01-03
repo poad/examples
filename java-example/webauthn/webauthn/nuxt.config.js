@@ -33,6 +33,9 @@ export default {
   plugins: [
     { src: '~/plugins/web-authn-client.ts', mode: 'client' }
   ],
+  router: {
+    middleware: ['auth']
+  },
   /*
    ** Nuxt.js dev-modules
    */
