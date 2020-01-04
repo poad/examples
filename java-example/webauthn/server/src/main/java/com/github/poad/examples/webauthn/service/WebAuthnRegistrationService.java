@@ -2,10 +2,10 @@ package com.github.poad.examples.webauthn.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.poad.examples.webauthn.config.WebAuthnConfig;
-import com.github.poad.examples.webauthn.entity.Credential;
-import com.github.poad.examples.webauthn.entity.User;
-import com.github.poad.examples.webauthn.repository.CredentialRepository;
-import com.github.poad.examples.webauthn.repository.UserRepository;
+import com.github.poad.examples.webauthn.entity.WebAuthnCredential;
+import com.github.poad.examples.webauthn.entity.WebAuthnUser;
+import com.github.poad.examples.webauthn.repository.WebAuthnCredentialRepository;
+import com.github.poad.examples.webauthn.repository.WebAuthnUserRepository;
 import com.webauthn4j.WebAuthnManager;
 import com.webauthn4j.converter.util.ObjectConverter;
 import com.webauthn4j.data.*;
@@ -26,17 +26,17 @@ import java.util.stream.Collectors;
 @Service
 public class WebAuthnRegistrationService {
 
-    private final UserRepository userRepository;
-    private final CredentialRepository credentialRepository;
+    private final WebAuthnUserRepository userRepository;
+    private final WebAuthnCredentialRepository credentialRepository;
     private final WebAuthnConfig config;
 
-    public WebAuthnRegistrationService(UserRepository userRepository, CredentialRepository credentialRepository, WebAuthnConfig config) {
+    public WebAuthnRegistrationService(WebAuthnUserRepository userRepository, WebAuthnCredentialRepository credentialRepository, WebAuthnConfig config) {
         this.userRepository = userRepository;
         this.credentialRepository = credentialRepository;
         this.config = config;
     }
 
-    public PublicKeyCredentialCreationOptions creationOptions(User user) {
+    public PublicKeyCredentialCreationOptions creationOptions(WebAuthnUser user) {
         var rpId = config.getRp().getId();
         var rpName = config.getRp().getName();
 
@@ -73,10 +73,11 @@ public class WebAuthnRegistrationService {
         ).collect(Collectors.toList());
 
         var authenticatorAttachment = AuthenticatorAttachment.CROSS_PLATFORM;
+        var requireResidentKey = false;
         var userVerification = UserVerificationRequirement.DISCOURAGED;
         var authenticatorSelection = new AuthenticatorSelectionCriteria(
                 authenticatorAttachment,
-                false,
+                requireResidentKey,
                 userVerification);
 
         var attestation = AttestationConveyancePreference.NONE;
@@ -100,13 +101,13 @@ public class WebAuthnRegistrationService {
         );
     }
 
-    public User findOrElseCreate(String email, String displayName) {
+    public WebAuthnUser findOrElseCreate(String email, String displayName) {
         return userRepository.find(email)
                 .orElseGet(() -> createUser(email, displayName));
     }
 
     public void creationFinish(
-            User user,
+            WebAuthnUser user,
             Challenge challenge,
             byte[] clientDataJSON,
             byte[] attestationObject,
@@ -162,16 +163,16 @@ public class WebAuthnRegistrationService {
 
         var authenticatorBin = converter.getCborConverter().writeValueAsBytes(authenticator);
 
-        var credential = new Credential(credentialId, user, authenticatorBin, signatureCounter);
+        var credential = new WebAuthnCredential(credentialId, user, authenticatorBin, signatureCounter);
 
         credentialRepository.save(credential);
     }
 
-    private User createUser(String email, String displayName) {
+    private WebAuthnUser createUser(String email, String displayName) {
         var userId = new byte[32];
         new SecureRandom().nextBytes(userId);
 
-        return new User(userId, email, displayName, Collections.emptyList());
+        return new WebAuthnUser(userId, email, displayName, Collections.emptyList());
     }
 
 

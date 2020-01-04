@@ -3,7 +3,7 @@ package com.github.poad.examples.webauthn.controller;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.poad.examples.webauthn.entity.User;
+import com.github.poad.examples.webauthn.entity.WebAuthnUser;
 import com.github.poad.examples.webauthn.service.WebAuthnRegistrationService;
 import com.webauthn4j.data.PublicKeyCredentialCreationOptions;
 import com.webauthn4j.data.client.challenge.Challenge;
@@ -24,11 +24,11 @@ import javax.validation.constraints.Size;
 @RestController
 @RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-public class RegistrationController {
+public class WebAuthnRegistrationController {
 
     private final WebAuthnRegistrationService webAuthnService;
 
-    public RegistrationController(WebAuthnRegistrationService webAuthnService) {
+    public WebAuthnRegistrationController(WebAuthnRegistrationService webAuthnService) {
         this.webAuthnService = webAuthnService;
     }
 
@@ -93,7 +93,7 @@ public class RegistrationController {
     public void postAttestationOptions(@RequestBody AttestationResultParam params, HttpServletRequest httpRequest) throws JsonProcessingException {
         var httpSession = httpRequest.getSession();
         var challenge = (Challenge) httpSession.getAttribute("attestationChallenge");
-        var user = (User) httpSession.getAttribute("attentionUser");
+        var user = (WebAuthnUser) httpSession.getAttribute("attentionUser");
 
         webAuthnService.creationFinish(user, challenge, params.clientDataJSON, params.attestationObject, params.clientExtensionsJSON);
     }

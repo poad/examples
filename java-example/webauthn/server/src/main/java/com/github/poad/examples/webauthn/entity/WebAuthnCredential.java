@@ -7,14 +7,14 @@ import javax.persistence.*;
 @Table
 @Entity
 @Immutable
-public class Credential {
+public class WebAuthnCredential {
     @Id
     @Column(name = "credential_id", columnDefinition="VARBINARY(255)")
     private final byte[] credentialId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private final User user;
+    private final WebAuthnUser user;
 
     @Lob
     @Column(nullable = false)
@@ -23,11 +23,11 @@ public class Credential {
     @Column(nullable = false)
     private final Long signatureCounter;
 
-    public Credential() {
+    public WebAuthnCredential() {
         this(null, null, null, null);
     }
 
-    public Credential(byte[] credentialId, User user, byte[] publicKey, Long signatureCounter) {
+    public WebAuthnCredential(byte[] credentialId, WebAuthnUser user, byte[] publicKey, Long signatureCounter) {
         this.credentialId = credentialId;
         this.user = user;
         this.publicKey = publicKey;
@@ -38,7 +38,7 @@ public class Credential {
         return credentialId;
     }
 
-    public User getUser() {
+    public WebAuthnUser getUser() {
         return user;
     }
 

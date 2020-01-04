@@ -3,46 +3,68 @@ package com.github.poad.examples.webauthn.entity;
 import org.springframework.data.annotation.Immutable;
 
 import javax.persistence.*;
-import java.util.List;
 
-@Table
+@Table(name="users")
 @Entity
 @Immutable
 public class User {
     @Id
-    @Column(columnDefinition="VARBINARY(64)")
-    private final byte[] id;
+    private final String username;
+    private final String encodedPassword;
+    private final boolean accountNonExpired;
+    private final boolean accountNonLocked;
+    private final boolean credentialsNonExpired;
+    private final boolean enabled;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private final WebAuthnUser webAuthnUser;
 
-    @Column(nullable = false)
-    private final String email;
-
-    @Column(nullable = false)
-    private final String displayName;
-
-    @OneToMany(mappedBy="user")
-    private final List<Credential> credentials;
-
-    // default constructor for JPA
     public User() {
-        this(null, null, null, null);
+        this(null, null, false, false, false, false, null);
     }
 
-    public User(byte[] id, String email, String displayName, List<Credential> credentials) {
-        this.id = id;
-        this.email = email;
-        this.displayName = displayName;
-        this.credentials = credentials;
+    public User(
+            String username,
+            String encodedPassword,
+            boolean accountNonExpired,
+            boolean accountNonLocked,
+            boolean credentialsNonExpired,
+            boolean enabled,
+            WebAuthnUser webAuthnUser) {
+        this.username = username;
+        this.encodedPassword = encodedPassword;
+        this.accountNonExpired = accountNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.enabled = enabled;
+        this.webAuthnUser = webAuthnUser;
     }
 
-    public byte[] getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEncodedPassword() {
+        return encodedPassword;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public WebAuthnUser getWebAuthnUser() {
+        return webAuthnUser;
     }
 }

@@ -6,10 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface UserRepository extends JpaRepository<User, byte[]> {
-    @Query(nativeQuery = true, value = "SELECT * FROM user WHERE email = :email")
-    Optional<User> find(@Param("email") String email);
+public interface UserRepository extends JpaRepository<User, String> {
+    @Query(nativeQuery = true, value = "SELECT (CASE WHEN COUNT(username) > 0 THEN true ELSE false END) FROM users WHERE username = :username AND encoded_password = :password")
+    boolean existsByIdAndPassword(@Param("username") String username, @Param("password") String password);
 }

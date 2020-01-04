@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-public class AuthenticationController {
+public class WebAuthnAuthenticationController {
 
     private final WebAuthnAuthenticationService webAuthnService;
 
-    public AuthenticationController(WebAuthnAuthenticationService webAuthnService) {
+    public WebAuthnAuthenticationController(WebAuthnAuthenticationService webAuthnService) {
         this.webAuthnService = webAuthnService;
     }
 

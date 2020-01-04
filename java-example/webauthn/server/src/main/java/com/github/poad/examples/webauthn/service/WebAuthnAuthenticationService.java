@@ -1,10 +1,10 @@
 package com.github.poad.examples.webauthn.service;
 
 import com.github.poad.examples.webauthn.config.WebAuthnConfig;
-import com.github.poad.examples.webauthn.entity.Credential;
-import com.github.poad.examples.webauthn.entity.User;
-import com.github.poad.examples.webauthn.repository.CredentialRepository;
-import com.github.poad.examples.webauthn.repository.UserRepository;
+import com.github.poad.examples.webauthn.entity.WebAuthnCredential;
+import com.github.poad.examples.webauthn.entity.WebAuthnUser;
+import com.github.poad.examples.webauthn.repository.WebAuthnCredentialRepository;
+import com.github.poad.examples.webauthn.repository.WebAuthnUserRepository;
 import com.webauthn4j.WebAuthnManager;
 import com.webauthn4j.converter.util.ObjectConverter;
 import com.webauthn4j.data.*;
@@ -24,21 +24,21 @@ import java.util.stream.Collectors;
 @Service
 public class WebAuthnAuthenticationService {
 
-    private final UserRepository userRepository;
-    private final CredentialRepository credentialRepository;
+    private final WebAuthnUserRepository userRepository;
+    private final WebAuthnCredentialRepository credentialRepository;
     private final WebAuthnConfig config;
 
-    public WebAuthnAuthenticationService(UserRepository userRepository, CredentialRepository credentialRepository, WebAuthnConfig config) {
+    public WebAuthnAuthenticationService(WebAuthnUserRepository userRepository, WebAuthnCredentialRepository credentialRepository, WebAuthnConfig config) {
         this.userRepository = userRepository;
         this.credentialRepository = credentialRepository;
         this.config = config;
     }
 
-    public Optional<User> find(String email) {
+    public Optional<WebAuthnUser> find(String email) {
         return userRepository.find(email);
     }
 
-    public PublicKeyCredentialRequestOptions requestOptions(User user) {
+    public PublicKeyCredentialRequestOptions requestOptions(WebAuthnUser webAuthnUser) {
 
         // challenge ── リプレイ攻撃を回避する乱数
         var challenge = new DefaultChallenge();
@@ -51,12 +51,12 @@ public class WebAuthnAuthenticationService {
 
         // allowCredentials ── RPサーバに登録されたクレデンシャルIDの一覧
         List<PublicKeyCredentialDescriptor> allowCredentials = List.of();
-        if (user != null) {
-            var credentials = credentialRepository.finds(user.getId());
+        if (webAuthnUser != null) {
+            var credentials = credentialRepository.finds(webAuthnUser.getId());
             allowCredentials = credentials.stream()
-                    .map(credential -> new PublicKeyCredentialDescriptor(
+                    .map(webAuthnCredential -> new PublicKeyCredentialDescriptor(
                             PublicKeyCredentialType.PUBLIC_KEY,
-                            credential.getCredentialId(),
+                            webAuthnCredential.getCredentialId(),
                             Set.of()))
                     .collect(Collectors.toList());
         }
@@ -143,6 +143,6 @@ public class WebAuthnAuthenticationService {
 
         // 署名カウンタの更新
         var currentCounter = response.getAuthenticatorData().getSignCount();
-        credentialRepository.save(new Credential(credential.getCredentialId(), credential.getUser(), credential.getPublicKey(), currentCounter));
+        credentialRepository.saveAndFlush(new WebAuthnCredential(credential.getCredentialId(), credential.getUser(), credential.getPublicKey(), currentCounter));
     }
 }
