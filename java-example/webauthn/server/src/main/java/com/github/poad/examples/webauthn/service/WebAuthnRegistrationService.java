@@ -1,12 +1,13 @@
 package com.github.poad.examples.webauthn.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.poad.examples.webauthn.config.WebAuthnConfig;
 import com.github.poad.examples.webauthn.entity.Credential;
 import com.github.poad.examples.webauthn.entity.User;
 import com.github.poad.examples.webauthn.repository.CredentialRepository;
 import com.github.poad.examples.webauthn.repository.UserRepository;
-import com.webauthn4j.converter.util.CborConverter;
+import com.webauthn4j.WebAuthnManager;
+import com.webauthn4j.converter.util.ObjectConverter;
 import com.webauthn4j.data.*;
 import com.webauthn4j.data.attestation.statement.COSEAlgorithmIdentifier;
 import com.webauthn4j.data.client.Origin;
@@ -16,7 +17,6 @@ import com.webauthn4j.data.extension.client.AuthenticationExtensionsClientInputs
 import com.webauthn4j.data.extension.client.RegistrationExtensionClientInput;
 import com.webauthn4j.data.extension.client.SupportedExtensionsExtensionClientInput;
 import com.webauthn4j.server.ServerProperty;
-import com.webauthn4j.validator.WebAuthnRegistrationContextValidator;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
@@ -28,15 +28,17 @@ public class WebAuthnRegistrationService {
 
     private final UserRepository userRepository;
     private final CredentialRepository credentialRepository;
+    private final WebAuthnConfig config;
 
-    public WebAuthnRegistrationService(UserRepository userRepository, CredentialRepository credentialRepository) {
+    public WebAuthnRegistrationService(UserRepository userRepository, CredentialRepository credentialRepository, WebAuthnConfig config) {
         this.userRepository = userRepository;
         this.credentialRepository = credentialRepository;
+        this.config = config;
     }
 
     public PublicKeyCredentialCreationOptions creationOptions(User user) {
-        var rpId = "localhost";
-        var rpName = "Example Relying Party";
+        var rpId = config.getRp().getId();
+        var rpName = config.getRp().getName();
 
         var rp = new PublicKeyCredentialRpEntity(rpId, rpName);
         var userId = user.getId();
@@ -59,7 +61,7 @@ public class WebAuthnRegistrationService {
 
         var pubKeyCredParams = List.of(es256, rs256);
 
-        var timeout = 60000L;
+        var timeout = config.getTimeout();
 
         var credentials = credentialRepository.finds(userId);
         var excludeCredentials = credentials.stream().map(
@@ -107,72 +109,58 @@ public class WebAuthnRegistrationService {
             User user,
             Challenge challenge,
             byte[] clientDataJSON,
-            byte[] attestationObject
+            byte[] attestationObject,
+            String clientExtensionsJSON
     ) throws JsonProcessingException {
-        var origin = Origin.create("http://localhost:3000");
+        var origin = Origin.create(config.getOrigin().asString());
 
-        var rpId = "localhost";
+        var rpId = config.getRp().getId();
         var challengeBase64 = new DefaultChallenge(Base64.getEncoder().encode(challenge.getValue()));
 
         var serverProperty = new ServerProperty(origin, rpId, challengeBase64, null);
 
-        var registrationContext = new WebAuthnRegistrationContext(
-                clientDataJSON,
+        var converter = new ObjectConverter();
+
+        var userVerificationRequired = false;
+        var userPresenceRequired = false;
+        List<String>  expectedExtensionIds = null;
+
+        Set<String> transports = null;
+        var request = new RegistrationRequest(
                 attestationObject,
-                serverProperty,
-                false
+                clientDataJSON,
+                clientExtensionsJSON,
+                transports
         );
 
-//        var validator = new WebAuthnRegistrationContextValidator(
-//                // アテステーション・ステートメントのフォーマットは全部で6種類
-//                List.of(
-//                        // https://www.w3.org/TR/webauthn-1/#packed-attestation
-//                        new PackedAttestationStatementValidator(),
-//                        // https://www.w3.org/TR/webauthn-1/#tpm-attestation
-//                        new TPMAttestationStatementValidator(),
-//                        // https://www.w3.org/TR/webauthn-1/#android-key-attestation
-//                        new AndroidKeyAttestationStatementValidator(),
-//                        // https://www.w3.org/TR/webauthn-1/#android-safetynet-attestation
-//                        new AndroidSafetyNetAttestationStatementValidator(),
-//                        // https://www.w3.org/TR/webauthn-1/#fido-u2f-attestation
-//                        new FIDOU2FAttestationStatementValidator(),
-//                        // https://www.w3.org/TR/webauthn-1/#none-attestation
-//                        new NoneAttestationStatementValidator()
-//                ),
-//                new NullCertPathTrustworthinessValidator(),
-//                new NullECDAATrustworthinessValidator(),
-//                new DefaultSelfAttestationTrustworthinessValidator()
-//        );
-        var validator = WebAuthnRegistrationContextValidator.createNonStrictRegistrationContextValidator();
+        var params = new RegistrationParameters(
+                serverProperty,
+                userVerificationRequired,
+                userPresenceRequired,
+                expectedExtensionIds
+        );
+        var manager = WebAuthnManager.createNonStrictWebAuthnManager(converter);
+        var registrationData = manager.validate(request, params);
 
-        var response = validator.validate(registrationContext);
+        var authData = registrationData.getAttestationObject().getAuthenticatorData();
 
-        var authData = response.getAttestationObject().getAuthenticatorData();
-
-        var credentialId = response
-                .getAttestationObject()
-                .getAuthenticatorData()
-                .getAttestedCredentialData()
-                .getCredentialId();
+        var credentialId = authData.getAttestedCredentialData().getCredentialId();
 
         var authenticator = new AuthenticatorImpl(
-                response.getAttestationObject().getAuthenticatorData().getAttestedCredentialData(),
-                response.getAttestationObject().getAttestationStatement(),
-                response.getAttestationObject().getAuthenticatorData().getSignCount(),
+                authData.getAttestedCredentialData(),
+                registrationData.getAttestationObject().getAttestationStatement(),
+                authData.getSignCount(),
                 Set.of(),
-                response.getRegistrationExtensionsClientOutputs(),
+                registrationData.getClientExtensions(),
                 Map.of());
 
-        var signatureCounter = response
-                .getAttestationObject()
-                .getAuthenticatorData()
-                .getSignCount();
+        var signatureCounter = authData.getSignCount();
 
         if (userRepository.find(user.getEmail()).isEmpty()) {
             userRepository.save(user);
         }
 
-        var authenticatorBin = new CborConverter().writeValueAsBytes(authenticator);
+        var authenticatorBin = converter.getCborConverter().writeValueAsBytes(authenticator);
 
         var credential = new Credential(credentialId, user, authenticatorBin, signatureCounter);
 

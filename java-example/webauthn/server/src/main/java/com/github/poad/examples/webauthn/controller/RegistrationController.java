@@ -61,16 +61,19 @@ public class RegistrationController {
         private final byte[] clientDataJSON;
         @JsonProperty("attestationObject")
         private final byte[] attestationObject;
+        @JsonProperty("clientExtensionsJSON")
+        private final String clientExtensionsJSON;
 
         // for deserialization
         AttestationResultParam() {
-            this(null, null);
+            this(null, null, null);
         }
 
         @JsonCreator
-        AttestationResultParam(@NotNull @Size(min = 1) byte[] clientDataJSON, @NotNull @Size(min = 1) byte[] attestationObject) {
+        AttestationResultParam(@NotNull @Size(min = 1) byte[] clientDataJSON, @NotNull @Size(min = 1) byte[] attestationObject, String clientExtensionsJSON) {
             this.clientDataJSON = clientDataJSON;
             this.attestationObject = attestationObject;
+            this.clientExtensionsJSON = clientExtensionsJSON;
         }
     }
 
@@ -92,6 +95,6 @@ public class RegistrationController {
         var challenge = (Challenge) httpSession.getAttribute("attestationChallenge");
         var user = (User) httpSession.getAttribute("attentionUser");
 
-        webAuthnService.creationFinish(user, challenge, params.clientDataJSON, params.attestationObject);
+        webAuthnService.creationFinish(user, challenge, params.clientDataJSON, params.attestationObject, params.clientExtensionsJSON);
     }
 }

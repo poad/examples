@@ -25,7 +25,11 @@ dependencies {
     // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
     implementation 'com.webauthn4j:webauthn4j-core:0.10.0.RELEASE'
     implementation 'com.webauthn4j:webauthn4j-metadata:0.10.0.RELEASE'
-	runtimeOnly 'com.h2database:h2'
+    if (project.hasProperty('env')) {
+        runtimeOnly 'mysql:mysql-connector-java:8.0.18'
+    } else {
+        runtimeOnly 'com.h2database:h2'
+    }
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -36,6 +40,11 @@ test {
 }
 
 jib.from.image = 'mcr.microsoft.com/java/jre-headless:11u5-zulu-alpine'
+jib.to.image = 'poad/webauthn-rp-example'
+jib.to.tags = [ version ]
 jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
 jib.container.ports = [ '8080' ]
-jib.to.image = 'webauthn-rp-example'
+if (project.hasProperty('env')) {
+    def env = "$env"
+    jib.container.jvmFlags = [ "-Dspring.profiles.active=" + env ]
+}

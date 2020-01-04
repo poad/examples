@@ -1,6 +1,10 @@
+// import NuxtConfiguration from '@nuxt/config'
 import colors from 'vuetify/es5/util/colors'
 
-export default {
+require('dotenv').config()
+
+// const nuxtConfig: NuxtConfiguration = {
+const nuxtConfig = {
   mode: 'spa',
   /*
    ** Headers of the page
@@ -33,9 +37,9 @@ export default {
   plugins: [
     { src: '~/plugins/web-authn-client.ts', mode: 'client' }
   ],
-  router: {
-    middleware: ['auth']
-  },
+  // router: {
+  //   middleware: ['auth']
+  // },
   /*
    ** Nuxt.js dev-modules
    */
@@ -51,7 +55,10 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    '@nuxtjs/auth',
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration
@@ -93,11 +100,18 @@ export default {
       }
     }
   },
+  auth: {
+    strategies: {
+    },
+    localStorage: {
+      prefix: 'auth.'
+    }
+  },
   proxy: {
-    '/attestation/options': 'http://localhost:8080',
-    '/attestation/result': 'http://localhost:8080',
-    '/assertion/options': 'http://localhost:8080',
-    '/assertion/result': 'http://localhost:8080'
+    '/attestation/options': { target: process.env.BASE_URL ? process.env.BASE_URL : "localhost:8080" },
+    '/attestation/result': { target: process.env.BASE_URL ? process.env.BASE_URL : "localhost:8080" },
+    '/assertion/options': { target: process.env.BASE_URL ? process.env.BASE_URL : "localhost:8080" },
+    '/assertion/result': { target: process.env.BASE_URL ? process.env.BASE_URL : "localhost:8080" }
   },
   typescript: {
     typeCheck: {
@@ -121,3 +135,5 @@ export default {
     extend(config, ctx) { }
   }
 }
+
+export default nuxtConfig

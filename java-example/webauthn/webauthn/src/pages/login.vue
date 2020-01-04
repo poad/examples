@@ -4,30 +4,23 @@
       <v-row>
         <v-col cols="24">
           <v-text-field
-            id="displayName"
-            v-model="displayName"
-            label="user name"
-            clearable="true"
-            required
-          />
-          <v-text-field
             id="email"
             v-model="email"
             label="e-mail"
             clearable="true"
             required
           />
-          <v-btn color="primary" @click="register">
-            登録
+          <v-btn color="primary" @click="authentication">
+            ログイン
           </v-btn>
         </v-col>
       </v-row>
       <v-row>
         <v-col>
             <p class="message">
-                アカウントは作成済みですか？
-                <nuxt-link to="/login">
-                    ログイン
+                アカウントが未登録ですか？
+                <nuxt-link to="/signup">
+                    アカウント作成
                 </nuxt-link>
             </p>
         </v-col>
@@ -48,7 +41,7 @@ import { Vue, Component, Emit } from 'vue-property-decorator'
 import WebAuthnClient from '~/plugins/types'
 
 @Component
-export default class WebAuthn extends Vue {
+export default class Auth extends Vue {
   displayName: string = ''
   email: string = ''
   status: string = ''
@@ -56,7 +49,7 @@ export default class WebAuthn extends Vue {
   auth: Boolean = false
 
   @Emit()
-  async register() {
+  async authentication() {
     try {
       if (!window.PublicKeyCredential) {
         this.status = 'error'
@@ -65,20 +58,19 @@ export default class WebAuthn extends Vue {
       }
 
       const email: string = this.email
-      const displayName: string = this.displayName
-      const response: WebAuthnClient.CredentialCreationOptions = await this.$attestationOptions<
-        WebAuthnClient.CredentialCreationOptions
-      >(email, displayName)
+      const response: WebAuthnClient.CredentialRequestOptions = await this.$assertionOptions<
+        WebAuthnClient.CredentialRequestOptions
+      >(email)
 
       this.status = ''
 
-      const options = this.convertCreateOptions(response)
+      const options = this.convertRequestOptions(response)
 
-      const credential: PublicKeyCredential = await navigator.credentials
-        .create(options)
+      const credential = await navigator.credentials
+        .get(options)
         .then((reply: Credential | null) => {
           if (reply != null) {
-            return (reply as PublicKeyCredential)
+            return reply as PublicKeyCredential
           } else {
             throw new Error('unmatched type')
           }
@@ -88,12 +80,12 @@ export default class WebAuthn extends Vue {
           throw reason
         })
 
-      const credentialJSON = this.credentialToJSON(credential)
+      const json = await this.credentialToJSON(credential)
 
-      const ret = await this.$registerFinish(credentialJSON)
+      const ret = await this.$authenticationFinish(json)
 
       this.status = 'success'
-      this.message = 'Registerd'
+      this.message = 'Logged In'
 
       return ret
     } catch (error) {
@@ -103,45 +95,40 @@ export default class WebAuthn extends Vue {
     }
   }
 
-  private convertCreateOptions(
-    source: WebAuthnClient.CredentialCreationOptions
-  ): CredentialCreationOptions {
-    const excludeCredentials =
-      source.excludeCredentials != null ? source.excludeCredentials : []
+  private convertRequestOptions(
+    source: WebAuthnClient.CredentialRequestOptions
+  ): CredentialRequestOptions {
+    const allowCredentials =
+      source.allowCredentials != null ? source.allowCredentials : []
 
-    const credentialCreationOptions: PublicKeyCredentialCreationOptions = {
-      attestation: source.attestation,
-      authenticatorSelection: source.authenticatorSelection,
-      challenge: this.stringToArrayBuffer(source.challenge.value),
-      excludeCredentials: excludeCredentials.map((credential) => {
+    const credentialRequestOptions: PublicKeyCredentialRequestOptions = {
+      allowCredentials: allowCredentials.map((credential) => {
         return {
           id: this.base64ToArrayBuffer(credential.id),
           type: credential.type,
           transports: credential.transports
         } as PublicKeyCredentialDescriptor
       }),
+      challenge: this.stringToArrayBuffer(source.challenge.value),
       extensions: source.extensions,
-      pubKeyCredParams: source.pubKeyCredParams,
-      rp: source.rp,
+      rpId: source.rpId,
       timeout: source.timeout,
-      user: {
-        name: source.user.name,
-        icon: source.user.icon,
-        displayName: source.user.displayName,
-        id: this.base64ToArrayBuffer(source.user.id)
-      }
+      userVerification: source.userVerification
     }
     return {
-      publicKey: credentialCreationOptions
+      publicKey: credentialRequestOptions
     }
   }
 
-  private credentialToJSON(
+  private async credentialToJSON(
     credential: PublicKeyCredential
-  ): WebAuthnClient.AuthenticatorAttestationJSON {
-    const credentialJSON: WebAuthnClient.AuthenticatorAttestationJSON = {
-      clientDataJSON: this.arrayBufferToBase64(credential.response.clientDataJSON),
-      attestationObject: this.arrayBufferToBase64((credential.response as AuthenticatorAttestationResponse).attestationObject),
+  ): Promise<WebAuthnClient.AuthenticatorAssertionJSON> {
+    const response = await (credential.response as AuthenticatorAssertionResponse)
+    const credentialJSON: WebAuthnClient.AuthenticatorAssertionJSON = {
+      credentialId: this.arrayBufferToBase64(credential.rawId),
+      clientDataJSON: this.arrayBufferToBase64(response.clientDataJSON),
+      authenticatorData: this.arrayBufferToBase64(response.authenticatorData),
+      signature: this.arrayBufferToBase64(response.signature),
       clientExtensionsJSON: JSON.stringify(credential.getClientExtensionResults())
     }
     return credentialJSON

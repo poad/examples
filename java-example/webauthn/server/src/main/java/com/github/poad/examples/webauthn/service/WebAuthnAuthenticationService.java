@@ -1,10 +1,12 @@
 package com.github.poad.examples.webauthn.service;
 
+import com.github.poad.examples.webauthn.config.WebAuthnConfig;
 import com.github.poad.examples.webauthn.entity.Credential;
 import com.github.poad.examples.webauthn.entity.User;
 import com.github.poad.examples.webauthn.repository.CredentialRepository;
 import com.github.poad.examples.webauthn.repository.UserRepository;
-import com.webauthn4j.converter.util.CborConverter;
+import com.webauthn4j.WebAuthnManager;
+import com.webauthn4j.converter.util.ObjectConverter;
 import com.webauthn4j.data.*;
 import com.webauthn4j.data.client.Origin;
 import com.webauthn4j.data.client.challenge.Challenge;
@@ -14,7 +16,6 @@ import com.webauthn4j.data.extension.client.AuthenticationExtensionsClientInputs
 import com.webauthn4j.data.extension.client.FIDOAppIDExtensionClientInput;
 import com.webauthn4j.data.extension.client.SupportedExtensionsExtensionClientInput;
 import com.webauthn4j.server.ServerProperty;
-import com.webauthn4j.validator.WebAuthnAuthenticationContextValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -25,10 +26,12 @@ public class WebAuthnAuthenticationService {
 
     private final UserRepository userRepository;
     private final CredentialRepository credentialRepository;
+    private final WebAuthnConfig config;
 
-    public WebAuthnAuthenticationService(UserRepository userRepository, CredentialRepository credentialRepository) {
+    public WebAuthnAuthenticationService(UserRepository userRepository, CredentialRepository credentialRepository, WebAuthnConfig config) {
         this.userRepository = userRepository;
         this.credentialRepository = credentialRepository;
+        this.config = config;
     }
 
     public Optional<User> find(String email) {
@@ -41,10 +44,10 @@ public class WebAuthnAuthenticationService {
         var challenge = new DefaultChallenge();
 
         // timeout ── 認証のタイムアウト時間（ミリ秒）
-        var timeout = 60000L;
+        var timeout = config.getTimeout();
 
         // rpId ── 中間者攻撃を回避するRPサーバの有効ドメインを指定
-        var rpId = "localhost";
+        var rpId = config.getRp().getId();
 
         // allowCredentials ── RPサーバに登録されたクレデンシャルIDの一覧
         List<PublicKeyCredentialDescriptor> allowCredentials = List.of();
@@ -65,7 +68,7 @@ public class WebAuthnAuthenticationService {
         // ※サンプルコードでは、認証器がWebAuthnのどの拡張機能に対応しているのかを調べる拡張機能 "exts" のコードを記載
         //   https://www.w3.org/TR/webauthn-1/#sctn-supported-extensions-extension
         var extensions = new AuthenticationExtensionsClientInputs<AuthenticationExtensionClientInput>(
-                Map.of(SupportedExtensionsExtensionClientInput.ID, new FIDOAppIDExtensionClientInput("http://localhost")));
+                Map.of(SupportedExtensionsExtensionClientInput.ID, new FIDOAppIDExtensionClientInput(config.getOrigin().asStringWithoutPort())));
 
         // 公開鍵クレデンシャル要求API（navigator.credentials.get）のパラメータを作成
         return new PublicKeyCredentialRequestOptions(
@@ -81,15 +84,17 @@ public class WebAuthnAuthenticationService {
     public void assertionFinish(
             Challenge challenge,
             byte[] credentialId,
-            byte[] clientDataJSON,
+            byte[] userHandle,
             byte[] authenticatorData,
+            byte[] clientDataJSON,
+            String clientExtensionsJSON,
             byte[] signature) {
 
         // originの検証 ── 中間者攻撃耐性
-        var origin = Origin.create("http://localhost:3000");
+        var origin = Origin.create(config.getOrigin().asString());
 
         // rpIdHashの検証 ── 中間者攻撃耐性
-        var rpId = "localhost";
+        var rpId = config.getRp().getId();
 
         // challengeの検証 ── リプレイ攻撃耐性
         var challengeBase64 = new DefaultChallenge(Base64
@@ -97,6 +102,7 @@ public class WebAuthnAuthenticationService {
                 .encode(challenge.getValue()));
 
         byte[] tokenBindingId = null;
+        var userVerificationRequired = false;
 
         var serverProperty = new ServerProperty(
                 origin,
@@ -104,31 +110,36 @@ public class WebAuthnAuthenticationService {
                 challengeBase64,
                 tokenBindingId);
 
-        var authenticationContext =
-                new WebAuthnAuthenticationContext(
+        var authenticationRequest =
+                new AuthenticationRequest(
                         credentialId,
-                        clientDataJSON,
+                        userHandle,
                         authenticatorData,
-                        signature,
-                        serverProperty,
-                        false
+                        clientDataJSON,
+                        clientExtensionsJSON,
+                        signature
                 );
 
         // DBから登録済みの公開鍵クレデンシャルを取得
         var credential = credentialRepository.find(credentialId)
                 .orElseThrow();
 
+        var converter = new ObjectConverter();
+
         // 公開鍵クレデンシャルをバイナリからデシリアライズ
         //   ※サンプルコードでは、DB保存した公開鍵クレデンシャルにアテステーションも含まれる
         //     https://github.com/webauthn4j/webauthn4j/issues/148
-        AuthenticatorImpl authenticator = new CborConverter().readValue(credential.getPublicKey(), AuthenticatorImpl.class);
+        AuthenticatorImpl authenticator = converter.getCborConverter().readValue(credential.getPublicKey(), AuthenticatorImpl.class);
 
-        var validator = new WebAuthnAuthenticationContextValidator();
+        var manager = WebAuthnManager.createNonStrictWebAuthnManager(converter);
+        var authenticationData = manager.parse(authenticationRequest);
+
+        var params = new AuthenticationParameters(serverProperty, authenticator, false);
 
         // clientDataJSONの検証 ── 認証情報の生成に渡されたデータ
         // signatureの検証 ── 公開鍵による署名の検証
         // signCountの検証 ── クローン認証器の検出
-        var response = validator.validate(authenticationContext, authenticator);
+        var response = manager.validate(authenticationData, params);
 
         // 署名カウンタの更新
         var currentCounter = response.getAuthenticatorData().getSignCount();

@@ -28,6 +28,7 @@ export interface CredentialOptionsCredentialDescriptor {
 export interface AuthenticatorAttestationJSON {
     clientDataJSON: string
     attestationObject: string
+    clientExtensionsJSON: string
 }
 
 
@@ -45,6 +46,7 @@ export interface AuthenticatorAssertionJSON {
     clientDataJSON: string
     authenticatorData: string
     signature: string
+    clientExtensionsJSON: string
 }
 
 export module WebAuthnClient {

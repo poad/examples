@@ -68,39 +68,22 @@ public class AuthenticationController {
         private final byte[] signature;
         @JsonProperty("userHandle")
         private final byte[] userHandle;
+        @JsonProperty("clientExtensionsJSON")
+        private final String clientExtensionsJSON;
 
         // for deserialization
         private AuthenticationResultParam() {
-            this(null, null, null, null, null);
+            this(null, null, null, null, null, null);
         }
 
         @JsonCreator
-        private AuthenticationResultParam(byte[] credentialId, byte[] clientDataJSON, byte[] authenticatorData, byte[] signature, byte[] userHandle) {
+        private AuthenticationResultParam(byte[] credentialId, byte[] clientDataJSON, byte[] authenticatorData, byte[] signature, byte[] userHandle, String clientExtensionsJSON) {
             this.credentialId = credentialId;
             this.clientDataJSON = clientDataJSON;
             this.authenticatorData = authenticatorData;
             this.signature = signature;
             this.userHandle = userHandle;
-        }
-
-        public byte[] getCredentialId() {
-            return credentialId;
-        }
-
-        public byte[] getClientDataJSON() {
-            return clientDataJSON;
-        }
-
-        public byte[] getAuthenticatorData() {
-            return authenticatorData;
-        }
-
-        public byte[] getSignature() {
-            return signature;
-        }
-
-        public byte[] getUserHandle() {
-            return userHandle;
+            this.clientExtensionsJSON = clientExtensionsJSON;
         }
     }
 
@@ -120,10 +103,12 @@ public class AuthenticationController {
         // 署名の検証
         webAuthnService.assertionFinish(
                 challenge,
-                params.getCredentialId(),
-                params.getClientDataJSON(),
-                params.getAuthenticatorData(),
-                params.getSignature());
+                params.credentialId,
+                params.userHandle,
+                params.authenticatorData,
+                params.clientDataJSON,
+                params.clientExtensionsJSON,
+                params.signature);
     }
 
 }
