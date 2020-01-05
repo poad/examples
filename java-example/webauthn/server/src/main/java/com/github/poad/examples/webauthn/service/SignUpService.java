@@ -1,10 +1,9 @@
 package com.github.poad.examples.webauthn.service;
 
 import com.github.poad.examples.webauthn.entity.User;
+import com.github.poad.examples.webauthn.exception.UserAlreadyExistException;
 import com.github.poad.examples.webauthn.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,17 +11,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class SignUpService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
-    private final UserDetailsManager detailsService;
 
-
-    public SignUpService(UserRepository repository, PasswordEncoder passwordEncoder, @Qualifier("userDetailsManager") UserDetailsManager detailsService) {
+    public SignUpService(UserRepository repository, PasswordEncoder passwordEncoder) {
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
-        this.detailsService = detailsService;
     }
 
     @Transactional
     public void signUp(String username, String password) {
+        if (repository.existsById(username)) {
+            throw new UserAlreadyExistException();
+        }
         var user = new User(
                 username,
                 passwordEncoder.encode(password),
@@ -32,6 +31,5 @@ public class SignUpService {
                 true,
                 null);
         repository.saveAndFlush(user);
-        detailsService.createUser(new LoginUserDetail(user));
     }
 }

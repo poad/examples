@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class UserController {
     private final UserService service;
@@ -44,7 +47,10 @@ public class UserController {
 
     @DeleteMapping(value = "/user/{username}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void unregister(@PathVariable("username") String username) {
+    public void unregister(@PathVariable("username") String username, HttpServletRequest httpServletRequest) {
         unregisterService.unregister(username);
+        HttpSession session = httpServletRequest.getSession(true);
+        // TODO Token精製して session に 設定
+
     }
 }
