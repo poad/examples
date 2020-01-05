@@ -48,7 +48,7 @@ import { Vue, Component, Emit } from 'vue-property-decorator'
 import WebAuthnClient from '~/plugins/types'
 
 @Component
-export default class WebAuthn extends Vue {
+export default class SignUp extends Vue {
   displayName: string = ''
   email: string = ''
   status: string = ''

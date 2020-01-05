@@ -1,7 +1,7 @@
 FROM node:alpine
 
 COPY webauthn /home/node/webauthn
-COPY docker/assets/.env /home/node/webauthn/src/.env
+COPY docker/assets/.env /home/node/webauthn/.env
 
 WORKDIR /home/node/webauthn
 

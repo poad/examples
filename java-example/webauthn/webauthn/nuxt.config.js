@@ -102,6 +102,7 @@ const nuxtConfig = {
   },
   auth: {
     strategies: {
+      local1: { _scheme: 'local', /* ... */ }
     },
     localStorage: {
       prefix: 'auth.'
