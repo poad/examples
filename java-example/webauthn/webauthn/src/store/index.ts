@@ -4,7 +4,8 @@ import { getAccessorType } from 'typed-vuex'
 export enum WebAuthnPage {
     Index = "Index",
     SignUp = "SignUp",
-    SignIn = "SignIn"
+    SignIn = "SignIn",
+    Inspire = "Inspire"
 }
 
 export const state = () => ({

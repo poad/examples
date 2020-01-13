@@ -27,9 +27,9 @@
         <v-list-item
           v-for="(item, i) in clickItems"
           :key="i"
-          @click="item.click"
           router
           exact
+          @click="item.click"
         >
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -40,7 +40,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped" color="primary" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>

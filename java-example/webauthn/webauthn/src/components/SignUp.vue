@@ -1,13 +1,8 @@
 <template>
   <v-container>
-    <p>
-      <v-alert v-show="!!status" v-vind:type="this.status">
-        {{ message }}
-      </v-alert>
-    </p>
-    <v-layout justify-center>
-      <v-flex xs12 md12>
-        <v-card outlined tile>
+    <v-layout justify-center align-center>
+      <v-row justify-center align-center>
+        <v-col cols="6" md="6">
           <v-form ref="form">
             <v-text-field
               id="displayName"
@@ -35,17 +30,18 @@
               サインアップ
             </v-btn>
           </v-form>
-        </v-card>
-      </v-flex>
-      <v-flex xs12 md12>
-        <v-card outlined tile>
+        </v-col>
+        <v-col cols="6" md="4">
           アカウントは作成済みですか？
-          <v-btn block color="primary" name="signUp" @click="showSignIn">
+          <v-btn color="primary" name="signUp" sm="12" @click="showSignIn">
             サインイン
           </v-btn>
-        </v-card>
-      </v-flex>
+        </v-col>
+      </v-row>
     </v-layout>
+    <v-dialog v-show="!!status">
+      {{ message }}
+    </v-dialog>
   </v-container>
 </template>
 

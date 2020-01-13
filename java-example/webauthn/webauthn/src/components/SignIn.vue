@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <v-layout justify-center>
-      <v-flex xs12 md12>
-        <v-form ref="form">
-          <v-card outlined tile>
+    <v-layout justify-center align-center>
+      <v-row justify-center align-center>
+        <v-col cols="6" md="6" xs8 md8 sm8>
+          <v-form ref="form">
             <v-text-field
               id="email"
               v-model="email"
@@ -15,28 +15,36 @@
               ]"
               required
             />
-          </v-card>
-          <v-card outlined tile>
             <v-btn color="primary" name="signIn" @click="authentication">
               サインイン
             </v-btn>
-          </v-card>
-        </v-form>
-      </v-flex>
-      <v-flex xs12 md12>
-        アカウントは作成済みですか？
-        <v-btn block color="primary" name="signIn" sm="12" @click="showSignUp">
-          サインアップ
-        </v-btn>
-      </v-flex>
-      <v-flex xs24 md24>
-        <v-card outlined tile>
-          <v-alert v-show="!!status" v-bind:type="this.status">
-            {{ message }}
-          </v-alert>
-        </v-card>
-      </v-flex>
+          </v-form>
+        </v-col>
+        <v-col cols="6" md="4">
+          アカウントは作成済みですか？
+          <v-btn
+            block
+            color="primary"
+            name="signIn"
+            sm="12"
+            @click="showSignUp"
+          >
+            サインアップ
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-layout>
+    <v-dialog
+      v-model="showDialog"
+      hide-overlay
+      overlay-color="#000"
+      overlay-opacity="80%"
+      max-width="290"
+    >
+      <v-alert :type="status">
+        {{ message }}
+      </v-alert>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -51,6 +59,7 @@ export default class SignIn extends Vue {
   email: string = ''
   status: string = ''
   message: string = ''
+  showDialog: Boolean = false
   auth: Boolean = false
 
   @Emit()
@@ -67,8 +76,7 @@ export default class SignIn extends Vue {
   async authentication() {
     try {
       if (!window.PublicKeyCredential) {
-        this.status = 'error'
-        this.message = '未対応のブラウザです'
+        this.changeMessage('error', '未対応のブラウザです')
         return
       }
 
@@ -106,9 +114,15 @@ export default class SignIn extends Vue {
 
       return ret
     } catch (error) {
-      this.status = 'error'
-      this.message = error
+      this.changeMessage('error', error)
     }
+  }
+
+  @Emit()
+  changeMessage(status: string, message: string) {
+    this.status = status
+    this.message = message
+    this.showDialog = status !== ''
   }
 
   private convertRequestOptions(

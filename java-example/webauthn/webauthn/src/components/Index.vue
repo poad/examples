@@ -53,7 +53,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire">
+          <v-btn color="primary" nuxt @click="showInspire">
             Continue
           </v-btn>
         </v-card-actions>
@@ -63,7 +63,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Emit } from 'vue-property-decorator'
+import { WebAuthnPage } from '../store'
 
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
@@ -74,5 +75,10 @@ import VuetifyLogo from '~/components/VuetifyLogo.vue'
     VuetifyLogo
   }
 })
-export default class WebAuthnIndex extends Vue {}
+export default class WebAuthnIndex extends Vue {
+  @Emit()
+  showInspire() {
+    this.$accessor.changePage(WebAuthnPage.Inspire)
+  }
+}
 </script>
