@@ -1,8 +1,8 @@
 package com.github.poad.examples.webauthn.service;
 
 import com.github.poad.examples.webauthn.config.WebAuthnConfig;
-import com.github.poad.examples.webauthn.entity.WebAuthnCredential;
-import com.github.poad.examples.webauthn.entity.WebAuthnUser;
+import com.github.poad.examples.webauthn.entity.Credential;
+import com.github.poad.examples.webauthn.entity.User;
 import com.github.poad.examples.webauthn.repository.WebAuthnCredentialRepository;
 import com.github.poad.examples.webauthn.repository.WebAuthnUserRepository;
 import com.webauthn4j.WebAuthnManager;
@@ -34,11 +34,11 @@ public class WebAuthnAuthenticationService {
         this.config = config;
     }
 
-    public Optional<WebAuthnUser> find(String email) {
+    public Optional<User> find(String email) {
         return userRepository.find(email);
     }
 
-    public PublicKeyCredentialRequestOptions requestOptions(WebAuthnUser webAuthnUser) {
+    public PublicKeyCredentialRequestOptions requestOptions(User user) {
 
         // challenge ── リプレイ攻撃を回避する乱数
         var challenge = new DefaultChallenge();
@@ -51,12 +51,12 @@ public class WebAuthnAuthenticationService {
 
         // allowCredentials ── RPサーバに登録されたクレデンシャルIDの一覧
         List<PublicKeyCredentialDescriptor> allowCredentials = List.of();
-        if (webAuthnUser != null) {
-            var credentials = credentialRepository.finds(webAuthnUser.getId());
+        if (user != null) {
+            var credentials = credentialRepository.finds(user.getId());
             allowCredentials = credentials.stream()
-                    .map(webAuthnCredential -> new PublicKeyCredentialDescriptor(
+                    .map(credential -> new PublicKeyCredentialDescriptor(
                             PublicKeyCredentialType.PUBLIC_KEY,
-                            webAuthnCredential.getCredentialId(),
+                            credential.getCredentialId(),
                             Set.of()))
                     .collect(Collectors.toList());
         }
@@ -143,6 +143,6 @@ public class WebAuthnAuthenticationService {
 
         // 署名カウンタの更新
         var currentCounter = response.getAuthenticatorData().getSignCount();
-        credentialRepository.saveAndFlush(new WebAuthnCredential(credential.getCredentialId(), credential.getUser(), credential.getPublicKey(), currentCounter));
+        credentialRepository.saveAndFlush(new Credential(credential.getCredentialId(), credential.getUser(), credential.getPublicKey(), currentCounter));
     }
 }

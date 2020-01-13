@@ -2,8 +2,8 @@ package com.github.poad.examples.webauthn.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.poad.examples.webauthn.config.WebAuthnConfig;
-import com.github.poad.examples.webauthn.entity.WebAuthnCredential;
-import com.github.poad.examples.webauthn.entity.WebAuthnUser;
+import com.github.poad.examples.webauthn.entity.Credential;
+import com.github.poad.examples.webauthn.entity.User;
 import com.github.poad.examples.webauthn.repository.WebAuthnCredentialRepository;
 import com.github.poad.examples.webauthn.repository.WebAuthnUserRepository;
 import com.webauthn4j.WebAuthnManager;
@@ -36,7 +36,7 @@ public class WebAuthnRegistrationService {
         this.config = config;
     }
 
-    public PublicKeyCredentialCreationOptions creationOptions(WebAuthnUser user) {
+    public PublicKeyCredentialCreationOptions creationOptions(User user) {
         var rpId = config.getRp().getId();
         var rpName = config.getRp().getName();
 
@@ -101,13 +101,13 @@ public class WebAuthnRegistrationService {
         );
     }
 
-    public WebAuthnUser findOrElseCreate(String email, String displayName) {
+    public User findOrElseCreate(String email, String displayName) {
         return userRepository.find(email)
                 .orElseGet(() -> createUser(email, displayName));
     }
 
     public void creationFinish(
-            WebAuthnUser user,
+            User user,
             Challenge challenge,
             byte[] clientDataJSON,
             byte[] attestationObject,
@@ -163,16 +163,16 @@ public class WebAuthnRegistrationService {
 
         var authenticatorBin = converter.getCborConverter().writeValueAsBytes(authenticator);
 
-        var credential = new WebAuthnCredential(credentialId, user, authenticatorBin, signatureCounter);
+        var credential = new Credential(credentialId, user, authenticatorBin, signatureCounter);
 
         credentialRepository.save(credential);
     }
 
-    private WebAuthnUser createUser(String email, String displayName) {
+    private User createUser(String email, String displayName) {
         var userId = new byte[32];
         new SecureRandom().nextBytes(userId);
 
-        return new WebAuthnUser(userId, email, displayName, Collections.emptyList());
+        return new User(userId, email, displayName, Collections.emptyList());
     }
 
 

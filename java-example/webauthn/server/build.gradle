@@ -18,7 +18,6 @@ dependencies {
 	implementation ('org.springframework.boot:spring-boot-starter-data-jpa') {
         exclude group: 'com.zaxxer', module: 'HikariCP'
     }
-    implementation 'org.springframework.security:spring-security-core'
     // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
     implementation 'org.apache.tomcat:tomcat-jdbc:9.0.30'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
