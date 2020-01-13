@@ -20,7 +20,7 @@
     }
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "latest",
+    "@nuxt/typescript-runtime": "^0.3.7",
     "@nuxtjs/auth": "^4.8.5",
     "@nuxtjs/axios": "^5.9.2",
     "nuxt": "latest",
@@ -28,7 +28,7 @@
     "vuex-module-decorators": "^0.11.0"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "latest",
+    "@nuxt/typescript-build": "^0.5.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
@@ -47,9 +47,11 @@
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "nuxt-property-decorator": "^2.5.0",
+    "nuxt-typed-vuex": "^0.1.15",
     "prettier": "^1.19.1",
     "stylelint": "^12.0.1",
     "ts-loader": "^6.2.1",
+    "typed-vuex": "^0.1.15",
     "typescript": "^3.7.4",
     "vuetify": "^2.2.1"
   }

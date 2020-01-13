@@ -3,10 +3,8 @@ package com.github.poad.examples.webauthn.controller;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.poad.examples.webauthn.entity.User;
 import com.github.poad.examples.webauthn.service.WebAuthnRegistrationService;
 import com.webauthn4j.data.PublicKeyCredentialCreationOptions;
-import com.webauthn4j.data.client.challenge.Challenge;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -82,18 +80,18 @@ public class WebAuthnRegistrationController {
         var user = webAuthnService.findOrElseCreate(params.getEmail(), params.getDisplayName());
         var options = webAuthnService.creationOptions(user);
 
-        var session = httpRequest.getSession();
-        session.setAttribute("attestationChallenge", options.getChallenge());
-        session.setAttribute("attentionUser", user);
+        new WebAuthnAttestationSession(httpRequest)
+                .setChallenge(options.getChallenge())
+                .setUser(user);
 
         return options;
     }
 
     @PostMapping(value = "/attestation/result")
     public void postAttestationOptions(@RequestBody AttestationResultParam params, HttpServletRequest httpRequest) throws JsonProcessingException {
-        var httpSession = httpRequest.getSession();
-        var challenge = (Challenge) httpSession.getAttribute("attestationChallenge");
-        var user = (User) httpSession.getAttribute("attentionUser");
+        var session = new WebAuthnAttestationSession(httpRequest);
+        var challenge = session.getChallenge().orElseThrow();
+        var user = session.getUser().orElseThrow();
 
         webAuthnService.creationFinish(user, challenge, params.clientDataJSON, params.attestationObject, params.clientExtensionsJSON);
     }

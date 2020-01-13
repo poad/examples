@@ -14,16 +14,9 @@
   </v-layout>
 </template>
 
-
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { Middleware } from '@nuxt/types'
-
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 @Component
-export default class WebAuthnInspire extends Vue {
-  middleware: string = 'auth'
-}
+export default class WebAuthnInspire extends Vue {}
 </script>

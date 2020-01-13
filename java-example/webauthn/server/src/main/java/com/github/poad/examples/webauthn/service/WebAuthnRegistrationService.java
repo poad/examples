@@ -1,6 +1,5 @@
 package com.github.poad.examples.webauthn.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.poad.examples.webauthn.config.WebAuthnConfig;
 import com.github.poad.examples.webauthn.entity.Credential;
 import com.github.poad.examples.webauthn.entity.User;
@@ -112,7 +111,7 @@ public class WebAuthnRegistrationService {
             byte[] clientDataJSON,
             byte[] attestationObject,
             String clientExtensionsJSON
-    ) throws JsonProcessingException {
+    ) {
         var origin = Origin.create(config.getOrigin().asString());
 
         var rpId = config.getRp().getId();

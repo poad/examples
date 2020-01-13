@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.poad.examples.webauthn.service.WebAuthnAuthenticationService;
 import com.webauthn4j.data.PublicKeyCredentialRequestOptions;
-import com.webauthn4j.data.client.challenge.Challenge;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,8 +49,8 @@ public class WebAuthnAuthenticationController {
         var options = webAuthnService.requestOptions(user);
 
         // challengeをHTTPセッションに一時保存
-        var session = httpRequest.getSession();
-        session.setAttribute("assertionChallenge", options.getChallenge());
+        new WebAuthnAssertionSession(httpRequest)
+                .setChallenge(options.getChallenge());
 
         return options;
     }
@@ -94,21 +93,21 @@ public class WebAuthnAuthenticationController {
             HttpServletRequest httpRequest) {
 
         // HTTPセッションからchallengeを取得
-        var httpSession = httpRequest.getSession();
-        var challenge = (Challenge) httpSession.getAttribute("assertionChallenge");
+        var session = new WebAuthnAssertionSession(httpRequest);
+        session.getChallenge().ifPresent(challenge -> {
+            // ※サンプルコードでは、HTTPセッションからchallengeを削除
+            session.removeChallenge();
 
-        // ※サンプルコードでは、HTTPセッションからchallengeを削除
-        httpSession.removeAttribute("assertionChallenge");
-
-        // 署名の検証
-        webAuthnService.assertionFinish(
-                challenge,
-                params.credentialId,
-                params.userHandle,
-                params.authenticatorData,
-                params.clientDataJSON,
-                params.clientExtensionsJSON,
-                params.signature);
+            // 署名の検証
+            webAuthnService.assertionFinish(
+                    challenge,
+                    params.credentialId,
+                    params.userHandle,
+                    params.authenticatorData,
+                    params.clientDataJSON,
+                    params.clientExtensionsJSON,
+                    params.signature);
+        });
     }
 
 }

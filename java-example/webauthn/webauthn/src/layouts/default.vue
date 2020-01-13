@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -9,9 +9,25 @@
     >
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in toItems"
           :key="i"
           :to="item.to"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-list>
+        <v-list-item
+          v-for="(item, i) in clickItems"
+          :key="i"
+          @click="item.click"
           router
           exact
         >
@@ -49,12 +65,19 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Emit } from 'vue-property-decorator'
+import { WebAuthnPage } from '../store'
 
-export interface Item {
+export interface ToItem {
   icon: string
   title: string
   to: string
+}
+
+export interface ClickItem {
+  icon: string
+  title: string
+  click: Function
 }
 
 @Component
@@ -62,7 +85,7 @@ export default class DefaultLayout extends Vue {
   clipped: Boolean = false
   drawer: Boolean = false
   fixed: Boolean = false
-  items: Array<Item> = [
+  toItems: Array<ToItem> = [
     {
       icon: 'mdi-apps',
       title: 'Welcome',
@@ -70,10 +93,33 @@ export default class DefaultLayout extends Vue {
     }
   ]
 
+  clickItems: Array<ClickItem> = [
+    {
+      icon: 'mdi-apps',
+      title: 'Sogn In',
+      click: this.showSignIn
+    },
+    {
+      icon: 'mdi-apps',
+      title: 'Sogn Up',
+      click: this.showSignUp
+    }
+  ]
+
   miniVariant: Boolean = false
   right: Boolean = true
   rightDrawer: Boolean = false
   title: string = 'WebAuthn Example'
+
+  @Emit()
+  showSignIn() {
+    this.$accessor.changePage(WebAuthnPage.SignIn)
+  }
+
+  @Emit()
+  showSignUp() {
+    this.$accessor.changePage(WebAuthnPage.SignUp)
+  }
 }
 </script>
 
