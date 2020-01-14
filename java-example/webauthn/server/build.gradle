@@ -22,6 +22,9 @@ dependencies {
     implementation 'org.apache.tomcat:tomcat-jdbc:9.0.30'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+    implementation 'org.springframework.security:spring-security-core'
+
     // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
     implementation 'com.webauthn4j:webauthn4j-core:0.10.0.RELEASE'
     implementation 'com.webauthn4j:webauthn4j-metadata:0.10.0.RELEASE'

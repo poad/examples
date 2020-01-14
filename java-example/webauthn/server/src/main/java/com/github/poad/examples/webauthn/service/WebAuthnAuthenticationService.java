@@ -6,6 +6,7 @@ import com.github.poad.examples.webauthn.entity.User;
 import com.github.poad.examples.webauthn.repository.WebAuthnCredentialRepository;
 import com.github.poad.examples.webauthn.repository.WebAuthnUserRepository;
 import com.webauthn4j.WebAuthnManager;
+import com.webauthn4j.authenticator.Authenticator;
 import com.webauthn4j.converter.util.ObjectConverter;
 import com.webauthn4j.data.*;
 import com.webauthn4j.data.client.Origin;
@@ -81,7 +82,7 @@ public class WebAuthnAuthenticationService {
         );
     }
 
-    public void assertionFinish(
+    public Authenticator assertionFinish(
             Challenge challenge,
             byte[] credentialId,
             byte[] userHandle,
@@ -129,7 +130,7 @@ public class WebAuthnAuthenticationService {
         // 公開鍵クレデンシャルをバイナリからデシリアライズ
         //   ※サンプルコードでは、DB保存した公開鍵クレデンシャルにアテステーションも含まれる
         //     https://github.com/webauthn4j/webauthn4j/issues/148
-        AuthenticatorImpl authenticator = converter.getCborConverter().readValue(credential.getPublicKey(), AuthenticatorImpl.class);
+        Authenticator authenticator = converter.getCborConverter().readValue(credential.getPublicKey(), AuthenticatorImpl.class);
 
         var manager = WebAuthnManager.createNonStrictWebAuthnManager(converter);
         var authenticationData = manager.parse(authenticationRequest);
@@ -144,5 +145,7 @@ public class WebAuthnAuthenticationService {
         // 署名カウンタの更新
         var currentCounter = response.getAuthenticatorData().getSignCount();
         credentialRepository.saveAndFlush(new Credential(credential.getCredentialId(), credential.getUser(), credential.getPublicKey(), currentCounter));
+
+        return authenticator;
     }
 }

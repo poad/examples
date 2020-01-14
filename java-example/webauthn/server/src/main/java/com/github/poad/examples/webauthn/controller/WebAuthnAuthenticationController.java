@@ -99,7 +99,7 @@ public class WebAuthnAuthenticationController {
             session.removeChallenge();
 
             // 署名の検証
-            webAuthnService.assertionFinish(
+            var authenticator = webAuthnService.assertionFinish(
                     challenge,
                     params.credentialId,
                     params.userHandle,
@@ -107,6 +107,7 @@ public class WebAuthnAuthenticationController {
                     params.clientDataJSON,
                     params.clientExtensionsJSON,
                     params.signature);
+            new WebAuthnAuthSession(httpRequest).setAuthenticator(authenticator);
         });
     }
 

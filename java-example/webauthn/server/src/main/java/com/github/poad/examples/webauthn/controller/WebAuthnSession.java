@@ -37,4 +37,8 @@ public abstract class WebAuthnSession {
         session.removeAttribute(prefix + "Challenge");
         return this;
     }
+
+    protected HttpSession getSession() {
+        return session;
+    }
 }
