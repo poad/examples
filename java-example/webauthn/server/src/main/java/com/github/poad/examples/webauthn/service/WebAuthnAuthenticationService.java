@@ -17,6 +17,7 @@ import com.webauthn4j.data.extension.client.AuthenticationExtensionsClientInputs
 import com.webauthn4j.data.extension.client.FIDOAppIDExtensionClientInput;
 import com.webauthn4j.data.extension.client.SupportedExtensionsExtensionClientInput;
 import com.webauthn4j.server.ServerProperty;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -82,7 +83,7 @@ public class WebAuthnAuthenticationService {
         );
     }
 
-    public Authenticator assertionFinish(
+    public User assertionFinish(
             Challenge challenge,
             byte[] credentialId,
             byte[] userHandle,
@@ -146,6 +147,6 @@ public class WebAuthnAuthenticationService {
         var currentCounter = response.getAuthenticatorData().getSignCount();
         credentialRepository.saveAndFlush(new Credential(credential.getCredentialId(), credential.getUser(), credential.getPublicKey(), currentCounter));
 
-        return authenticator;
+        return credential.getUser();
     }
 }

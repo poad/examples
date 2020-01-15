@@ -2,8 +2,12 @@ package com.github.poad.examples.webauthn.controller;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.poad.examples.webauthn.model.Token;
 import com.github.poad.examples.webauthn.service.WebAuthnAuthenticationService;
 import com.webauthn4j.data.PublicKeyCredentialRequestOptions;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -86,29 +90,36 @@ public class WebAuthnAuthenticationController {
         }
     }
 
+
     // POST /assertion/result のエンドポイント
     @PostMapping(value = "/assertion/result")
-    public void postAssertionResult(
+    public Token postAssertionResult(
             @RequestBody AuthenticationResultParam params,
             HttpServletRequest httpRequest) {
 
         // HTTPセッションからchallengeを取得
         var session = new WebAuthnAssertionSession(httpRequest);
-        session.getChallenge().ifPresent(challenge -> {
-            // ※サンプルコードでは、HTTPセッションからchallengeを削除
-            session.removeChallenge();
+        var challenge = session.getChallenge().orElseThrow();
 
-            // 署名の検証
-            var authenticator = webAuthnService.assertionFinish(
-                    challenge,
-                    params.credentialId,
-                    params.userHandle,
-                    params.authenticatorData,
-                    params.clientDataJSON,
-                    params.clientExtensionsJSON,
-                    params.signature);
-            new WebAuthnAuthSession(httpRequest).setAuthenticator(authenticator);
-        });
+        session.removeChallenge();
+
+        // 署名の検証
+        var user = webAuthnService.assertionFinish(
+                challenge,
+                params.credentialId,
+                params.userHandle,
+                params.authenticatorData,
+                params.clientDataJSON,
+                params.clientExtensionsJSON,
+                params.signature);
+        var name = user.getDisplayName();
+
+        // JWT を発行
+        var key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        var jws = Jwts.builder().setSubject(name).signWith(key).compact();
+
+        new WebAuthnAuthSession(httpRequest).setJws(jws);
+        return new Token(jws);
     }
 
 }

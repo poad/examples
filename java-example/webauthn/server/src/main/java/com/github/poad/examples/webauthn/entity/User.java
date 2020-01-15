@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Immutable;
 import javax.persistence.*;
 import java.util.List;
 
-@Table(name="user")
+@Table(name="user", uniqueConstraints=@UniqueConstraint(columnNames={"email", "displayName"}))
 @Entity
 @Immutable
 public class User {
