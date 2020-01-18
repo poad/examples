@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { Vue, Component, Emit } from 'vue-property-decorator'
-import WebAuthnClient from '../plugins/types'
+import { WebAuthnClient, AuthenticatorAssertionJSON } from '../plugins/types'
 import { WebAuthnPage } from '../store'
 
 @Component
@@ -108,11 +108,11 @@ export default class SignIn extends Vue {
 
       const json = await this.credentialToJSON(credential)
 
-      const ret = await this.$authenticationFinish(json)
+      const result = this.$authenticationFinish(json)
 
       this.showIndex()
 
-      return ret
+      return result
     } catch (error) {
       this.changeMessage('error', error)
     }
@@ -152,9 +152,9 @@ export default class SignIn extends Vue {
 
   private async credentialToJSON(
     credential: PublicKeyCredential
-  ): Promise<WebAuthnClient.AuthenticatorAssertionJSON> {
+  ): Promise<AuthenticatorAssertionJSON> {
     const response = await (credential.response as AuthenticatorAssertionResponse)
-    const credentialJSON: WebAuthnClient.AuthenticatorAssertionJSON = {
+    const credentialJSON: AuthenticatorAssertionJSON = {
       credentialId: this.arrayBufferToBase64(credential.rawId),
       clientDataJSON: this.arrayBufferToBase64(response.clientDataJSON),
       authenticatorData: this.arrayBufferToBase64(response.authenticatorData),

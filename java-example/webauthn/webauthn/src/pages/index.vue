@@ -3,7 +3,7 @@
     <index v-if="this.$store.state.page === 'Index'" />
     <sign-up v-if="this.$store.state.page === 'SignUp'" />
     <sign-in v-if="this.$store.state.page === 'SignIn'" />
-    <sinspire v-if="this.$store.state.page === 'Inspire'" />
+    <inspire v-if="this.$store.state.page === 'Inspire'" />
   </v-container>
 </template>
 

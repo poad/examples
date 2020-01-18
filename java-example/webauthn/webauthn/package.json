@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.3.7",
-    "@nuxtjs/auth": "^4.8.5",
     "@nuxtjs/axios": "^5.9.2",
     "nuxt": "^2.11.0",
     "vue": "^2",
@@ -41,7 +40,6 @@
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "babel-eslint": "^10.0.3",
-    "core-js": "^3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-nuxt": "^0.5.0",

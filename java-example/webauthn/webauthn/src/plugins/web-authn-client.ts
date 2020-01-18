@@ -27,7 +27,7 @@ const WebAuthnClientInstsnce: Plugin = (context, inject) => {
     });
     inject("registerFinish", async <T>(credential: WebAuthnClient.AuthenticatorAttestationJSON): Promise<T> => {
         try {
-            const { response } = await client.post('/attestation/result', {
+            const response = await client.post<T>('/attestation/result', {
                 'clientDataJSON': credential.clientDataJSON,
                 'attestationObject': credential.attestationObject
             })
@@ -54,7 +54,7 @@ const WebAuthnClientInstsnce: Plugin = (context, inject) => {
     });
     inject("authenticationFinish", async <T>(credential: WebAuthnClient.AuthenticatorAssertionJSON): Promise<T> => {
         try {
-            const { response } = await client.post('/assertion/result', {
+            const response = await client.post<T>('/assertion/result', {
                 'clientDataJSON': credential.clientDataJSON,
                 'credentialId': credential.credentialId,
                 'authenticatorData': credential.authenticatorData,

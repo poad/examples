@@ -37,5 +37,5 @@ export const accessorType = getAccessorType({
     modules: {
       // The key (submodule) needs to match the Nuxt namespace (e.g. ~/store/submodule.ts)
     },
-  })
+})
   

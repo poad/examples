@@ -37,9 +37,6 @@ const nuxtConfig = {
   plugins: [
     { src: '~/plugins/web-authn-client.ts', mode: 'client' }
   ],
-  // router: {
-  //   middleware: ['auth']
-  // },
   /*
    ** Nuxt.js dev-modules
    */
@@ -57,9 +54,8 @@ const nuxtConfig = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    '@nuxtjs/auth',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Axios module configuration
