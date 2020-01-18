@@ -2,12 +2,8 @@ package com.github.poad.examples.webauthn.controller;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.github.poad.examples.webauthn.model.Token;
 import com.github.poad.examples.webauthn.service.WebAuthnAuthenticationService;
 import com.webauthn4j.data.PublicKeyCredentialRequestOptions;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -93,7 +89,7 @@ public class WebAuthnAuthenticationController {
 
     // POST /assertion/result のエンドポイント
     @PostMapping(value = "/assertion/result")
-    public Token postAssertionResult(
+    public void postAssertionResult(
             @RequestBody AuthenticationResultParam params,
             HttpServletRequest httpRequest) {
 
@@ -113,13 +109,6 @@ public class WebAuthnAuthenticationController {
                 params.clientExtensionsJSON,
                 params.signature);
         var name = user.getDisplayName();
-
-        // JWT を発行
-        var key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-        var jws = Jwts.builder().setSubject(name).signWith(key).compact();
-
-        new WebAuthnAuthSession(httpRequest).setJws(jws);
-        return new Token(jws);
     }
 
 }

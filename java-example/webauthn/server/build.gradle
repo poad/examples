@@ -28,9 +28,6 @@ dependencies {
     // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
     implementation 'com.webauthn4j:webauthn4j-core:0.10.0.RELEASE'
     implementation 'com.webauthn4j:webauthn4j-metadata:0.10.0.RELEASE'
-    implementation 'io.jsonwebtoken:jjwt-api:0.10.7'
-    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.10.7'
-    runtimeOnly('io.jsonwebtoken:jjwt-orgjson:0.10.7')
     if (project.hasProperty('env')) {
         runtimeOnly 'mysql:mysql-connector-java:8.0.18'
     } else {

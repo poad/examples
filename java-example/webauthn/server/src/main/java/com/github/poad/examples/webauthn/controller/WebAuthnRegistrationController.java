@@ -2,13 +2,8 @@ package com.github.poad.examples.webauthn.controller;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.poad.examples.webauthn.model.Token;
 import com.github.poad.examples.webauthn.service.WebAuthnRegistrationService;
 import com.webauthn4j.data.PublicKeyCredentialCreationOptions;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -92,18 +87,11 @@ public class WebAuthnRegistrationController {
     }
 
     @PostMapping(value = "/attestation/result")
-    public Token postAttestationOptions(@RequestBody AttestationResultParam params, HttpServletRequest httpRequest) {
+    public void postAttestationOptions(@RequestBody AttestationResultParam params, HttpServletRequest httpRequest) {
         var session = new WebAuthnAttestationSession(httpRequest);
         var challenge = session.getChallenge().orElseThrow();
         var user = session.getUser().orElseThrow();
 
         webAuthnService.creationFinish(user, challenge, params.clientDataJSON, params.attestationObject, params.clientExtensionsJSON);
-
-        // JWT を発行
-        var key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-        var jws = Jwts.builder().setSubject(user.getDisplayName()).signWith(key).compact();
-
-        new WebAuthnAuthSession(httpRequest).setJws(jws);
-        return new Token(jws);
     }
 }
