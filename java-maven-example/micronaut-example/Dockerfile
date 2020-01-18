@@ -3,7 +3,7 @@ COPY . /app/micronaut-example
 WORKDIR /app/micronaut-example
 RUN mvn package
 
-FROM oracle/graalvm-ce:19.3.0 as graalvm
+FROM oracle/graalvm-ce:19.3.1-java11 as graalvm
 RUN gu install native-image
 COPY --from=builder /app/micronaut-example/ /app/micronaut-example
 WORKDIR /app/micronaut-example

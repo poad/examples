@@ -178,7 +178,7 @@
                         <useCurrentTimestamp>true</useCurrentTimestamp>
                     </container>
                     <to>
-                        <image>docker.io/poad/spring-boot-jib-example</image>
+                        <image>poad/spring-boot-jib-example</image>
                         <credHelper>osxkeychain</credHelper>
                     </to>
                     <allowInsecureRegistries>true</allowInsecureRegistries>
