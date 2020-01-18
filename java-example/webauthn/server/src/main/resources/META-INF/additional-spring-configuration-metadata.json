@@ -4,5 +4,6 @@
       "name": "spring.datasource.jpa.database-platform",
       "type": "java.lang.String",
       "description": "Description for spring.datasource.jpa.database-platform."
-  }
-] }
+    }
+  ]
+}

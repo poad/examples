@@ -2,16 +2,16 @@ import { GetterTree, ActionTree, MutationTree } from 'vuex'
 import { getAccessorType } from 'typed-vuex'
 
 export enum WebAuthnPage {
-    Index = "Index",
-    SignUp = "SignUp",
-    SignIn = "SignIn",
-    Inspire = "Inspire"
+  Index = "Index",
+  SignUp = "SignUp",
+  SignIn = "SignIn",
+  Inspire = "Inspire"
 }
 
 export const state = () => ({
-    page: WebAuthnPage.SignIn
+  page: WebAuthnPage.SignIn
 })
-  
+
 export type RootState = ReturnType<typeof state>
 
 export const getters: GetterTree<RootState, RootState> = {
@@ -26,16 +26,15 @@ export const actions: ActionTree<RootState, RootState> = {
   changePage({ commit }, page: WebAuthnPage) {
     commit('CHANGE_PAGE', page)
   },
-}  
+}
 
 // This compiles to nothing and only serves to return the correct type of the accessor
 export const accessorType = getAccessorType({
-    state,
-    getters,
-    mutations,
-    actions,
-    modules: {
-      // The key (submodule) needs to match the Nuxt namespace (e.g. ~/store/submodule.ts)
-    },
+  state,
+  getters,
+  mutations,
+  actions,
+  modules: {
+    // The key (submodule) needs to match the Nuxt namespace (e.g. ~/store/submodule.ts)
+  },
 })
-  
