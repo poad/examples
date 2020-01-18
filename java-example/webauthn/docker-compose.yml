@@ -14,12 +14,23 @@ services:
     networks:
       - webauthn-example-network
   backend:
-    image: poad/poad/webauthn-rp-example:1.0.0
+    image: poad/webauthn-rp-example:1.0.0
     container_name: webauthn-api-server
     depends_on:
       - database
     ports:
       - 8080:8080
+    networks:
+      - webauthn-example-network
+  frontend:
+    build: 
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: webauthn-front-server
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
     networks:
       - webauthn-example-network
 networks:

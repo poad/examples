@@ -1,7 +1,13 @@
 FROM node:alpine
 
-COPY webauthn /home/node/webauthn
-COPY docker/assets/.env /home/node/webauthn/.env
+USER root
+
+RUN apk --update add --no-cache python3 make g++
+
+USER node
+
+COPY --chown=node:node webauthn /home/node/webauthn
+COPY --chown=node:node docker/assets/.env /home/node/webauthn/.env
 
 WORKDIR /home/node/webauthn
 
