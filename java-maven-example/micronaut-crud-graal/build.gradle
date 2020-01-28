@@ -6,7 +6,7 @@ plugins {
 
 
 ext {
-    micronautVersion = "1.2.0"
+    micronautVersion = "1.2.10"
 }
 
 version "0.1"

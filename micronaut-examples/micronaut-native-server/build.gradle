@@ -26,7 +26,7 @@ configurations {
 }
 
 dependencies {
-    micronautBom platform('io.micronaut:micronaut-bom:1.2.7')
+    micronautBom platform('io.micronaut:micronaut-bom:1.2.10')
 
     annotationProcessor "io.micronaut:micronaut-graal"
     annotationProcessor "io.micronaut:micronaut-inject-java"
