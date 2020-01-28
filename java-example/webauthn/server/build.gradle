@@ -26,8 +26,8 @@ dependencies {
     implementation 'org.springframework.security:spring-security-core'
 
     // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
-    implementation 'com.webauthn4j:webauthn4j-core:0.10.0.RELEASE'
-    implementation 'com.webauthn4j:webauthn4j-metadata:0.10.0.RELEASE'
+    implementation 'com.webauthn4j:webauthn4j-core:0.10.1.RELEASE'
+    implementation 'com.webauthn4j:webauthn4j-metadata:0.10.1.RELEASE'
     if (project.hasProperty('env')) {
         runtimeOnly 'mysql:mysql-connector-java:8.0.18'
     } else {

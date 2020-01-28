@@ -31,7 +31,17 @@
     "types": [
       "@types/node",
       "@nuxt/types",
-      "../plugins/types"
+      "@types/webpack",
+      "@nuxt/vue-app",
+      "~/plugins/types",
+      "vuetify"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@nuxt/vue-app/types",
+      "./node_modules/vuetify/types",
+      "./types",
+      "./plugins/types"
     ]
   },
   "exclude": [
