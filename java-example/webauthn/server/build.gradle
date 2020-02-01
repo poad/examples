@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.3.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
-    id 'com.google.cloud.tools.jib' version '1.8.0'
+    id 'com.google.cloud.tools.jib' version '2.0.0'
 }
 
 group = 'com.github.poad.examples'
@@ -42,7 +42,7 @@ test {
 	useJUnitPlatform()
 }
 
-jib.from.image = 'mcr.microsoft.com/java/jre-headless:11u6-zulu-alpine'
+jib.from.image = 'mcr.microsoft.com/java/jre-headless:11-zulu-alpine'
 jib.to.image = 'poad/webauthn-rp-example'
 jib.to.tags = [ version ]
 jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'

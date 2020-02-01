@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.2.2.RELEASE'
+        springBootVersion = '2.2.4.RELEASE'
         kuromojiVersion = '0.9.0'
     }
     repositories {
@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.8.1"
+        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:2.0.0"
         classpath "org.asciidoctor:asciidoctor-gradle-jvm:2.3.0"
     }
 }
@@ -86,7 +86,7 @@ project(":app") {
         dependsOn test
     }
 
-    jib.from.image = 'mcr.microsoft.com/java/jdk:11u5-zulu-alpine'
+    jib.from.image = 'mcr.microsoft.com/java/jdk:11-zulu-alpine'
     jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
     jib.container.ports = [ '8080' ]
     jib.to.image = 'kuromoji-api-server:latest'
