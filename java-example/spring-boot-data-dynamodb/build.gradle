@@ -1,13 +1,13 @@
 buildscript {
     ext {
-        set('springBootVersion', "2.2.2.RELEASE")
+        set('springBootVersion', "2.2.4.RELEASE")
     }
 }
 
 plugins {
 	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'org.asciidoctor.convert' version '1.5.8'
-    id 'com.google.cloud.tools.jib' version '1.8.0'
+    id 'com.google.cloud.tools.jib' version '2.0.0'
 	id 'java'
 }
 
@@ -53,7 +53,7 @@ asciidoctor {
 
 tasks.build.dependsOn tasks.jibDockerBuild
 
-jib.from.image = 'mcr.microsoft.com/java/jre-headless:11u5-zulu-alpine'
+jib.from.image = 'mcr.microsoft.com/java/jre-headless:11-zulu-alpine'
 jib.to.image = 'dynamo-front'
 jib.to.credHelper = 'osxkeychain'
 jib.container.environment = [ENV:'local']
