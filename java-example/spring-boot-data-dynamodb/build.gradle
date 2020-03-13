@@ -1,13 +1,13 @@
 buildscript {
     ext {
-        set('springBootVersion', "2.2.4.RELEASE")
+        set('springBootVersion', "2.2.5.RELEASE")
     }
 }
 
 plugins {
 	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'org.asciidoctor.convert' version '1.5.8'
-    id 'com.google.cloud.tools.jib' version '2.0.0'
+    id 'com.google.cloud.tools.jib' version '2.1.0'
 	id 'java'
 }
 

@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
-    id 'com.google.cloud.tools.jib' version '2.0.0'
+    id 'com.google.cloud.tools.jib' version '2.1.0'
 }
 
 group = 'com.github.poad.examples'
@@ -26,8 +26,8 @@ dependencies {
     implementation 'org.springframework.security:spring-security-core'
 
     // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
-    implementation 'com.webauthn4j:webauthn4j-core:0.10.1.RELEASE'
-    implementation 'com.webauthn4j:webauthn4j-metadata:0.10.1.RELEASE'
+    implementation 'com.webauthn4j:webauthn4j-core:0.10.2.RELEASE'
+    implementation 'com.webauthn4j:webauthn4j-metadata:0.10.2.RELEASE'
     if (project.hasProperty('env')) {
         runtimeOnly 'mysql:mysql-connector-java:8.0.18'
     } else {

@@ -27,8 +27,8 @@ ext {
 
     flywayVersion = '6.1.1'
 
-    springBomVersion = '5.2.3.RELEASE'
-    springBootVersion = '2.2.3.RELEASE'
+    springBomVersion = '5.2.4.RELEASE'
+    springBootVersion = '2.2.5.RELEASE'
     springLoadedVersion = '1.2.8.RELEASE'
 
     transactionApiVersion = '1.3'
@@ -45,12 +45,12 @@ ext {
 
     junitVersion = '4.12'
     junit4Version        = '4.12'
-    junitVintageVersion  = '5.5.2'
+    junitVintageVersion  = '5.6.0'
     junitPlatformVersion = '1.5.2'
-    junitJupiterVersion  = '5.5.2'
+    junitJupiterVersion  = '5.6.0'
 
-    micronautVersion = '1.2.7'
-    micronautSpringVersion = '1.2.7'
+    micronautVersion = '1.3.3'
+    micronautSpringVersion = '1.3.2'
 
     xRayBomVersion = '2.4.0'
 }

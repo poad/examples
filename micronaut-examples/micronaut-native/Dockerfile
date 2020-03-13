@@ -1,8 +1,17 @@
-FROM oracle/graalvm-ce:19.3.1-java11 as graalvm
+FROM oracle/graalvm-ce:20.0.0-java8 as graalvm-build
 RUN gu install native-image
+
 COPY . /home/app/micronaut-native
 WORKDIR /home/app/micronaut-native
-RUN native-image --no-server --no-fallback \
+RUN ./gradlew assemble
+
+FROM oracle/graalvm-ce:20.0.0-java8 as graalvm
+RUN gu install native-image
+COPY --from=graalvm-build /home/app/micronaut-native /home/app/micronaut-native
+WORKDIR /home/app/micronaut-native
+RUN native-image --no-server \
+    --no-fallback \
+    -H:+ReportExceptionStackTraces \
     --initialize-at-build-time=com.mysql.cj.jdbc.Driver \
     --initialize-at-build-time=com.mysql.cj.jdbc.AbandonedConnectionCleanupThread \
     --initialize-at-build-time=com.sun.el.ExpressionFactoryImpl \

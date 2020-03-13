@@ -4,8 +4,6 @@ plugins {
     id "java"
 }
 
-
-
 version "0.1"
 group "com.github.poad.example.micronaut"
 
@@ -68,5 +66,11 @@ shadowJar {
     mergeServiceFiles()
 }
 
-run.classpath += configurations.developmentOnly
-run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+tasks.withType(JavaExec) {
+    classpath += configurations.developmentOnly
+    jvmArgs('-noverify', '-XX:TieredStopAtLevel=1', '-Dcom.sun.management.jmxremote')
+}
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+    options.compilerArgs.add('-parameters')
+}
