@@ -1,0 +1,55 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'org.asciidoctor.convert' version '1.5.8'
+	id 'com.google.cloud.tools.jib' version '2.1.0'
+	id 'java'
+}
+
+group = 'com.github.poad.example.springboot'
+version = '1.0.0'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('snippetsDir', file("build/generated-snippets"))
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation ('org.springframework.boot:spring-boot-starter-data-jpa') {
+		exclude group: 'com.zaxxer', module: 'HikariCP'
+	}
+	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
+	implementation 'org.apache.tomcat:tomcat-jdbc:9.0.33'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.18'
+}
+
+test {
+	outputs.dir snippetsDir
+	useJUnitPlatform()
+}
+
+asciidoctor {
+	inputs.dir snippetsDir
+	dependsOn test
+}
+
+jib.from.image = 'mcr.microsoft.com/java/jre-headless:11-zulu-alpine'
+jib.to.image = 'poad/spring-data-jpa-async'
+jib.to.tags = [ version ]
+jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
+jib.container.ports = [ '8089' ]
+jib.container.jvmFlags = [ "-Dspring.profiles.active=container" ]

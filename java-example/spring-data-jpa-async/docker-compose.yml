@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: nginx
+    environment: 
+      API_ENDPOINT: http://127.0.0.1/rest/
+    ports:
+      - 80:80
+    links:
+      - app
+    networks:
+      - spa-app-network
+  app:
+    image: poad/spring-data-jpa-async:1.0.0
+    container_name: app
+    ports:
+      - 8089:8089
+    networks:
+      - spa-app-network
+    links:
+      - mysql
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: test
+    volumes:
+      - ./mysql_data://var/lib/mysql
+      - ./mysql_ddl:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    networks:
+      - spa-app-network
+networks:
+  spa-app-network: {}
+  default:
+    external:
+      name: spa-app-network
