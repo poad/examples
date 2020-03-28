@@ -27,19 +27,19 @@ ext {
 
     flywayVersion = '6.1.1'
 
-    springBomVersion = '5.2.4.RELEASE'
-    springBootVersion = '2.2.5.RELEASE'
+    springBomVersion = '5.2.5.RELEASE'
+    springBootVersion = '2.2.6.RELEASE'
     springLoadedVersion = '1.2.8.RELEASE'
 
     transactionApiVersion = '1.3'
 
-    slf4jVersion = '1.7.29'
+    slf4jVersion = '1.7.30'
 
     jaxbApiVersion = '2.3.2'
     p6spyVersion = '3.8.6'
-    tomcatJdbcPoolVersion = '9.0.30'
+    tomcatJdbcPoolVersion = '9.0.33'
 
-    log4jVersion = '2.12.1'
+    log4jVersion = '2.13.1'
 
     dbUnitVersion = '2.6.0'
 
