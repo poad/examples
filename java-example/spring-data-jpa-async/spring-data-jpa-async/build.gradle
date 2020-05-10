@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.6.RELEASE'
+	id 'org.springframework.boot' version '2.2.7.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-	id 'org.asciidoctor.convert' version '1.5.8'
-	id 'com.google.cloud.tools.jib' version '2.1.0'
+	id 'org.asciidoctor.convert' version '1.6.0'
+	id 'com.google.cloud.tools.jib' version '2.2.0'
 	id 'java'
 }
 
@@ -24,7 +24,7 @@ dependencies {
 		exclude group: 'com.zaxxer', module: 'HikariCP'
 	}
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	implementation 'org.apache.tomcat:tomcat-jdbc:9.0.33'
+	implementation 'org.apache.tomcat:tomcat-jdbc:9.0.34'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -34,7 +34,7 @@ dependencies {
 
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
-	runtimeOnly 'mysql:mysql-connector-java:8.0.18'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.20'
 }
 
 test {

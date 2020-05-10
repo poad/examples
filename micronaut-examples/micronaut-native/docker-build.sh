@@ -1,7 +1,6 @@
 #!/bin/sh
 
-./gradlew assemble && \
-docker build . -t micronaut-native && \
+docker build -t micronaut-native . && \
 echo && \
 echo && \
 echo "To run the docker container execute:" && \
