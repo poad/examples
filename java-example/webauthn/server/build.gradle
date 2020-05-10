@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.6.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'org.springframework.boot' version "${springBootVersion}"
+	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
 	id 'java'
-    id 'com.google.cloud.tools.jib' version '2.1.0'
+    id 'com.google.cloud.tools.jib' version "${jibVersion}"
 }
 
 group = 'com.github.poad.examples'
@@ -19,17 +19,17 @@ dependencies {
         exclude group: 'com.zaxxer', module: 'HikariCP'
     }
     // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-    implementation 'org.apache.tomcat:tomcat-jdbc:9.0.30'
+    implementation "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
     implementation 'org.springframework.security:spring-security-core'
 
     // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
-    implementation 'com.webauthn4j:webauthn4j-core:0.10.2.RELEASE'
-    implementation 'com.webauthn4j:webauthn4j-metadata:0.10.2.RELEASE'
+    implementation "com.webauthn4j:webauthn4j-core:${webauthn4jVersion}"
+    implementation "com.webauthn4j:webauthn4j-metadata:${webauthn4jVersion}"
     if (project.hasProperty('env')) {
-        runtimeOnly 'mysql:mysql-connector-java:8.0.18'
+        runtimeOnly "mysql:mysql-connector-java:${mysqlConnectorVersion}"
     } else {
         runtimeOnly 'com.h2database:h2'
     }

@@ -1,13 +1,14 @@
-FROM oracle/graalvm-ce:20.0.0-java8 as graalvm-build
-RUN gu install native-image
+FROM mcr.microsoft.com/java/jdk:11-zulu-alpine as builder
 
 COPY . /home/app/micronaut-native
 WORKDIR /home/app/micronaut-native
-RUN ./gradlew assemble
+RUN ./gradlew assemble --no-daemon
+RUN ls -al
+RUN ls -al build
 
-FROM oracle/graalvm-ce:20.0.0-java8 as graalvm
-RUN gu install native-image
-COPY --from=graalvm-build /home/app/micronaut-native /home/app/micronaut-native
+FROM poad/graalvm-ce:native-image as graalvm
+
+COPY --from=builder /home/app/micronaut-native /home/app/micronaut-native
 WORKDIR /home/app/micronaut-native
 RUN native-image --no-server \
     --no-fallback \
@@ -18,7 +19,7 @@ RUN native-image --no-server \
     --initialize-at-build-time=sun.reflect.misc.Trampoline \
     --initialize-at-run-time=sun.awt.dnd.SunDropTargetContextPeer$EventDispatcher \
     --allow-incomplete-classpath \
-    -cp build/libs/micronaut-native-*.jar
+    -cp build/libs/micronaut-native-*all.jar
 
 FROM frolvlad/alpine-glibc
 EXPOSE 8080

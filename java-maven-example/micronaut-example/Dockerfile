@@ -1,16 +1,13 @@
-FROM maven:3.6.0-jdk-8  as builder
+FROM mcr.microsoft.com/java/jdk:11-zulu-alpine as builder
 COPY . /app/micronaut-example
 WORKDIR /app/micronaut-example
-RUN mvn package
+RUN ./mvnw package
 
-FROM oracle/graalvm-ce:19.3.1-java11 as graalvm
-RUN gu install native-image
+FROM poad/graalvm-ce:native-image as graalvm
+
 COPY --from=builder /app/micronaut-example/ /app/micronaut-example
 WORKDIR /app/micronaut-example
-RUN java -cp target/libs/micronaut-example-0.1.0-SNAPSHOT-all.jar \
-            io.micronaut.graal.reflect.GraalClassLoadingAnalyzer \
-            reflect.json
-RUN ls -l
+
 RUN native-image --no-server \
                  --class-path /app/micronaut-example/build/libs/*-all.jar \
     			 -H:ReflectionConfigurationFiles=/app/micronaut-example/reflect.json \

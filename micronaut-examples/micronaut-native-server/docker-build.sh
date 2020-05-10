@@ -1,6 +1,5 @@
 #!/bin/sh
 
-./gradlew assemble && \
 docker build . -t micronaut-native && \
 echo && \
 echo && \
