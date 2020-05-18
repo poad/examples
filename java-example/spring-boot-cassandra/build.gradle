@@ -1,7 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.7.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'org.springframework.boot' version "${springBootVersion}"
+	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
 	id 'java'
+	id 'com.google.cloud.tools.jib' version "${jibVersion}"
 }
 
 group = 'com.github.poad'
@@ -16,6 +17,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-cassandra'
+	implementation 'jakarta.validation:jakarta.validation-api'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -24,3 +26,8 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+jib.from.image = 'mcr.microsoft.com/java/jdk:11-zulu-alpine'
+jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
+jib.container.ports = [ '8080' ]
+jib.to.image = 'spring-boot-cassandra:latest'
