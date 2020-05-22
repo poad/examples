@@ -5,16 +5,24 @@ services:
     container_name: java-cassandra-server
     ports:
       - 8080:8080
+#    environment:
+#      - "SPRING_DATA_CASSANDRA_CONTACT_POINTS=cassandra1"
     depends_on:
-      - cassandra
-    links:
-      - cassandra
+      - cassandra1
     networks:
       - java-cassandra-network
 
-  cassandra:
-    image: poad/docker-cassandra:3
-    container_name: cassandra
+  cassandra1:
+    image: cassandra:3
+    container_name: cassandra1
+    environment:
+      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
+      - "CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch"
+      - "CASSANDRA_DC=datacenter1"
+    ulimits:
+      memlock: -1
+      nproc: 32768
+      nofile: 100000
     ports:
       - 7000:7000
       - 7001:7001
@@ -27,8 +35,6 @@ services:
       - 9160
     networks:
       - java-cassandra-network
+
 networks:
   java-cassandra-network:
-  default:
-    external:
-      name: java-cassandra-network
