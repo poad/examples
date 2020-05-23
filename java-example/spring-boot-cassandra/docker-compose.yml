@@ -13,7 +13,7 @@ services:
       - java-cassandra-network
 
   cassandra1:
-    image: cassandra:3
+    image: poad/docker-cassandra:jdk11
     container_name: cassandra1
     environment:
       - "CASSANDRA_CLUSTER_NAME=Test Cluster"
@@ -33,6 +33,40 @@ services:
       - 7001
       - 9042
       - 9160
+    networks:
+      - java-cassandra-network
+
+  cassandra2:
+    image: poad/docker-cassandra:jdk11
+    container_name: cassandra2
+    environment:
+      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
+      - "CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch"
+      - "CASSANDRA_DC=datacenter1"
+      - "CASSANDRA_SEEDS=cassandra1"
+    ulimits:
+      memlock: -1
+      nproc: 32768
+      nofile: 100000
+    depends_on:
+      - cassandra1
+    networks:
+      - java-cassandra-network
+
+  cassandra3:
+    image: poad/docker-cassandra:jdk11
+    container_name: cassandra3
+    environment:
+      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
+      - "CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch"
+      - "CASSANDRA_DC=datacenter1"
+      - "CASSANDRA_SEEDS=cassandra1"
+    ulimits:
+      memlock: -1
+      nproc: 32768
+      nofile: 100000
+    depends_on:
+      - cassandra1
     networks:
       - java-cassandra-network
 

@@ -12,7 +12,7 @@ CREATE KEYSPACE artist WITH replication = {'class':'SimpleStrategy', 'replicatio
 ## Use docker-compose
 
 ```$sh
-docker-compose up -d cassandra1
+docker-compose up -d cassandra2 cassandra3
 docker-compose exec cassandra1 cqlsh
 ```
 
