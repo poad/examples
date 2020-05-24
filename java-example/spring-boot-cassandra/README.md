@@ -22,5 +22,6 @@ exit
 ```
 
 ```$sh
+./gradlew jibDockerBuild
 docker-compose up -d front
 ```

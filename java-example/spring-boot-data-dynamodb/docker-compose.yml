@@ -1,15 +1,6 @@
-version: '3.7'
+version: '3.8'
 services:
-  dynamodb:
-    image: amazon/dynamodb-local
-    command: -jar DynamoDBLocal.jar -inMemory -sharedDb
-    container_name: dynamodb
-    volumes:
-      - "./dynamodb-data:/home/dynamodblocal/data"
-    ports:
-      - 8000:8000
-    networks:
-      - dynamodb-spring-data
+
   frontend:
     image: dynamo-front
     container_name: dynamo-front
@@ -23,6 +14,18 @@ services:
       - 8080:8080
     networks:
       - dynamodb-spring-data
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    command: -jar DynamoDBLocal.jar -inMemory -sharedDb
+    container_name: dynamodb
+    volumes:
+      - "./dynamodb-data:/home/dynamodblocal/data"
+    ports:
+      - 8000:8000
+    networks:
+      - dynamodb-spring-data
+
 networks:
   dynamodb-spring-data:
   default:

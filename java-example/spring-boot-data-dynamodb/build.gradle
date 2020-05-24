@@ -1,6 +1,6 @@
 plugins {
 	id 'org.springframework.boot' version "${springBootVersion}"
-	id 'org.asciidoctor.convert' version '1.6.0'
+	id 'org.asciidoctor.convert' version "${asciidoctorVersion}"
     id 'com.google.cloud.tools.jib' version "${jibVersion}"
 	id 'java'
 }
@@ -16,8 +16,6 @@ repositories {
 
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
-	set('springCloudVersion', "Hoxton.RC1")
-    set('awsSdkVersion', "1.11.683")
 }
 
 dependencies {
