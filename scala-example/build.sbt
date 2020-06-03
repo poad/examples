@@ -87,7 +87,7 @@ lazy val implicit_example = (project in file("implicit-example")).
   )
 
 lazy val akkaVersion = "2.6.1"
-lazy val playVersion = "2.8.0"
+lazy val playVersion = "2.8.2"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
@@ -122,7 +122,7 @@ lazy val slisp = (project in file("slisp")).
     // other settings
   )
 
-lazy val springBootVersion = "2.2.6.RELEASE"
+lazy val springBootVersion = "2.3.0.RELEASE"
 lazy val springboot_example = (project in file("spring-boot-example")).
   settings(
     commonSettings,
