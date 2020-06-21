@@ -1,3 +1,7 @@
+spring:
+  application:
+    name: "morphological-analyis-kuromoji-api"
+
 logging:
   level:
     root:

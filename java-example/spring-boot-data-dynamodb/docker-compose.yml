@@ -8,6 +8,7 @@ services:
       ENV: local
       AWS_ACCESS_KEY_ID: test
       AWS_SECRET_KEY: test
+      SPRING_PROFILES_ACTIVE: compose
     depends_on:
       - dynamodb
     ports:

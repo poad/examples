@@ -1,5 +1,4 @@
 plugins {
-    id "com.google.cloud.tools.jib" version "2.3.0"
     id "com.github.johnrengelman.shadow" version "5.2.0"
     id "application"
     id "java"
@@ -56,7 +55,6 @@ mainClassName = "micronaut.server.Application"
 test {
     useJUnitPlatform()
 }
-jib.to.image = 'gcr.io/micronaut-server/jib-image'
 
 shadowJar {
     mergeServiceFiles()

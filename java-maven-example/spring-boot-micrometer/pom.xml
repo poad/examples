@@ -157,24 +157,8 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-
-      <plugin>
-        <groupId>com.google.cloud.tools</groupId>
-        <artifactId>jib-maven-plugin</artifactId>
-
         <configuration>
-          <to>
-            <image>docker.io/poad/spring-boot-micrometer</image>
-            <credHelper>osxkeychain</credHelper>
-          </to>
-          <container>
-            <useCurrentTimestamp>true</useCurrentTimestamp>
-            <ports>
-              <port>8089</port>
-            </ports>
-          </container>
-          <allowInsecureRegistries>true</allowInsecureRegistries>
+          <image>docker.io/poad/spring-boot-micrometer</image>
         </configuration>
       </plugin>
     </plugins>

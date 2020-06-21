@@ -1,7 +1,6 @@
 plugins {
 	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'org.asciidoctor.convert' version "${asciidoctorVersion}"
-    id 'com.google.cloud.tools.jib' version "${jibVersion}"
 	id 'java'
 }
 
@@ -44,11 +43,10 @@ asciidoctor {
 	dependsOn test
 }
 
-tasks.build.dependsOn tasks.jibDockerBuild
+tasks.build.dependsOn tasks.bootBuildImage
 
-jib.from.image = 'mcr.microsoft.com/java/jre-headless:11-zulu-alpine'
-jib.to.image = 'dynamo-front'
-jib.to.credHelper = 'osxkeychain'
-jib.container.environment = [ENV:'local']
-jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
-jib.container.jvmFlags = [ '-Dspring.profiles.active=compose' ]
+
+bootBuildImage {
+	builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
+	imageName = 'dynamo-front'
+}

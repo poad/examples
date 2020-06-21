@@ -3,7 +3,7 @@
 ## build
 
 ```$bash
-./mvnw compile jib:dockerBuild
+./mvnw compile spring-boot:build-image
 ```
 
 ```$

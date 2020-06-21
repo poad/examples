@@ -14,3 +14,9 @@ create table message(id char(36) NOT NULL, message text NOT NULL, primary key (i
 cd java-maven-example-bom
 ./mvnw install -Dmaven.test.skip=true
 ```
+
+## Build
+
+```$sh
+./mvnw spring-boot:build-image
+```
