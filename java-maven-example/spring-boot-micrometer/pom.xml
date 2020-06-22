@@ -158,7 +158,9 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <image>docker.io/poad/spring-boot-micrometer</image>
+          <image>
+            <name>docker.io/poad/spring-boot-micrometer</name>
+          </image>
         </configuration>
       </plugin>
     </plugins>
