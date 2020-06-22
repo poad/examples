@@ -1,8 +1,6 @@
 plugins {
      id 'org.springframework.boot' version "${springBootVersion}" apply false
      id "io.spring.dependency-management" version "${springDependencyManagementVersion}" apply false
-     id 'com.google.cloud.tools.jib' version "${jibVersion}" apply false
-     id "org.asciidoctor.convert" version "2.3.0" apply false
 }
 
 subprojects {
@@ -34,8 +32,6 @@ subprojects {
 project(":app") {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
-    apply plugin: 'com.google.cloud.tools.jib'
-    apply plugin: "org.asciidoctor.convert"
 
     ext {
         set('snippetsDir', file("build/generated-snippets"))
@@ -72,13 +68,8 @@ project(":app") {
         useJUnitPlatform()
     }
 
-    asciidoctor {
-        inputs.dir snippetsDir
-        dependsOn test
+    bootBuildImage {
+        imageName = "kuromoji-api-server:latest"
+        builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
     }
-
-    jib.from.image = 'mcr.microsoft.com/java/jdk:11-zulu-alpine'
-    jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
-    jib.container.ports = [ '8080' ]
-    jib.to.image = 'kuromoji-api-server:latest'
 }

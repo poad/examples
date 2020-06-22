@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 cd server &&
-./gradlew jibDockerBuild -Penv=compose
+./gradlew bootBuildImage
 cd ..
 
 docker-compose build

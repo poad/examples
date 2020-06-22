@@ -2,7 +2,6 @@ plugins {
 	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
 	id 'java'
-    id 'com.google.cloud.tools.jib' version "${jibVersion}"
 }
 
 group = 'com.github.poad.examples'
@@ -43,12 +42,8 @@ test {
 	useJUnitPlatform()
 }
 
-jib.from.image = 'mcr.microsoft.com/java/jre-headless:11-zulu-alpine'
-jib.to.image = 'poad/webauthn-rp-example'
-jib.to.tags = [ version ]
-jib.container.creationTime = 'USE_CURRENT_TIMESTAMP'
-jib.container.ports = [ '8080' ]
-if (project.hasProperty('env')) {
-    def env = "$env"
-    jib.container.jvmFlags = [ "-Dspring.profiles.active=" + env ]
+
+bootBuildImage {
+    builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
+    imageName = "poad/webauthn-rp-example:${version}"
 }

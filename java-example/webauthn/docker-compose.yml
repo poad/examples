@@ -16,6 +16,8 @@ services:
   backend:
     image: poad/webauthn-rp-example:1.0.0
     container_name: webauthn-api-server
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
     depends_on:
       - database
     ports:
