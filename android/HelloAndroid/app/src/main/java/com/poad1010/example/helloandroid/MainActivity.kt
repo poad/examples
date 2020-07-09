@@ -1,8 +1,8 @@
 package com.poad1010.example.helloandroid
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import com.poad1010.example.helloandroid.adapter.TagListAdapter
 import com.poad1010.example.helloandroid.service.QiitaService
 import io.reactivex.android.schedulers.AndroidSchedulers

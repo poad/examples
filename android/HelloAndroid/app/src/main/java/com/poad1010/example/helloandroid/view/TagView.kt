@@ -19,18 +19,18 @@ import com.poad1010.example.helloandroid.model.Tag
  */
 class TagView : FrameLayout {
 
-    constructor(context: Context?) : super(context)
+    constructor(context: Context?) : super(context!!)
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs)
 
     constructor(context: Context?,
                 attrs: AttributeSet?,
-                defStyle: Int) : super(context, attrs, defStyle)
+                defStyle: Int) : super(context!!, attrs, defStyle)
 
     constructor(context: Context?,
                 attrs: AttributeSet?,
                 defStyle: Int,
-                defStyleRes: Int) : super(context, attrs, defStyle, defStyleRes)
+                defStyleRes: Int) : super(context!!, attrs, defStyle, defStyleRes)
 
     var titleTextView: TextView? = null
 
