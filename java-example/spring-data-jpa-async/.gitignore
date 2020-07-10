@@ -163,3 +163,5 @@ yarn-debug.log*
 yarn-error.log*
 
 mysql_data
+
+!**/gradle/wrapper/gradle-wrapper.jar

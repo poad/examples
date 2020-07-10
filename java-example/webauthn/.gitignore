@@ -222,3 +222,5 @@ dist
 .DS_Store
 
 mysql_data
+
+!server/gradle/wrapper/gradle-wrapper.jar
