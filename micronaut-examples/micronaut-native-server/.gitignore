@@ -11,3 +11,5 @@ out/
 .project
 .settings
 .classpath
+
+!gradle/wrapper/gradle-wrapper.jar
