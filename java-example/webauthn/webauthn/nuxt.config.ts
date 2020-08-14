@@ -96,11 +96,9 @@ const nuxtConfig: NuxtConfig = {
     '/assertion/result': { target: process.env.BASE_URL ? process.env.BASE_URL : "localhost:8080" }
   },
   typescript: {
-    typescript: {
-      typeCheck: {
-        eslint: {
-          enabled: true
-        }
+    typeCheck: {
+      eslint: {
+        enabled: true
       }
     }
   },
