@@ -1,10 +1,12 @@
+import { NuxtConfig } from '@nuxt/types'
 import colors from 'vuetify/es5/util/colors'
 import { Configuration } from 'webpack'
 
 require('dotenv').config()
 
-export default {
+const nuxtConfig: NuxtConfig = {
   mode: 'spa',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -94,8 +96,12 @@ export default {
     '/assertion/result': { target: process.env.BASE_URL ? process.env.BASE_URL : "localhost:8080" }
   },
   typescript: {
-    typeCheck: {
-      eslint: false
+    typescript: {
+      typeCheck: {
+        eslint: {
+          enabled: true
+        }
+      }
     }
   },
   resolve: {
@@ -112,6 +118,9 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config: Configuration, { }) { }
+    extend(config: Configuration, { }) {
+    }
   }
 }
+
+export default nuxtConfig
