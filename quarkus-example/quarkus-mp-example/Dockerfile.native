@@ -1,4 +1,4 @@
-FROM poad/graalvm-ce:java8-native-image AS build
+FROM poad/graalvm-ce:native-image AS build
 
 COPY --chown=java:java . /home/java/app
 
@@ -6,7 +6,7 @@ WORKDIR /home/java/app
 
 RUN ./gradlew build -Dquarkus.package.type=native
 
-FROM poad/graalvm-ce:java8-native-image
+FROM poad/graalvm-ce:native-image
 
 COPY --from=build --chown=java:java /home/java/app/build/quarkus-mp-example-1.0.0-SNAPSHOT-runner /home/java/quarkus-mp-example-runner
 

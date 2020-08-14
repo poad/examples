@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2019",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "esModuleInterop": true,
     "allowJs": true,
@@ -33,7 +33,7 @@
       "@nuxt/types",
       "@types/webpack",
       "@nuxt/vue-app",
-      "~/plugins/types",
+      "./plugins/types",
       "vuetify"
     ],
     "typeRoots": [
