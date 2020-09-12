@@ -3,12 +3,12 @@ import sbt.Keys.{libraryDependencies, scalaVersion}
 name := "scala-example-spark"
 
 
-lazy val sparkVersion = "2.4.5"
+lazy val sparkVersion = "3.0.1"
 
 lazy val commonSettings = Seq(
   organization := "org.bitbuicket.poad1010.spark",
   version := "0.0.1",
-  scalaVersion := "2.12.11",
+  scalaVersion := "2.12.12",
   // other settings
   libraryDependencies ++= Seq(
     "org.apache.spark" %% "spark-core" % sparkVersion

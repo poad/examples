@@ -34,3 +34,5 @@ build/
 
 target/
 mysql_data
+
+!gradle-wrapper.jar
