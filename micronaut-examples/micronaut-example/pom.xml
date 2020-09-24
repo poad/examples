@@ -7,9 +7,9 @@
   <version>0.1</version>
   <properties>
     <exec.mainClass>com.github.poad.examples.java.webapps.Application</exec.mainClass>
-    <micronaut.version>2.0.2</micronaut.version>
+    <micronaut.version>2.0.3</micronaut.version>
     <micronaut.openapi.version>1.5.3</micronaut.openapi.version>
-    <micronaut.test.version>1.2.3</micronaut.test.version>
+    <micronaut.test.version>2.0.0</micronaut.test.version>
     <log4j2.version>2.13.3</log4j2.version>
     <jdk.version>11</jdk.version>
   </properties>
@@ -100,6 +100,7 @@
       <artifactId>swagger-annotations</artifactId>
       <scope>compile</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.micronaut.test/micronaut-test-junit5 -->
     <dependency>
       <groupId>io.micronaut.test</groupId>
       <artifactId>micronaut-test-junit5</artifactId>
@@ -109,7 +110,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.6.2</version>
+      <version>5.7.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -241,6 +242,7 @@
                 <artifactId>micronaut-inject-java</artifactId>
                 <version>${micronaut.version}</version>
               </path>
+              <!-- https://mvnrepository.com/artifact/io.micronaut.configuration/micronaut-openapi -->
               <path>
                 <groupId>io.micronaut.configuration</groupId>
                 <artifactId>micronaut-openapi</artifactId>
