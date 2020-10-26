@@ -7,8 +7,8 @@
   <version>0.1</version>
   <properties>
     <exec.mainClass>com.github.poad.examples.java.webapps.Application</exec.mainClass>
-    <micronaut.version>2.1.1</micronaut.version>
-    <micronaut.openapi.version>1.5.3</micronaut.openapi.version>
+    <micronaut.version>2.1.2</micronaut.version>
+    <micronaut.openapi.version>2.2.1</micronaut.openapi.version>
     <micronaut.test.version>2.0.0</micronaut.test.version>
     <log4j2.version>2.13.3</log4j2.version>
     <jdk.version>11</jdk.version>
@@ -244,7 +244,7 @@
               </path>
               <!-- https://mvnrepository.com/artifact/io.micronaut.configuration/micronaut-openapi -->
               <path>
-                <groupId>io.micronaut.configuration</groupId>
+                <groupId>io.micronaut.openapi</groupId>
                 <artifactId>micronaut-openapi</artifactId>
                 <version>${micronaut.openapi.version}</version>
               </path>
