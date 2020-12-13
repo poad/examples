@@ -18,7 +18,7 @@ ext {
 }
 
 dependencies {
-    implementation platform("com.amazonaws:aws-java-sdk-bom:${awsSdkVersion}")
+    implementation platform("software.amazon.awssdk:bom:${awsSdkVersion}")
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
     implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
 	implementation 'jakarta.validation:jakarta.validation-api'
