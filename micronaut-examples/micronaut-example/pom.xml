@@ -7,8 +7,8 @@
   <version>0.1</version>
   <properties>
     <exec.mainClass>com.github.poad.examples.java.webapps.Application</exec.mainClass>
-    <micronaut.version>2.2.1</micronaut.version>
-    <micronaut.openapi.version>2.2.1</micronaut.openapi.version>
+    <micronaut.version>2.2.3</micronaut.version>
+    <micronaut.openapi.version>2.2.3</micronaut.openapi.version>
     <micronaut.test.version>2.0.1</micronaut.test.version>
     <log4j2.version>2.13.3</log4j2.version>
     <jdk.version>11</jdk.version>

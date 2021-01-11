@@ -12,15 +12,14 @@ import com.webauthn4j.data.*;
 import com.webauthn4j.data.client.Origin;
 import com.webauthn4j.data.client.challenge.Challenge;
 import com.webauthn4j.data.client.challenge.DefaultChallenge;
-import com.webauthn4j.data.extension.client.AuthenticationExtensionClientInput;
 import com.webauthn4j.data.extension.client.AuthenticationExtensionsClientInputs;
-import com.webauthn4j.data.extension.client.FIDOAppIDExtensionClientInput;
-import com.webauthn4j.data.extension.client.SupportedExtensionsExtensionClientInput;
 import com.webauthn4j.server.ServerProperty;
-import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Base64;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -69,8 +68,9 @@ public class WebAuthnAuthenticationService {
         // extensions ── 登録の拡張機能
         // ※サンプルコードでは、認証器がWebAuthnのどの拡張機能に対応しているのかを調べる拡張機能 "exts" のコードを記載
         //   https://www.w3.org/TR/webauthn-1/#sctn-supported-extensions-extension
-        var extensions = new AuthenticationExtensionsClientInputs<AuthenticationExtensionClientInput>(
-                Map.of(SupportedExtensionsExtensionClientInput.ID, new FIDOAppIDExtensionClientInput(config.getOrigin().asStringWithoutPort())));
+        var builder = new AuthenticationExtensionsClientInputs.BuilderForAuthentication();
+        builder.setAppid(config.getOrigin().asStringWithoutPort());
+        var extensions = builder.build();
 
         // 公開鍵クレデンシャル要求API（navigator.credentials.get）のパラメータを作成
         return new PublicKeyCredentialRequestOptions(
@@ -104,7 +104,6 @@ public class WebAuthnAuthenticationService {
                 .encode(challenge.getValue()));
 
         byte[] tokenBindingId = null;
-        var userVerificationRequired = false;
 
         var serverProperty = new ServerProperty(
                 origin,

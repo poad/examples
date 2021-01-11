@@ -1,0 +1,292 @@
+name: Integration
+ 
+on:
+  pull_request:
+    branches:
+      - main
+  
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Build with Gradle (android/HelloAndroid)
+      run: |
+        cd android/HelloAndroid
+        chmod +x gradlew
+        ./gradlew build -x test
+
+    - name: Build with Gradle (android/MyApplication)
+      run: |
+        cd android/MyApplication
+        chmod +x gradlew
+        ./gradlew build
+
+  java-example:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Build with Gradle (java-example)
+      run: |
+        cd java-example
+        chmod +x gradlew
+        ./gradlew build
+        
+    - name: Build with Gradle (java-example/morphological-analyis/kuromoji)
+      run: |
+        cd java-example/morphological-analyis/kuromoji
+        chmod +x gradlew
+        ./gradlew build
+
+    - name: Build with Gradle (java-example/spring-boot/spring-boot-cassandra)
+      run: |
+        cd java-example/spring-boot/spring-boot-cassandra
+        chmod +x gradlew
+        ./gradlew build -x test
+
+    - name: Build with Gradle (java-example/spring-boot/spring-boot-data-dynamodb)
+      run: |
+        cd java-example/spring-boot/spring-boot-data-dynamodb
+        chmod +x gradlew
+        ./gradlew build
+
+    - name: Build with Gradle (java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async)
+      run: |
+        cd java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async
+        chmod +x gradlew
+        ./gradlew build -x test
+
+    - name: Build with Gradle (java-example/webauthn/server)
+      run: |
+        cd java-example/webauthn/server
+        chmod +x gradlew
+        ./gradlew build
+
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-jdbc-example)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-jdbc-example
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-jdbi-example)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-jdbi-example
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-jib-example)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-jib-example
+    #     ./mvnw -B package --file pom.xml
+        
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-metrics)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-metrics
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-micrometer)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-micrometer
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-data-jpa-example)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-data-jpa-example
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-data-jpa-query-example)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-data-jpa-query-example
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-web-example)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-web-example
+    #     ./mvnw -B package --file pom.xml
+        
+    # - name: Build with Maven (java-example/spring-boot/spring-boot-web-thymeleaf-example)
+    #   run: |
+    #     cd java-example/spring-boot/spring-boot-web-thymeleaf-example
+    #     ./mvnw -B package --file pom.xml
+
+
+  # java-maven-example:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: Set up JDK 11
+  #     uses: actions/setup-java@v1
+  #     with:
+  #       java-version: 11
+    
+  #   - name: Cache local Maven repository
+  #     uses: actions/cache@v2
+  #     with:
+  #       path: ~/.m2/repository
+  #       key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+  #       restore-keys: |
+  #         ${{ runner.os }}-maven-
+
+  #   - name: Build with Maven (java-maven-example/java-maven-example-bom)
+  #     run: |
+  #       cd java-maven-example/java-maven-example-bom
+  #       ./mvnw install
+
+  #   - name: Build with Maven (java-maven-example/apache-hc-digest-auth-examoles)
+  #     run: |
+  #       cd java-maven-example/apache-hc-digest-auth-examoles
+  #       ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-maven-example/s2jdbc-doma2-spring-boot-example)
+    #   run: |
+    #     cd java-maven-example/s2jdbc-doma2-spring-boot-example
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-maven-example/s2jdbc-jmx-support)
+    #   run: |
+    #     cd java-maven-example/s2jdbc-jmx-support
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-maven-example/spring-boot-data-doma2-example)
+    #   run: |
+    #     cd java-maven-example/spring-boot-data-doma2-example
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-maven-example/spring-boot-data-doma2-jmx-example)
+    #   run: |
+    #     cd java-maven-example/spring-boot-data-doma2-jmx-example
+    #     ./mvnw -B package --file pom.xml
+
+    # - name: Build with Maven (java-maven-example/spring-boot-doma2-example)
+    #   run: |
+    #     cd java-maven-example/spring-boot-doma2-example
+    #     ./mvnw -B package --file pom.xml
+        
+    # - name: Build with Maven (java-maven-example/spring-boot-uroborosql-example)
+    #   run: |
+    #     cd java-maven-example/spring-boot-uroborosql-example
+    #     ./mvnw -B package --file pom.xml
+
+
+  # micronaut-examples:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: Set up JDK 11
+  #     uses: actions/setup-java@v1
+  #     with:
+  #       java-version: 11
+
+  #   - uses: actions/cache@v2
+  #     with:
+  #       path: |
+  #         ~/.gradle/caches
+  #         ~/.gradle/wrapper
+  #       key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+  #       restore-keys: |
+  #         ${{ runner.os }}-gradle-
+
+  #   - name: Build with Gradle (micronaut-examples/hello-graal)
+  #     run: |
+  #       cd micronaut-examples/hello-graal
+  #       ./docker-build.sh
+        
+  #   - name: Build with Gradle (micronaut-examples/hello-world)
+  #     run: |
+  #       cd micronaut-examples/hello-world
+  #       ./docker-build.sh
+        
+  #   - name: Build with Gradle (micronaut-examples/micronaut-crud-graal)
+  #     run: |
+  #       cd micronaut-examples/micronaut-crud-graal
+  #       ./docker-build.sh
+        
+  #   - name: Build with Gradle (micronaut-examples/micronaut-native)
+  #     run: |
+  #       cd micronaut-examples/micronaut-native
+  #       ./docker-build.sh
+        
+  #   - name: Build with Gradle (micronaut-examples/micronaut-native-server)
+  #     run: |
+  #       cd micronaut-examples/micronaut-native-server
+  #       ./docker-build.sh
+
+  #   - name: Build with Maven (micronaut-examples/micronaut-example)
+  #     run: |
+  #       cd micronaut-examples/micronaut-example
+  #       docker build . -t micronaut-example
+
+
+  quarkus-example:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Build with Maven (quarkus-example/getting-started)
+      run: |
+        cd quarkus-example/getting-started
+        ./mvnw install
+
+    - name: Build with Gradle (quarkus-example/quarkus-mp-example)
+      run: |
+        cd quarkus-example/quarkus-mp-example
+        chmod +x gradlew
+        ./gradlew build
+
+  # scala-example:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@master
+  #   - name: Set up JDK 8
+  #     uses: actions/setup-java@v1
+  #     with:
+  #       java-version: 1.8
+    
+  #   - name: Build and test with sbt (scala-example)
+  #     run: |
+  #       cd scala-example
+  #       sbt test
+
+  #   - name: Build and test with sbt (scala-example/spark)
+  #     run: |
+  #       cd scala-example/spark
+  #       sbt test

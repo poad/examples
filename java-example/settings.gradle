@@ -13,7 +13,7 @@
 include 'db-access-examples'
 include 'dbunit-examples'
 include 'flyway-example'
-include 'spring-boot-jpa-example'
+// include 'spring-boot-jpa-example'
 include 'tuple4j-example'
 include 'vertx-examples'
 include 'websocket-jsr356-example'
