@@ -6,7 +6,9 @@ import com.webauthn4j.authenticator.Authenticator;
 import com.webauthn4j.data.AuthenticatorTransport;
 import com.webauthn4j.data.attestation.authenticator.AttestedCredentialData;
 import com.webauthn4j.data.attestation.statement.AttestationStatement;
+import com.webauthn4j.data.extension.authenticator.AuthenticationExtensionsAuthenticatorOutputs;
 import com.webauthn4j.data.extension.authenticator.RegistrationExtensionAuthenticatorOutput;
+import com.webauthn4j.data.extension.client.AuthenticationExtensionsClientOutputs;
 import com.webauthn4j.data.extension.client.RegistrationExtensionClientOutput;
 
 import java.util.Collections;
@@ -23,7 +25,7 @@ public class AuthenticatorImpl implements Authenticator {
     private Set<AuthenticatorTransport> transports;
     private long counter;
 
-    private Map<String, RegistrationExtensionClientOutput> clientExtensions;
+    private AuthenticationExtensionsClientOutputs<RegistrationExtensionClientOutput> clientExtensions;
     private Map<String, RegistrationExtensionAuthenticatorOutput> authenticatorExtensions;
 
     public AuthenticatorImpl(
@@ -31,7 +33,7 @@ public class AuthenticatorImpl implements Authenticator {
             @JsonProperty("attestationStatement") AttestationStatement attestationStatement,
             @JsonProperty("counter") long counter,
             @JsonProperty("transports") Set<AuthenticatorTransport> transports,
-            @JsonProperty("clientExtensions") Map<String, RegistrationExtensionClientOutput> clientExtensions,
+            @JsonProperty("clientExtensions") AuthenticationExtensionsClientOutputs<RegistrationExtensionClientOutput> clientExtensions,
             @JsonProperty("authenticatorExtensions") Map<String, RegistrationExtensionAuthenticatorOutput> authenticatorExtensions) {
         this.attestedCredentialData = attestedCredentialData;
         this.attestationStatement = attestationStatement;
@@ -77,13 +79,15 @@ public class AuthenticatorImpl implements Authenticator {
     }
 
     @Override
-    public Map<String, RegistrationExtensionClientOutput> getClientExtensions() {
+    public AuthenticationExtensionsClientOutputs<RegistrationExtensionClientOutput> getClientExtensions() {
         return clientExtensions;
     }
 
     @Override
-    public Map<String, RegistrationExtensionAuthenticatorOutput> getAuthenticatorExtensions() {
-        return authenticatorExtensions;
+    public AuthenticationExtensionsAuthenticatorOutputs<RegistrationExtensionAuthenticatorOutput> getAuthenticatorExtensions() {
+        AuthenticationExtensionsAuthenticatorOutputs.BuilderForRegistration builder = new AuthenticationExtensionsAuthenticatorOutputs.BuilderForRegistration();
+        authenticatorExtensions.forEach(builder::set);
+        return builder.build();
     }
 
     @Override

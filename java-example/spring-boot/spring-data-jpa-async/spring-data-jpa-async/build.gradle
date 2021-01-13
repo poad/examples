@@ -1,16 +1,16 @@
 plugins {
 	id 'org.springframework.boot' version "${springBootVersion}"
+	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
 	id 'org.asciidoctor.convert' version "${asciidoctorVersion}"
 	id 'java'
 }
 
-group = 'com.github.poad.examples'
-version = '0.0.1-SNAPSHOT'
+group = 'com.github.poad.example.springboot'
+version = '1.0.0'
 sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
 }
 
 ext {
@@ -18,19 +18,22 @@ ext {
 }
 
 dependencies {
-    implementation platform("software.amazon.awssdk:bom:${awsSdkVersion}")
-    implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
-    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-	implementation 'jakarta.validation:jakarta.validation-api'
-
-    implementation 'com.amazonaws:aws-java-sdk-dynamodb'
-
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation ('org.springframework.boot:spring-boot-starter-data-jpa') {
+		exclude group: 'com.zaxxer', module: 'HikariCP'
+	}
+	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
+	implementation 'org.apache.tomcat:tomcat-jdbc:9.0.34'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'jakarta.validation:jakarta.validation-api'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.20'
 }
 
 test {
@@ -43,10 +46,10 @@ asciidoctor {
 	dependsOn test
 }
 
-tasks.build.dependsOn tasks.bootBuildImage
-
 
 bootBuildImage {
 	builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
-	imageName = 'dynamo-front'
+	imageName = "poad/spring-data-jpa-async:${version}"
 }
+
+//jib.container.jvmFlags = [ "-Dspring.profiles.active=container" ]

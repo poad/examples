@@ -13,8 +13,6 @@ import com.webauthn4j.data.client.Origin;
 import com.webauthn4j.data.client.challenge.Challenge;
 import com.webauthn4j.data.client.challenge.DefaultChallenge;
 import com.webauthn4j.data.extension.client.AuthenticationExtensionsClientInputs;
-import com.webauthn4j.data.extension.client.RegistrationExtensionClientInput;
-import com.webauthn4j.data.extension.client.SupportedExtensionsExtensionClientInput;
 import com.webauthn4j.server.ServerProperty;
 import org.springframework.stereotype.Service;
 
@@ -84,8 +82,9 @@ public class WebAuthnRegistrationService {
         // extensions ── 登録の拡張機能
         // ※サンプルコードでは、認証器がWebAuthnのどの拡張機能に対応しているのかを調べる拡張機能 "exts" のコードを記載
         //   https://www.w3.org/TR/webauthn-1/#sctn-supported-extensions-extension
-        var extensions = new AuthenticationExtensionsClientInputs<RegistrationExtensionClientInput>(
-                Map.of(SupportedExtensionsExtensionClientInput.ID, new SupportedExtensionsExtensionClientInput(true)));
+        var builder = new AuthenticationExtensionsClientInputs.BuilderForRegistration();
+        builder.setCredProps(true);
+        var extensions = builder.build();
 
         return new PublicKeyCredentialCreationOptions(
                 rp,
@@ -123,7 +122,6 @@ public class WebAuthnRegistrationService {
 
         var userVerificationRequired = false;
         var userPresenceRequired = false;
-        List<String>  expectedExtensionIds = null;
 
         Set<String> transports = null;
         var request = new RegistrationRequest(
@@ -136,8 +134,7 @@ public class WebAuthnRegistrationService {
         var params = new RegistrationParameters(
                 serverProperty,
                 userVerificationRequired,
-                userPresenceRequired,
-                expectedExtensionIds
+                userPresenceRequired
         );
         var manager = WebAuthnManager.createNonStrictWebAuthnManager(converter);
         var registrationData = manager.validate(request, params);
