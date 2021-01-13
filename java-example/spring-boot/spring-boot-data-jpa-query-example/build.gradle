@@ -14,11 +14,9 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jetty'
-    implementation('org.springframework.boot:spring-boot-starter-web') {
+    implementation('org.springframework.boot:spring-boot-starter-jersey') {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
 	}
-    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
@@ -40,18 +38,14 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:9.0.34'
 
-	// compileOnly 'org.projectlombok:lombok:1.18.16'
-	// annotationProcessor 'org.projectlombok:lombok:1.18.16'
+	compileOnly 'org.projectlombok:lombok:1.18.16'
+	annotationProcessor 'org.projectlombok:lombok:1.18.16'
 
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-bom
 	implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.8.0')
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-core'
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-sql-mysql'
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
-
-    runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.6.2'
-    runtimeOnly 'io.micrometer:micrometer-registry-jmx:1.6.2'
-    runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch:1.6.2'
 
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'javax.validation:validation-api'
@@ -67,5 +61,5 @@ test {
 
 bootBuildImage {
 	builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
-	imageName = "spring-boot-data-jpa-example:latest"
+	imageName = "spring-boot-data-jpa-query-example:latest"
 }

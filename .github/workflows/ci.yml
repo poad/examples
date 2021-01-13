@@ -78,6 +78,18 @@ jobs:
         chmod +x gradlew
         ./gradlew build
 
+    - name: Build with Gradle (java-example/spring-boot/spring-boot-data-jpa-example)
+      run: |
+        cd java-example/spring-boot/spring-boot-data-jpa-example
+        chmod +x gradlew
+        ./gradlew build
+
+    - name: Build with Gradle (java-example/spring-boot/spring-boot-data-jpa-query-example)
+      run: |
+        cd java-example/spring-boot/spring-boot-data-jpa-query-example
+        chmod +x gradlew
+        ./gradlew build
+
     - name: Build with Gradle (java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async)
       run: |
         cd java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async
@@ -113,16 +125,6 @@ jobs:
     # - name: Build with Maven (java-example/spring-boot/spring-boot-micrometer)
     #   run: |
     #     cd java-example/spring-boot/spring-boot-micrometer
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-data-jpa-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-data-jpa-example
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-data-jpa-query-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-data-jpa-query-example
     #     ./mvnw -B package --file pom.xml
 
     # - name: Build with Maven (java-example/spring-boot/spring-boot-web-example)
