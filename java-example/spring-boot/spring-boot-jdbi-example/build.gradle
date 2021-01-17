@@ -13,16 +13,23 @@ repositories {
 }
 
 dependencies {
+    implementation platform('org.jdbi:jdbi3-bom:3.18.0')
     implementation 'org.springframework.boot:spring-boot-starter-jetty'
     implementation('org.springframework.boot:spring-boot-starter-jersey') {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
 	}
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation('org.springframework.boot:spring-data-jdbc') {
+    implementation('org.springframework.boot:spring-data-jpa') {
 		exclude group: 'com.zaxxer', module: 'HikariCP'
+		exclude group: 'org.hibernate', module: 'hibernate-core'
 	}
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	implementation 'org.jdbi:jdbi3-core'
+	implementation 'org.jdbi:jdbi3-jodatime2'
+	implementation 'org.jdbi:jdbi3-sqlobject'
+	implementation 'org.jdbi:jdbi3-jpa'
 
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda'
 
@@ -38,11 +45,11 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:9.0.34'
 
-	// https://mvnrepository.com/artifact/p6spy/p6spy
-	runtimeOnly 'p6spy:p6spy:3.9.1'
-
 	compileOnly 'org.projectlombok:lombok:1.18.16'
 	annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+	// https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1
+	runtimeOnly 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-bom
 	implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.8.0')

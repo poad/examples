@@ -38,11 +38,11 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:9.0.34'
 
-	// https://mvnrepository.com/artifact/p6spy/p6spy
-	runtimeOnly 'p6spy:p6spy:3.9.1'
-
 	compileOnly 'org.projectlombok:lombok:1.18.16'
 	annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+	// https://mvnrepository.com/artifact/p6spy/p6spy
+	runtimeOnly 'p6spy:p6spy:3.9.1'
 
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-bom
 	implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.8.0')
