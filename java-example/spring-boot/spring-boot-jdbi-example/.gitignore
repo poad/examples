@@ -37,8 +37,8 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
-!.mvn/timing.properties
-!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
 
 ### https://raw.github.com/github/gitignore/37abd930a6893fd3a716c48934e704795bc2a45c/Global/JetBrains.gitignore
@@ -113,3 +113,7 @@ fabric.properties
 *.iml
 
 .idea/*
+!.mvn/wrapper/maven-wrapper.jar 
+
+.gradle
+!gradle/wrapper/gradle-wrapper.jar

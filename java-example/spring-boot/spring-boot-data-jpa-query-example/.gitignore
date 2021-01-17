@@ -115,3 +115,5 @@ fabric.properties
 .idea/*
 !.mvn/wrapper/maven-wrapper.jar 
 
+.gradle
+!gradle/wrapper/gradle-wrapper.jar

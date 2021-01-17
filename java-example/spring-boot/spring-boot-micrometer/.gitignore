@@ -113,3 +113,5 @@ fabric.properties
 *.iml
 
 .idea/*
+.gradle
+!gradle/wrapper/gradle-wrapper.jar

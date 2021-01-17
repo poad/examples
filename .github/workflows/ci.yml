@@ -37,6 +37,26 @@ jobs:
         ./gradlew build
 
   java-example:
+    strategy:
+      matrix:
+        targets:
+          - path: java-example
+          - path: java-example/morphological-analyis/kuromoji
+          - path: java-example/spring-boot/spring-boot-cassandra
+          - path: java-example/spring-boot/spring-boot-data-dynamodb
+          - path: java-example/spring-boot/spring-boot-data-jpa-example
+          - path: java-example/spring-boot/spring-boot-data-jpa-query-example
+          - path: java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async
+          - path: java-example/spring-boot/spring-boot-jdbc-example
+          - path: java-example/spring-boot/spring-boot-jdbi-example
+          - path: java-example/spring-boot/spring-boot-jib-example
+          - path: java-example/spring-boot/spring-boot-jpa-example
+          - path: java-example/spring-boot/spring-boot-metrics
+          - path: java-example/spring-boot/spring-boot-micrometer
+          - path: java-example/spring-boot/spring-boot-web-example
+          - path: java-example/spring-boot/spring-boot-web-thymeleaf-example
+          - path: java-example/webauthn/server
+
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -54,88 +74,12 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
 
-    - name: Build with Gradle (java-example)
+    - name: Build with Gradle (${{ matrix.targets.path }})
       run: |
-        cd java-example
-        chmod +x gradlew
-        ./gradlew build
-        
-    - name: Build with Gradle (java-example/morphological-analyis/kuromoji)
-      run: |
-        cd java-example/morphological-analyis/kuromoji
-        chmod +x gradlew
-        ./gradlew build
-
-    - name: Build with Gradle (java-example/spring-boot/spring-boot-cassandra)
-      run: |
-        cd java-example/spring-boot/spring-boot-cassandra
+        cd ${{ matrix.targets.path }}
         chmod +x gradlew
         ./gradlew build -x test
-
-    - name: Build with Gradle (java-example/spring-boot/spring-boot-data-dynamodb)
-      run: |
-        cd java-example/spring-boot/spring-boot-data-dynamodb
-        chmod +x gradlew
-        ./gradlew build
-
-    - name: Build with Gradle (java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async)
-      run: |
-        cd java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async
-        chmod +x gradlew
-        ./gradlew build -x test
-
-    - name: Build with Gradle (java-example/webauthn/server)
-      run: |
-        cd java-example/webauthn/server
-        chmod +x gradlew
-        ./gradlew build
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-jdbc-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-jdbc-example
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-jdbi-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-jdbi-example
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-jib-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-jib-example
-    #     ./mvnw -B package --file pom.xml
         
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-metrics)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-metrics
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-micrometer)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-micrometer
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-data-jpa-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-data-jpa-example
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-data-jpa-query-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-data-jpa-query-example
-    #     ./mvnw -B package --file pom.xml
-
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-web-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-web-example
-    #     ./mvnw -B package --file pom.xml
-        
-    # - name: Build with Maven (java-example/spring-boot/spring-boot-web-thymeleaf-example)
-    #   run: |
-    #     cd java-example/spring-boot/spring-boot-web-thymeleaf-example
-    #     ./mvnw -B package --file pom.xml
-
-
   # java-maven-example:
   #   runs-on: ubuntu-latest
   #   steps:
