@@ -19,7 +19,7 @@ dependencies {
 	}
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation('org.springframework.boot:spring-data-jdbc') {
+    implementation('org.springframework.boot:spring-boot-starter-data-jdbc') {
 		exclude group: 'com.zaxxer', module: 'HikariCP'
 	}
 	implementation 'org.springframework.boot:spring-boot-starter-validation'

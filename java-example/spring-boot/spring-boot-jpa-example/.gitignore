@@ -87,7 +87,8 @@ hs_err_pid*
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -108,4 +109,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-
+.gradle
+!gradle/wrapper/gradle-wrapper.jar

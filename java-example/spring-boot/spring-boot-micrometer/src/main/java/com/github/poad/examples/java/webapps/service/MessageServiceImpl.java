@@ -3,7 +3,7 @@ package com.github.poad.examples.java.webapps.service;
 import com.github.poad.examples.java.webapps.domain.Message;
 import com.github.poad.examples.java.webapps.entity.MessageEntity;
 import com.github.poad.examples.java.webapps.repository.MessageRepository;
-import jdk.nashorn.internal.ir.annotations.Immutable;
+import org.springframework.data.annotation.Immutable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

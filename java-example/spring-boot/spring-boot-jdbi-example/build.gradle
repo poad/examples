@@ -20,7 +20,7 @@ dependencies {
 	}
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation('org.springframework.boot:spring-data-jpa') {
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
 		exclude group: 'com.zaxxer', module: 'HikariCP'
 		exclude group: 'org.hibernate', module: 'hibernate-core'
 	}
