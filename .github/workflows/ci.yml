@@ -41,7 +41,7 @@ jobs:
       matrix:
         targets:
           - path: java-example
-          - path: java-example/morphological-analyis/kuromoji
+          - path: java-example/spring-boot/morphological-analyis/kuromoji
           - path: java-example/spring-boot/spring-boot-cassandra
           - path: java-example/spring-boot/spring-boot-data-dynamodb
           - path: java-example/spring-boot/spring-boot-data-jpa-example
@@ -55,7 +55,7 @@ jobs:
           - path: java-example/spring-boot/spring-boot-micrometer
           - path: java-example/spring-boot/spring-boot-web-example
           - path: java-example/spring-boot/spring-boot-web-thymeleaf-example
-          - path: java-example/webauthn/server
+          - path: java-example/spring-boot/webauthn/server
 
     runs-on: ubuntu-latest
     steps:

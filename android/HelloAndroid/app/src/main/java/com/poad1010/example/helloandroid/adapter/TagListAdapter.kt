@@ -13,7 +13,7 @@ class TagListAdapter(private val context: Context) : BaseAdapter() {
 
     override fun getCount(): Int = tags.size
 
-    override fun getItem(p0: Int): Any? = tags[p0]
+    override fun getItem(p0: Int): Any = tags[p0]
 
     override fun getItemId(p0: Int): Long = 0
 

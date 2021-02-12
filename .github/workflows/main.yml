@@ -26,7 +26,7 @@ jobs:
 
     - name: Update npm modules for Nuxt.js app
       run: |
-        cd java-example/webauthn/webauthn && \
+        cd java-example/spring-boot/webauthn/webauthn && \
         yarn install
 
     - name: Update npm modules for Next.js app

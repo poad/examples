@@ -34,15 +34,13 @@ class MainActivity : AppCompatActivity() {
             qiita.tags()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(
-                            {
-                                it.forEach({
-                                    t -> println(t.id)
-                                })
-                                listAdaptor.tags = it
-                                listAdaptor.notifyDataSetChanged()
-                            }
-                    )
+                    .subscribe {
+                        it.forEach { t ->
+                            println(t.id)
+                        }
+                        listAdaptor.tags = it
+                        listAdaptor.notifyDataSetChanged()
+                    }
 
         } catch (e : Exception) {
             e.printStackTrace()
