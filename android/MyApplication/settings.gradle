@@ -1,2 +1,3 @@
-rootProject.name='My Application'
-include ':app'
+include ':tv'
+include ':mobile'
+rootProject.name = "My Application"

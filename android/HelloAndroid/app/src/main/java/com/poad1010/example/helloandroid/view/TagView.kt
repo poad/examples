@@ -1,14 +1,8 @@
 package com.poad1010.example.helloandroid.view
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.drawable.Drawable
-import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.poad1010.example.helloandroid.R
@@ -26,11 +20,6 @@ class TagView : FrameLayout {
     constructor(context: Context?,
                 attrs: AttributeSet?,
                 defStyle: Int) : super(context!!, attrs, defStyle)
-
-    constructor(context: Context?,
-                attrs: AttributeSet?,
-                defStyle: Int,
-                defStyleRes: Int) : super(context!!, attrs, defStyle, defStyleRes)
 
     var titleTextView: TextView? = null
 
