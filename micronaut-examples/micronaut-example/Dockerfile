@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/java/jdk:11-zulu-alpine as builder
 COPY . /app/micronaut-example
 WORKDIR /app/micronaut-example
-RUN ./mvnw package
+RUN RUN ./gradlew assemble --no-daemon
 
 FROM poad/graalvm-ce:native-image as graalvm
 
