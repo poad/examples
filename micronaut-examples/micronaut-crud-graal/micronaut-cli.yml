@@ -1,5 +1,0 @@
-profile: service
-defaultPackage: micronaut.crud.graal
----
-testFramework: junit
-sourceLanguage: java
