@@ -138,53 +138,48 @@ jobs:
     #     ./mvnw -B package --file pom.xml
 
 
-  # micronaut-examples:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@master
-  #   - name: Set up JDK 11
-  #     uses: actions/setup-java@v1
-  #     with:
-  #       java-version: 11
+  micronaut-examples:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
 
-  #   - uses: actions/cache@v2
-  #     with:
-  #       path: |
-  #         ~/.gradle/caches
-  #         ~/.gradle/wrapper
-  #       key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-  #       restore-keys: |
-  #         ${{ runner.os }}-gradle-
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
 
-  #   - name: Build with Gradle (micronaut-examples/hello-graal)
-  #     run: |
-  #       cd micronaut-examples/hello-graal
-  #       ./docker-build.sh
+    - name: Build with Gradle (micronaut-examples/hello-graal)
+      run: |
+        cd micronaut-examples/hello-graal
+        ./docker-build.sh
         
-  #   - name: Build with Gradle (micronaut-examples/hello-world)
-  #     run: |
-  #       cd micronaut-examples/hello-world
-  #       ./docker-build.sh
+    - name: Build with Gradle (micronaut-examples/hello-world)
+      run: |
+        cd micronaut-examples/hello-world
+        ./docker-build.sh
         
-  #   - name: Build with Gradle (micronaut-examples/micronaut-crud-graal)
-  #     run: |
-  #       cd micronaut-examples/micronaut-crud-graal
-  #       ./docker-build.sh
+    - name: Build with Gradle (micronaut-examples/micronaut-crud-graal)
+      run: |
+        cd micronaut-examples/micronaut-crud-graal
+        ./docker-build.sh
         
-  #   - name: Build with Gradle (micronaut-examples/micronaut-native)
-  #     run: |
-  #       cd micronaut-examples/micronaut-native
-  #       ./docker-build.sh
+    - name: Build with Gradle (micronaut-examples/micronaut-native)
+      run: |
+        cd micronaut-examples/micronaut-native
+        ./docker-build.sh
         
-  #   - name: Build with Gradle (micronaut-examples/micronaut-native-server)
-  #     run: |
-  #       cd micronaut-examples/micronaut-native-server
-  #       ./docker-build.sh
-
-  #   - name: Build with Maven (micronaut-examples/micronaut-example)
-  #     run: |
-  #       cd micronaut-examples/micronaut-example
-  #       docker build . -t micronaut-example
+    - name: Build with Gradle (micronaut-examples/micronaut-native-server)
+      run: |
+        cd micronaut-examples/micronaut-native-server
+        ./docker-build.sh
 
 
   quarkus-example:

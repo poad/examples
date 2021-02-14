@@ -4,8 +4,7 @@ WORKDIR /home/app/hello-world
 RUN ./gradlew assemble --no-daemon
  
 
-FROM oracle/graalvm-ce:21.0.0-java11 as graalvm
-RUN gu install native-image
+FROM poad/graalvm-ce:native-image as graalvm
 
 COPY --from=builder /home/app/hello-world /home/app/hello-world
 

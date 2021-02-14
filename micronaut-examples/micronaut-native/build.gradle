@@ -36,7 +36,6 @@ dependencies {
 
     implementation "javax.annotation:javax.annotation-api"
 
-    compileOnly "com.oracle.substratevm:svm"
     runtimeOnly "io.micronaut.configuration:micronaut-jdbc-tomcat"
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     runtimeOnly "mysql:mysql-connector-java:8.0.20"

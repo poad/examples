@@ -3,8 +3,6 @@ FROM mcr.microsoft.com/java/jdk:11-zulu-alpine as builder
 COPY . /home/app/micronaut-native
 WORKDIR /home/app/micronaut-native
 RUN ./gradlew assemble --no-daemon
-RUN ls -al
-RUN ls -al build
 
 FROM poad/graalvm-ce:native-image as graalvm
 
