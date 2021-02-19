@@ -140,7 +140,7 @@ export default class SignUp extends Vue {
       timeout: source.timeout,
       user: {
         name: source.user.name,
-        icon: source.user.icon,
+        // icon: source.user.icon,
         displayName: source.user.displayName,
         id: this.base64ToArrayBuffer(source.user.id)
       }

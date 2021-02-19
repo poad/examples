@@ -111,16 +111,6 @@ const nuxtConfig: NuxtConfig = {
   server: {
     host: '0.0.0.0'
   },
-  /*
-   ** Build configuration
-   */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config: Configuration, { }) {
-    }
-  }
 }
 
 export default nuxtConfig
