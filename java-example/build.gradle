@@ -27,7 +27,7 @@ ext {
 
     flywayVersion = '6.4.1'
 
-    springBootVersion = '2.4.2'
+    springBootVersion = '2.4.3'
     springLoadedVersion = '1.2.8.RELEASE'
 
     transactionApiVersion = '1.3'
