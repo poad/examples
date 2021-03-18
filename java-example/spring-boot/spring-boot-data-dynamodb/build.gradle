@@ -24,7 +24,7 @@ dependencies {
     implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
 	implementation 'jakarta.validation:jakarta.validation-api'
 
-    implementation 'com.amazonaws:aws-java-sdk-dynamodb'
+    implementation 'software.amazon.awssdk:dynamodb'
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
