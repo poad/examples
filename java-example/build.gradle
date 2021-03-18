@@ -7,46 +7,43 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 plugins {
-    id "org.flywaydb.flyway" version '6.4.1' apply false
+    id "org.flywaydb.flyway" version '7.7.0' apply false
 }
 
 
 ext {
-    jettyVersionOfDropwizard = '9.4.28.v20200408'
-    jettyVersion = '9.4.28.v20200408'
+    jettyVersionOfDropwizard = '9.4.37.v20210219'
+    jettyVersion = '9.4.38.v20210224'
 
-    dropwizardVersion = '2.0.9'
-    jerseyVersion = '2.30.1'
-    jacksonVersion = '2.11.0'
-    vertxVersion = '3.9.0'
+    dropwizardVersion = '2.0.20'
+    jerseyVersion = '3.0.1'
+    jacksonVersion = '2.12.2'
+    vertxVersion = '4.0.3'
 
-    jdbiVersion = '3.13.0'
-    hikariCpVersion = '3.4.4'
+    jdbiVersion = '3.18.0'
+    hikariCpVersion = '4.0.3'
     h2Version = '1.4.200'
-    mysqlConnectorVersion = '8.0.20'
+    mysqlConnectorVersion = '8.0.23'
 
     flywayVersion = '6.4.1'
 
-    springBootVersion = '2.4.3'
+    springBootVersion = '2.4.4'
     springLoadedVersion = '1.2.8.RELEASE'
-
-    transactionApiVersion = '1.3'
 
     slf4jVersion = '1.7.30'
 
-    jaxbApiVersion = '2.3.3'
     p6spyVersion = '3.9.0'
-    tomcatJdbcPoolVersion = '9.0.34'
+    tomcatJdbcPoolVersion = '10.0.4'
 
-    log4jVersion = '2.13.2'
+    log4jVersion = '2.14.1'
 
     dbUnitVersion = '2.7.0'
 
-    junitVersion = '4.12'
-    junit4Version        = '4.12'
-    junitVintageVersion  = '5.6.2'
-    junitPlatformVersion = '1.6.2'
-    junitJupiterVersion  = '5.6.2'
+    junitVersion = '4.13.1'
+    junit4Version        = '4.13.1'
+    junitVintageVersion  = '5.7.1'
+    junitPlatformVersion = '1.7.1'
+    junitJupiterVersion  = '5.7.1'
 
     xRayBomVersion = '2.4.0'
 }
