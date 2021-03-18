@@ -1,38 +1,47 @@
 package com.github.poad.examples.repository;
 
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.github.poad.examples.entity.Song;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
+import software.amazon.awssdk.enhanced.dynamodb.Key;
+import software.amazon.awssdk.enhanced.dynamodb.TableSchema;
+import software.amazon.awssdk.enhanced.dynamodb.model.PageIterable;
+import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 @Repository
 public class SongRepository {
-    private final DynamoDBMapper mapper;
-    private final DynamoDBMapperConfig config;
+    private final DynamoDbTable<Song> mappedTable;
 
     @Autowired
-    public SongRepository(AmazonDynamoDB client, DynamoDBMapperConfig config) {
-        this.mapper = new DynamoDBMapper(client, config);
-        this.config = config;
+    public SongRepository(DynamoDbEnhancedClient enhancedClient) {
+        String env = System.getenv().getOrDefault("ENV", "local");
+        String prefix = String.join("", "test-", env, "-");
+
+        this.mappedTable = enhancedClient.table(String.join(prefix, "artist"), TableSchema.fromBean(Song.class));
     }
 
     public Song find(String artist, String title) {
-        return mapper.load(Song.class, artist, title, config);
+        //Create a KEY object
+        Key key = Key.builder()
+                .partitionValue(artist)
+                .sortValue(title)
+                .build();
+
+        // Get the item by using the key
+        return mappedTable.getItem(r->r.key(key));
     }
 
     public List<Song> findByArtist(String artist) {
-        Map<String, AttributeValue> eav = new HashMap<>();
-        eav.put(":val1", new AttributeValue().withS(artist));
-        DynamoDBQueryExpression<Song> queryExpression = new DynamoDBQueryExpression<Song>()
-                .withKeyConditionExpression("artist = :val1").withExpressionAttributeValues(eav);
-        return mapper.query(Song.class, queryExpression);
+        // Create a QueryConditional object that is used in the query operation
+        QueryConditional queryConditional = QueryConditional
+                .keyEqualTo(Key.builder().partitionValue(artist)
+                        .build());
+        PageIterable<Song> results = mappedTable.query(r -> r.queryConditional(queryConditional));
+        return results.stream().flatMap(page -> page.items().stream()).collect(Collectors.toList());
     }
 }
