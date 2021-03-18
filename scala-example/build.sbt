@@ -5,7 +5,7 @@ name := "scala-example"
 lazy val commonSettings = Seq(
   organization := "org.bitbuicket.poad1010",
   version := "0.0.1",
-  scalaVersion := "2.13.4"
+  scalaVersion := "2.13.5"
 )
 
 lazy val root = (project in file("."))
@@ -29,12 +29,12 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "com.typesafe.akka" %% "akka-http-core" % "10.1.11",
-    "com.typesafe.akka" %% "akka-http-jackson" % "10.1.11",
-    "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.11",
+    "com.typesafe.akka" %% "akka-http-core" % "10.2.4",
+    "com.typesafe.akka" %% "akka-http-jackson" % "10.2.4",
+    "com.typesafe.akka" %% "akka-http-spray-json" % "10.2.4",
 
-    "org.scalactic" %% "scalactic" % "3.1.0",
-    "org.scalatest" %% "scalatest" % "3.1.0" % "test"
+    "org.scalactic" %% "scalactic" % "3.2.5",
+    "org.scalatest" %% "scalatest" % "3.2.5" % "test"
   )
 )
 
@@ -49,10 +49,10 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "io.reactivex" %% "rxscala" % "0.26.5",
+    "io.reactivex" %% "rxscala" % "0.27.0",
 
-    "org.scalactic" %% "scalactic" % "3.1.0",
-    "org.scalatest" %% "scalatest" % "3.1.0" % "test"
+    "org.scalactic" %% "scalactic" % "3.2.5",
+    "org.scalatest" %% "scalatest" % "3.2.5" % "test"
   )
 )
 
@@ -61,11 +61,11 @@ settings(
   commonSettings,
   // other settings
   libraryDependencies ++= Seq(
-    "org.scalatra" %% "scalatra" % "2.6.5",
-    "org.scalatra" %% "scalatra-scalate" % "2.6.5",
-    "org.eclipse.jetty" % "jetty-server" % "9.4.24.v20191120",
-    "org.eclipse.jetty" % "jetty-servlet" % "9.4.24.v20191120",
-    "org.eclipse.jetty" % "jetty-webapp" % "9.4.24.v20191120",
+    "org.scalatra" %% "scalatra" % "2.7.1",
+    "org.scalatra" %% "scalatra-scalate" % "2.7.1",
+    "org.eclipse.jetty" % "jetty-server" % "9.4.35.v20201120",
+    "org.eclipse.jetty" % "jetty-servlet" % "9.4.35.v20201120",
+    "org.eclipse.jetty" % "jetty-webapp" % "9.4.35.v20201120",
   )
 )
 
@@ -86,8 +86,8 @@ lazy val implicit_example = (project in file("implicit-example")).
     // other settings
   )
 
-lazy val akkaVersion = "2.6.1"
-lazy val playVersion = "2.8.2"
+lazy val akkaVersion = "2.6.13"
+lazy val playVersion = "2.8.7"
 lazy val play2_mvc_example = (project in file("play2-mvc-example"))
   .enablePlugins(PlayScala)
   .settings(
@@ -111,7 +111,7 @@ lazy val play2_example = (project in file("play2-example"))
 
       "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
       "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
-      "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
+      "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % Test
     )
   )
 
@@ -122,7 +122,7 @@ lazy val slisp = (project in file("slisp")).
     // other settings
   )
 
-lazy val springBootVersion = "2.4.3"
+lazy val springBootVersion = "2.4.4"
 lazy val springboot_example = (project in file("spring-boot-example")).
   settings(
     commonSettings,
@@ -134,9 +134,9 @@ lazy val springboot_example = (project in file("spring-boot-example")).
       "org.springframework.boot" % "spring-boot-starter-data-jpa" % springBootVersion exclude("com.zaxxer", "HikariCP"),
       "org.springframework.boot" % "spring-boot-starter-jersey" % springBootVersion exclude("org.springframework.boot", "spring-boot-starter-tomcat"),
       "org.springframework.boot" % "spring-boot-starter-actuator" % springBootVersion,
-      "/jakarta.persistence" % "jakarta.persistence-api" % "3.0.9",
+      "jakarta.persistence" % "jakarta.persistence-api" % "3.0.0",
       "mysql" % "mysql-connector-java" % "8.0.23",
-      "org.apache.tomcat" % "tomcat-jdbc" % "10.0.2",
+      "org.apache.tomcat" % "tomcat-jdbc" % "10.0.4",
     )
   )
 
