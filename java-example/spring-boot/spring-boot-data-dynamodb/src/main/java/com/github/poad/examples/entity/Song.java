@@ -1,10 +1,10 @@
 package com.github.poad.examples.entity;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey;
 
-@DynamoDBTable(tableName = "song")
+@DynamoDbBean
 public class Song {
     private String artist;
     private String title;
@@ -18,7 +18,7 @@ public class Song {
         this.title = title;
     }
 
-    @DynamoDBHashKey(attributeName = "artist")
+    @DynamoDbPartitionKey
     public String getArtist() {
         return artist;
     }
@@ -27,7 +27,7 @@ public class Song {
         this.artist = artist;
     }
 
-    @DynamoDBRangeKey(attributeName = "title")
+    @DynamoDbSortKey
     public String getTitle() {
         return title;
     }

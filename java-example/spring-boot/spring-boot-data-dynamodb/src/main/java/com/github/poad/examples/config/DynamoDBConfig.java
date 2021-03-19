@@ -1,33 +1,30 @@
 package com.github.poad.examples.config;
 
-import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
-import com.amazonaws.client.builder.AwsClientBuilder;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
+import software.amazon.awssdk.enhanced.dynamodb.internal.client.DefaultDynamoDbEnhancedClient;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+
+import java.net.URI;
 
 @Configuration
 public class DynamoDBConfig {
 
     @Bean
-    public AmazonDynamoDB amazonDynamoDB(@Value("${dynamodb.endpoint}") String endpoint, @Value("${dynamodb.endpoint}") String region) {
-        return AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(endpoint, region))
+    public DynamoDbClient dynamoDbClient(@Value("${dynamodb.endpoint}") String endpoint, @Value("${dynamodb.endpoint}") String region) {
+        return DynamoDbClient.builder()
+                .region(Region.of(region))
+                .endpointOverride(URI.create(endpoint))
                 .build();
     }
 
     @Bean
-    public DynamoDBMapperConfig dynamoDBMapperConfig() {
-        String env = System.getenv().getOrDefault("ENV", "local");
-        String prefix = String.join("", "test-", env, "-");
-
-        return DynamoDBMapperConfig
-                .builder()
-                .withTableNameOverride(DynamoDBMapperConfig.TableNameOverride.withTableNamePrefix(prefix))
+    public DynamoDbEnhancedClient dynamoDbEnhancedClient(@Value("${dynamoDbClient}") DynamoDbClient client) {
+        return DynamoDbEnhancedClient.builder()
+                .dynamoDbClient(client)
                 .build();
     }
 }
