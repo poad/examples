@@ -1,10 +1,9 @@
 package com.github.poad.examples.entity;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
-@DynamoDBTable(tableName = "artist")
+@DynamoDbBean
 public class Artist {
     private String name;
     private int age;
@@ -20,7 +19,7 @@ public class Artist {
         this.sex = sex;
     }
 
-    @DynamoDBHashKey(attributeName = "name")
+    @DynamoDbPartitionKey
     public String getName() {
         return name;
     }
@@ -29,7 +28,6 @@ public class Artist {
         this.name = name;
     }
 
-    @DynamoDBAttribute(attributeName = "age")
     public int getAge() {
         return age;
     }
@@ -38,7 +36,6 @@ public class Artist {
         this.age = age;
     }
 
-    @DynamoDBAttribute(attributeName = "sex")
     public String getSex() {
         return sex;
     }
