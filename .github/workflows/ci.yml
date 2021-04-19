@@ -36,6 +36,16 @@ jobs:
         chmod +x gradlew
         ./gradlew build
 
+    - name: Build with Gradle (android/DeviceFlowExample)
+      env:
+        OAUTH_CLIENT_ID: ${{ secrets.AUTH0_APP_CLIENT_ID }}
+        AUTH0_FQDN: ${{ secrets.AUTH0_APP_FQDN }}
+      run: |
+        cd android/DeviceFlowExample
+        mv app/src/main/res/raw/oauth.properties.template app/src/main/res/raw/oauth.properties
+        chmod +x gradlew
+        ./gradlew build
+
   java-example:
     strategy:
       matrix:
