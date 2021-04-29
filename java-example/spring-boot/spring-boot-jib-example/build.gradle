@@ -26,7 +26,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
     // https://mvnrepository.com/artifact/jp.co.future/uroborosql
-    implementation 'jp.co.future:uroborosql:0.20.2'
+    implementation 'jp.co.future:uroborosql:0.20.3'
 
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda'
 
@@ -34,22 +34,22 @@ dependencies {
 	implementation 'ma.glasnost.orika:orika-core:1.5.4'
 
 	// https://mvnrepository.com/artifact/com.google.guava/guava
-	implementation 'com.google.guava:guava:30.1-jre'
+	implementation 'com.google.guava:guava:30.1.1-jre'
 
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	runtimeOnly 'mysql:mysql-connector-java:8.0.22'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.24'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:9.0.34'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.0.5'
+
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
 	// https://mvnrepository.com/artifact/p6spy/p6spy
 	runtimeOnly 'p6spy:p6spy:3.9.1'
 
-	compileOnly 'org.projectlombok:lombok:1.18.16'
-	annotationProcessor 'org.projectlombok:lombok:1.18.16'
-
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-bom
-	implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.8.0')
+	implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.9.0')
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-core'
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-sql-mysql'
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
