@@ -7,45 +7,45 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 plugins {
-    id "org.flywaydb.flyway" version '7.7.0' apply false
+    id "org.flywaydb.flyway" version '7.8.2' apply false
 }
 
 
 ext {
-    jettyVersionOfDropwizard = '9.4.37.v20210219'
-    jettyVersion = '9.4.38.v20210224'
+    jettyVersionOfDropwizard = '9.4.39.v20210325'
+    jettyVersionForWebSocketServer = '9.4.40.v20210413'
 
-    dropwizardVersion = '2.0.20'
+    dropwizardVersion = '2.0.21'
     jerseyVersion = '3.0.1'
-    jacksonVersion = '2.12.2'
+    jacksonVersion = '2.12.3'
     vertxVersion = '4.0.3'
 
-    jdbiVersion = '3.18.0'
+    jdbiVersion = '3.20.0'
     hikariCpVersion = '4.0.3'
     h2Version = '1.4.200'
-    mysqlConnectorVersion = '8.0.23'
+    mysqlConnectorVersion = '8.0.24'
 
-    flywayVersion = '6.4.1'
+    flywayVersion = '7.8.2'
 
-    springBootVersion = '2.4.4'
+    springBootVersion = '2.4.5'
     springLoadedVersion = '1.2.8.RELEASE'
 
     slf4jVersion = '1.7.30'
 
     p6spyVersion = '3.9.0'
-    tomcatJdbcPoolVersion = '10.0.4'
+    tomcatJdbcPoolVersion = '10.0.5'
 
     log4jVersion = '2.14.1'
 
     dbUnitVersion = '2.7.0'
 
-    junitVersion = '4.13.1'
-    junit4Version        = '4.13.1'
+    junitVersion = '4.13.2'
+    junit4Version        = '4.13.2'
     junitVintageVersion  = '5.7.1'
     junitPlatformVersion = '1.7.1'
     junitJupiterVersion  = '5.7.1'
 
-    xRayBomVersion = '2.4.0'
+    xRayBomVersion = '2.9.0'
 }
 
 group = 'com.github.poad'
@@ -54,7 +54,7 @@ group = 'com.github.poad'
 repositories {
     // Use 'jcenter' for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    mavenCentral()
 }
 
 // In this section you declare the dependencies for your production and test code
