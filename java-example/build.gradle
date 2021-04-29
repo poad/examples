@@ -13,7 +13,7 @@ plugins {
 
 ext {
     jettyVersionOfDropwizard = '9.4.39.v20210325'
-    jettyVersion = '11.0.2'
+    jettyVersionForWebSocketServer = '9.4.40.v20210413'
 
     dropwizardVersion = '2.0.21'
     jerseyVersion = '3.0.1'

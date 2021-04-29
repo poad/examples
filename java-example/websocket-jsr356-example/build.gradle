@@ -5,5 +5,5 @@ repositories {
 dependencies {
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:' + jacksonVersion
     implementation 'com.fasterxml.jackson.core:jackson-databind:' + jacksonVersion
-    implementation 'org.eclipse.jetty.websocket:javax-websocket-server-impl:' + jettyVersion
+    implementation 'org.eclipse.jetty.websocket:javax-websocket-server-impl:' + jettyVersionForWebSocketServer
 }
