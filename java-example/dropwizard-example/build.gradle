@@ -98,11 +98,3 @@ test {
     systemProperties 'property': 'value'
     useJUnitPlatform()
 }
-
-uploadArchives {
-    repositories {
-       flatDir {
-           dirs 'repos'
-       }
-    }
-}
