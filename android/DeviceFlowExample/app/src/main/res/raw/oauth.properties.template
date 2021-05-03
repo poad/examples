@@ -1,2 +1,0 @@
-oauth_client_id=${CLIENT_ID}
-auth0_domain=${AUTH0_FQDN}
