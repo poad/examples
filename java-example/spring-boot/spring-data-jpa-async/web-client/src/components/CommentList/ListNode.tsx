@@ -1,7 +1,7 @@
-import * as React from 'react'
-import RestClient from './RestClient'
-import Button from '@material-ui/core/Button'
+import * as React from 'react';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import RestClient from './RestClient';
 
 interface State {
   id: string
@@ -18,49 +18,47 @@ interface Props {
 }
 
 class ListNode extends React.Component<Props, State> {
-  props: Props
-  state: State
-  client: RestClient
+  props: Props;
+
+  state: State;
+
+  client: RestClient;
 
   constructor(props: Props) {
-    super(props)
-    this.props = props
+    super(props);
+    this.props = props;
     this.state = {
       id: props.id,
       comment: props.comment,
-      text: ''
-    }
-    this.client = props.client
+      text: '',
+    };
+    this.client = props.client;
   }
 
   changeText = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
       id: this.props.id,
-      text: event.currentTarget.value
-    })
-  }
+      text: event.currentTarget.value,
+    });
+  };
 
   update = (): void => {
     if (this.props.id && this.state.text.length > 0) {
-      this.client.update(this.props.id, this.state.text).then(() =>
-        this.setState({
-          id: this.props.id,
-          comment: this.state.text,
-          text: ''
-        })
-      )
+      this.client.update(this.props.id, this.state.text).then(() => this.setState({
+        id: this.props.id,
+        comment: this.state.text,
+        text: '',
+      }));
     }
-  }
+  };
 
   delete = (): void => {
-    console.log(this.props)
-    console.log(this.props.id)
     if (this.props.id) {
       this.client.delete(this.props.id).then(() => {
-        this.props.onDelete(this.props.id)
-      })
+        this.props.onDelete(this.props.id);
+      });
     }
-  }
+  };
 
   public render(): JSX.Element {
     return (
@@ -77,8 +75,8 @@ class ListNode extends React.Component<Props, State> {
           <Button onClick={(): void => this.delete()}>削除</Button>
         </td>
       </tr>
-    )
+    );
   }
 }
 
-export default ListNode
+export default ListNode;

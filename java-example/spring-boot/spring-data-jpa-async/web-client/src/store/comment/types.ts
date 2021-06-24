@@ -1,14 +1,14 @@
-export const LIST_COMMENT = 'LIST_COMMENT'
-export const SEND_COMMENT = 'SEND_COMMENT'
-export const UPDATE_COMMENT = 'UPDATE_COMMENT'
-export const DELETE_COMMENT = 'DELETE_COMMENT'
+export const LIST_COMMENT = 'LIST_COMMENT';
+export const SEND_COMMENT = 'SEND_COMMENT';
+export const UPDATE_COMMENT = 'UPDATE_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export interface Comment {
   id?: string | undefined
   comment: string
 }
 
-export type CommentState = Array<Comment>
+export type CommentState = Array<Comment>;
 
 export interface State {
   comments: CommentState
@@ -38,4 +38,4 @@ export type CommentActionTypes =
   | ListCommentAction
   | SendCommentAction
   | UpdateCommentAction
-  | DeleteCommentAction
+  | DeleteCommentAction;
