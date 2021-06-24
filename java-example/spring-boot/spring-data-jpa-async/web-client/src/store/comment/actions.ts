@@ -4,36 +4,36 @@ import {
   SEND_COMMENT,
   UPDATE_COMMENT,
   DELETE_COMMENT,
-  CommentActionTypes
-} from './types'
+  CommentActionTypes,
+} from './types';
 
 export function listComment(): CommentActionTypes {
   return {
-    type: LIST_COMMENT
-  }
+    type: LIST_COMMENT,
+  };
 }
 
 export function sendComment(newComment: Comment): CommentActionTypes {
   return {
     type: SEND_COMMENT,
-    payload: newComment
-  }
+    payload: newComment,
+  };
 }
 
 export function updateComment(newComment: Comment): CommentActionTypes {
   return {
     type: UPDATE_COMMENT,
     meta: {
-      payload: newComment
-    }
-  }
+      payload: newComment,
+    },
+  };
 }
 
 export function deleteComment(id: string): CommentActionTypes {
   return {
     type: DELETE_COMMENT,
     meta: {
-      id
-    }
-  }
+      id,
+    },
+  };
 }

@@ -1,25 +1,21 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
+import { ThemeOptions } from '@material-ui/core';
 
 // A theme with custom primary and secondary color.
 // It's optional.
 
-const options: any = {
+const options: ThemeOptions = {
   palette: {
     primary: {
       main: '#2d2d2d',
-      text: '#fff',
     },
     secondary: {
       light: green[300],
       main: green[500],
       dark: green[700],
     },
-    typography: {
-      useNextVariants: true,
-    },
   },
-  drawerWidth: 240,
 };
 
 const theme = createMuiTheme(options);

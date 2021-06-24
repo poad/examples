@@ -1,17 +1,16 @@
-import React from 'react'
-import { Layout } from '../components/Layout';
-import CommentList from '../components/CommentList'
+import React from 'react';
+import Layout from '../components/Layout';
+import CommentList from '../components/CommentList';
 
-class Home extends React.Component {
-  render() {
-    return (
-      <Layout>
+const Home = (): JSX.Element => (
+  <Layout>
 
-        <div className="hero">
-          <CommentList comment={''} comments={[]} />
-        </div>
+    <div className="hero">
+      <CommentList comment="" comments={[]} />
+    </div>
 
-        <style jsx>{`
+    <style jsx>
+      {`
           .hero {
             width: 100%;
             color: #333;
@@ -56,10 +55,9 @@ class Home extends React.Component {
             font-size: 13px;
             color: #333;
           }
-        `}</style>
-      </Layout>
-    )
-  }
-}
+        `}
+    </style>
+  </Layout>
+);
 
-export default Home
+export default Home;
