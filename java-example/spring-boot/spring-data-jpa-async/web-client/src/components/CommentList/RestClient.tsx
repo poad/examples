@@ -1,45 +1,41 @@
-import fetch from 'node-fetch'
-import config from './Config'
-import { Comment } from '../../store/comment/types'
+import fetch from 'node-fetch';
+import config from './Config';
+import { Comment } from '../../store/comment/types';
 
 class RestClient {
-  endpoint = config.endpoint
+  endpoint = config.endpoint;
 
   async add(comment: string): Promise<Comment> {
-    const json = await fetch(config.endpoint, {
+    const json = await fetch(this.endpoint, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ comment: comment })
-    }).then((res) => {
+      body: JSON.stringify({ comment }),
+    }).then((res): Promise<Comment> => {
       if (res.ok) {
-        return res.json()
-      } else {
-        console.log('error!')
-        return '{}'
+        return res.json();
       }
-    })
-    return json as Comment
+      return Promise.resolve({} as Comment);
+    });
+    return json as Comment;
   }
 
   async fetchComments(): Promise<Array<Comment>> {
     const json = await fetch(this.endpoint, {
       method: 'GET',
       headers: {
-        Accept: 'application/json'
-      }
-    }).then((res) => {
+        Accept: 'application/json',
+      },
+    }).then((res): Promise<Array<Comment>> | undefined => {
       if (res.ok) {
-        return res.json()
-      } else {
-        console.log('error!')
-        return []
+        return res.json();
       }
-    })
+      return Promise.resolve([] as Comment[]);
+    });
 
-    return json as Array<Comment>
+    return json as Array<Comment>;
   }
 
   async update(id: string, comment: string): Promise<Array<Comment>> {
@@ -47,18 +43,17 @@ class RestClient {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ comment: comment })
-    }).then((res) => {
+      body: JSON.stringify({ comment }),
+    }).then((res): Promise<Array<Comment>> | undefined => {
       if (res.ok) {
-        return res.json()
-      } else {
-        console.log('error!')
+        return res.json();
       }
-    })
+      return undefined;
+    });
 
-    return json as Array<Comment>
+    return json as Array<Comment>;
   }
 
   async delete(id: string): Promise<void> {
@@ -66,17 +61,15 @@ class RestClient {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+      },
+    }).then((res): void => {
+      if (!res.ok) {
+        // eslint-disable-next-line @typescript-eslint/no-throw-literal
+        throw res;
       }
-    }).then((res) => {
-      if (res.ok) {
-        return
-      } else {
-        console.error('error!')
-        throw res
-      }
-    })
+    });
   }
 }
 
-export default RestClient
+export default RestClient;

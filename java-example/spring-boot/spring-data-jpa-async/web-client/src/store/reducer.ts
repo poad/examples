@@ -1,9 +1,9 @@
-import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { State } from './comment/types'
+import { reducerWithInitialState } from 'typescript-fsa-reducers';
+import { State } from './comment/types';
 
 export const initialState: State = {
   comments: [],
-  comment: ''
-}
+  comment: '',
+};
 
-export const Reducer = reducerWithInitialState(initialState)
+export const Reducer = reducerWithInitialState(initialState);

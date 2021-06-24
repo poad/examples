@@ -1,9 +1,9 @@
-import * as React from 'react'
-import ListNode from './ListNode'
-import { State, Comment } from '../../store/comment/types'
-import RestClient from './RestClient'
-import Button from '@material-ui/core/Button'
+import * as React from 'react';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import ListNode from './ListNode';
+import { State, Comment } from '../../store/comment/types';
+import RestClient from './RestClient';
 
 interface Props {
   comments: Array<Comment>
@@ -11,86 +11,83 @@ interface Props {
 }
 
 export default class CommentList extends React.Component<Props, State> {
-  props: Props
-  state: State
-  client: RestClient
+  props: Props;
+
+  state: State;
+
+  client: RestClient;
+
   constructor(props: Props) {
-    super(props)
-    this.props = props
+    super(props);
+    this.props = props;
     this.state = {
       comments: [],
-      comment: ''
-    }
-    this.client = new RestClient()
+      comment: '',
+    };
+    this.client = new RestClient();
   }
 
   componentDidMount(): void {
-    this.fetchComments()
+    this.fetchComments();
   }
 
   fetchComments = (): void => {
-    this.client.fetchComments().then((comments) =>
-      this.setState({
-        comments: comments,
-        comment: ''
-      })
-    )
-  }
+    this.client.fetchComments().then((comments) => this.setState({
+      comments,
+      comment: '',
+    }));
+  };
 
-  addComment = async (comment: string): Promise<Comment> => {
-    return await this.client.add(comment)
-  }
+  addComment = async (comment: string): Promise<Comment> => this.client.add(comment);
 
   removeComment = (id: string): void => {
-    const comments = this.state.comments
-    const target = comments.findIndex((comment) => comment.id === id)
-    if (target == 0) {
-      comments.shift()
+    const { comments } = this.state;
+    const target = comments.findIndex((comment) => comment.id === id);
+    if (target === 0) {
+      comments.shift();
       this.setState({
-        comments: comments,
-        comment: ''
-      })
+        comments,
+        comment: '',
+      });
     } else if (target > 0) {
-      comments.splice(target, 1)
+      comments.splice(target, 1);
       this.setState({
-        comments: comments,
-        comment: ''
-      })
+        comments,
+        comment: '',
+      });
     }
-  }
+  };
 
-  list = (): Array<JSX.Element> => {
-    return this.state.comments.filter(
-      (comment) => comment.id
-    ).map((comment) => (
-      <ListNode
-        key={comment.id}
-        id={comment.id ? comment.id : ''}
-        comment={comment.comment}
-        text={''}
-        client={this.client}
-        onDelete={this.removeComment}
-      />
-    ))
-  }
+  list = (): Array<JSX.Element> => this.state.comments.filter(
+    (comment) => comment.id,
+  ).map((comment) => (
+    <ListNode
+      key={comment.id}
+      id={comment.id ? comment.id : ''}
+      comment={comment.comment}
+      text=""
+      client={this.client}
+      onDelete={this.removeComment}
+    />
+  ));
 
   add = (): void => {
-    const comments = this.state.comments
+    const { comments } = this.state;
     this.addComment(this.state.comment).then((comment) => {
-      comments.push(comment)
+      comments.push(comment);
       this.setState({
-        comments: comments,
-        comment: ''
-      })
-    })
-  }
+        comments,
+        comment: '',
+      });
+    });
+  };
 
   private update = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
       comment: event.currentTarget.value,
-      comments: this.state.comments
-    })
-  }
+      comments: this.state.comments,
+    });
+  };
 
   public render(): JSX.Element {
     return (
@@ -106,7 +103,7 @@ export default class CommentList extends React.Component<Props, State> {
                     name="comment"
                     value={this.state.comment}
                     onChange={this.update}
-                  ></TextField>
+                  />
                 </td>
                 <td>
                   <Button onClick={(): void => this.add()}>追加</Button>
@@ -124,6 +121,6 @@ export default class CommentList extends React.Component<Props, State> {
           </tbody>
         </table>
       </div>
-    )
+    );
   }
 }

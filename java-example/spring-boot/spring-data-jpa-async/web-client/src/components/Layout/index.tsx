@@ -13,47 +13,47 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import {
+  makeStyles, useTheme, Theme, createStyles,
+} from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-      color: '#fff',
-    },
-    drawer: {
-      [theme.breakpoints.up('sm')]: {
-        width: drawerWidth,
-        flexShrink: 0,
-      },
-    },
-    appBar: {
-      marginLeft: drawerWidth,
-      [theme.breakpoints.up('sm')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-      },
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      },
-    },
-    toolbar: theme.mixins.toolbar,
-    drawerPaper: {
+const useStyles = makeStyles((theme: Theme) => createStyles({
+  root: {
+    display: 'flex',
+    color: '#fff',
+  },
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
-      backgroundColor: theme.palette.primary.main
+      flexShrink: 0,
     },
-    content: {
-      flexGrow: 1,
+  },
+  appBar: {
+    marginLeft: drawerWidth,
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
     },
-    menuItem: {
-      color: '#fff',
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
     },
-  }),
-);
+  },
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+    backgroundColor: theme.palette.primary.main,
+  },
+  content: {
+    flexGrow: 1,
+  },
+  menuItem: {
+    color: '#fff',
+  },
+}));
 
 interface LayoutProps {
   /**
@@ -63,7 +63,7 @@ interface LayoutProps {
   container?: Element;
 }
 
-export const Layout: React.FC<LayoutProps> = (props) => {
+const Layout: React.FC<LayoutProps> = (props) => {
   const { container } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -72,8 +72,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   function handleDrawerToggle() {
     setMobileOpen(!mobileOpen);
   }
-  
-  
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
@@ -103,8 +102,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-          </Typography>
+          <Typography variant="h6" noWrap />
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -144,4 +142,6 @@ export const Layout: React.FC<LayoutProps> = (props) => {
       </main>
     </div>
   );
-}
+};
+
+export default Layout;
