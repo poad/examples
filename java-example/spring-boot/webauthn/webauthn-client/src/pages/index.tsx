@@ -1,0 +1,25 @@
+import React from 'react';
+import Head from 'next/head';
+
+import { Typography } from '@material-ui/core';
+import styles from '../styles/Home.module.css';
+
+const Home = (): JSX.Element => (
+  <div className={styles.container}>
+    <Head>
+      <title>WebAuthn example</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+
+    <main className={styles.main}>
+      <>
+        <Typography variant="h1" component="h1" color="primary">Hello!</Typography>
+      </>
+    </main>
+
+    <footer className={styles.footer}>
+    </footer>
+  </div>
+);
+
+export default Home;
