@@ -10,13 +10,13 @@
     "lint": "eslint --ext .ts,.js,.tsx,.jsx src"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
+    "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
-    "@types/node": "^16.0.0",
-    "@types/node-fetch": "^2.5.10",
-    "@types/react": "^17.0.13",
-    "@types/react-redux": "^7.1.16",
+    "@types/node": "^16.3.1",
+    "@types/node-fetch": "^2.5.11",
+    "@types/react": "^17.0.14",
+    "@types/react-redux": "^7.1.18",
     "next": "^11.0.1",
     "next-redux-wrapper": "^7.0.2",
     "node-fetch": "^2.6.1",
@@ -28,9 +28,9 @@
     "typescript-fsa-reducers": "^1.2.2"
   },
   "devDependencies": {
-    "@types/redux-logger": "^3.0.8",
-    "@typescript-eslint/eslint-plugin": "^4.28.1",
-    "@typescript-eslint/parser": "^4.28.1",
+    "@types/redux-logger": "^3.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
     "eslint": "^7.30.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
