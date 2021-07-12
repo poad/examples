@@ -11,8 +11,6 @@ services:
       - ./mysql_ddl:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
-    networks:
-      - webauthn-example-network
   backend:
     image: poad/webauthn-rp-example:1.0.0
     container_name: webauthn-api-server
@@ -22,8 +20,6 @@ services:
       - database
     ports:
       - 8080:8080
-    networks:
-      - webauthn-example-network
   frontend:
     build: 
       context: .
@@ -33,10 +29,6 @@ services:
       - backend
     ports:
       - 3000:3000
-    networks:
-      - webauthn-example-network
 networks:
-  webauthn-example-network:
   default:
-    external:
-      name: webauthn-example-network
+    name: webauthn-example-network
