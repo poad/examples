@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 services:
   nginx:
     build:
@@ -16,6 +16,8 @@ services:
   app:
     image: poad/spring-data-jpa-async:1.0.0
     container_name: app
+    environment:
+      SPRING_PROFILES_ACTIVE: container
     ports:
       - 8089:8089
     networks:
@@ -29,14 +31,12 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_DATABASE: test
     volumes:
-      - ./mysql_data://var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
       - ./mysql_ddl:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
     networks:
       - spa-app-network
 networks:
-  spa-app-network: {}
-  default:
-    external:
-      name: spa-app-network
+  spa-app-network:
+    name: spa-app-network
