@@ -23,7 +23,7 @@ dependencies {
 		exclude group: 'com.zaxxer', module: 'HikariCP'
 	}
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	implementation 'org.apache.tomcat:tomcat-jdbc:10.0.5'
+	implementation 'org.apache.tomcat:tomcat-jdbc:10.0.10'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'jakarta.validation:jakarta.validation-api'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
@@ -33,7 +33,8 @@ dependencies {
 
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
-	runtimeOnly 'mysql:mysql-connector-java:8.0.24'
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	runtimeOnly 'mysql:mysql-connector-java:8.0.26'
 }
 
 test {
@@ -51,5 +52,3 @@ bootBuildImage {
 	builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
 	imageName = "poad/spring-data-jpa-async:${version}"
 }
-
-//jib.container.jvmFlags = [ "-Dspring.profiles.active=container" ]

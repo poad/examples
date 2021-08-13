@@ -7,7 +7,7 @@ RUN apk --update add --no-cache python3 make g++
 USER node
 
 COPY --chown=node:node ./web-client /home/node/web-client
-COPY --chown=node:node docker/assets/.env /home/node/web-client/.env
+# COPY --chown=node:node docker/assets/.env /home/node/web-client/.env
 
 WORKDIR /home/node/web-client
 

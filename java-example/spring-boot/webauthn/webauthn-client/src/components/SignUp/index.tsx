@@ -175,6 +175,7 @@ const SignUp = (props: SignUpProp): JSX.Element => {
 
       const credentialJSON = credentialToJSON(credential);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const ret = await registerFinish<any | IError>(credentialJSON);
       if (ret?.error !== undefined) {
         props.onError(ret.error);
@@ -189,6 +190,7 @@ const SignUp = (props: SignUpProp): JSX.Element => {
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs): void => {
     registerToServer(data.email, data.name)
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error(error);
         props.onError(JSON.stringify(error, null, 2));
       });
