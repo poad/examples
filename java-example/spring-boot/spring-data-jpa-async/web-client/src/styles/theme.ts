@@ -1,6 +1,5 @@
-import { createMuiTheme } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
-import { ThemeOptions } from '@material-ui/core';
+import { createTheme, ThemeOptions } from '@material-ui/core';
 
 // A theme with custom primary and secondary color.
 // It's optional.
@@ -18,6 +17,6 @@ const options: ThemeOptions = {
   },
 };
 
-const theme = createMuiTheme(options);
+const theme = createTheme(options);
 export type Theme = typeof theme;
 export default theme;
