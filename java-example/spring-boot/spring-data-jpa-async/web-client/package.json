@@ -15,7 +15,7 @@
     "@material-ui/styles": "^4.11.4",
     "@types/node": "^16.6.1",
     "@types/node-fetch": "^2.5.12",
-    "@types/react": "^17.0.17",
+    "@types/react": "^17.0.18",
     "linaria": "^2.1.0",
     "next": "^11.1.0",
     "next-linaria": "^0.11.0",
