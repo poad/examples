@@ -1,5 +1,5 @@
-import App, { AppContext, AppInitialProps, AppProps } from 'next/app';
 import * as React from 'react';
+import App, { AppContext, AppInitialProps, AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
