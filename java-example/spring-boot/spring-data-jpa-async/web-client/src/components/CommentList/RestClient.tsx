@@ -15,7 +15,7 @@ class RestClient {
       body: JSON.stringify({ comment }),
     }).then((res): Promise<Comment> => {
       if (res.ok) {
-        return res.json();
+        return res.json() as Promise<Comment>;
       }
       return Promise.resolve({} as Comment);
     });
@@ -30,7 +30,7 @@ class RestClient {
       },
     }).then((res): Promise<Array<Comment>> | undefined => {
       if (res.ok) {
-        return res.json();
+        return res.json() as Promise<Array<Comment>>;
       }
       return Promise.resolve([] as Comment[]);
     });
@@ -48,7 +48,7 @@ class RestClient {
       body: JSON.stringify({ comment }),
     }).then((res): Promise<Array<Comment>> | undefined => {
       if (res.ok) {
-        return res.json();
+        return res.json() as Promise<Array<Comment>>;
       }
       return undefined;
     });

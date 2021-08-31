@@ -25,7 +25,6 @@ jobs:
       with:
         node-version: 14.x
         check-latest: true
-        cache: yarn
 
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
@@ -49,7 +48,7 @@ jobs:
       uses: poad/update-node-modules@v1
       with:
         yarn: true
-        path: ./java-example/spring-boot/spring-data-jpa-async/web-client 
+        path: java-example/spring-boot/spring-data-jpa-async/web-client/
 
     # - name: Update npm modules for Nuxt.js app
     #   run: |
