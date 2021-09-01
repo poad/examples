@@ -12,13 +12,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
     steps:
 
     - uses: actions/checkout@v2
-
-    - name: debug
-      run: |
-        ls -al ${{github.workspace}}/
 
     - name: Use Node.js 14.x
       uses: actions/setup-node@v2

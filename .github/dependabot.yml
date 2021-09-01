@@ -1,0 +1,236 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/java-example/spring-boot/webauthn/webauthn-client/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: npm
+    directory: '/java-example/spring-boot/spring-data-jpa-async/web-client/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+
+  - package-ecosystem: gradle
+    directory: '/android/HelloAndroid/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/android/MyApplication/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+
+  - package-ecosystem: gradle
+    directory: '/java-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/morphological-analyis/kuromoji/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-cassandra/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-data-dynamodb/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-data-jpa-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-data-jpa-query-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+
+  - package-ecosystem: gradle
+    directory: '/java-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-jdbc-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-jdbi-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-jib-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-jpa-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-metrics/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-micrometer/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/sspring-boot-web-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-boot-web-thymeleaf-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/java-example/spring-boot/webauthn/server/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+  - package-ecosystem: gradle
+    directory: '/quarkus-example/quarkus-mp-example/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
+
+  - package-ecosystem: maven
+    directory: '/quarkus-example/getting-started/'
+    schedule:
+      interval: daily
+      timezone: Asia/Tokyo
+    allow:
+      - dependency-type: all
+    rebase-strategy: auto
+    assignees:
+      - poad
