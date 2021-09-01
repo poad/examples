@@ -18,9 +18,7 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
-      if: github.event_name != 'pull_request'
     - name: Use Node.js 14.x
-      if: github.event_name != 'pull_request'
       uses: actions/setup-node@v2
       with:
         node-version: 14.x
@@ -48,7 +46,7 @@ jobs:
       uses: poad/update-node-modules@v1
       with:
         yarn: true
-        path: ./java-example/spring-boot/spring-data-jpa-async/web-client 
+        path: ${{ env.GITHUB_WORKSPACE }}/java-example/spring-boot/spring-data-jpa-async/web-client/
 
     # - name: Update npm modules for Nuxt.js app
     #   run: |
