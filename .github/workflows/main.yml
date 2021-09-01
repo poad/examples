@@ -39,6 +39,10 @@ jobs:
     #     yarn: true
     #     path: ./java-example/spring-boot/webauthn/webauthn
 
+    - name: debug
+      run: |
+        echo ${{ env }}
+
     - name: update (java-example/spring-boot/spring-data-jpa-async/web-client )
       uses: poad/update-node-modules@v1
       with:
