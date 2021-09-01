@@ -15,7 +15,7 @@ ext {
     jettyVersionOfDropwizard = '9.4.39.v20210325'
     jettyVersionForWebSocketServer = '9.4.40.v20210413'
 
-    dropwizardVersion = '2.0.21'
+    dropwizardVersion = '2.0.24'
     jerseyVersion = '3.0.1'
     jacksonVersion = '2.12.3'
     vertxVersion = '4.0.3'
@@ -30,7 +30,7 @@ ext {
     springBootVersion = '2.5.4'
     springLoadedVersion = '1.2.8.RELEASE'
 
-    slf4jVersion = '1.7.30'
+    slf4jVersion = '1.7.32'
 
     p6spyVersion = '3.9.0'
     tomcatJdbcPoolVersion = '10.0.5'
