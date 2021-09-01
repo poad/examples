@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation platform('org.jdbi:jdbi3-bom:3.20.0')
+    implementation platform('org.jdbi:jdbi3-bom:3.21.0')
     implementation 'org.springframework.boot:spring-boot-starter-jetty'
     implementation('org.springframework.boot:spring-boot-starter-jersey') {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
@@ -43,7 +43,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.24'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.0.5'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.0.10'
 
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
