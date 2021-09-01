@@ -102,17 +102,6 @@ updates:
     rebase-strategy: auto
     assignees:
       - poad
-
-  - package-ecosystem: gradle
-    directory: '/java-example/'
-    schedule:
-      interval: daily
-      timezone: Asia/Tokyo
-    allow:
-      - dependency-type: all
-    rebase-strategy: auto
-    assignees:
-      - poad
   - package-ecosystem: gradle
     directory: '/java-example/spring-boot/spring-boot-jdbc-example/'
     schedule:
