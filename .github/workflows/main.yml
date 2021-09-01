@@ -15,6 +15,11 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+
+    - name: debug
+      run: |
+        ls -al ${{github.workspace}}/
+
     - name: Use Node.js 14.x
       uses: actions/setup-node@v2
       with:
@@ -26,31 +31,33 @@ jobs:
       run: echo "::set-output name=dir::$(yarn cache dir)"
 
     - uses: actions/cache@v2
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      id: yarn-cache
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
       
-    # - name: update (java-example/spring-boot/webauthn/webauthn)
-    #   uses: poad/update-node-modules@v1
-    #   with:
-    #     yarn: true
-    #     path: ./java-example/spring-boot/webauthn/webauthn
-
-    - name: update (java-example/spring-boot/spring-data-jpa-async/web-client )
-      uses: poad/update-node-modules@v1
+    - name: update (java-example/spring-boot/webauthn/webauthn-client)
+      uses: poad/update-node-modules@v1.0.5
       with:
         yarn: true
-        path: ${{ env.GITHUB_WORKSPACE }}/java-example/spring-boot/spring-data-jpa-async/web-client/
+        path: ${{github.workspace}}/java-example/spring-boot/webauthn/webauthn-client/
 
-    # - name: Update npm modules for Nuxt.js app
-    #   run: |
-    #     cd java-example/spring-boot/webauthn/webauthn && \
-    #     yarn install
+    - name: update (java-example/spring-boot/spring-data-jpa-async/web-client)
+      uses: poad/update-node-modules@v1.0.5
+      with:
+        yarn: true
+        path: ${{github.workspace}}/java-example/spring-boot/spring-data-jpa-async/web-client/
 
-    - name: Update npm modules for Next.js app
+    - name: Update npm modules for java-example/spring-boot/webauthn/webauthn-client
+      run: |
+        cd java-example/spring-boot/webauthn/webauthn-client && \
+        yarn install && \
+        yarn build && \
+        yarn test
+
+    - name: Update npm modules for java-example/spring-boot/spring-data-jpa-async/web-client
       run: |
         cd java-example/spring-boot/spring-data-jpa-async/web-client && \
         yarn install && \
