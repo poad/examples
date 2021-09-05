@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@swc/core": "^1.2.84",
-    "@types/styled-components": "^5.1.13",
+    "@types/styled-components": "^5.1.14",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
     "eslint": "^7.32.0",
