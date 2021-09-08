@@ -3820,27 +3820,27 @@ jest-haste-map@^27.1.0, jest-haste-map@^27.1.1:
     fsevents "^2.3.2"
 
 jest-jasmine2@^27.1.0:
-  version "27.1.0"
-  resolved "https://registry.yarnpkg.com/jest-jasmine2/-/jest-jasmine2-27.1.0.tgz#324a3de0b2ee20d238b2b5b844acc4571331a206"
-  integrity sha512-Z/NIt0wBDg3przOW2FCWtYjMn3Ip68t0SL60agD/e67jlhTyV3PIF8IzT9ecwqFbeuUSO2OT8WeJgHcalDGFzQ==
+  version "27.1.1"
+  resolved "https://registry.yarnpkg.com/jest-jasmine2/-/jest-jasmine2-27.1.1.tgz#efb9e7b70ce834c35c91e1a2f01bb41b462fad43"
+  integrity sha512-0LAzUmcmvQwjIdJt0cXUVX4G5qjVXE8ELt6nbMNDzv2yAs2hYCCUtQq+Eje70GwAysWCGcS64QeYj5VPHYVxPg==
   dependencies:
     "@babel/traverse" "^7.1.0"
-    "@jest/environment" "^27.1.0"
+    "@jest/environment" "^27.1.1"
     "@jest/source-map" "^27.0.6"
-    "@jest/test-result" "^27.1.0"
-    "@jest/types" "^27.1.0"
+    "@jest/test-result" "^27.1.1"
+    "@jest/types" "^27.1.1"
     "@types/node" "*"
     chalk "^4.0.0"
     co "^4.6.0"
-    expect "^27.1.0"
+    expect "^27.1.1"
     is-generator-fn "^2.0.0"
-    jest-each "^27.1.0"
-    jest-matcher-utils "^27.1.0"
-    jest-message-util "^27.1.0"
-    jest-runtime "^27.1.0"
-    jest-snapshot "^27.1.0"
-    jest-util "^27.1.0"
-    pretty-format "^27.1.0"
+    jest-each "^27.1.1"
+    jest-matcher-utils "^27.1.1"
+    jest-message-util "^27.1.1"
+    jest-runtime "^27.1.1"
+    jest-snapshot "^27.1.1"
+    jest-util "^27.1.1"
+    pretty-format "^27.1.1"
     throat "^6.0.1"
 
 jest-leak-detector@^27.1.0:
