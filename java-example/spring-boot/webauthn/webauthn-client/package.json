@@ -23,7 +23,7 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "@swc/core": "^1.2.84",
+    "@swc/core": "^1.2.85",
     "@types/styled-components": "^5.1.14",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
