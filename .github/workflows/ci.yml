@@ -28,6 +28,7 @@ jobs:
       matrix:
         java_versions:
           - 11
+          - 17
 
     runs-on: ubuntu-latest
     steps:
