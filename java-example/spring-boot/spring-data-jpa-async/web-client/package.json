@@ -13,7 +13,7 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
-    "@types/node": "^16.9.2",
+    "@types/node": "^16.9.4",
     "@types/node-fetch": "^3.0.3",
     "@types/react": "^17.0.21",
     "linaria": "^3.0.0-beta.13",
