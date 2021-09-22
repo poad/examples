@@ -65,7 +65,6 @@ class RestClient {
       },
     }).then((res): void => {
       if (!res.ok) {
-        // eslint-disable-next-line @typescript-eslint/no-throw-literal
         throw res;
       }
     });
