@@ -13,9 +13,9 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
-    "@types/node": "^16.9.4",
+    "@types/node": "^16.9.6",
     "@types/node-fetch": "^3.0.3",
-    "@types/react": "^17.0.22",
+    "@types/react": "^17.0.24",
     "linaria": "^3.0.0-beta.13",
     "next": "^11.1.2",
     "next-linaria": "^0.11.0",
@@ -24,9 +24,9 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@swc/core": "^1.2.88",
+    "@swc/core": "^1.2.89",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
