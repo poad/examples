@@ -51,8 +51,7 @@ jobs:
       run: |
         cd java-example/spring-boot/webauthn/webauthn-client && \
         yarn install && \
-        yarn build && \
-        yarn test
+        yarn build
 
     - name: Update npm modules for java-example/spring-boot/spring-data-jpa-async/web-client
       run: |
