@@ -57,8 +57,7 @@ jobs:
       run: |
         cd java-example/spring-boot/spring-data-jpa-async/web-client && \
         yarn install && \
-        yarn build && \
-        yarn test
+        yarn build
 
     - name: Commit files
       run: |
