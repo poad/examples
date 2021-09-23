@@ -16,7 +16,7 @@ ext {
     jettyVersionForWebSocketServer = '9.4.40.v20210413'
 
     dropwizardVersion = '2.0.25'
-    jerseyVersion = '3.0.2'
+    jerseyVersion = '3.0.3'
     jacksonVersion = '2.12.3'
     vertxVersion = '4.0.3'
 
@@ -42,8 +42,8 @@ ext {
     junitVersion = '4.13.2'
     junit4Version        = '4.13.2'
     junitVintageVersion  = '5.7.2'
-    junitPlatformVersion = '1.8.0'
-    junitJupiterVersion  = '5.8.0'
+    junitPlatformVersion = '1.8.1'
+    junitJupiterVersion  = '5.8.1'
 
     xRayBomVersion = '2.9.0'
 }
