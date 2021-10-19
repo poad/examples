@@ -41,7 +41,7 @@ dependencies {
 	runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch'
 
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	runtimeOnly 'mysql:mysql-connector-java:8.0.26'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.27'
 
     runtimeOnly("org.springframework.boot:spring-boot-properties-migrator")
 }
