@@ -1,6 +1,6 @@
 import {
   Button, Link, TextField, Box,
-} from '@material-ui/core';
+} from '@mui/material';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 

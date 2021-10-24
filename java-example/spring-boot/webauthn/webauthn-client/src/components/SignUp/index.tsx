@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Box, Button, Link, TextField,
-} from '@material-ui/core';
+} from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 export interface Challenge {

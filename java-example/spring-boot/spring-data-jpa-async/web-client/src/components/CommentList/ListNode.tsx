@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import { Button, TextField } from '@mui/material';
 import RestClient from './RestClient';
 
 interface State {

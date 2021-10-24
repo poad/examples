@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 
 import SignUp from '../SignUp';
 import SignIn from '../SignIn';

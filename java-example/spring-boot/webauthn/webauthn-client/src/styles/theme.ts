@@ -1,11 +1,10 @@
-import { createTheme } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
+import { createTheme } from '@mui/material';
+import { green } from '@mui/material/colors';
 
 // A theme with custom primary and secondary color.
 // It's optional.
 
-// eslint-disable-next-line  @typescript-eslint/no-explicit-any
-const options: any = {
+const options = {
   palette: {
     primary: {
       main: '#2d2d2d',
