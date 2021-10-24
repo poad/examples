@@ -10,9 +10,14 @@
     "all": "yarn lint --fix && yarn build"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/styles": "^4.11.4",
+    "@emotion/cache": "^11.4.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.4",
+    "@mui/material": "^5.0.4",
+    "@mui/styled-engine-sc": "^5.0.3",
+    "@mui/styles": "^5.0.1",
     "@types/node": "^16.11.4",
     "@types/react": "^17.0.31",
     "cross-fetch": "^3.1.4",
