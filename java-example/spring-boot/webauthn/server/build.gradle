@@ -1,7 +1,13 @@
 plugins {
-	id 'org.springframework.boot' version "${springBootVersion}"
-	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
-	id 'java'
+  id 'org.springframework.boot' version '2.5.6'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
+}
+
+ext {
+  tomcatJdbcVersion = "10.0.8"
+  webauthn4jVersion = "0.16.2.RELEASE"
+  mysqlConnectorVersion = "8.0.25"
 }
 
 group = 'com.github.poad.examples'
