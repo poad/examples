@@ -12,6 +12,7 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "skipLibCheck": true,
+    "incremental": true,
     "lib": [
       "dom",
       "dom.iterable",
