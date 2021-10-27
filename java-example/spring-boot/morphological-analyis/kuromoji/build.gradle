@@ -1,72 +1,67 @@
 plugins {
-     id 'org.springframework.boot' version "${springBootVersion}" apply false
-     id "io.spring.dependency-management" version "${springDependencyManagementVersion}" apply false
+  id 'org.springframework.boot' version '2.5.6'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
+  id 'application'
 }
 
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'application'
+group = 'com.github.poad.examples'
+version = '0.0.1-SNAPSHOT'
 
-    group = 'com.github.poad.examples'
-    version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+mainClassName = 'com.github.poad.examples.kuromori.KuromoriApplication'
 
-    repositories {
-        mavenCentral()
-    }
+repositories {
+    mavenCentral()
+}
 
-    def defaultEncoding = 'UTF-8'
-    compileJava {
-        options.encoding = defaultEncoding
-    }
-    compileTestJava {
-        options.encoding = defaultEncoding
+def defaultEncoding = 'UTF-8'
+compileJava {
+    options.encoding = defaultEncoding
+}
+compileTestJava {
+    options.encoding = defaultEncoding
+}
+
+ext {
+    kuromojiVersion = "0.9.0"
+    set('snippetsDir', file("build/generated-snippets"))
+}
+
+configurations {
+    all*.exclude module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'jakarta.validation:jakarta.validation-api'
+    implementation "com.atilika.kuromoji:kuromoji-ipadic:${kuromojiVersion}"
+    implementation "com.atilika.kuromoji:kuromoji-jumandic:${kuromojiVersion}"
+    implementation "com.atilika.kuromoji:kuromoji-naist-jdic:${kuromojiVersion}"
+    implementation "com.atilika.kuromoji:kuromoji-unidic:${kuromojiVersion}"
+    implementation "com.atilika.kuromoji:kuromoji-unidic-kanaaccent:${kuromojiVersion}"
+
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda'
+
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'io.micrometer:micrometer-registry-jmx'
+    implementation 'io.micrometer:micrometer-registry-cloudwatch'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
 }
 
-project(":app") {
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
+test {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
 
-    ext {
-        set('snippetsDir', file("build/generated-snippets"))
-    }
-
-    configurations {
-        all*.exclude module: 'spring-boot-starter-logging'
-    }
-
-    dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-actuator'
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-        implementation 'org.springframework.boot:spring-boot-starter-log4j2'
-        implementation 'jakarta.validation:jakarta.validation-api'
-        implementation "com.atilika.kuromoji:kuromoji-ipadic:${kuromojiVersion}"
-        implementation "com.atilika.kuromoji:kuromoji-jumandic:${kuromojiVersion}"
-        implementation "com.atilika.kuromoji:kuromoji-naist-jdic:${kuromojiVersion}"
-        implementation "com.atilika.kuromoji:kuromoji-unidic:${kuromojiVersion}"
-        implementation "com.atilika.kuromoji:kuromoji-unidic-kanaaccent:${kuromojiVersion}"
-
-        implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda'
-
-        implementation 'io.micrometer:micrometer-registry-prometheus'
-        implementation 'io.micrometer:micrometer-registry-jmx'
-        implementation 'io.micrometer:micrometer-registry-cloudwatch'
-
-        testImplementation('org.springframework.boot:spring-boot-starter-test') {
-            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-        }
-    }
-
-    test {
-        outputs.dir snippetsDir
-        useJUnitPlatform()
-    }
-
-    bootBuildImage {
-        imageName = "kuromoji-api-server:latest"
-        builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
-    }
+bootBuildImage {
+    imageName = "kuromoji-api-server:latest"
+    builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
 }

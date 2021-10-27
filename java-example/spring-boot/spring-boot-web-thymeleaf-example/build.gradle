@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version "${springBootVersion}"
-	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
-	id 'java'
+  id 'org.springframework.boot' version '2.5.6'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
 }
 
 group = 'com.github.poad'
@@ -9,14 +9,10 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
-// In this section you declare where to find the dependencies of your project
 repositories {
-    // Use 'jcenter' for resolving your dependencies.
-    // You can declare any Maven/Ivy/file repository here.
     mavenCentral()
 }
 
-// In this section you declare the dependencies for your production and test code
 dependencies {
     implementation ('org.springframework.boot:spring-boot-starter-web') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'

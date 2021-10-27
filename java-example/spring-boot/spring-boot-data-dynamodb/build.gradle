@@ -1,27 +1,31 @@
 plugins {
-	id 'org.springframework.boot' version "${springBootVersion}"
-	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
-	id 'org.asciidoctor.convert' version "${asciidoctorVersion}"
-	id 'java'
+  id 'org.springframework.boot' version '2.5.6'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'org.asciidoctor.convert' version '1.6.0'
+  id 'java'
+  id 'application'
 }
 
 group = 'com.github.poad.examples'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+mainClassName = 'com.github.poad.examples.SpringBootDynamoDBApplication'
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
 }
 
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
+	awsSdkVersion = '2.17.2'
+	springCloudVersion = '2020.0.3'
 }
 
 dependencies {
     implementation platform("software.amazon.awssdk:bom:${awsSdkVersion}")
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
-    implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
 	implementation 'jakarta.validation:jakarta.validation-api'
 
     implementation 'software.amazon.awssdk:dynamodb'
