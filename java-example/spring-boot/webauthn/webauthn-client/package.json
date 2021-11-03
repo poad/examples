@@ -19,7 +19,7 @@
     "@mui/styled-engine-sc": "^5.0.4",
     "@mui/styles": "^5.0.2",
     "@types/node": "^16.11.6",
-    "@types/react": "^17.0.33",
+    "@types/react": "^17.0.34",
     "cross-fetch": "^3.1.4",
     "next": "^12.0.2",
     "react": "^17.0.2",
