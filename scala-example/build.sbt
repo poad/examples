@@ -5,7 +5,7 @@ name := "scala-example"
 lazy val commonSettings = Seq(
   organization := "org.bitbuicket.poad1010",
   version := "0.0.1",
-  scalaVersion := "3.0.1"
+  scalaVersion := "3.1.0"
 )
 
 lazy val root = (project in file("."))
@@ -122,7 +122,7 @@ lazy val slisp = (project in file("slisp")).
     // other settings
   )
 
-lazy val springBootVersion = "2.5.4"
+lazy val springBootVersion = "2.5.7"
 lazy val springboot_example = (project in file("spring-boot-example")).
   settings(
     commonSettings,
