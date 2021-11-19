@@ -1,8 +1,6 @@
 buildscript {
-    ext.quarkusPluginVersion='2.5.0.Final'
     ext.quarkusPlatformArtifactId='quarkus-bom'
     ext.quarkusPlatformGroupId='io.quarkus'
-    ext.quarkusPlatformVersion='2.5.0.Final'
 }
 
 plugins {
