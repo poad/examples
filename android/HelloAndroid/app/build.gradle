@@ -37,7 +37,7 @@ buildscript {
     ext {
         retrofitVersion = '2.9.0'
         junitVersion = '5.8.2'
-        junit4Version = '5.8.1'
+        junit4Version = '5.8.2'
     }
 
     repositories {
