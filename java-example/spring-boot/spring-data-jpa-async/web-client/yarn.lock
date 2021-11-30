@@ -310,7 +310,7 @@
     "@emotion/cache" "^11.6.0"
     prop-types "^15.7.2"
 
-"@mui/styles@^5.2.1":
+"@mui/styles@^5.2.2":
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.2.2.tgz#34c9ba1d6d5a0b9399fbd0c6e85b8f2dcfe54fbd"
   integrity sha512-Hfg/3nAU+25RVzpgB0xyE1JjrOCI4rjujrJ0K4tS7M/U4NKZQrmtinc5ldvCaZUlxb51bZGs5V1MGn2dLKZVNQ==
