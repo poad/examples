@@ -37,14 +37,14 @@ jobs:
       with:
         yarn: true
         path: ${{github.workspace}}/java-example/spring-boot/webauthn/webauthn-client/
-        ignore: '[ "eslint", "@typescript-eslint/eslint-plugin", "@typescript-eslint/parser" ]'
+        ignore: '[ "eslint", "@typescript-eslint/eslint-plugin", "@typescript-eslint/parser", "typescript" ]'
 
     - name: update (java-example/spring-boot/spring-data-jpa-async/web-client)
       uses: poad/update-node-modules@v1.0.5
       with:
         yarn: true
         path: ${{github.workspace}}/java-example/spring-boot/spring-data-jpa-async/web-client/
-        ignore: '[ "eslint", "@typescript-eslint/eslint-plugin", "@typescript-eslint/parser" ]'
+        ignore: '[ "eslint", "@typescript-eslint/eslint-plugin", "@typescript-eslint/parser", "typescript" ]'
 
     - name: Update npm modules for java-example/spring-boot/webauthn/webauthn-client
       run: |
