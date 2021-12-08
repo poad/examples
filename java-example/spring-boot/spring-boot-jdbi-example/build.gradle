@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation platform('org.jdbi:jdbi3-bom:3.24.1')
+    implementation platform('org.jdbi:jdbi3-bom:3.25.0')
     implementation 'org.springframework.boot:spring-boot-starter-jetty'
     implementation('org.springframework.boot:spring-boot-starter-jersey') {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
