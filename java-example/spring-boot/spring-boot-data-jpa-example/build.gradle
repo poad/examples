@@ -55,7 +55,7 @@ dependencies {
 
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.8.0'
     runtimeOnly 'io.micrometer:micrometer-registry-jmx:1.8.0'
-    runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch:1.8.0'
+    runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch:1.8.1'
 
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'javax.validation:validation-api'
