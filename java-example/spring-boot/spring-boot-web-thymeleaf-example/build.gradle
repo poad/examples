@@ -14,10 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation ('org.springframework.boot:spring-boot-starter-web') {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-    }
-    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation ('org.springframework.boot:spring-boot-starter-data-jpa') {
         exclude group: 'com.zaxxer', module: 'HikariCP'
@@ -28,9 +25,6 @@ dependencies {
     implementation 'javax.transaction:javax.transaction-api:1.3'
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.13.0'
-
-	// https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1
-	runtimeOnly 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 
 	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'

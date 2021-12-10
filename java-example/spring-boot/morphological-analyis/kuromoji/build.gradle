@@ -37,7 +37,6 @@ configurations {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
     implementation 'jakarta.validation:jakarta.validation-api'
     implementation "com.atilika.kuromoji:kuromoji-ipadic:${kuromojiVersion}"
     implementation "com.atilika.kuromoji:kuromoji-jumandic:${kuromojiVersion}"
