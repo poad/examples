@@ -1,3 +1,15 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    ext {
+        log4j2Version = '2.15.0'
+    }
+}
+
 plugins {
   id 'org.springframework.boot' version '2.6.1'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -38,6 +50,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'jakarta.validation:jakarta.validation-api'
+    implementation "org.apache.logging.log4j:log4j-to-slf4j:${log4j2Version}"
     implementation "com.atilika.kuromoji:kuromoji-ipadic:${kuromojiVersion}"
     implementation "com.atilika.kuromoji:kuromoji-jumandic:${kuromojiVersion}"
     implementation "com.atilika.kuromoji:kuromoji-naist-jdic:${kuromojiVersion}"
