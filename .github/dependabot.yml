@@ -133,16 +133,6 @@ updates:
     assignees:
       - poad
   - package-ecosystem: gradle
-    directory: '/java-example/spring-boot/spring-boot-jib-example/'
-    schedule:
-      interval: daily
-      timezone: Asia/Tokyo
-    allow:
-      - dependency-type: all
-    rebase-strategy: auto
-    assignees:
-      - poad
-  - package-ecosystem: gradle
     directory: '/java-example/spring-boot/spring-boot-jpa-example/'
     schedule:
       interval: daily

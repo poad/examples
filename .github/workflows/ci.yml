@@ -79,7 +79,6 @@ jobs:
           - path: java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async
           - path: java-example/spring-boot/spring-boot-jdbc-example
           - path: java-example/spring-boot/spring-boot-jdbi-example
-          - path: java-example/spring-boot/spring-boot-jib-example
           - path: java-example/spring-boot/spring-boot-jpa-example
           - path: java-example/spring-boot/spring-boot-metrics
           - path: java-example/spring-boot/spring-boot-micrometer
