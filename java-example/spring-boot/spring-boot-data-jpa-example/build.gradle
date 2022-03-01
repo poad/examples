@@ -32,13 +32,13 @@ dependencies {
 	implementation 'ma.glasnost.orika:orika-core:1.5.4'
 
 	// https://mvnrepository.com/artifact/com.google.guava/guava
-	implementation 'com.google.guava:guava:31.0.1-jre'
+	implementation 'com.google.guava:guava:31.1-jre'
 
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
 	runtimeOnly 'mysql:mysql-connector-java:8.0.28'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.0.16'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.0.17'
 
 	// compileOnly 'org.projectlombok:lombok:1.18.20'
 	// annotationProcessor 'org.projectlombok:lombok:1.18.20'
