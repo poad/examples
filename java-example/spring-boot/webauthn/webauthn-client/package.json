@@ -10,7 +10,7 @@
     "all": "yarn lint --fix && yarn build"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.8.2",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.0",
