@@ -11,7 +11,7 @@ buildscript {
 }
 
 plugins {
-  id 'org.springframework.boot' version '2.6.5'
+  id 'org.springframework.boot' version '2.6.6'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
   id 'java'
   id 'application'
@@ -20,8 +20,8 @@ plugins {
 group = 'com.github.poad.examples'
 version = '0.0.1-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 mainClassName = 'com.github.poad.examples.kuromori.KuromoriApplication'
 
