@@ -10,6 +10,7 @@
     "all": "yarn lint --fix && yarn build"
   },
   "dependencies": {
+    "@emotion/cache": "*",
     "@emotion/react": "*",
     "@emotion/server": "*",
     "@emotion/styled": "*",
