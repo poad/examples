@@ -1,12 +1,14 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "webauthn-client",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
     "start": "next start",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx src",
+    "analyze": "ANALYZE=true next build",
     "all": "yarn lint --fix && yarn build"
   },
   "dependencies": {
@@ -17,11 +19,16 @@
     "@mui/icons-material": "*",
     "@mui/material": "*",
     "@mui/styles": "*",
+    "@next/bundle-analyzer": "*",
+    "autoprefixer": "*",
     "cross-fetch": "*",
     "next": "*",
+    "postcss": "*",
     "react": "*",
     "react-dom": "*",
-    "react-hook-form": "*"
+    "react-hook-form": "*",
+    "tailwindcss": "*",
+    "web-vitals": "*"
   },
   "devDependencies": {
     "@types/node": "*",
@@ -40,7 +47,7 @@
     "eslint-plugin-jsx-a11y": "*",
     "eslint-plugin-react": "*",
     "eslint-plugin-react-hooks": "*",
-    "next-compose-plugins": "*",
+    "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "*",
     "typescript": "*"
   }

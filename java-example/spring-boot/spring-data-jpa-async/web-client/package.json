@@ -1,12 +1,14 @@
 {
   "name": "web-client",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next",
     "build": "next build && next export && rm -rf build",
     "start": "next start",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx src",
+    "analyze": "ANALYZE=true next build",
     "all": "yarn lint --fix && yarn build"
   },
   "dependencies": {
@@ -17,10 +19,15 @@
     "@mui/icons-material": "*",
     "@mui/material": "*",
     "@mui/styles": "*",
+    "@next/bundle-analyzer": "*",
+    "autoprefixer": "*",
     "cross-fetch": "*",
     "next": "*",
+    "postcss": "*",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "tailwindcss": "*",
+    "web-vitals": "*"
   },
   "devDependencies": {
     "@types/node": "*",
