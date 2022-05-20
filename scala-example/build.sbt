@@ -122,7 +122,7 @@ lazy val slisp = (project in file("slisp")).
     // other settings
   )
 
-lazy val springBootVersion = "2.6.8"
+lazy val springBootVersion = "2.7.0"
 lazy val springboot_example = (project in file("spring-boot-example")).
   settings(
     commonSettings,
@@ -136,7 +136,7 @@ lazy val springboot_example = (project in file("spring-boot-example")).
       "org.springframework.boot" % "spring-boot-starter-actuator" % springBootVersion,
       "jakarta.persistence" % "jakarta.persistence-api" % "3.0.0",
       "mysql" % "mysql-connector-java" % "8.0.28",
-      "org.apache.tomcat" % "tomcat-jdbc" % "10.0.16",
+      "org.apache.tomcat" % "tomcat-jdbc" % "10.0.21",
     )
   )
 
