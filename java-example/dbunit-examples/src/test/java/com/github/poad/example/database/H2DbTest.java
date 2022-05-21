@@ -5,8 +5,8 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.bitbucket.poad1010.example.database.config.DatabaseConfig;
 import org.dbunit.DatabaseUnitException;
 import org.flywaydb.core.Flyway;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 
 public class H2DbTest extends CsvDbUnitSupport {
 
-	@BeforeClass
+	@BeforeAll
 	public static void setup() throws IOException, SQLException, DatabaseUnitException {
 		DatabaseConfig config = DatabaseConfig.load();
 

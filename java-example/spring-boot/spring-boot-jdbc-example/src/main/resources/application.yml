@@ -8,7 +8,6 @@ spring:
 #    url: jdbc:p6spy:mysql://127.0.0.1:3306/test
     username: root
     password: ""
-    jmx-enabled: true
     tomcat:
       # X-Ray トレースを使う場合は有効化する
 #      jdbc-interceptors: com.amazonaws.xray.sql.mysql.TracingInterceptor

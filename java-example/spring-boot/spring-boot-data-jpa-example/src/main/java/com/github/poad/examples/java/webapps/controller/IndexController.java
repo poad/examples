@@ -1,28 +1,30 @@
 package com.github.poad.examples.java.webapps.controller;
 
-import com.github.poad.examples.java.webapps.api.Index;
 import com.github.poad.examples.java.webapps.database.MessageEntity;
 import com.github.poad.examples.java.webapps.database.MessageRepository;
 import com.github.poad.examples.java.webapps.interfaces.Message;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import javax.ws.rs.WebApplicationException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
-public class IndexImpl implements Index {
+@RequestMapping(path = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
+@RestController
+@Validated
+public class IndexController {
 
     private final MessageRepository repository;
 
     @Autowired
-    public IndexImpl(MessageRepository repository) {
+    public IndexController(MessageRepository repository) {
         this.repository = repository;
     }
 
-    @Override
+    @GetMapping
     public List<Message> message() {
         return repository.findAll()
                 .stream()
@@ -35,32 +37,32 @@ public class IndexImpl implements Index {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public Message get(@NotNull String id) {
-        MessageEntity bean = repository.findById(id).orElseThrow(() -> new WebApplicationException(404));
+    @GetMapping(path = "/{id}")
+    public Message get(@NotNull @RequestParam("id") String id) {
+        MessageEntity bean = repository.findById(id).orElseThrow(RuntimeException::new);
         Message response = new Message();
         response.setId(bean.getId());
         response.setMessage(bean.getMessage());
         return response;
     }
 
-    @Override
-    public String create(Message message) {
+    @PostMapping
+    public String create(@NotNull Message message) {
         String uuid = repository.uuid();
         MessageEntity bean = new MessageEntity(uuid, message.getMessage());
         MessageEntity result = repository.save(bean);
         return result.getId();
     }
 
-    @Override
-    public boolean update(String id, Message message) {
+    @PutMapping(path = "/{id}")
+    public boolean update(@NotNull @RequestParam("id") String id, @NotNull Message message) {
         repository.save(new MessageEntity(id, message.getMessage()));
         return true;
     }
 
-    @Override
-    public void delete(@NotNull String id) {
-        MessageEntity bean = repository.findById(id).orElseThrow(() -> new WebApplicationException(404));
+    @DeleteMapping(path = "/{id}")
+    public void delete(@NotNull @RequestParam("id") String id) {
+        MessageEntity bean = repository.findById(id).orElseThrow(RuntimeException::new);
         repository.delete(bean);
     }
 }

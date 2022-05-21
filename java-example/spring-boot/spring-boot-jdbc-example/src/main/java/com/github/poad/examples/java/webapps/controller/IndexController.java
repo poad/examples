@@ -1,28 +1,30 @@
-package com.github.poad.examples.java.webapps.resource;
+package com.github.poad.examples.java.webapps.controller;
 
 import com.github.poad.examples.java.webapps.entity.MessageEntity;
 import com.github.poad.examples.java.webapps.interfaces.Message;
 import com.github.poad.examples.java.webapps.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
-import javax.ws.rs.WebApplicationException;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-@Component
-public class Index implements com.github.poad.examples.java.webapps.api.Index {
-
+@RequestMapping(path = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
+@RestController
+@Validated
+public class IndexController {
     private final MessageRepository repository;
 
     @Autowired
-    public Index(MessageRepository repository) {
+    public IndexController(MessageRepository repository) {
         this.repository = repository;
     }
 
-    @Override
+    @GetMapping
     public List<Message> message() {
         return StreamSupport
                 .stream(repository
@@ -36,17 +38,17 @@ public class Index implements com.github.poad.examples.java.webapps.api.Index {
                 }).collect(Collectors.toList());
     }
 
-    @Override
-    public Message get(@NotNull String id) {
+    @GetMapping(path = {"/{id}"})
+    public Message get(@NotNull @RequestParam("id") String id) {
         return repository.findById(id).map(bean -> {
             Message response = new Message();
             response.setId(bean.getId());
             response.setMessage(bean.getMessage());
             return response;
-        }).orElseThrow(() -> new WebApplicationException(404));
+        }).orElseThrow(RuntimeException::new);
     }
 
-    @Override
+    @PostMapping
     public String create(@NotNull Message message) {
         MessageEntity entity = new MessageEntity();
         String id = repository.uuid();
@@ -57,20 +59,21 @@ public class Index implements com.github.poad.examples.java.webapps.api.Index {
         return stored.getId();
     }
 
-    @Override
-    public boolean update(@NotNull String id, @NotNull Message message) {
+    @PutMapping(path = {"/{id}"})
+    public boolean update(@NotNull @RequestParam("id") String id, @NotNull Message message) {
         MessageEntity entity = repository.findById(id)
-                .orElseThrow(() -> new WebApplicationException(404));
+                .orElseThrow(RuntimeException::new);
         entity.setMessage(message.getMessage());
         entity.setNew(false);
         repository.save(entity);
         return true;
     }
 
-    @Override
-    public void delete(@NotNull String id) {
+    @DeleteMapping(path = {"/{id}"})
+    public void delete(@NotNull @RequestParam("id") String id) {
         MessageEntity entity = repository.findById(id)
-                .orElseThrow(() -> new WebApplicationException(404));
+                .orElseThrow(RuntimeException::new);
         repository.delete(entity);
     }
+
 }
