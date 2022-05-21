@@ -163,7 +163,7 @@ updates:
     assignees:
       - poad
   - package-ecosystem: gradle
-    directory: '/java-example/spring-boot/sspring-boot-web-example/'
+    directory: '/java-example/spring-boot/spring-boot-web-example/'
     schedule:
       interval: daily
       timezone: Asia/Tokyo

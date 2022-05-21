@@ -1,7 +1,11 @@
-package com.github.poad.examples.java.webapps.interfaces;
+package com.github.poad.example.springboot.jpa.response;
 
-public class Message {
+/**
+ * Created by ken-yo on 2016/08/06.
+ */
+public class MessageResponse implements Response {
     private String id;
+    private String name;
     private String message;
 
     public String getId() {
@@ -10,6 +14,14 @@ public class Message {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMessage() {

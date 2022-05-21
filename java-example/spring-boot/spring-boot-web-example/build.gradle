@@ -14,10 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation ('org.springframework.boot:spring-boot-starter-web') {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-    }
-    implementation 'org.springframework.boot:spring-boot-starter-jetty'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'jakarta.validation:jakarta.validation-api'
@@ -37,7 +34,7 @@ dependencies {
 	runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch'
 
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.29'
 
     runtimeOnly("org.springframework.boot:spring-boot-properties-migrator")
 }
