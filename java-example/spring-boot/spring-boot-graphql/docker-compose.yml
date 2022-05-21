@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  app:
+    image: poad/spring-boot-graphql:1.0.0
+    container_name: app
+    environment:
+      # SPRING_PROFILES_ACTIVE: container
+      SPRING_PROFILES_ACTIVE: local
+    ports:
+      - 8089:8089
+      - 4000:4000
+    networks:
+      - spa-app-network
+    links:
+      - mysql
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: test
+    volumes:
+      - ./mysql_ddl:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    networks:
+      - spa-app-network
+networks:
+  spa-app-network:
+    name: spa-app-network

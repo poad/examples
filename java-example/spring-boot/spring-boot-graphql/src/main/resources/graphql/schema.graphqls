@@ -1,0 +1,33 @@
+type Query {
+    actors : [Actor]
+    actor(id : ID!) : Actor
+}
+
+type Mutation {
+    # restricted
+    registerActor(input: RegisterActorInput!): Actor
+    updateActor(input: UpdateActorInput!): Actor
+    deleteActor(id : ID!): DeleteOutput
+    deleteActors: DeleteOutput
+}
+
+type Actor {
+    id: ID!
+    name: String!
+    url: String!
+}
+
+input RegisterActorInput {
+    name: String!
+    url: String!
+}
+
+input UpdateActorInput {
+    id: ID!
+    name: String!
+    url: String!
+}
+
+type DeleteOutput {
+    success: Boolean!
+}
