@@ -29,7 +29,7 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.0.22'
-	runtimeOnly 'com.h2database:h2:2.1.212'
+	runtimeOnly 'com.h2database:h2:2.1.214'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
