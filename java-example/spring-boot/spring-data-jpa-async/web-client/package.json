@@ -2,7 +2,6 @@
   "name": "web-client",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next",
     "build": "next build && next export && rm -rf build",
