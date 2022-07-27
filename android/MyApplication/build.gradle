@@ -2,7 +2,7 @@
 buildscript {
     ext.kotlin_version = "1.7.10"
     ext.retrofitVersion = '2.9.0'
-    ext.junitVersion = '5.8.2'
+    ext.junitVersion = '5.9.0'
     ext.junit4Version = '5.9.0'
     ext.buildToolsVersion = '30.0.3'
 
