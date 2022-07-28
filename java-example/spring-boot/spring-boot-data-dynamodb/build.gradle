@@ -19,7 +19,7 @@ repositories {
 
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
-	awsSdkVersion = '2.17.240'
+	awsSdkVersion = '2.17.241'
 	springCloudVersion = '2021.0.3'
 }
 
