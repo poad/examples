@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build && next export && rm -rf build",
+    "build": "next build && next export",
+    "export": "echo \"no action in script. Please run yarn build (includes next export)\"",
     "start": "next start",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx src",
     "analyze": "ANALYZE=true next build",
