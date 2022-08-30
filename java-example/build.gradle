@@ -7,7 +7,7 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 plugins {
-    id "org.flywaydb.flyway" version '9.2.0' apply false
+    id "org.flywaydb.flyway" version '9.1.6' apply false
 }
 
 
@@ -16,7 +16,7 @@ ext {
     jettyVersionForWebSocketServer = '9.4.40.v20210413'
 
     dropwizardVersion = '2.1.1'
-    jerseyVersion = '3.0.7'
+    jerseyVersion = '3.0.6'
     jacksonVersion = '2.12.3'
     vertxVersion = '4.0.3'
 
