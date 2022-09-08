@@ -9,7 +9,7 @@ const Home = (): JSX.Element => (
       <CommentList comment="" comments={[]} />
     </div>
 
-    <style jsx>
+    <style>
       {`
           .hero {
             width: 100%;
