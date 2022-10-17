@@ -34,7 +34,7 @@ dependencies {
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	runtimeOnly 'mysql:mysql-connector-java:8.0.30'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.31'
 }
 
 test {
