@@ -22,7 +22,7 @@
     "autoprefixer": "*",
     "cross-fetch": "*",
     "immer": "*",
-    "next": "^12",
+    "next": "^13",
     "postcss": "*",
     "react": "*",
     "react-dom": "*",
