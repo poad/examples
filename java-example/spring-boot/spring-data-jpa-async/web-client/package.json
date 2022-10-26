@@ -22,7 +22,7 @@
     "autoprefixer": "*",
     "cross-fetch": "*",
     "immer": "*",
-    "next": "^12",
+    "next": "^13",
     "postcss": "*",
     "react": "*",
     "react-dom": "*",
@@ -30,7 +30,7 @@
     "web-vitals": "*"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^12",
+    "@next/bundle-analyzer": "^13",
     "@types/node": "*",
     "@types/react": "*",
     "@typescript-eslint/eslint-plugin": "*",
@@ -38,7 +38,7 @@
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-config-airbnb-typescript": "*",
-    "eslint-config-next": "^12",
+    "eslint-config-next": "^13",
     "eslint-config-prettier": "*",
     "eslint-plugin-import": "*",
     "eslint-plugin-jest": "*",
