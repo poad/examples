@@ -8,7 +8,9 @@ import { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import Document, { DocumentInitialProps } from 'next/dist/pages/_document';
 
 export default class NextDocument extends Document {
-  static getInitialProps: (ctx: DocumentContext) => Promise<DocumentInitialProps>;
+  static getInitialProps: (
+    ctx: DocumentContext,
+  ) => Promise<DocumentInitialProps>;
 
   render(): JSX.Element {
     return (
@@ -32,7 +34,6 @@ export default class NextDocument extends Document {
 }
 
 NextDocument.getInitialProps = async (ctx: DocumentContext) => {
-
   const originalRenderPage = ctx.renderPage;
 
   const cache = createCache({ key: 'css' });
@@ -41,25 +42,31 @@ NextDocument.getInitialProps = async (ctx: DocumentContext) => {
   ctx.renderPage = () =>
     originalRenderPage({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      enhanceApp: (App: any) => (props) => <App emotionCache={cache} {...props} />,
+      enhanceApp: (App: any) => (props) =>
+        <App emotionCache={cache} {...props} />,
     });
 
   const initialProps = await Document.getInitialProps(ctx);
   // This is important. It prevents emotion to render invalid HTML.
   // See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
   const emotionStyles = extractCriticalToChunks(initialProps.html);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const emotionStyleTags = emotionStyles.styles.map((style: { key: React.Key | null | undefined; ids: any[]; css: any; }) => (
-    <style
-      data-emotion={`${style.key} ${style.ids.join(' ')}`}
-      key={style.key}
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{ __html: style.css }}
-    />
-  ));
+  const emotionStyleTags = emotionStyles.styles.map(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (style: { key: React.Key | null | undefined; ids: any[]; css: any }) => (
+      <style
+        data-emotion={`${style.key} ${style.ids.join(' ')}`}
+        key={style.key}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: style.css }}
+      />
+    ),
+  );
 
   return {
     ...initialProps,
-    styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags],
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      ...emotionStyleTags,
+    ],
   };
 };

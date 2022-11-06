@@ -3,17 +3,17 @@ import { Button, TextField } from '@mui/material';
 import RestClient from './RestClient';
 
 interface State {
-  id: string
-  text: string
-  comment: string
+  id: string;
+  text: string;
+  comment: string;
 }
 
 interface Props {
-  id: string
-  comment: string
-  text: string
-  client: RestClient
-  onDelete(id: string): void
+  id: string;
+  comment: string;
+  text: string;
+  client: RestClient;
+  onDelete(id: string): void;
 }
 
 class ListNode extends React.Component<Props, State> {
@@ -43,11 +43,13 @@ class ListNode extends React.Component<Props, State> {
 
   update = (): void => {
     if (this.props.id && this.state.text.length > 0) {
-      this.client.update(this.props.id, this.state.text).then(() => this.setState({
-        id: this.props.id,
-        comment: this.state.text,
-        text: '',
-      }));
+      this.client.update(this.props.id, this.state.text).then(() =>
+        this.setState({
+          id: this.props.id,
+          comment: this.state.text,
+          text: '',
+        })
+      );
     }
   };
 

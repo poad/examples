@@ -1,91 +1,92 @@
-import {
-  Button, Link, TextField, Box,
-} from '@mui/material';
+import { Button, Link, TextField, Box } from '@mui/material';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 export interface Challenge {
-  value: string
+  value: string;
 }
 
 export interface ICredentialOptionsCredentialDescriptor {
-  id: string
-  transports?: AuthenticatorTransport[]
-  type: PublicKeyCredentialType
+  id: string;
+  transports?: AuthenticatorTransport[];
+  type: PublicKeyCredentialType;
 }
 
 export interface IAuthenticatorAssertionJSON {
-  credentialId: string
-  clientDataJSON: string
-  authenticatorData: string
-  signature: string
-  clientExtensionsJSON: string
+  credentialId: string;
+  clientDataJSON: string;
+  authenticatorData: string;
+  signature: string;
+  clientExtensionsJSON: string;
 }
 
 export interface ICredentialRequestOptions {
-  challenge: Challenge
-  timeout?: number
-  allowCredentials?: ICredentialOptionsCredentialDescriptor[]
-  extensions?: AuthenticationExtensionsClientInputs
-  rpId?: string
-  userVerification?: UserVerificationRequirement
+  challenge: Challenge;
+  timeout?: number;
+  allowCredentials?: ICredentialOptionsCredentialDescriptor[];
+  extensions?: AuthenticationExtensionsClientInputs;
+  rpId?: string;
+  userVerification?: UserVerificationRequirement;
 }
 
 interface SignInProp {
-  container?: Element,
-  onAuthenticated: () => void,
-  onError: (message: string) => void,
-  onShowSignUp: () => void
+  container?: Element;
+  onAuthenticated: () => void;
+  onError: (message: string) => void;
+  onShowSignUp: () => void;
 }
 
 async function assertionOptions<T>(email: string): Promise<T> {
   const mail = email;
-  return (await fetch(
-    '/api/assertion/options', {
+  return (
+    await fetch('/api/assertion/options', {
       method: 'POST',
       body: JSON.stringify({
         email: mail,
       }),
       headers: { 'Content-Type': 'application/json' },
-    },
-  )).json();
+    })
+  ).json();
 }
 
 async function authenticationFinish<T>(
   credential: IAuthenticatorAssertionJSON,
 ): Promise<T> {
-  const response = await fetch(
-    '/api/assertion/result', {
-      method: 'POST',
-      body: JSON.stringify({
-        clientDataJSON: credential.clientDataJSON,
-        credentialId: credential.credentialId,
-        authenticatorData: credential.authenticatorData,
-        signature: credential.signature,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    },
-  );
-  return response.bodyUsed && response.body !== null ? response.json() : undefined;
+  const response = await fetch('/api/assertion/result', {
+    method: 'POST',
+    body: JSON.stringify({
+      clientDataJSON: credential.clientDataJSON,
+      credentialId: credential.credentialId,
+      authenticatorData: credential.authenticatorData,
+      signature: credential.signature,
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  return response.bodyUsed && response.body !== null
+    ? response.json()
+    : undefined;
 }
 
 const SignIn = (props: SignInProp): JSX.Element => {
   type Inputs = {
-    email: string,
+    email: string;
   };
 
   const { register, handleSubmit } = useForm<Inputs>();
 
-  const stringToArrayBuffer = (string: string): Uint8Array => new TextEncoder().encode(string);
+  const stringToArrayBuffer = (string: string): Uint8Array =>
+    new TextEncoder().encode(string);
 
-  const base64ToArrayBuffer = (base64String: string): Uint8Array => Uint8Array.from(atob(base64String), (_) => _.charCodeAt(0));
+  const base64ToArrayBuffer = (base64String: string): Uint8Array =>
+    Uint8Array.from(atob(base64String), (_) => _.charCodeAt(0));
 
-  const arrayBufferToBase64 = (arrayBuffer: ArrayBuffer): string => btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
+  const arrayBufferToBase64 = (arrayBuffer: ArrayBuffer): string =>
+    btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)));
 
   const credentialToJSON = async (
     credential: PublicKeyCredential,
   ): Promise<IAuthenticatorAssertionJSON> => {
-    const response = (credential.response as AuthenticatorAssertionResponse);
+    const response = credential.response as AuthenticatorAssertionResponse;
     const credentialJSON: IAuthenticatorAssertionJSON = {
       credentialId: arrayBufferToBase64(credential.rawId),
       clientDataJSON: arrayBufferToBase64(response.clientDataJSON),
@@ -98,15 +99,21 @@ const SignIn = (props: SignInProp): JSX.Element => {
     return credentialJSON;
   };
 
-  const convertRequestOptions = (source: ICredentialRequestOptions): CredentialRequestOptions => {
-    const allowCredentials = source.allowCredentials != null ? source.allowCredentials : [];
+  const convertRequestOptions = (
+    source: ICredentialRequestOptions,
+  ): CredentialRequestOptions => {
+    const allowCredentials =
+      source.allowCredentials != null ? source.allowCredentials : [];
 
     const credentialRequestOptions: PublicKeyCredentialRequestOptions = {
-      allowCredentials: allowCredentials.map((credential) => ({
-        id: base64ToArrayBuffer(credential.id),
-        type: credential.type,
-        transports: credential.transports,
-      } as PublicKeyCredentialDescriptor)),
+      allowCredentials: allowCredentials.map(
+        (credential) =>
+          ({
+            id: base64ToArrayBuffer(credential.id),
+            type: credential.type,
+            transports: credential.transports,
+          } as PublicKeyCredentialDescriptor),
+      ),
       challenge: stringToArrayBuffer(source.challenge.value),
       extensions: source.extensions,
       rpId: source.rpId,
@@ -156,10 +163,9 @@ const SignIn = (props: SignInProp): JSX.Element => {
   }
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-    authentication(data.email)
-      .catch((error) => {
-        props.onError(JSON.stringify(error, null, 2));
-      });
+    authentication(data.email).catch((error) => {
+      props.onError(JSON.stringify(error, null, 2));
+    });
   };
 
   return (
@@ -172,12 +178,12 @@ const SignIn = (props: SignInProp): JSX.Element => {
             {...register('email', { required: true })}
           />
         </Box>
-        <Button type="submit" variant="contained" color="primary">サインイン</Button>
+        <Button type="submit" variant="contained" color="primary">
+          サインイン
+        </Button>
       </form>
       <div>
-        <Box>
-          アカウントは作成済みですか？
-        </Box>
+        <Box>アカウントは作成済みですか？</Box>
         <Link onClick={props.onShowSignUp}>サインアップ</Link>
       </div>
     </div>

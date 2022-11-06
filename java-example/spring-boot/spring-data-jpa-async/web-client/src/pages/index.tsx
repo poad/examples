@@ -4,7 +4,6 @@ import CommentList from '../components/CommentList';
 
 const Home = (): JSX.Element => (
   <Layout>
-
     <div className="hero">
       <CommentList comment="" comments={[]} />
     </div>

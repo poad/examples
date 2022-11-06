@@ -13,12 +13,13 @@ const Home = (): JSX.Element => (
 
     <main className={styles.main}>
       <>
-        <Typography variant="h1" component="h1" color="primary">Hello!</Typography>
+        <Typography variant="h1" component="h1" color="primary">
+          Hello!
+        </Typography>
       </>
     </main>
 
-    <footer className={styles.footer}>
-    </footer>
+    <footer className={styles.footer}></footer>
   </div>
 );
 

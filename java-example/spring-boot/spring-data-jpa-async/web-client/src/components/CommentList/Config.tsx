@@ -1,5 +1,5 @@
 export interface Config {
-  endpoint: string
+  endpoint: string;
 }
 
 const config: Config = {

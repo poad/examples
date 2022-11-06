@@ -8,7 +8,7 @@ import SignIn from '../SignIn';
 import styles from '../../styles/Authenticator.module.css';
 
 interface AuthenticatorProps {
-  children?: ReactNode,
+  children?: ReactNode;
 }
 
 const Authenticator = (props: AuthenticatorProps): JSX.Element => {
@@ -16,36 +16,33 @@ const Authenticator = (props: AuthenticatorProps): JSX.Element => {
   const [message, setMessage] = useState<string>('');
   const [session, setSession] = useState<unknown | undefined>(undefined);
 
-  const SignInSignUpForms = (): JSX.Element => (showSingUp ? (
-    <SignUp
-      onShowSignIn={() => {
-        setMessage('');
-        setShowSignUp(false);
-      }}
-      onSignUped={() => setSession({})}
-      onError={setMessage}
-    />
-  ) : (
-    <SignIn
-      onShowSignUp={() => {
-        setMessage('');
-        setShowSignUp(true);
-      }}
-      onAuthenticated={() => setSession({})}
-      onError={setMessage}
-    />
-  ));
+  const SignInSignUpForms = (): JSX.Element =>
+    showSingUp ? (
+      <SignUp
+        onShowSignIn={() => {
+          setMessage('');
+          setShowSignUp(false);
+        }}
+        onSignUped={() => setSession({})}
+        onError={setMessage}
+      />
+    ) : (
+      <SignIn
+        onShowSignUp={() => {
+          setMessage('');
+          setShowSignUp(true);
+        }}
+        onAuthenticated={() => setSession({})}
+        onError={setMessage}
+      />
+    );
 
   return (
     <div className={styles.authenticator}>
-      {
-        session !== undefined ? (
-          props.children
-        ) : (
-          <SignInSignUpForms />
-        )
-      }
-      <Typography variant="h6" component="h6" color="error">{message}</Typography>
+      {session !== undefined ? props.children : <SignInSignUpForms />}
+      <Typography variant="h6" component="h6" color="error">
+        {message}
+      </Typography>
     </div>
   );
 };

@@ -5,8 +5,8 @@ import { State, Comment } from '../../store/comment/types';
 import RestClient from './RestClient';
 
 interface Props {
-  comments: Array<Comment>
-  comment: string
+  comments: Array<Comment>;
+  comment: string;
 }
 
 export default class CommentList extends React.Component<Props, State> {
@@ -31,13 +31,16 @@ export default class CommentList extends React.Component<Props, State> {
   }
 
   fetchComments = (): void => {
-    this.client.fetchComments().then((comments) => this.setState({
-      comments,
-      comment: '',
-    }));
+    this.client.fetchComments().then((comments) =>
+      this.setState({
+        comments,
+        comment: '',
+      })
+    );
   };
 
-  addComment = async (comment: string): Promise<Comment> => this.client.add(comment);
+  addComment = async (comment: string): Promise<Comment> =>
+    this.client.add(comment);
 
   removeComment = (id: string): void => {
     const { comments } = this.state;
@@ -57,18 +60,19 @@ export default class CommentList extends React.Component<Props, State> {
     }
   };
 
-  list = (): Array<JSX.Element> => this.state.comments.filter(
-    (comment) => comment.id,
-  ).map((comment) => (
-    <ListNode
-      key={comment.id}
-      id={comment.id ? comment.id : ''}
-      comment={comment.comment}
-      text=""
-      client={this.client}
-      onDelete={this.removeComment}
-    />
-  ));
+  list = (): Array<JSX.Element> =>
+    this.state.comments
+      .filter((comment) => comment.id)
+      .map((comment) => (
+        <ListNode
+          key={comment.id}
+          id={comment.id ? comment.id : ''}
+          comment={comment.comment}
+          text=""
+          client={this.client}
+          onDelete={this.removeComment}
+        />
+      ));
 
   add = (): void => {
     const { comments } = this.state;
