@@ -3,13 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "test": "echo ''",
     "dev": "next",
     "build": "next build && next export",
     "export": "echo \"no action in script. Please run yarn build (includes next export)\"",
     "start": "next start",
-    "lint": "eslint --ext .ts,.js,.tsx,.jsx src",
     "analyze": "ANALYZE=true next build",
-    "all": "yarn lint --fix && yarn build"
+    "elint-check": "eslint --ext .ts,.js,.tsx,.jsx src",
+    "elint-fix": "eslint --fix --ext .ts,.js,.tsx,.jsx src",
+    "prettier-check": "prettier --check src",
+    "prettier-format": "prettier --write src",
+    "lint": "yarn prettier-check && yarn elint-check",
+    "lint-fix": "yarn prettier-format && yarn elint-fix",
+    "clean": "rimraf build",
+    "all": "yarn lint && yarn test && yarn build && yarn export"
   },
   "dependencies": {
     "@emotion/cache": "*",
@@ -19,15 +26,12 @@
     "@mui/icons-material": "*",
     "@mui/material": "*",
     "@mui/styles": "*",
-    "autoprefixer": "*",
     "cross-fetch": "*",
     "immer": "*",
     "next": "^13",
-    "postcss": "*",
     "react": "*",
     "react-dom": "*",
     "react-hook-form": "*",
-    "tailwindcss": "*",
     "web-vitals": "*"
   },
   "devDependencies": {
@@ -36,6 +40,7 @@
     "@types/react": "*",
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
+    "autoprefixer": "*",
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-config-airbnb-typescript": "*",
@@ -52,7 +57,10 @@
     "eslint-plugin-react-hooks": "*",
     "next-compose-plugins": "*",
     "next-transpile-modules": "*",
+    "postcss": "*",
     "prettier": "*",
+    "tailwindcss": "*",
     "typescript": "*"
-  }
+  },
+  "packageManager": "yarn@3.2.4"
 }
