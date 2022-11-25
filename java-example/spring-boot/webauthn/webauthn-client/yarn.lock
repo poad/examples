@@ -2018,8 +2018,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-jest@npm:*":
-  version: 27.1.5
-  resolution: "eslint-plugin-jest@npm:27.1.5"
+  version: 27.1.6
+  resolution: "eslint-plugin-jest@npm:27.1.6"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -2030,7 +2030,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 7c9de765793f7161afa0bdcdce67f4d072944152880fa638b25d228188dcee47a4b4aada26c57db72bc10193c96a1979e17afb8a7c3e400e961d8adfbf23ddbe
+  checksum: 5b1640b5d575f0d5e27da8ef8cb3110a29f94ebd50ae51edc5ea34c1054f5dcf305416865b2919ac424bc02c4569848bbe7fd2c86e7e1aff23e77f1ff9ef7dfd
   languageName: node
   linkType: hard
 
@@ -3388,11 +3388,11 @@ __metadata:
   linkType: hard
 
 "minipass@npm:^3.0.0, minipass@npm:^3.1.1, minipass@npm:^3.1.6":
-  version: 3.3.5
-  resolution: "minipass@npm:3.3.5"
+  version: 3.3.6
+  resolution: "minipass@npm:3.3.6"
   dependencies:
     yallist: ^4.0.0
-  checksum: f89f02bcaa0e0e4bb4c44ec796008e69fbca62db0aba6ead1bc57d25bdaefdf42102130f4f9ecb7d9c6b6cd35ff7b0c7b97d001d3435da8e629fb68af3aea57e
+  checksum: a30d083c8054cee83cdcdc97f97e4641a3f58ae743970457b1489ce38ee1167b3aaf7d815cd39ec7a99b9c40397fd4f686e83750e73e652b21cb516f6d845e48
   languageName: node
   linkType: hard
 
