@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK ${{ matrix.java_versions }}
+    - name: Set up JDK  ${{ matrix.java_versions }}
       uses: actions/setup-java@v3
       with:
         java-version: ${{ matrix.java_versions }}
@@ -87,16 +87,15 @@ jobs:
           - path: java-example/spring-boot/spring-boot-web-thymeleaf-example
           - path: java-example/spring-boot/webauthn/server
         java_versions:
-          - 11
           - 17
 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 11
+    - name: Set up JDK  ${{ matrix.java_versions }}
       uses: actions/setup-java@v3
       with:
-        java-version: 11
+        java-version: ${{ matrix.java_versions }}
         distribution: liberica
 
     - uses: actions/cache@v3
