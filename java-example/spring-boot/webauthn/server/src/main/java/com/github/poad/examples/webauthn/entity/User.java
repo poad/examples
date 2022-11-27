@@ -2,7 +2,7 @@ package com.github.poad.examples.webauthn.entity;
 
 import org.springframework.data.annotation.Immutable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Table(name="user", uniqueConstraints=@UniqueConstraint(columnNames={"email", "displayName"}))

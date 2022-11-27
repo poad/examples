@@ -2,7 +2,7 @@ package com.github.poad.example.spring.entitiy;
 
 import org.springframework.data.annotation.Immutable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import java.util.*;
 import java.sql.Date;

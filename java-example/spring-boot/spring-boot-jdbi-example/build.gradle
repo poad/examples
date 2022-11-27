@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.github.poad'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
 	mavenCentral()
@@ -55,7 +55,7 @@ dependencies {
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
 
 	implementation 'jakarta.validation:jakarta.validation-api'
-	implementation 'javax.validation:validation-api'
+	implementation 'jakarta.validation:validation-api'
 	implementation 'org.hibernate.validator:hibernate-validator'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

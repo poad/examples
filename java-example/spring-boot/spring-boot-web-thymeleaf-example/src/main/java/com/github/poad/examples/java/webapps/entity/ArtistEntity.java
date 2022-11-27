@@ -2,7 +2,7 @@ package com.github.poad.examples.java.webapps.entity;
 
 import org.springframework.data.annotation.Immutable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 

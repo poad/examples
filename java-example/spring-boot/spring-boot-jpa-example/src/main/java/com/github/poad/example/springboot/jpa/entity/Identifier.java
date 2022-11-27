@@ -2,7 +2,7 @@ package com.github.poad.example.springboot.jpa.entity;
 
 import com.github.poad.example.springboot.jpa.exception.UncheckedGeneralSecurityException;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;

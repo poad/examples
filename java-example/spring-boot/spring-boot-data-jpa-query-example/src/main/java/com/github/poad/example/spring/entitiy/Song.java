@@ -3,7 +3,7 @@ package com.github.poad.example.spring.entitiy;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Immutable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.sql.Date;
 
 @Entity
