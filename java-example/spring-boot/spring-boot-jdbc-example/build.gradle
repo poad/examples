@@ -47,7 +47,6 @@ dependencies {
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
 
 	implementation 'jakarta.validation:jakarta.validation-api'
-	implementation 'jakarta.validation:validation-api'
 	implementation 'org.hibernate.validator:hibernate-validator'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
