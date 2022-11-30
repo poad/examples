@@ -1,6 +1,6 @@
 package com.github.poad.example.springboot.jpa.request;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Created by ken-yo on 2016/08/07.

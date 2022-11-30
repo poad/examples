@@ -4,7 +4,7 @@ import com.github.poad.example.springboot.springdatajpaasync.entity.Comment;
 import com.github.poad.example.springboot.springdatajpaasync.repository.CommentRepository;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
