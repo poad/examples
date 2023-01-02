@@ -6,7 +6,7 @@ plugins {
 
 ext {
   tomcatJdbcVersion = "10.1.4"
-  webauthn4jVersion = "0.20.6.RELEASE"
+  webauthn4jVersion = "0.20.7.RELEASE"
   mysqlConnectorVersion = "8.0.31"
 }
 
