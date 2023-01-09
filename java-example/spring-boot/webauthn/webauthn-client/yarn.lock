@@ -2044,8 +2044,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-jest@npm:*":
-  version: 27.2.0
-  resolution: "eslint-plugin-jest@npm:27.2.0"
+  version: 27.2.1
+  resolution: "eslint-plugin-jest@npm:27.2.1"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -2056,7 +2056,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 83554bb8eed289f903e2e03871a42a9b7b37b5e443d4a1501a42e004db49cddad894592ccec9840221b412ea3d2388428a1b11938031e5628d21c5a3210f1240
+  checksum: 579a4d26304cc6748b2e6dff6c965ea7a21b618d8b051eb02727d25cf5c7767f6db8ef5237531635ff77e242b983b973e7cb8c820a4d20d5bda73358c452a8ab
   languageName: node
   linkType: hard
 
@@ -4044,13 +4044,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:*, postcss@npm:^8.4.18":
-  version: 8.4.20
-  resolution: "postcss@npm:8.4.20"
+  version: 8.4.21
+  resolution: "postcss@npm:8.4.21"
   dependencies:
     nanoid: ^3.3.4
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
-  checksum: 1a5609ea1c1b204f9c2974a0019ae9eef2d99bf645c2c9aac675166c4cb1005be7b5e2ba196160bc771f5d9ac896ed883f236f888c891e835e59d28fff6651aa
+  checksum: e39ac60ccd1542d4f9d93d894048aac0d686b3bb38e927d8386005718e6793dbbb46930f0a523fe382f1bbd843c6d980aaea791252bf5e176180e5a4336d9679
   languageName: node
   linkType: hard
 
@@ -4082,11 +4082,11 @@ __metadata:
   linkType: hard
 
 "prettier@npm:*":
-  version: 2.8.1
-  resolution: "prettier@npm:2.8.1"
+  version: 2.8.2
+  resolution: "prettier@npm:2.8.2"
   bin:
     prettier: bin-prettier.js
-  checksum: 4f21a0f1269f76fb36f54e9a8a1ea4c11e27478958bf860661fb4b6d7ac69aac1581f8724fa98ea3585e56d42a2ea317a17ff6e3324f40cb11ff9e20b73785cc
+  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
   languageName: node
   linkType: hard
 
