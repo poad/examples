@@ -53,6 +53,5 @@ tasks.build.dependsOn tasks.bootBuildImage
 
 
 bootBuildImage {
-	builder = 'gcr.io/paketo-buildpacks/builder:base-platform-api-latest'
 	imageName = 'dynamo-front'
 }
