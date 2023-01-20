@@ -37,7 +37,7 @@ dependencies {
 	implementation 'com.google.guava:guava:31.1-jre'
 
 	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	runtimeOnly 'mysql:mysql-connector-java:8.0.31'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.32'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.1.5'
