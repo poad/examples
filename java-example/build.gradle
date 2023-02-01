@@ -16,7 +16,7 @@ ext {
     jettyVersionForWebSocketServer = '9.4.40.v20210413'
 
     dropwizardVersion = '2.1.4'
-    jerseyVersion = '3.1.0'
+    jerseyVersion = '3.1.1'
     jacksonVersion = '2.12.3'
     vertxVersion = '4.0.3'
 
