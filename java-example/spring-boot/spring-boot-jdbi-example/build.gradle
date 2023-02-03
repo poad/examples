@@ -42,7 +42,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.1.5'
 
-	compileOnly 'org.projectlombok:lombok:1.18.24'
+	compileOnly 'org.projectlombok:lombok:1.18.26'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
 	// https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1
