@@ -66,7 +66,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.7":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.3.1, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.3, @babel/runtime@npm:^7.8.7":
   version: 7.20.13
   resolution: "@babel/runtime@npm:7.20.13"
   dependencies:
@@ -403,6 +403,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mui/private-theming@npm:^5.11.9":
+  version: 5.11.9
+  resolution: "@mui/private-theming@npm:5.11.9"
+  dependencies:
+    "@babel/runtime": ^7.20.13
+    "@mui/utils": ^5.11.9
+    prop-types: ^15.8.1
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: c0cfdf6d790ce219e59f2d222847b88e0ab1d3281a427935460f8a652b54faaf0ad483f13a5fafdec37df7cc87a489821b20e9fa26d49251e714fa6fef8da5c2
+  languageName: node
+  linkType: hard
+
 "@mui/styled-engine@npm:^5.11.8":
   version: 5.11.8
   resolution: "@mui/styled-engine@npm:5.11.8"
@@ -425,25 +442,25 @@ __metadata:
   linkType: hard
 
 "@mui/styles@npm:*":
-  version: 5.11.7
-  resolution: "@mui/styles@npm:5.11.7"
+  version: 5.11.9
+  resolution: "@mui/styles@npm:5.11.9"
   dependencies:
-    "@babel/runtime": ^7.20.7
+    "@babel/runtime": ^7.20.13
     "@emotion/hash": ^0.9.0
-    "@mui/private-theming": ^5.11.7
+    "@mui/private-theming": ^5.11.9
     "@mui/types": ^7.2.3
-    "@mui/utils": ^5.11.7
+    "@mui/utils": ^5.11.9
     clsx: ^1.2.1
     csstype: ^3.1.1
     hoist-non-react-statics: ^3.3.2
-    jss: ^10.9.2
-    jss-plugin-camel-case: ^10.9.2
-    jss-plugin-default-unit: ^10.9.2
-    jss-plugin-global: ^10.9.2
-    jss-plugin-nested: ^10.9.2
-    jss-plugin-props-sort: ^10.9.2
-    jss-plugin-rule-value-function: ^10.9.2
-    jss-plugin-vendor-prefixer: ^10.9.2
+    jss: ^10.10.0
+    jss-plugin-camel-case: ^10.10.0
+    jss-plugin-default-unit: ^10.10.0
+    jss-plugin-global: ^10.10.0
+    jss-plugin-nested: ^10.10.0
+    jss-plugin-props-sort: ^10.10.0
+    jss-plugin-rule-value-function: ^10.10.0
+    jss-plugin-vendor-prefixer: ^10.10.0
     prop-types: ^15.8.1
   peerDependencies:
     "@types/react": ^17.0.0
@@ -451,7 +468,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 55d420bbf8f5f51b672d7269e5120314ef4a104beb87aabe0a2be11be7f45c4bf3077fe441ebe14c3fbc4388043700abfd93eaed1b52c2ca75fdd1827819746b
+  checksum: 8a42dd07e81361fd6663a1d3d689fe5e8144dde7ff09f8415f320ab04c30bce16e64186c6f1bc69a3a0459881a418d42c7ab9f332b018acc7dd1f841cb5ca1a7
   languageName: node
   linkType: hard
 
@@ -507,6 +524,21 @@ __metadata:
   peerDependencies:
     react: ^17.0.0 || ^18.0.0
   checksum: eed3731d692ec29d4b7dfd59de1bc35c9355c5e75d3405fa110deb5a7327763bda41ba6b19165ca080006b2bb6a4d1220c4534464d9ff3acac606fef48c26951
+  languageName: node
+  linkType: hard
+
+"@mui/utils@npm:^5.11.9":
+  version: 5.11.9
+  resolution: "@mui/utils@npm:5.11.9"
+  dependencies:
+    "@babel/runtime": ^7.20.13
+    "@types/prop-types": ^15.7.5
+    "@types/react-is": ^16.7.1 || ^17.0.0
+    prop-types: ^15.8.1
+    react-is: ^18.2.0
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+  checksum: 23761e646443a8f9ad5e0715587491e65f5164fd99f6730f134068f9c859a6af9e3f9d218d193c9a9217da1c91182f76352c120de4f70ab19539afa7504698a2
   languageName: node
   linkType: hard
 
@@ -3239,7 +3271,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-plugin-camel-case@npm:^10.9.2":
+"jss-plugin-camel-case@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-plugin-camel-case@npm:10.10.0"
   dependencies:
@@ -3250,7 +3282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-plugin-default-unit@npm:^10.9.2":
+"jss-plugin-default-unit@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-plugin-default-unit@npm:10.10.0"
   dependencies:
@@ -3260,7 +3292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-plugin-global@npm:^10.9.2":
+"jss-plugin-global@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-plugin-global@npm:10.10.0"
   dependencies:
@@ -3270,7 +3302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-plugin-nested@npm:^10.9.2":
+"jss-plugin-nested@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-plugin-nested@npm:10.10.0"
   dependencies:
@@ -3281,7 +3313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-plugin-props-sort@npm:^10.9.2":
+"jss-plugin-props-sort@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-plugin-props-sort@npm:10.10.0"
   dependencies:
@@ -3291,7 +3323,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-plugin-rule-value-function@npm:^10.9.2":
+"jss-plugin-rule-value-function@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-plugin-rule-value-function@npm:10.10.0"
   dependencies:
@@ -3302,7 +3334,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss-plugin-vendor-prefixer@npm:^10.9.2":
+"jss-plugin-vendor-prefixer@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss-plugin-vendor-prefixer@npm:10.10.0"
   dependencies:
@@ -3313,7 +3345,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jss@npm:10.10.0, jss@npm:^10.9.2":
+"jss@npm:10.10.0, jss@npm:^10.10.0":
   version: 10.10.0
   resolution: "jss@npm:10.10.0"
   dependencies:
