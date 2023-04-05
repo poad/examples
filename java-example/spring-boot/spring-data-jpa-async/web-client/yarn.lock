@@ -423,8 +423,8 @@ __metadata:
   linkType: hard
 
 "@mui/styles@npm:*":
-  version: 5.11.13
-  resolution: "@mui/styles@npm:5.11.13"
+  version: 5.11.16
+  resolution: "@mui/styles@npm:5.11.16"
   dependencies:
     "@babel/runtime": ^7.21.0
     "@emotion/hash": ^0.9.0
@@ -432,7 +432,7 @@ __metadata:
     "@mui/types": ^7.2.3
     "@mui/utils": ^5.11.13
     clsx: ^1.2.1
-    csstype: ^3.1.1
+    csstype: ^3.1.2
     hoist-non-react-statics: ^3.3.2
     jss: ^10.10.0
     jss-plugin-camel-case: ^10.10.0
@@ -449,7 +449,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: e8ac9d457c1843a47f5ec01b0cfa66dd32add49bae7b9d080e7e75f9a8103fbe77cb7d392893fcfbdf2a3796eed275a4625f37a765b3fe8ff9d81d511d34ce1c
+  checksum: 3cdb217c148013315b8d13773249b96df68b6cf0b3d950077ee993a88b415f8a92b0713302272a1231e04668b1afb835d71984e62d1eba29a3af085692ea018b
   languageName: node
   linkType: hard
 
@@ -1533,7 +1533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.2, csstype@npm:^3.1.1":
+"csstype@npm:^3.0.2, csstype@npm:^3.1.1, csstype@npm:^3.1.2":
   version: 3.1.2
   resolution: "csstype@npm:3.1.2"
   checksum: e1a52e6c25c1314d6beef5168da704ab29c5186b877c07d822bd0806717d9a265e8493a2e35ca7e68d0f5d472d43fac1cdce70fd79fd0853dff81f3028d857b5
