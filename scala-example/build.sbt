@@ -122,7 +122,7 @@ lazy val slisp = (project in file("slisp")).
     // other settings
   )
 
-lazy val springBootVersion = "2.7.1"
+lazy val springBootVersion = "3.0.6"
 lazy val springboot_example = (project in file("spring-boot-example")).
   settings(
     commonSettings,

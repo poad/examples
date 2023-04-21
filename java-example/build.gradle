@@ -27,7 +27,7 @@ ext {
 
     flywayVersion = '7.8.2'
 
-    springBootVersion = '3.0.0'
+    springBootVersion = '3.0.6'
     springLoadedVersion = '1.2.8.RELEASE'
 
     slf4jVersion = '2.0.7'
