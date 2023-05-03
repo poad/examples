@@ -18,6 +18,4 @@ include 'tuple4j-example'
 include 'vertx-examples'
 include 'websocket-jsr356-example'
 
-include 'dropwizard-example'
-
 rootProject.name = 'java-example'
