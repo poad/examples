@@ -5,7 +5,7 @@ name := "scala-example"
 lazy val commonSettings = Seq(
   organization := "org.bitbuicket.poad1010",
   version := "0.0.1",
-  scalaVersion := "3.1.3"
+  scalaVersion := "3.2.2"
 )
 
 lazy val root = (project in file("."))
