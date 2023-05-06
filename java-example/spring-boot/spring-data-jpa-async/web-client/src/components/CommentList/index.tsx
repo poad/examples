@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ChangeEvent, Component } from 'react';
 import { Button, TextField } from '@mui/material';
 import ListNode from './ListNode';
 import { State, Comment } from '../../store/comment/types';
@@ -9,7 +9,7 @@ interface Props {
   comment: string;
 }
 
-export default class CommentList extends React.Component<Props, State> {
+export default class CommentList extends Component<Props, State> {
   props: Props;
 
   state: State;
@@ -85,7 +85,7 @@ export default class CommentList extends React.Component<Props, State> {
     });
   };
 
-  private update = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  private update = (event: ChangeEvent<HTMLInputElement>): void => {
     this.setState({
       comment: event.currentTarget.value,
       comments: this.state.comments,

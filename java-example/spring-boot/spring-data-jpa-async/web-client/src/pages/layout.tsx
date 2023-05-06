@@ -1,4 +1,6 @@
-import React, { PropsWithChildren, useState } from 'react';
+'use client';
+import { ReactNode, useState } from 'react';
+import Head from 'next/head';
 import {
   AppBar,
   Box,
@@ -10,24 +12,19 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  ThemeProvider,
   Toolbar,
   Typography,
 } from '@mui/material';
+import themes from './styles/theme';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import MenuIcon from '@mui/icons-material/Menu';
+import theme from './styles/theme';
+import './styles/Layout.module.css';
 
 const drawerWidth = 240;
 
-interface LayoutProps {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  container?: Element;
-}
-
-const Layout = (props: PropsWithChildren<LayoutProps>): JSX.Element => {
-  const { container } = props;
+function Base({ children }: { children: ReactNode }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   function handleDrawerToggle() {
@@ -54,7 +51,7 @@ const Layout = (props: PropsWithChildren<LayoutProps>): JSX.Element => {
           <Typography variant="h6" noWrap></Typography>
         </Toolbar>
       </AppBar>
-      <Drawer container={container} variant="permanent" open>
+      <Drawer variant="permanent" open>
         <Divider />
         <List sx={{ width: drawerWidth }}>
           {['Info'].map((text) => (
@@ -69,10 +66,29 @@ const Layout = (props: PropsWithChildren<LayoutProps>): JSX.Element => {
       </Drawer>
       <Box style={{ flexGrow: 1 }}>
         <Box />
-        {props.children}
+        {children}
       </Box>
     </Box>
   );
 };
 
-export default Layout;
+export default function Layout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <Head>
+        {/* PWA primary color */}
+        <meta name="theme-color" content={theme.palette.primary.main} />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+      </Head>
+      <body>
+        <ThemeProvider theme={themes}>
+          <Base>{children}</Base>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
