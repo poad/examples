@@ -70,7 +70,7 @@ function Base({ children }: { children: ReactNode }) {
       </Box>
     </Box>
   );
-};
+}
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

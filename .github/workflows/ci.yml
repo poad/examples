@@ -145,7 +145,7 @@ jobs:
 
     - name: build
       working-directory: ${{ matrix.target }}
-      run: yarn install && yarn all
+      run: yarn install --immutable && yarn all
 
   quarkus-example:
     runs-on: ubuntu-latest

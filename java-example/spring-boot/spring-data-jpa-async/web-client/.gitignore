@@ -131,3 +131,6 @@ yarn-error.log*
 
 .yarn/cache
 .yarn/install-state.gz
+
+src/next-env.d.ts
+src/tsconfig.json
