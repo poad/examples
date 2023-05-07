@@ -1,9 +1,8 @@
-import React from 'react';
-import Layout from '../components/Layout';
+'use client';
 import CommentList from '../components/CommentList';
 
 const Home = (): JSX.Element => (
-  <Layout>
+  <>
     <div className="hero">
       <CommentList comment="" comments={[]} />
     </div>
@@ -56,7 +55,7 @@ const Home = (): JSX.Element => (
           }
         `}
     </style>
-  </Layout>
+  </>
 );
 
 export default Home;

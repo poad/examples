@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ChangeEvent, Component } from 'react';
 import { Button, TextField } from '@mui/material';
 import RestClient from './RestClient';
 
@@ -16,7 +16,7 @@ interface Props {
   onDelete(id: string): void;
 }
 
-class ListNode extends React.Component<Props, State> {
+class ListNode extends Component<Props, State> {
   props: Props;
 
   state: State;
@@ -34,7 +34,7 @@ class ListNode extends React.Component<Props, State> {
     this.client = props.client;
   }
 
-  changeText = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  changeText = (event: ChangeEvent<HTMLInputElement>): void => {
     this.setState({
       id: this.props.id,
       text: event.currentTarget.value,

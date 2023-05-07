@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo ''",
     "dev": "next",
-    "build": "next build && next export",
+    "build": "next build",
     "export": "echo \"no action in script. Please run yarn build (includes next export)\"",
     "start": "next start",
     "analyze": "ANALYZE=true next build",
@@ -16,7 +16,7 @@
     "lint": "yarn prettier-check && yarn elint-check",
     "lint-fix": "yarn prettier-format && yarn elint-fix",
     "clean": "rimraf build",
-    "all": "yarn lint && yarn test && yarn build && yarn export"
+    "all": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
     "@emotion/cache": "*",
@@ -61,9 +61,6 @@
     "prettier": "*",
     "tailwindcss": "*",
     "typescript": "*"
-  },
-  "resolutions": {
-    "json5": ">=2.2.2"
   },
   "packageManager": "yarn@3.5.1"
 }

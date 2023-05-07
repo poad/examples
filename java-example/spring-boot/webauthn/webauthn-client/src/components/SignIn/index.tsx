@@ -1,5 +1,4 @@
 import { Button, Link, TextField, Box } from '@mui/material';
-import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 export interface Challenge {
