@@ -1,3 +1,4 @@
+'use client';
 import { Button, Link, TextField, Box } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
 

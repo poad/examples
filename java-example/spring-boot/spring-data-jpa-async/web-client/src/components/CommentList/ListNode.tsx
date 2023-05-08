@@ -1,3 +1,4 @@
+'use client';
 import { ChangeEvent, Component } from 'react';
 import { Button, TextField } from '@mui/material';
 import RestClient from './RestClient';

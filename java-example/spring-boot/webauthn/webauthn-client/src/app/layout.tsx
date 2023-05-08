@@ -1,6 +1,7 @@
+'use client';
 import { ReactNode } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import Authenticator from 'components/Authenticator';
+import Authenticator from '../components/Authenticator';
 import theme from './styles/theme';
 import './styles/Layout.module.css';
 import Head from 'next/head';
