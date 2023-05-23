@@ -107,7 +107,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/hash@npm:^0.9.0, @emotion/hash@npm:^0.9.1":
+"@emotion/hash@npm:^0.9.1":
   version: 0.9.1
   resolution: "@emotion/hash@npm:0.9.1"
   checksum: 716e17e48bf9047bf9383982c071de49f2615310fb4e986738931776f5a823bc1f29c84501abe0d3df91a3803c80122d24e28b57351bca9e01356ebb33d89876
@@ -479,11 +479,11 @@ __metadata:
   linkType: hard
 
 "@mui/styles@npm:*":
-  version: 5.13.1
-  resolution: "@mui/styles@npm:5.13.1"
+  version: 5.13.2
+  resolution: "@mui/styles@npm:5.13.2"
   dependencies:
     "@babel/runtime": ^7.21.0
-    "@emotion/hash": ^0.9.0
+    "@emotion/hash": ^0.9.1
     "@mui/private-theming": ^5.13.1
     "@mui/types": ^7.2.4
     "@mui/utils": ^5.13.1
@@ -505,7 +505,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 8fee50bc84f2ead818ecd875e0a32e07b36e06dba1fc75375c883fcc2b574c95c42f798aeaf7ae5a2e803a09711094dc0f2163e32490e63058d17a3677fb63b6
+  checksum: 1aee1c94e86596d92228b63aae70304e00bc565896a41cabdb39231ec54ce3e611d96f795b3cd02544974c7f1bfd034a84ca9a7fcd4a4f7f49cf394f9f803f95
   languageName: node
   linkType: hard
 
