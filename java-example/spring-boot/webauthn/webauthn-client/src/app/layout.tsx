@@ -4,6 +4,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import Authenticator from '../components/Authenticator';
 import theme from './styles/theme';
 import './styles/Layout.module.css';
+import StyledJsxRegistry from './registry';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

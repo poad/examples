@@ -1,6 +1,5 @@
 'use client';
 import { ReactNode, useState } from 'react';
-import Head from 'next/head';
 import {
   AppBar,
   Box,
