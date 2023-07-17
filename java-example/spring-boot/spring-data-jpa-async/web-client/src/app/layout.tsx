@@ -21,6 +21,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import MenuIcon from '@mui/icons-material/Menu';
 import theme from './styles/theme';
 import './styles/Layout.module.css';
+import StyledJsxRegistry from './registry';
 
 const drawerWidth = 240;
 
@@ -75,7 +76,7 @@ function Base({ children }: { children: ReactNode }) {
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         {/* PWA primary color */}
         <meta name="theme-color" content={theme.palette.primary.main} />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
@@ -83,11 +84,13 @@ export default function Layout({ children }: { children: ReactNode }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
-      </Head>
+      </head>
       <body>
-        <ThemeProvider theme={themes}>
-          <Base>{children}</Base>
-        </ThemeProvider>
+        <StyledJsxRegistry>
+          <ThemeProvider theme={themes}>
+            <Base>{children}</Base>
+          </ThemeProvider>
+        </StyledJsxRegistry>
       </body>
     </html>
   );
