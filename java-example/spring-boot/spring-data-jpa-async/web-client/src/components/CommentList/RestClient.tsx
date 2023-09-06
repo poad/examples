@@ -1,4 +1,3 @@
-import fetch from 'cross-fetch';
 import config from './Config';
 import { Comment } from '../../store/comment/types';
 

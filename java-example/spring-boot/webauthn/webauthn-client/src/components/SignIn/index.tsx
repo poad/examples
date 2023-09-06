@@ -112,7 +112,7 @@ const SignIn = (props: SignInProp): JSX.Element => {
             id: base64ToArrayBuffer(credential.id),
             type: credential.type,
             transports: credential.transports,
-          } as PublicKeyCredentialDescriptor),
+          }) as PublicKeyCredentialDescriptor,
       ),
       challenge: stringToArrayBuffer(source.challenge.value),
       extensions: source.extensions,

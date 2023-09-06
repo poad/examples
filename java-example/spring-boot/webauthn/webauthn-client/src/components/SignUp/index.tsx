@@ -110,7 +110,7 @@ const SignUp = (props: SignUpProp): JSX.Element => {
             id: base64ToArrayBuffer(credential.id),
             type: credential.type,
             transports: credential.transports,
-          } as PublicKeyCredentialDescriptor),
+          }) as PublicKeyCredentialDescriptor,
       ),
       extensions: source.extensions,
       pubKeyCredParams: source.pubKeyCredParams,

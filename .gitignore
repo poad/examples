@@ -245,3 +245,5 @@ Temporary Items
 .apdisk
 
 !gradle-wrapper.jar
+
+node_modules

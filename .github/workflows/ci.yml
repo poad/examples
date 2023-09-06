@@ -114,12 +114,6 @@ jobs:
 
   node:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        target: [
-          ./java-example/spring-boot/spring-data-jpa-async/web-client,
-          ./java-example/spring-boot/webauthn/webauthn-client,
-        ]
     steps:
 
     - uses: actions/checkout@v4
@@ -130,7 +124,6 @@ jobs:
       with:
         run_install: |
           - recursive: true
-            cwd: ${{ matrix.target }}
             args: [--no-frozen-lockfile]
 
     - name: Use Node.js 20.x
@@ -140,7 +133,6 @@ jobs:
         check-latest: true
 
     - name: build
-      working-directory: ${{ matrix.target }}
       run: pnpm all
 
   quarkus-example:
