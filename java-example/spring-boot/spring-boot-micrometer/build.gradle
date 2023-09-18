@@ -30,7 +30,7 @@ dependencies {
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 	runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch'
 
-    runtimeOnly 'com.h2database:h2:2.2.222'
+    runtimeOnly 'com.h2database:h2:2.2.224'
     runtimeOnly("org.springframework.boot:spring-boot-properties-migrator")
 }
 
