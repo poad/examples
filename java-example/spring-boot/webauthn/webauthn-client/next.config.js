@@ -8,7 +8,10 @@ module.exports = withBundleAnalyzer(
     output: 'export',
     reactStrictMode: true,
     swcMinify: true,
-    experimental: {
+    compiler: {
+      emotion: true,
+    },
+      experimental: {
       esmExternals: true,
     }
   }
