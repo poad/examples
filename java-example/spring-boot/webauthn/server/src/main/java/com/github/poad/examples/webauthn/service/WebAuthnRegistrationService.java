@@ -34,8 +34,8 @@ public class WebAuthnRegistrationService {
     }
 
     public PublicKeyCredentialCreationOptions creationOptions(User user) {
-        var rpId = config.getRp().getId();
-        var rpName = config.getRp().getName();
+        var rpId = config.getRp().id();
+        var rpName = config.getRp().name();
 
         var rp = new PublicKeyCredentialRpEntity(rpId, rpName);
         var userId = user.getId();
@@ -113,7 +113,7 @@ public class WebAuthnRegistrationService {
     ) {
         var origin = Origin.create(config.getOrigin().asString());
 
-        var rpId = config.getRp().getId();
+        var rpId = config.getRp().id();
         var challengeBase64 = new DefaultChallenge(Base64.getEncoder().encode(challenge.getValue()));
 
         var serverProperty = new ServerProperty(origin, rpId, challengeBase64, null);

@@ -48,7 +48,7 @@ public class WebAuthnAuthenticationService {
         var timeout = config.getTimeout();
 
         // rpId ── 中間者攻撃を回避するRPサーバの有効ドメインを指定
-        var rpId = config.getRp().getId();
+        var rpId = config.getRp().id();
 
         // allowCredentials ── RPサーバに登録されたクレデンシャルIDの一覧
         List<PublicKeyCredentialDescriptor> allowCredentials = List.of();
@@ -96,7 +96,7 @@ public class WebAuthnAuthenticationService {
         var origin = Origin.create(config.getOrigin().asString());
 
         // rpIdHashの検証 ── 中間者攻撃耐性
-        var rpId = config.getRp().getId();
+        var rpId = config.getRp().id();
 
         // challengeの検証 ── リプレイ攻撃耐性
         var challengeBase64 = new DefaultChallenge(Base64

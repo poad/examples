@@ -24,26 +24,8 @@ public abstract class WebAuthnSession {
         return Optional.ofNullable((User) session.getAttribute(prefix + "User"));
     }
 
-    Optional<String> getJws() {
-        return Optional.ofNullable((String) session.getAttribute(prefix + "Token"));
-    }
-
     WebAuthnSession setChallenge(Challenge challenge) {
         session.setAttribute(prefix + "Challenge", challenge);
-        return this;
-    }
-
-    WebAuthnSession setUser(User user) {
-        session.setAttribute(prefix + "User", user);
-        return this;
-    }
-    WebAuthnSession removeChallenge() {
-        session.removeAttribute(prefix + "Challenge");
-        return this;
-    }
-
-    WebAuthnSession setJws(String jws) {
-        session.setAttribute(prefix + "Token", jws);
         return this;
     }
 }
