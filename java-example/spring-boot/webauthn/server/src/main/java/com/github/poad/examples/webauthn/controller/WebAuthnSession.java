@@ -28,4 +28,8 @@ public abstract class WebAuthnSession {
         session.setAttribute(prefix + "Challenge", challenge);
         return this;
     }
+
+    void setUser(User user) {
+        session.setAttribute(prefix + "User", user);
+    }
 }
