@@ -97,8 +97,6 @@ public class WebAuthnAuthenticationController {
         var session = new WebAuthnAssertionSession(httpRequest);
         var challenge = session.getChallenge().orElseThrow();
 
-        session.removeChallenge();
-
         // 署名の検証
         var user = webAuthnService.assertionFinish(
                 challenge,

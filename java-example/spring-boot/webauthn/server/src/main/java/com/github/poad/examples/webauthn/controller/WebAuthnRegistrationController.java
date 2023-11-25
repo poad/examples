@@ -29,42 +29,20 @@ public class WebAuthnRegistrationController {
         this.webAuthnService = webAuthnService;
     }
 
-    private static class AttestationOptionsParam {
-        private final String email;
-        private final String displayName;
-
-
-        // for deserialization
-        AttestationOptionsParam() {
-            this(null, null);
+    private record AttestationOptionsParam(String email, String displayName) {
+            private AttestationOptionsParam(@NotNull @Size(min = 1) @NotBlank String email, @NotNull @Size(min = 1) @NotBlank String displayName) {
+                this.email = email;
+                this.displayName = displayName;
+            }
         }
 
-        AttestationOptionsParam(@NotNull @Size(min = 1) @NotBlank String email, @NotNull @Size(min = 1) @NotBlank String displayName) {
-            this.email = email;
-            this.displayName = displayName;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public String getDisplayName() {
-            return displayName;
-        }
-    }
-
-    private static class AttestationResultParam {
+    static class AttestationResultParam {
         @JsonProperty("clientDataJSON")
         private final byte[] clientDataJSON;
         @JsonProperty("attestationObject")
         private final byte[] attestationObject;
         @JsonProperty("clientExtensionsJSON")
         private final String clientExtensionsJSON;
-
-        // for deserialization
-        AttestationResultParam() {
-            this(null, null, null);
-        }
 
         @JsonCreator
         AttestationResultParam(@NotNull @Size(min = 1) byte[] clientDataJSON, @NotNull @Size(min = 1) byte[] attestationObject, String clientExtensionsJSON) {
@@ -76,7 +54,7 @@ public class WebAuthnRegistrationController {
 
     @PostMapping(value = "/attestation/options")
     public PublicKeyCredentialCreationOptions postAttestationOptions(@RequestBody AttestationOptionsParam params, HttpServletRequest httpRequest) {
-        var user = webAuthnService.findOrElseCreate(params.getEmail(), params.getDisplayName());
+        var user = webAuthnService.findOrElseCreate(params.email(), params.displayName());
         var options = webAuthnService.creationOptions(user);
 
         new WebAuthnAttestationSession(httpRequest)
