@@ -18,7 +18,7 @@ repositories {
 
 ext {
     junitPlatformVersion = '1.10.2'
-    junitJupiterVersion  = '5.10.1'
+    junitJupiterVersion  = '5.10.2'
 }
 
 // In this section you declare the dependencies for your production and test code
