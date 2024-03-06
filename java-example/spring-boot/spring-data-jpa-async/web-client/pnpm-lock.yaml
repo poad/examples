@@ -24,8 +24,8 @@ dependencies:
     specifier: ^5.15.11
     version: 5.15.11(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.2.63)(react-dom@18.2.0)(react@18.2.0)
   '@mui/styles':
-    specifier: ^5.15.11
-    version: 5.15.11(@types/react@18.2.63)(react@18.2.0)
+    specifier: ^5.15.12
+    version: 5.15.12(@types/react@18.2.63)(react@18.2.0)
   next:
     specifier: ^14.1.2
     version: 14.1.2(@babel/core@7.24.0)(react-dom@18.2.0)(react@18.2.0)
@@ -727,8 +727,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@mui/styles@5.15.11(@types/react@18.2.63)(react@18.2.0):
-    resolution: {integrity: sha512-7TCs+0AGCtNaqBHhj0ZODYLnQjVrY9nG4PrT2bzIGIh3zvJxF7zY6IRiPyBFsKY1OjdVHjjYuan4U81QbdBrew==}
+  /@mui/styles@5.15.12(@types/react@18.2.63)(react@18.2.0):
+    resolution: {integrity: sha512-1dBGLPAR3BhlmKorKhP9XK2wIH1M6BVSfws7agbWaS3atM4fApa0pZic4wjiTyNo7o6N5Lg2wZSnl1wUv/nCmA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
