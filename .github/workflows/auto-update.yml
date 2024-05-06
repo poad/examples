@@ -16,6 +16,8 @@ permissions:
 jobs:
   list-head-refs:
     runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+
     outputs:
       head-refs: ${{ steps.list-head-refs.outputs.result }}
     steps:
