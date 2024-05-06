@@ -56,3 +56,6 @@ jobs:
             git push --force-with-lease
           fi
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
