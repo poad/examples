@@ -16,7 +16,6 @@ permissions:
 jobs:
   list-head-refs:
     runs-on: ubuntu-latest
-    if: github.actor != 'dependabot[bot]'
 
     outputs:
       head-refs: ${{ steps.list-head-refs.outputs.result }}
@@ -72,10 +71,10 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           git switch ${{ matrix.head-ref }}
-          if ! $(git rebase origin/main); then
+          if ! git rebase main; then
             exit 1;
           fi
-          if [ $(git status | grep 'nothing to commit, working tree clean' | wc -l) -eq 0 ];
+          if [ $(git status | grep 'nothing to commit, working tree clean' | wc -l) -eq 0 ]; then
             git push --force-with-lease
           fi
 
