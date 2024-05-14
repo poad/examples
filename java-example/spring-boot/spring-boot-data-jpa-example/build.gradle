@@ -34,7 +34,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.1.23'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.1.24'
 
 	// compileOnly 'org.projectlombok:lombok:1.18.20'
 	// annotationProcessor 'org.projectlombok:lombok:1.18.20'
@@ -45,7 +45,7 @@ dependencies {
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-sql-mysql'
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
 
-    runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.12.6'
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.13.0'
     runtimeOnly 'io.micrometer:micrometer-registry-jmx:1.13.0'
     runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch:1.12.6'
 
