@@ -21,7 +21,7 @@ group = 'com.github.poad.examples'
 version = '0.0.1-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17 
+targetCompatibility = JavaVersion.VERSION_17
 
 mainClassName = 'com.github.poad.examples.kuromori.KuromoriApplication'
 
@@ -61,7 +61,6 @@ dependencies {
 
     implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation 'io.micrometer:micrometer-registry-jmx'
-    implementation 'io.micrometer:micrometer-registry-cloudwatch'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

@@ -26,9 +26,8 @@ dependencies {
     // https://mvnrepository.com/artifact/ma.glasnost.orika/orika-core
     implementation 'ma.glasnost.orika:orika-core:1.5.4'
 
-	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
-	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-	runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch'
+    runtimeOnly 'io.micrometer:micrometer-registry-jmx'
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 
     runtimeOnly 'com.h2database:h2:2.2.224'
     runtimeOnly("org.springframework.boot:spring-boot-properties-migrator")

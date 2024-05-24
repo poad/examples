@@ -26,15 +26,14 @@ dependencies {
     // https://mvnrepository.com/artifact/ma.glasnost.orika/orika-core
     implementation 'ma.glasnost.orika:orika-core:1.5.4'
 
-	// https://mvnrepository.com/artifact/p6spy/p6spy
-	runtimeOnly 'p6spy:p6spy:3.9.1'
+    // https://mvnrepository.com/artifact/p6spy/p6spy
+    runtimeOnly 'p6spy:p6spy:3.9.1'
 
-	runtimeOnly 'io.micrometer:micrometer-registry-jmx'
-	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-	runtimeOnly 'io.micrometer:micrometer-registry-cloudwatch'
+    runtimeOnly 'io.micrometer:micrometer-registry-jmx'
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 
-	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
-	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 
     runtimeOnly("org.springframework.boot:spring-boot-properties-migrator")
 }

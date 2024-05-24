@@ -23,12 +23,12 @@ ext {
 }
 
 dependencies {
-    implementation platform("software.amazon.awssdk:bom:${awsSdkVersion}")
-    implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
-	implementation 'jakarta.validation:jakarta.validation-api'
+  implementation platform("software.amazon.awssdk:bom:${awsSdkVersion}")
+  implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+  implementation 'jakarta.validation:jakarta.validation-api'
 
-    implementation 'software.amazon.awssdk:dynamodb'
-    implementation 'software.amazon.awssdk:dynamodb-enhanced'
+  implementation 'software.amazon.awssdk:dynamodb'
+  implementation 'software.amazon.awssdk:dynamodb-enhanced'
 
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
