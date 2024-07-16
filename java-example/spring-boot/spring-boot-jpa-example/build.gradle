@@ -24,6 +24,6 @@ dependencies {
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.17.2'
 
     runtimeOnly 'p6spy:p6spy:3.9.1'
-    runtimeOnly 'com.h2database:h2:2.2.224'
+    runtimeOnly 'com.h2database:h2:2.3.230'
     runtimeOnly("org.springframework.boot:spring-boot-properties-migrator")
 }
