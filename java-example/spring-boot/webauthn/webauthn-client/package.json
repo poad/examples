@@ -19,10 +19,10 @@
     "all": "pnpm lint && pnpm test && pnpm build"
   },
   "dependencies": {
-    "@emotion/cache": "^11.12.0",
-    "@emotion/react": "^11.12.0",
+    "@emotion/cache": "^11.13.0",
+    "@emotion/react": "^11.13.0",
     "@emotion/server": "^11.11.0",
-    "@emotion/styled": "^11.12.0",
+    "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.4",
     "@mui/material": "^5.16.4",
     "@mui/styles": "^5.16.4",
@@ -49,7 +49,7 @@
     "eslint-plugin-jest": "^28.6.0",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.34.4",
+    "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "next-transpile-modules": "^10.0.1",
     "postcss": "^8.4.39",
