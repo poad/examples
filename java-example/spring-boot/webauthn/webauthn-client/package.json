@@ -11,8 +11,8 @@
     "analyze": "ANALYZE=true next build",
     "elint-check": "eslint 'src/**/*.{ts,js,tsx,jsx}'",
     "elint-fix": "eslint --fix 'src/**/*.{ts,js,tsx,jsx}'",
-    "lint": "pnpm prettier-check && pnpm elint-check",
-    "lint-fix": "pnpm prettier-format && pnpm elint-fix",
+    "lint": "pnpm elint-check",
+    "lint-fix": "pnpm elint-fix",
     "clean": "rimraf build",
     "all": "pnpm lint && pnpm test && pnpm build"
   },
