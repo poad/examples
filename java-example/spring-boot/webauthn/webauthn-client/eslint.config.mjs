@@ -27,7 +27,6 @@ export default [
     'plugin:react/recommended',
     'plugin:@next/next/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
   ),
   {
     plugins: {
