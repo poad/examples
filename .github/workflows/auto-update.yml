@@ -53,6 +53,7 @@ jobs:
   auto-update:
     needs: [list-head-refs]
     runs-on: ubuntu-latest
+    if: ${{ fromJSON(needs.list-head-refs.outputs.head-refs).length > 0 }}
     strategy:
       matrix:
         head-ref: ${{ fromJSON(needs.list-head-refs.outputs.head-refs) }}
