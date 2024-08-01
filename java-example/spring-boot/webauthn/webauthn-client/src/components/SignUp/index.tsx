@@ -196,7 +196,7 @@ const SignUp = (props: SignUpProp): JSX.Element => {
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs): void => {
     registerToServer(data.email, data.name).catch((error) => {
-      // eslint-disable-next-line no-console
+       
       console.error(error);
       props.onError(JSON.stringify(error, null, 2));
     });
