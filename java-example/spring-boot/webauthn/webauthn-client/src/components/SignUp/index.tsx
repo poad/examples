@@ -51,10 +51,10 @@ interface SignUpProp {
 }
 
 const SignUp = (props: SignUpProp): JSX.Element => {
-  type Inputs = {
+  interface Inputs {
     name: string;
     email: string;
-  };
+  }
 
   const { register, handleSubmit } = useForm<Inputs>();
 

@@ -68,9 +68,9 @@ async function authenticationFinish<T>(
 }
 
 const SignIn = (props: SignInProp): JSX.Element => {
-  type Inputs = {
+  interface Inputs {
     email: string;
-  };
+  }
 
   const { register, handleSubmit } = useForm<Inputs>();
 
@@ -155,7 +155,7 @@ const SignIn = (props: SignInProp): JSX.Element => {
 
       const json = await credentialToJSON(credential);
 
-      await authenticationFinish<void>(json);
+      await authenticationFinish(json);
       props.onAuthenticated();
     } catch (error) {
       props.onError((error as Error).message);
