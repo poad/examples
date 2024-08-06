@@ -6,7 +6,7 @@ import { State, Comment } from '../../store/comment/types';
 import RestClient from './RestClient';
 
 interface Props {
-  comments: Array<Comment>;
+  comments: Comment[];
   comment: string;
 }
 
@@ -61,7 +61,7 @@ export default class CommentList extends Component<Props, State> {
     }
   };
 
-  list = (): Array<JSX.Element> =>
+  list = (): JSX.Element[] =>
     this.state.comments
       .filter((comment) => comment.id)
       .map((comment) => (

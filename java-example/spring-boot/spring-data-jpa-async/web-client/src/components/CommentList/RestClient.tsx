@@ -21,23 +21,23 @@ class RestClient {
     return json as Comment;
   }
 
-  async fetchComments(): Promise<Array<Comment>> {
+  async fetchComments(): Promise<Comment[]> {
     const json = await fetch(this.endpoint, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
       },
-    }).then((res): Promise<Array<Comment>> | undefined => {
+    }).then((res): Promise<Comment[]> | undefined => {
       if (res.ok) {
-        return res.json() as Promise<Array<Comment>>;
+        return res.json() as Promise<Comment[]>;
       }
       return Promise.resolve([] as Comment[]);
     });
 
-    return json as Array<Comment>;
+    return json as Comment[];
   }
 
-  async update(id: string, comment: string): Promise<Array<Comment>> {
+  async update(id: string, comment: string): Promise<Comment[]> {
     const json = await fetch(this.endpoint + id, {
       method: 'PUT',
       headers: {
@@ -45,14 +45,14 @@ class RestClient {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ comment }),
-    }).then((res): Promise<Array<Comment>> | undefined => {
+    }).then((res): Promise<Comment[]> | undefined => {
       if (res.ok) {
-        return res.json() as Promise<Array<Comment>>;
+        return res.json() as Promise<Comment[]>;
       }
       return undefined;
     });
 
-    return json as Array<Comment>;
+    return json as Comment[];
   }
 
   async delete(id: string): Promise<void> {

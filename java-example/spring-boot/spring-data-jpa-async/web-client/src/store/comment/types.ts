@@ -3,7 +3,7 @@ export interface Comment {
   comment: string;
 }
 
-export type CommentState = Array<Comment>;
+export type CommentState = Comment[];
 
 export interface State {
   comments: CommentState;
