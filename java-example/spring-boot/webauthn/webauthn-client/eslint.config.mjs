@@ -5,36 +5,23 @@ import jest from 'eslint-plugin-jest';
 import _import from 'eslint-plugin-import';
 import nextPlugin from '@next/eslint-plugin-next';
 import { fixupPluginRules } from '@eslint/compat';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
 import tseslint from 'typescript-eslint';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
 
 export default tseslint.config(
   {
     ignores: ['**/*.d.ts', '**/*.js'],
   },
-  ...compat.extends(
-    'plugin:@next/next/recommended',
-    'plugin:@typescript-eslint/recommended',
-  ),
+  ...tseslint.configs.strict,
+  ...tseslint.configs.stylistic,
   {
     plugins: {
       jest,
       import: fixupPluginRules(_import),
       '@next/next': nextPlugin,
     },
+    // @ts-expect-error ignore
     rules: {
-      '@typescript-eslint/indent': ['error', 2],
       'spaced-comment': [
         'error',
         'always',
