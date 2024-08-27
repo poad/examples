@@ -1,5 +1,7 @@
 'use client';
 import { ReactNode, useState } from 'react';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
 import {
   AppBar,
   Box,
@@ -7,8 +9,6 @@ import {
   Divider,
   Drawer,
   IconButton,
-  List,
-  ListItem,
   ListItemIcon,
   ListItemText,
   ThemeProvider,
@@ -55,12 +55,12 @@ function Base({ children }: { children: ReactNode }) {
         <Divider />
         <List sx={{ width: drawerWidth }}>
           {['Info'].map((text) => (
-            <ListItem button key={text} sx={{ color: '#2d2d2d' }}>
+            <ListItemButton key={text} sx={{ color: '#2d2d2d' }}>
               <ListItemIcon sx={{ color: '#2d2d2d' }}>
                 <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary={text} />
-            </ListItem>
+            </ListItemButton>
           ))}
         </List>
       </Drawer>

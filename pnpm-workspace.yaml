@@ -1,0 +1,3 @@
+packages:
+  - './java-example/spring-boot/spring-data-jpa-async/web-client'
+  - './java-example/spring-boot/webauthn/webauthn-client'
