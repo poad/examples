@@ -35,7 +35,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.1.28'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:10.1.29'
 
 	// https://mvnrepository.com/artifact/p6spy/p6spy
 	runtimeOnly 'p6spy:p6spy:3.9.1'
