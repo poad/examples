@@ -26,7 +26,7 @@ dependencies {
 	implementation 'ma.glasnost.orika:orika-core:1.5.4'
 
 	// https://mvnrepository.com/artifact/com.google.guava/guava
-	implementation ('com.google.guava:guava:33.3.0-jre') {
+	implementation ('com.google.guava:guava:33.3.1-jre') {
 		exclude group: 'com.google.code.findbugs', module: 'jsr305'
 	}
 
