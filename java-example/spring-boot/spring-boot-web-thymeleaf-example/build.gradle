@@ -24,7 +24,7 @@ dependencies {
 
     implementation 'javax.transaction:javax.transaction-api:1.3'
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.17.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.18.0'
 
     runtimeOnly 'io.micrometer:micrometer-registry-jmx'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
