@@ -30,14 +30,14 @@
     "web-vitals": "^4.2.3"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.1.1",
+    "@eslint/compat": "^1.2.0",
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.11.1",
+    "@eslint/js": "^9.12.0",
     "@next/bundle-analyzer": "^14.2.14",
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.11",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.11.1",
+    "eslint": "^9.12.0",
     "eslint-config-import": "^0.13.0",
     "eslint-config-next": "^14.2.14",
     "eslint-import-resolver-typescript": "^3.6.3",
