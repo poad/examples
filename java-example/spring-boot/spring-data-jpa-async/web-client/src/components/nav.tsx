@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const links = [
   { href: 'https://zeit.co/now', label: 'ZEIT' },
   { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
@@ -10,9 +12,9 @@ const Nav = (): JSX.Element => (
   <nav>
     <ul>
       <li>
-        <a href="/">
+        <Link href="/">
           <a>Home</a>
-        </a>
+        </Link>
       </li>
       {links.map(({ key, href, label }) => (
         <li key={key}>
