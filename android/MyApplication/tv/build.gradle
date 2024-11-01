@@ -4,16 +4,15 @@ plugins {
 }
 
 android {
-    compileSdk 34
 //    buildToolsVersion = $buildToolsVersion
 
     defaultConfig {
         applicationId "com.example.myapplication"
-        minSdk 31
-        targetSdk 34
+        minSdk 35
+        targetSdk 35
+        compileSdk 35
         versionCode 1
         versionName "1.0"
-
     }
 
     buildTypes {
@@ -23,19 +22,22 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = "1.8"
     }
     namespace 'com.example.myapplication'
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.15.0'
     implementation 'androidx.leanback:leanback:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.2'
 }

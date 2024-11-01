@@ -2,12 +2,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 34
-
     defaultConfig {
         applicationId "com.poad1010.example.helloandroid"
-        minSdkVersion 28
-        targetSdkVersion 34
+        minSdkVersion 35
+        compileSdk 35
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -25,8 +24,13 @@ android {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+      coreLibraryDesugaringEnabled true
+      sourceCompatibility JavaVersion.VERSION_1_8
+      targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+      jvmTarget = "1.8"
     }
     buildFeatures {
         viewBinding true
@@ -49,7 +53,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.7.1'
+        classpath 'com.android.tools.build:gradle:8.7.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.8.3'
     }
@@ -68,6 +72,8 @@ dependencies {
     androidTestImplementation('androidx.test.espresso:espresso-core:3.6.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.2'
 
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
