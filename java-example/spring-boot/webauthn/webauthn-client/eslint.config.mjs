@@ -9,12 +9,10 @@ import tseslint from 'typescript-eslint';
 
 
 export default tseslint.config(
-  {
-    ignores: ['**/*.d.ts', '**/*.js'],
-  },
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
   {
+    ignores: ['**/*.d.ts', '**/*.js'],
     plugins: {
       jest,
       import: fixupPluginRules(_import),
