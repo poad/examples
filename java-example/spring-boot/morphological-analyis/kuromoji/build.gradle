@@ -6,7 +6,7 @@ buildscript {
         }
     }
     ext {
-        log4j2Version = '2.24.1'
+        log4j2Version = '2.24.2'
     }
 }
 
