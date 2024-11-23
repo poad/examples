@@ -7,7 +7,7 @@
  * user guide available at https://docs.gradle.org/2.6/userguide/tutorial_java_projects.html
  */
 plugins {
-    id "org.flywaydb.flyway" version '11.0.0' apply false
+    id "org.flywaydb.flyway" version '10.22.0' apply false
 }
 
 
@@ -27,7 +27,7 @@ ext {
 
     flywayVersion = '7.8.2'
 
-    springBootVersion = '3.0.6'
+    springBootVersion = '3.4.0'
     springLoadedVersion = '1.2.8.RELEASE'
 
     slf4jVersion = '2.0.16'
@@ -35,7 +35,7 @@ ext {
     p6spyVersion = '3.9.0'
     tomcatJdbcPoolVersion = '10.0.21'
 
-    log4jVersion = '2.24.2'
+    log4jVersion = '2.24.1'
 
     dbUnitVersion = '2.7.3'
 
