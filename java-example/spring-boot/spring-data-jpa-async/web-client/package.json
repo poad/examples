@@ -34,7 +34,7 @@
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.15.0",
     "@next/bundle-analyzer": "^15.0.3",
-    "@types/node": "^22.10.0",
+    "@types/node": "^22.10.1",
     "@types/react": "^18.3.12",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",
