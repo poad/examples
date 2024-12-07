@@ -1,4 +1,6 @@
 'use client';
+
+import { JSX } from 'react';
 import CommentList from '../components/CommentList';
 
 const Home = (): JSX.Element => (

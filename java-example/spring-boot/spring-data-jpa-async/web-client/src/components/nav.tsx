@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { JSX } from "react";
 
 const links = [
   { href: 'https://zeit.co/now', label: 'ZEIT' },

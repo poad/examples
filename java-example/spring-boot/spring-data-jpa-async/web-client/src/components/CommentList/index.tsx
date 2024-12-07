@@ -1,5 +1,5 @@
 'use client';
-import { ChangeEvent, Component } from 'react';
+import { ChangeEvent, Component, JSX } from 'react';
 import { Button, TextField } from '@mui/material';
 import ListNode from './ListNode';
 import { State, Comment } from '../../store/comment/types';

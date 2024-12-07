@@ -1,4 +1,6 @@
 'use client';
+
+import { JSX } from 'react';
 import { Box, Button, Link, TextField } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -196,7 +198,7 @@ const SignUp = (props: SignUpProp): JSX.Element => {
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs): void => {
     registerToServer(data.email, data.name).catch((error) => {
-       
+
       console.error(error);
       props.onError(JSON.stringify(error, null, 2));
     });

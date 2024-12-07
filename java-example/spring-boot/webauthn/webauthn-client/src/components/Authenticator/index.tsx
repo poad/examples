@@ -1,5 +1,6 @@
 'use client';
-import { ReactNode, useState } from 'react';
+
+import { JSX, ReactNode, useState } from 'react';
 
 import { Typography } from '@mui/material';
 
