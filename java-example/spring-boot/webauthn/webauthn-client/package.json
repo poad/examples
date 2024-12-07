@@ -25,8 +25,8 @@
     "@mui/material": "^6.1.10",
     "@mui/styles": "^6.1.10",
     "next": "^15.0.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.0",
     "web-vitals": "^4.2.4"
   },
