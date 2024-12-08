@@ -1,5 +1,5 @@
 'use client';
-import { ChangeEvent, Component, JSX } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Button, TextField } from '@mui/material';
 import RestClient from './RestClient';
 
@@ -17,68 +17,58 @@ interface Props {
   onDelete(id: string): void;
 }
 
-class ListNode extends Component<Props, State> {
-  props: Props;
+function ListNode(props: Props) {
+  const [state, setState] = useState<State>({
+    id: props.id,
+    comment: props.comment,
+    text: '',
+  });
+  const client = props.client;
 
-  state: State;
 
-  client: RestClient;
-
-  constructor(props: Props) {
-    super(props);
-    this.props = props;
-    this.state = {
-      id: props.id,
-      comment: props.comment,
-      text: '',
-    };
-    this.client = props.client;
-  }
-
-  changeText = (event: ChangeEvent<HTMLInputElement>): void => {
-    this.setState({
-      id: this.props.id,
-      text: event.currentTarget.value,
-    });
-  };
-
-  update = (): void => {
-    if (this.props.id && this.state.text.length > 0) {
-      this.client.update(this.props.id, this.state.text).then(() =>
-        this.setState({
-          id: this.props.id,
-          comment: this.state.text,
+  function update(): void {
+    if (props.id && state.text.length > 0) {
+      client.update(props.id, state.text).then(() =>
+        setState({
+          id: props.id,
+          comment: state.text,
           text: '',
         })
       );
     }
   };
 
-  delete = (): void => {
-    if (this.props.id) {
-      this.client.delete(this.props.id).then(() => {
-        this.props.onDelete(this.props.id);
+  function deleteItem(): void {
+    if (props.id) {
+      client.delete(props.id).then(() => {
+        props.onDelete(props.id);
       });
     }
   };
 
-  public render(): JSX.Element {
-    return (
-      <tr>
-        <td>{this.state.comment}</td>
-        <td>
-          <TextField
-            type="text"
-            name="comment"
-            value={this.state.text}
-            onChange={this.changeText}
-          />
-          <Button onClick={(): void => this.update()}>更新</Button>
-          <Button onClick={(): void => this.delete()}>削除</Button>
-        </td>
-      </tr>
-    );
-  }
+  function changeText(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, comment: string): void {
+    setState({
+      id: props.id,
+      text: event.currentTarget.value,
+      comment,
+    });
+  };
+
+  return (
+    <tr>
+      <td>{state.comment}</td>
+      <td>
+        <TextField
+          type="text"
+          name="comment"
+          value={state.text}
+          onChange={(e) => changeText(e, state.comment)}
+        />
+        <Button onClick={(): void => update()}>更新</Button>
+        <Button onClick={(): void => deleteItem()}>削除</Button>
+      </td>
+    </tr>
+  );
 }
 
 export default ListNode;
