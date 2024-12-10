@@ -45,7 +45,7 @@ dependencies {
   runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-sql-mysql'
   runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
 
-  runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.14.1'
+  runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.14.2'
   runtimeOnly 'io.micrometer:micrometer-registry-jmx:1.14.1'
 
 	implementation 'jakarta.validation:jakarta.validation-api'
