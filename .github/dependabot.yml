@@ -34,7 +34,7 @@ updates:
   - package-ecosystem: gradle
     directories:
       - '/android/HelloAndroid/'
-      -  '/android/MyApplication/'
+      - '/android/MyApplication/'
       - '/java-example/'
       - '/java-example/spring-boot/morphological-analyis/kuromoji/'
       - '/java-example/spring-boot/spring-boot-cassandra/'
@@ -60,6 +60,10 @@ updates:
     rebase-strategy: auto
     assignees:
       - poad
+    groups:
+      gradle:
+        patterns:
+          - "*"
 
   - package-ecosystem: maven
     directory: '/quarkus-example/getting-started/'
@@ -71,3 +75,7 @@ updates:
     rebase-strategy: auto
     assignees:
       - poad
+    groups:
+      maven:
+        patterns:
+          - "*"
