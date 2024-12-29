@@ -7,7 +7,7 @@ plugins {
 ext {
   tomcatJdbcVersion = "11.0.2"
   webauthn4jVersion = "0.28.3.RELEASE"
-  mysqlConnectorVersion = "8.0.33"
+  mysqlConnectorVersion = "9.1.0"
 }
 
 group = 'com.github.poad.examples'
@@ -35,7 +35,7 @@ dependencies {
     implementation "com.webauthn4j:webauthn4j-core:${webauthn4jVersion}"
     implementation "com.webauthn4j:webauthn4j-metadata:${webauthn4jVersion}"
     if (project.hasProperty('env')) {
-        runtimeOnly "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+        runtimeOnly "com.mysql:mysql-connector-j:${mysqlConnectorVersion}"
     } else {
         runtimeOnly 'com.h2database:h2'
     }

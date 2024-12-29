@@ -14,7 +14,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'mysql:mysql-connector-java:' + mysqlConnectorVersion
+        classpath "com.mysql:mysql-connector-j:${mysqlConnectorVersion}"
     }
 }
 

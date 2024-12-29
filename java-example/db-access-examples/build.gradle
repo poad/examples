@@ -40,7 +40,7 @@ dependencies {
     implementation "org.jdbi:jdbi3-jodatime2:${jdbiVersion}"
 
     implementation 'com.zaxxer:HikariCP:' + hikariCpVersion
-    implementation 'mysql:mysql-connector-java:' + mysqlConnectorVersion
+    implementation "com.mysql:mysql-connector-j:${mysqlConnectorVersion}"
     runtimeOnly 'com.h2database:h2:' + h2Version
 
 }
