@@ -20,7 +20,7 @@ jobs:
         java_versions:
           - 17
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK  ${{ matrix.java_versions }}
@@ -73,7 +73,7 @@ jobs:
         java_versions:
           - 17
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK  ${{ matrix.java_versions }}
@@ -98,7 +98,7 @@ jobs:
         ./gradlew build -x test
 
   node:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
 
     - uses: actions/checkout@v4
@@ -120,7 +120,7 @@ jobs:
       run: pnpm all
 
   quarkus-example:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     strategy:
       matrix:
         java_versions:
