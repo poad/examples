@@ -20,7 +20,7 @@ jobs:
         java_versions:
           - 17
 
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK  ${{ matrix.java_versions }}
