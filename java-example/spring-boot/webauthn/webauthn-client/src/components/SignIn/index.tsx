@@ -53,7 +53,7 @@ async function assertionOptions<T>(email: string): Promise<T> {
 
 async function authenticationFinish<T>(
   credential: IAuthenticatorAssertionJSON,
-): Promise<T> {
+): Promise<T | undefined> {
   const response = await fetch('/api/assertion/result', {
     method: 'POST',
     body: JSON.stringify({
