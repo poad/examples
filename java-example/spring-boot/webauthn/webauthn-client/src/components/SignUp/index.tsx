@@ -77,7 +77,7 @@ const SignUp = (props: SignUpProp): JSX.Element => {
 
   async function registerFinish<T>(
     credential: IAuthenticatorAttestationJSON,
-  ): Promise<T> {
+  ): Promise<T | undefined> {
     const response = await fetch('/api/attestation/result', {
       method: 'POST',
       body: JSON.stringify({
