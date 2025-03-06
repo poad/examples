@@ -22,7 +22,7 @@ dependencies {
 		exclude group: 'com.zaxxer', module: 'HikariCP'
 	}
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	implementation 'org.apache.tomcat:tomcat-jdbc:11.0.4'
+	implementation 'org.apache.tomcat:tomcat-jdbc:11.0.5'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'jakarta.validation:jakarta.validation-api'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
