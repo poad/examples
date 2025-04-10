@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "echo ''",
-    "dev": "next",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "export": "echo \"no action in script. Please run pnpm build (includes next export)\"",
     "start": "next start",
@@ -23,7 +23,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.0.2",
     "@mui/material": "^7.0.2",
-    "@mui/styles": "^6.4.11",
+    "@mui/system": "^7.0.2",
     "next": "^15.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
