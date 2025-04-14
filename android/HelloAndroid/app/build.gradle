@@ -41,8 +41,8 @@ android {
 buildscript {
     ext {
         retrofitVersion = '2.11.0'
-        junitVersion = '5.12.1'
-        junit4Version = '5.12.1'
+        junitVersion = '5.12.2'
+        junit4Version = '5.12.2'
     }
 
     repositories {
@@ -80,7 +80,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation 'com.google.code.gson:gson:2.12.1'
+    implementation 'com.google.code.gson:gson:2.13.0'
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.14"
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
