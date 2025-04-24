@@ -21,7 +21,6 @@ jobs:
           - 17
         path:
           - android/HelloAndroid
-          - android/MyApplication
 
     runs-on: ubuntu-latest
     steps:

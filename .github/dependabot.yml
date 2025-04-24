@@ -34,7 +34,6 @@ updates:
   - package-ecosystem: gradle
     directories:
       - '/android/HelloAndroid/'
-      - '/android/MyApplication/'
       - '/java-example/'
       - '/java-example/spring-boot/morphological-analyis/kuromoji/'
       - '/java-example/spring-boot/spring-boot-cassandra/'
