@@ -19,6 +19,9 @@ jobs:
       matrix:
         java_versions:
           - 17
+        path:
+          - android/HelloAndroid
+          - android/MyApplication
 
     runs-on: ubuntu-latest
     steps:
@@ -38,17 +41,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
 
-    - name: Build with Gradle (android/HelloAndroid)
+    - name: Build with Gradle (${{ matrix.path }})
+      working-directory: ${{ matrix.path }}
       run: |
-        cd android/HelloAndroid
         chmod +x gradlew
         ./gradlew build -x test
-
-    - name: Build with Gradle (android/MyApplication)
-      run: |
-        cd android/MyApplication
-        chmod +x gradlew
-        ./gradlew build
 
   java-example:
     timeout-minutes: 120
