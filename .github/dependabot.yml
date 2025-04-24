@@ -65,7 +65,13 @@ updates:
           - "*"
 
   - package-ecosystem: maven
-    directory: '/quarkus-example/getting-started/'
+    directories:
+      - '/quarkus-example/getting-started/'
+      - '/java-maven-example/apache-hc-digest-auth-examoles/'
+      - '/java-maven-example/spring-boot-data-doma2-example/'
+      - '/java-maven-example/spring-boot-data-doma2-jmx-example/'
+      - '/java-maven-example/spring-boot-doma2-example/'
+      - '/java-maven-example/spring-boot-uroborosql-example/'
     schedule:
       interval: daily
       timezone: Asia/Tokyo
