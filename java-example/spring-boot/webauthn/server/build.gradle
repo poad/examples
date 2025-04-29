@@ -7,7 +7,7 @@ plugins {
 ext {
   tomcatJdbcVersion = "11.0.6"
   webauthn4jVersion = "0.29.0.RELEASE"
-  mysqlConnectorVersion = "9.2.0"
+  mysqlConnectorVersion = "9.3.0"
 }
 
 group = 'com.github.poad.examples'
