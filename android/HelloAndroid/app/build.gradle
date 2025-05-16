@@ -40,7 +40,7 @@ android {
 
 buildscript {
     ext {
-        retrofitVersion = '2.11.0'
+        retrofitVersion = '3.0.0'
         junitVersion = '5.12.2'
         junit4Version = '5.12.2'
     }
