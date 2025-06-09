@@ -42,8 +42,8 @@ ext {
     junitVersion = '4.13.2'
     junit4Version        = '4.13.2'
     junitVintageVersion  = '5.7.2'
-    junitPlatformVersion = '1.13.0'
-    junitJupiterVersion  = '5.13.0'
+    junitPlatformVersion = '1.13.1'
+    junitJupiterVersion  = '5.13.1'
 
     xRayBomVersion = '2.9.0'
 }
