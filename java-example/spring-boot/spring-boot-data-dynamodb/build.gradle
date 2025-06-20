@@ -1,5 +1,5 @@
 plugins {
-  id 'org.springframework.boot' version '3.5.0'
+  id 'org.springframework.boot' version '3.5.3'
   id 'io.spring.dependency-management' version '1.1.7'
   id 'java'
   id 'application'
@@ -18,7 +18,7 @@ repositories {
 
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
-	awsSdkVersion = '2.31.66'
+	awsSdkVersion = '2.31.67'
 	springCloudVersion = '2025.0.0'
 }
 
