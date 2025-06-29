@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "scripts": {
     "all": "pnpm -r all",
     "build": "pnpm -r build",

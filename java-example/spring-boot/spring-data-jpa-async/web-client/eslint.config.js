@@ -1,7 +1,6 @@
 // @ts-check
 
 import jest from 'eslint-plugin-jest';
-// @ts-expect-error ignore errors
 import _import from 'eslint-plugin-import';
 import nextPlugin from '@next/eslint-plugin-next';
 import { fixupPluginRules } from '@eslint/compat';
@@ -9,16 +8,18 @@ import tseslint from 'typescript-eslint';
 
 
 export default tseslint.config(
+  {
+    ignores: ['.next', '**/*.d.ts', '**/*.js'],
+  },
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
   {
-    ignores: ['**/*.d.ts', '**/*.js'],
     plugins: {
       jest,
       import: fixupPluginRules(_import),
       '@next/next': nextPlugin,
     },
-    // @ts-expect-error ignore errors
+    // @ts-ignore
     rules: {
       'spaced-comment': [
         'error',

@@ -4,3 +4,8 @@ packages:
 
 onlyBuiltDependencies:
   - unrs-resolver
+
+enablePrePostScripts: true
+legacyPeerDeps: true
+autoInstallPeers: true
+strictPeerDependencies: false

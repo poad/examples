@@ -134,3 +134,4 @@ yarn-error.log*
 
 src/next-env.d.ts
 src/tsconfig.json
+!eslint.config.js
