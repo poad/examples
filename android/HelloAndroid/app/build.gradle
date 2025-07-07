@@ -41,8 +41,8 @@ android {
 buildscript {
     ext {
         retrofitVersion = '3.0.0'
-        junitVersion = '5.13.2'
-        junit4Version = '5.13.2'
+        junitVersion = '5.13.3'
+        junit4Version = '5.13.3'
     }
 
     repositories {
