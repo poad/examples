@@ -23,7 +23,7 @@ ext {
     jdbiVersion = '3.49.5'
     hikariCpVersion = '4.0.3'
     h2Version = '1.4.200'
-    mysqlConnectorVersion = '9.3.0'
+    mysqlConnectorVersion = '9.4.0'
 
     flywayVersion = '7.8.2'
 
