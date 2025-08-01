@@ -91,11 +91,11 @@ const SignUp = (props: SignUpProp): JSX.Element => {
       : undefined;
   }
 
-  const stringToArrayBuffer = (string: string): Uint8Array =>
-    new TextEncoder().encode(string);
+  const stringToArrayBuffer = (string: string): Buffer<ArrayBuffer> =>
+    Buffer.from(new TextEncoder().encode(string).toString());
 
-  const base64ToArrayBuffer = (base64String: string): Uint8Array =>
-    Uint8Array.from(atob(base64String), (_) => _.charCodeAt(0));
+  const base64ToArrayBuffer = (base64String: string): Buffer<ArrayBuffer> =>
+    Buffer.from(Uint8Array.from(atob(base64String), (_) => _.charCodeAt(0)).toString());
 
   const convertCreateOptions = (
     source: ICredentialCreationOptions,

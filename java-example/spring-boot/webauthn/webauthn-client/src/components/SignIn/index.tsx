@@ -116,7 +116,7 @@ const SignIn = (props: SignInProp): JSX.Element => {
             transports: credential.transports,
           }) as PublicKeyCredentialDescriptor,
       ),
-      challenge: stringToArrayBuffer(source.challenge.value),
+      challenge: Buffer.from(stringToArrayBuffer(source.challenge.value).toString()),
       extensions: source.extensions,
       rpId: source.rpId,
       timeout: source.timeout,

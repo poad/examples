@@ -33,7 +33,7 @@ function ListNode(props: Props) {
           id: props.id,
           comment: state.text,
           text: '',
-        })
+        }),
       );
     }
   };
