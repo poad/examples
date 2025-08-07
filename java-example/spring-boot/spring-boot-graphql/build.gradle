@@ -28,7 +28,7 @@ dependencies {
 //	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.9'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.10'
 	runtimeOnly 'com.h2database:h2:2.3.232'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
