@@ -24,7 +24,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Set up JDK  ${{ matrix.java_versions }}
       uses: actions/setup-java@v4
       with:
@@ -71,7 +71,7 @@ jobs:
 
     runs-on: ubuntu-24.04-arm
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Set up JDK  ${{ matrix.java_versions }}
       uses: actions/setup-java@v4
       with:
@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Use Node.js 22.x
       uses: actions/setup-node@v4
@@ -122,7 +122,7 @@ jobs:
         java_versions:
           - 17
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Set up JDK ${{ matrix.java_versions }}
       uses: actions/setup-java@v4
       with:
