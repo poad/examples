@@ -4,9 +4,9 @@ apply plugin: 'kotlin-android'
 android {
     defaultConfig {
         applicationId "com.poad1010.example.helloandroid"
-        minSdkVersion 35
-        compileSdk 35
-        targetSdkVersion 35
+        minSdkVersion 36
+        compileSdk 36
+        targetSdkVersion 36
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -24,18 +24,18 @@ android {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
     compileOptions {
-      coreLibraryDesugaringEnabled true
-      sourceCompatibility JavaVersion.VERSION_1_8
-      targetCompatibility JavaVersion.VERSION_1_8
+      coreLibraryDesugaringEnabled = true
+      sourceCompatibility JavaVersion.VERSION_11
+      targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-      jvmTarget = "1.8"
+      jvmTarget = "11"
     }
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
-    namespace 'com.poad1010.example.helloandroid'
+    namespace = 'com.poad1010.example.helloandroid'
 }
 
 buildscript {
@@ -48,8 +48,8 @@ buildscript {
     repositories {
         mavenCentral()
         maven {                                  // <-- Add this
-            url 'https://maven.google.com/'
-            name 'Google'
+            url = 'https://maven.google.com/'
+            name = 'Google'
         }
     }
     dependencies {
@@ -63,7 +63,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'androidx.core:core-ktx:1.17.0'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.9.3'

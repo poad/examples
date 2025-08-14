@@ -8,22 +8,21 @@ import io.reactivex.schedulers.Schedulers
 
 class QiitaServiceTest {
 
-    @Test
-    fun test() {
-        val retrofit = Retrofit.Builder()
-                .baseUrl("https://qiita.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+  @Test
+  fun test() {
+    val retrofit = Retrofit.Builder()
+      .baseUrl("https://qiita.com")
+      .addConverterFactory(GsonConverterFactory.create())
+      .build()
 
-        val qiita = retrofit.create(QiitaService::class.java)
-
-        qiita.tags()
-                .subscribeOn(Schedulers.newThread())
-                .subscribe(
-                        {
-                            assertTrue(it.isNotEmpty())
-
-                        }
-                )
+    retrofit.create(QiitaService::class.java).apply {
+      val results = tags()
+        .subscribeOn(Schedulers.newThread())
+        .subscribe {
+          assertTrue(it.isNotEmpty())
+        }
+      assertTrue(results.isDisposed)
     }
+  }
 }
+
