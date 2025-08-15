@@ -19,7 +19,7 @@
   },
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.4.5",
+    "@next/eslint-plugin-next": "^15.4.6",
     "pnpm": "^10.14.0"
   }
 }
