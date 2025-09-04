@@ -21,7 +21,7 @@ jobs:
       head-refs: ${{ steps.list-head-refs.outputs.result }}
     steps:
       - name: List head refs
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: list-head-refs
         with:
           script: |
