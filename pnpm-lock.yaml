@@ -12,8 +12,8 @@ importers:
         specifier: ^15.5.3
         version: 15.5.3
       pnpm:
-        specifier: ^10.15.1
-        version: 10.15.1
+        specifier: ^10.16.0
+        version: 10.16.0
 
   java-example/spring-boot/spring-data-jpa-async/web-client:
     dependencies:
@@ -1911,8 +1911,8 @@ packages:
       sass:
         optional: true
 
-  node-releases@2.0.20:
-    resolution: {integrity: sha512-7gK6zSXEH6neM212JgfYFXe+GmZQM+fia5SsusuBIUgnPheLFBmIPhtFoAQRj8/7wASYQnbDlHPVwY0BefoFgA==}
+  node-releases@2.0.21:
+    resolution: {integrity: sha512-5b0pgg78U3hwXkCM8Z9b2FJdPZlr9Psr9V2gQPESdGHqbntyFJKFW4r5TeWGFzafGY3hzs1JC62VEQMbl1JFkw==}
 
   normalize-range@0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
@@ -2007,8 +2007,8 @@ packages:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
 
-  pnpm@10.15.1:
-    resolution: {integrity: sha512-NOU4wym1VTAUyo6PRTWZf5YYCh0PYUM5NXRJk1NQ2STiL4YUaCGRJk7DPRRirCFWGv+X9rsYBlNRwWLH6PbeZw==}
+  pnpm@10.16.0:
+    resolution: {integrity: sha512-gGbnsDQhe3AKmk27OgBQYdZBuhMKiZFSE6ELPKSRnBnAN77IBmr9xVm4ljX9uAaxbqZz8kaPuyiqv6E8U+P3aQ==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -3308,7 +3308,7 @@ snapshots:
     dependencies:
       caniuse-lite: 1.0.30001741
       electron-to-chromium: 1.5.218
-      node-releases: 2.0.20
+      node-releases: 2.0.21
       update-browserslist-db: 1.1.3(browserslist@4.25.4)
 
   buffer-from@0.1.2: {}
@@ -4298,7 +4298,7 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  node-releases@2.0.20: {}
+  node-releases@2.0.21: {}
 
   normalize-range@0.1.2: {}
 
@@ -4396,7 +4396,7 @@ snapshots:
 
   picomatch@4.0.3: {}
 
-  pnpm@10.15.1: {}
+  pnpm@10.16.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
