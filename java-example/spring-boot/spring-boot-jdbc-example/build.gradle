@@ -26,7 +26,7 @@ dependencies {
 	implementation 'ma.glasnost.orika:orika-core:1.5.4'
 
 	// https://mvnrepository.com/artifact/com.google.guava/guava
-	implementation ('com.google.guava:guava:33.4.8-jre') {
+	implementation ('com.google.guava:guava:33.5.0-jre') {
 		exclude group: 'com.google.code.findbugs', module: 'jsr305'
 	}
 
@@ -36,8 +36,8 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.11'
 
-	compileOnly 'org.projectlombok:lombok:1.18.40'
-	annotationProcessor 'org.projectlombok:lombok:1.18.40'
+	compileOnly 'org.projectlombok:lombok:1.18.42'
+	annotationProcessor 'org.projectlombok:lombok:1.18.42'
 
 	// https://mvnrepository.com/artifact/p6spy/p6spy
 	runtimeOnly 'p6spy:p6spy:3.9.1'
