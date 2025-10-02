@@ -44,7 +44,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.42'
 
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-xray-recorder-sdk-bom
-	implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.19.0')
+	implementation platform('com.amazonaws:aws-xray-recorder-sdk-bom:2.20.0')
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-core'
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-sql-mysql'
     runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
