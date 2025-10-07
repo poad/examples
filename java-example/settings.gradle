@@ -12,7 +12,6 @@
 // To declare projects as part of a multi-project build use the 'include' method
 include 'db-access-examples'
 include 'dbunit-examples'
-include 'flyway-example'
 // include 'spring-boot-jpa-example'
 include 'tuple4j-example'
 include 'vertx-examples'
