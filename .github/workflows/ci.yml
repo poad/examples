@@ -67,7 +67,7 @@ jobs:
         java_versions:
           - 17
 
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
     - name: Set up JDK  ${{ matrix.java_versions }}
@@ -92,15 +92,15 @@ jobs:
         ./gradlew build -x test
 
   node:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     steps:
 
     - uses: actions/checkout@v5
 
-    - name: Use Node.js 22.x
+    - name: Use Node.js
       uses: actions/setup-node@v5
       with:
-        node-version: 22.x
+        node-version: 'lts/*'
         check-latest: true
         package-manager-cache: false
 
@@ -115,7 +115,7 @@ jobs:
       run: pnpm all
 
   quarkus-example:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         java_versions:
