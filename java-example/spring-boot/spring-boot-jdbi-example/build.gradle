@@ -42,7 +42,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.11'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.12'
 
 	compileOnly 'org.projectlombok:lombok:1.18.42'
 	annotationProcessor 'org.projectlombok:lombok:1.18.42'
