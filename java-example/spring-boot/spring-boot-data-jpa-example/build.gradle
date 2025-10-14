@@ -34,7 +34,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.12'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.13'
 
 	// compileOnly 'org.projectlombok:lombok:1.18.20'
 	// annotationProcessor 'org.projectlombok:lombok:1.18.20'
@@ -45,8 +45,8 @@ dependencies {
   runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-sql-mysql'
   runtimeOnly 'com.amazonaws:aws-xray-recorder-sdk-spring'
 
-  runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.15.4'
-  runtimeOnly 'io.micrometer:micrometer-registry-jmx:1.15.4'
+  runtimeOnly 'io.micrometer:micrometer-registry-prometheus:1.15.5'
+  runtimeOnly 'io.micrometer:micrometer-registry-jmx:1.15.5'
 
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'org.hibernate.validator:hibernate-validator'
