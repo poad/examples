@@ -10,6 +10,7 @@ legacyPeerDeps: true
 autoInstallPeers: true
 strictPeerDependencies: false
 overrides:
-  "@types/react": 19.2.2
-  "@types/react-dom": 19.2.2
-
+  "@types/react": ^19.2.2
+  "@types/react-dom": ^19.2.2
+  eslint@=9.39.0: 9.38.0
+  '@eslint/js@=9.39.0': 9.38.0
