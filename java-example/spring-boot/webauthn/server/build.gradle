@@ -12,7 +12,10 @@ ext {
 
 group = 'com.github.poad.examples'
 version = '1.0.0'
-sourceCompatibility = JavaVersion.VERSION_17
+java {
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
 	mavenCentral()
@@ -21,24 +24,24 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation ('org.springframework.boot:spring-boot-starter-data-jpa') {
-        exclude group: 'com.zaxxer', module: 'HikariCP'
-    }
+      exclude group: 'com.zaxxer', module: 'HikariCP'
+  }
     // https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-    implementation "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
+  implementation "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
-    implementation 'org.springframework.security:spring-security-core'
-    implementation 'jakarta.validation:jakarta.validation-api'
+  // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+  implementation 'org.springframework.security:spring-security-core'
+  implementation 'jakarta.validation:jakarta.validation-api'
 
-    // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
-    implementation "com.webauthn4j:webauthn4j-core:${webauthn4jVersion}"
-    implementation "com.webauthn4j:webauthn4j-metadata:${webauthn4jVersion}"
-    if (project.hasProperty('env')) {
-        runtimeOnly "com.mysql:mysql-connector-j:${mysqlConnectorVersion}"
-    } else {
-        runtimeOnly 'com.h2database:h2'
-    }
+  // https://mvnrepository.com/artifact/com.webauthn4j/webauthn4j-core
+  implementation "com.webauthn4j:webauthn4j-core:${webauthn4jVersion}"
+  implementation "com.webauthn4j:webauthn4j-metadata:${webauthn4jVersion}"
+  if (project.hasProperty('env')) {
+      runtimeOnly "com.mysql:mysql-connector-j:${mysqlConnectorVersion}"
+  } else {
+      runtimeOnly 'com.h2database:h2'
+  }
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

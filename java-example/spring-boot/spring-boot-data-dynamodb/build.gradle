@@ -7,10 +7,13 @@ plugins {
 
 group = 'com.github.poad.examples'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-mainClassName = 'com.github.poad.examples.SpringBootDynamoDBApplication'
+java {
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
+}
+application {
+  mainClass = 'com.github.poad.examples.SpringBootDynamoDBApplication'
+}
 
 repositories {
 	mavenCentral()

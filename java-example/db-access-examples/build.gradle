@@ -23,9 +23,10 @@ buildscript {
     }
 }
 
-
-sourceCompatibility = 11
-targetCompatibility = 11
+java {
+  sourceCompatibility = 11
+  targetCompatibility = 11
+}
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
