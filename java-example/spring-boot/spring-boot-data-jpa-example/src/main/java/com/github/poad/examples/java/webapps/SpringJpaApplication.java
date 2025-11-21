@@ -2,8 +2,6 @@ package com.github.poad.examples.java.webapps;
 
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
-import org.springframework.boot.actuate.health.Health;
-import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -20,7 +18,7 @@ import java.util.TimeZone;
 @EnableScheduling
 @EnableJpaRepositories("com.github.poad.examples.java.webapps.database")
 @EnableTransactionManagement
-public class SpringJpaApplication extends SpringBootServletInitializer implements HealthIndicator {
+public class SpringJpaApplication extends SpringBootServletInitializer {
 
     public static void main(String... args){
         new SpringJpaApplication()
@@ -32,11 +30,6 @@ public class SpringJpaApplication extends SpringBootServletInitializer implement
     public void postConstruct() {
         // set the JVM timezone to UTC
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-    }
-
-    @Override
-    public Health health() {
-        return Health.up().withDetail("health", true).build();
     }
 
     @Bean

@@ -2,8 +2,6 @@ package com.github.poad.examples.java.webapps;
 
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
-import org.springframework.boot.actuate.health.Health;
-import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -14,7 +12,7 @@ import jakarta.annotation.PostConstruct;
 import java.util.TimeZone;
 
 @SpringBootApplication
-public class SpringBootWebThymeleafApplication extends SpringBootServletInitializer implements HealthIndicator {
+public class SpringBootWebThymeleafApplication extends SpringBootServletInitializer {
 
     public static void main(String... args){
         new SpringBootWebThymeleafApplication()
@@ -26,11 +24,6 @@ public class SpringBootWebThymeleafApplication extends SpringBootServletInitiali
     public void postConstruct() {
         // set the JVM timezone to UTC
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-    }
-
-    @Override
-    public Health health() {
-        return Health.up().withDetail("health", true).build();
     }
 
     @Bean
