@@ -5,7 +5,7 @@ import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.google.common.collect.Sets;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
+import org.springframework.boot.data.jpa.autoconfigure.DataJpaRepositoriesAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import jakarta.annotation.PostConstruct;
 import java.util.TimeZone;
 
-@SpringBootApplication(exclude = JpaRepositoriesAutoConfiguration.class, scanBasePackages={"com.github.poad.examples.java.webapps"})
+@SpringBootApplication(exclude = DataJpaRepositoriesAutoConfiguration.class, scanBasePackages={"com.github.poad.examples.java.webapps"})
 @EnableScheduling
 public class BootApplication extends SpringBootServletInitializer {
 
