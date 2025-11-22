@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Immutable;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-@Table(forceQuote = true)
+@Table
 @Immutable
 public class Artist {
     @Id
