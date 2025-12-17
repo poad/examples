@@ -20,7 +20,7 @@ ext {
     p6spyVersion = '3.9.0'
     tomcatJdbcPoolVersion = '10.0.21'
 
-    log4jVersion = '2.25.2'
+    log4jVersion = '2.25.3'
 
     junitVersion = '4.13.2'
     junit4Version        = '4.13.2'
