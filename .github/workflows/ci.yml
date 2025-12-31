@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         java_versions:
-          - 25
+          - 21
         path:
           - android/HelloAndroid
 
