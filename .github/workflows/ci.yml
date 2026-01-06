@@ -15,21 +15,21 @@ jobs:
   android:
     strategy:
       matrix:
-        java_versions:
-          - 21
         path:
           - android/HelloAndroid
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-    - name: Set up JDK  ${{ matrix.java_versions }}
+    - name: Checkout
+      uses: actions/checkout@v6
+    - name: Set up JDK 21
       uses: actions/setup-java@v5
       with:
-        java-version: ${{ matrix.java_versions }}
+        java-version: 21
         distribution: liberica
 
-    - uses: actions/cache@v5
+    - name: Setup cache
+      uses: actions/cache@v5
       with:
         path: |
           ~/.gradle/caches
@@ -64,19 +64,19 @@ jobs:
           - path: java-example/spring-boot/spring-boot-web-example
           - path: java-example/spring-boot/spring-boot-web-thymeleaf-example
           - path: java-example/spring-boot/webauthn/server
-        java_versions:
-          - 17
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-    - name: Set up JDK  ${{ matrix.java_versions }}
+    - name: Checkout
+      uses: actions/checkout@v6
+    - name: Set up JDK  25
       uses: actions/setup-java@v5
       with:
-        java-version: ${{ matrix.java_versions }}
+        java-version: 25
         distribution: liberica
 
-    - uses: actions/cache@v5
+    - name: Setup cache
+      uses: actions/cache@v5
       with:
         path: |
           ~/.gradle/caches
@@ -95,7 +95,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v6
+    - name: Checkout
+      uses: actions/checkout@v6
 
     - name: Use Node.js
       uses: actions/setup-node@v6
@@ -116,19 +117,16 @@ jobs:
 
   quarkus-example:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java_versions:
-          - 17
     steps:
     - uses: actions/checkout@v6
-    - name: Set up JDK ${{ matrix.java_versions }}
+    - name: Set up JDK 25
       uses: actions/setup-java@v5
       with:
-        java-version: ${{ matrix.java_versions }}
+        java-version: 25
         distribution: liberica
 
-    - uses: actions/cache@v5
+    - name: Checkout
+      uses: actions/checkout@v6
       with:
         path: |
           ~/.gradle/caches

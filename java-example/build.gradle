@@ -12,7 +12,7 @@ ext {
     h2Version = '1.4.200'
     mysqlConnectorVersion = '9.5.0'
 
-    springBootVersion = '3.4.0'
+    springBootVersion = '4.0.1'
     springLoadedVersion = '1.2.8.RELEASE'
 
     slf4jVersion = '2.0.17'
@@ -50,8 +50,8 @@ subprojects {
     apply plugin: 'java'
 
     java {
-      sourceCompatibility = 11
-      targetCompatibility = 11
+      sourceCompatibility = 25
+      targetCompatibility = 25
     }
 
     dependencies {
