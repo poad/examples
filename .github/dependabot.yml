@@ -50,7 +50,6 @@ updates:
       - '/java-example/spring-boot/spring-boot-web-thymeleaf-example/'
       - '/java-example/spring-boot/spring-data-jpa-async/spring-data-jpa-async/'
       - '/java-example/spring-boot/webauthn/server/'
-      - '/quarkus-example/quarkus-mp-example/'
     schedule:
       interval: daily
       timezone: Asia/Tokyo
