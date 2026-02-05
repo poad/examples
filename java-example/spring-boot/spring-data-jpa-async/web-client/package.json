@@ -37,7 +37,7 @@
     "@next/bundle-analyzer": "16.1.6",
     "@stylistic/eslint-plugin": "^5.7.1",
     "@types/node": "^25.2.0",
-    "@types/react": "^19.2.10",
+    "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.24",
     "eslint": "9.39.2",
