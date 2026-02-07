@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 export default withBundleAnalyzer({
@@ -14,8 +13,5 @@ export default withBundleAnalyzer({
     experimental: {
       esmExternals: true,
     },
-    eslint: {
-      ignoreDuringBuilds: true,
-    },
-  }
+  },
 );

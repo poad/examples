@@ -34,7 +34,9 @@ function ListNode(props: Props) {
           comment: state.text,
           text: '',
         }),
-      );
+      ).catch(() => {
+        // pass
+      });
     }
   };
 
@@ -42,6 +44,9 @@ function ListNode(props: Props) {
     if (props.id) {
       client.delete(props.id).then(() => {
         props.onDelete(props.id);
+        return;
+      }).catch(() => {
+        // pass
       });
     }
   };

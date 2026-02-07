@@ -1,10 +1,36 @@
 'use client';
+
 import { ReactNode } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import Authenticator from '../components/Authenticator';
 import theme from './styles/theme';
-import './styles/Layout.module.css';
+import { Roboto } from 'next/font/google';
 import StyledJsxRegistry from './registry';
+import './styles/Layout.module.css';
+
+const roboto300 = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const roboto400 = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const roboto500 = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const roboto700 = Roboto({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -12,13 +38,8 @@ export default function Layout({ children }: { children: ReactNode }) {
       <head>
         {/* PWA primary color */}
         <meta name="theme-color" content={theme.palette.primary.main} />
-        { }
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
       </head>
-      <body>
+      <body className={`${roboto300.className} ${roboto400.className} ${roboto500.className} ${roboto700.className}`}>
         <StyledJsxRegistry>
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

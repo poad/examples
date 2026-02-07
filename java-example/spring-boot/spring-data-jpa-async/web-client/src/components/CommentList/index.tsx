@@ -62,6 +62,9 @@ function CommentList(props: Props): JSX.Element {
         comments,
         comment: '',
       });
+      return;
+    }).catch(() => {
+      // pass
     });
   };
 

@@ -16,7 +16,8 @@ class RestClient {
       if (res.ok) {
         return res.json() as Promise<Comment>;
       }
-      return Promise.resolve({} as Comment);
+      // eslint-disable-next-line promise/no-return-wrap
+      return Promise.resolve<Comment>({} as Comment);
     });
     return json as Comment;
   }
@@ -31,7 +32,8 @@ class RestClient {
       if (res.ok) {
         return res.json() as Promise<Comment[]>;
       }
-      return Promise.resolve([] as Comment[]);
+      // eslint-disable-next-line promise/no-return-wrap
+      return Promise.resolve<Comment[]>([{} as Comment]);
     });
 
     return json as Comment[];
@@ -56,17 +58,16 @@ class RestClient {
   }
 
   async delete(id: string): Promise<void> {
-    fetch(this.endpoint + id, {
+    const response = await fetch(this.endpoint + id, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-    }).then((res): void => {
-      if (!res.ok) {
-        throw res;
-      }
     });
+    if (!response.ok) {
+      throw response;
+    }
   }
 }
 
