@@ -38,8 +38,8 @@ android {
 buildscript {
     ext {
         retrofitVersion = '3.0.0'
-        junitVersion = '6.0.2'
-        junit4Version = '6.0.2'
+        junitVersion = '6.0.3'
+        junit4Version = '6.0.3'
     }
 
     repositories {
@@ -50,7 +50,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:9.0.0'
+        classpath 'com.android.tools.build:gradle:9.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.9.7'
     }
