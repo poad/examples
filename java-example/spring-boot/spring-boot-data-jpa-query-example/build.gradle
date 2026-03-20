@@ -1,5 +1,5 @@
 plugins {
-  id 'org.springframework.boot' version '4.0.3'
+  id 'org.springframework.boot' version '4.0.4'
   id 'io.spring.dependency-management' version '1.1.7'
   id 'java'
 }
@@ -38,7 +38,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
-	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.18'
+	runtimeOnly 'org.apache.tomcat:tomcat-jdbc:11.0.20'
 
 	// https://mvnrepository.com/artifact/p6spy/p6spy
 	runtimeOnly 'p6spy:p6spy:3.9.1'
