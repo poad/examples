@@ -24,6 +24,8 @@ updates:
     allow:
       - dependency-type: all
     rebase-strategy: auto
+    cooldown:
+      default-days: 7
     assignees:
       - poad
     groups:
@@ -56,6 +58,8 @@ updates:
     allow:
       - dependency-type: all
     rebase-strategy: auto
+    cooldown:
+      default-days: 7
     assignees:
       - poad
     groups:
@@ -77,6 +81,8 @@ updates:
     allow:
       - dependency-type: all
     rebase-strategy: auto
+    cooldown:
+      default-days: 7
     assignees:
       - poad
     groups:

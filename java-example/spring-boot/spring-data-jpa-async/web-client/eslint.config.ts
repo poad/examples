@@ -1,7 +1,6 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
-import react from 'eslint-plugin-react';
 // @ts-expect-error ignore plugin type
 import pluginPromise from 'eslint-plugin-promise';
 import nextVitals from 'eslint-config-next/core-web-vitals';
@@ -46,10 +45,7 @@ export default defineConfig(
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts', '**/*.tsx'],
-    ...react.configs.flat.recommended,
-    ...react.configs.flat['jsx-runtime'],
     languageOptions: {
-      ...react.configs.flat.recommended.languageOptions,
       parser,
       globals: {
         ...globals.serviceworker,
@@ -58,6 +54,11 @@ export default defineConfig(
     },
     plugins: {
       '@stylistic': stylistic,
+    },
+    settings: {
+      react: {
+        version: '19.2',
+      },
     },
     rules: {
       '@stylistic/semi': 'error',

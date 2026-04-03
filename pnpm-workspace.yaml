@@ -2,23 +2,16 @@ packages:
   - ./java-example/spring-boot/spring-data-jpa-async/web-client
   - ./java-example/spring-boot/webauthn/webauthn-client
 
-autoInstallPeers: true
-
-enablePrePostScripts: true
-
-legacyPeerDeps: true
-
-onlyBuiltDependencies:
-  - unrs-resolver
+minimumReleaseAge: 10080 # 7 days in minutes
+minimumReleaseAgeExclude:
+  - lodash@4.18.1
+  - lodash-es@4.18.1
 
 overrides:
-  '@eslint/eslintrc>ajv': ^6.12.4
-  '@eslint/js': ^9
-  '@types/react': ^19.2.2
-  '@types/react-dom': ^19.2.2
-  ajv@<8.18.0: '>=8.18.0'
-  eslint: ^9
-  eslint>ajv: ^6.12.4
-  minimatch@<10.2.1: '>=10.2.1'
+  chokidar: '>=5'
+  eslint-import-resolver-typescript: '>=4'
+  lodash@<=4.17.23: '>=4.18.0'
+  lodash@>=4.0.0 <=4.17.23: '>=4.18.0'
+  semver: '>=7'
 
-strictPeerDependencies: false
+trustPolicy: no-downgrade
