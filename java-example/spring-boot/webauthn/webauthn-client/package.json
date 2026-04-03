@@ -28,7 +28,7 @@
     "next": "^16.2.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-hook-form": "^7.72.0",
+    "react-hook-form": "^7.72.1",
     "web-vitals": "^5.2.0"
   },
   "devDependencies": {
@@ -37,7 +37,7 @@
     "@eslint/js": "^10.0.1",
     "@next/bundle-analyzer": "^16.2.2",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.27",
