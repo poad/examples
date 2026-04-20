@@ -45,7 +45,7 @@
     "eslint-config-next": "^16.2.3",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-promise": "^7.2.1",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "jiti": "^2.6.1",
     "next-transpile-modules": "^10.0.1",
     "postcss": "^8.5.9",
