@@ -49,8 +49,8 @@
     "jiti": "^2.6.1",
     "next-transpile-modules": "^10.0.1",
     "postcss": "^8.5.10",
-    "tailwindcss": "^4.2.2",
+    "tailwindcss": "^4.2.3",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.58.2"
+    "typescript-eslint": "^8.59.0"
   }
 }
