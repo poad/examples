@@ -2,8 +2,8 @@ packages:
   - ./java-example/spring-boot/spring-data-jpa-async/web-client
   - ./java-example/spring-boot/webauthn/webauthn-client
 allowBuilds:
-  sharp: set this to true or false
-  unrs-resolver: set this to true or false
+  sharp: false
+  unrs-resolver: false
 
 minimumReleaseAge: 10080 # 7 days in minutes
 
