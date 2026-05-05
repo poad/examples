@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-  implementation platform('org.jdbi:jdbi3-bom:3.52.1')
+  implementation platform('org.jdbi:jdbi3-bom:3.53.0')
 	implementation 'org.springframework.boot:spring-boot-starter-web'
   implementation 'org.springframework.boot:spring-boot-starter-jetty'
 
