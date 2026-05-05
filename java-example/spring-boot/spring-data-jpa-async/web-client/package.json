@@ -47,7 +47,6 @@
     "eslint-plugin-promise": "^7.3.0",
     "globals": "^17.5.0",
     "jiti": "^2.6.1",
-    "next-transpile-modules": "^10.0.1",
     "postcss": "^8.5.12",
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",

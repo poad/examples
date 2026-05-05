@@ -42,7 +42,6 @@
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.2.1",
-    "eslint-config-import": "^0.13.0",
     "eslint-config-next": "^16.2.4",
     "eslint-import-resolver-typescript": "^4.4.4",
     "globals": "^17.5.0",
