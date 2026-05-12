@@ -46,7 +46,7 @@
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-promise": "^7.3.0",
     "globals": "^17.6.0",
-    "jiti": "^2.6.1",
+    "jiti": "^2.7.0",
     "postcss": "^8.5.14",
     "tailwindcss": "^4.2.4",
     "typescript": "^6.0.3",
