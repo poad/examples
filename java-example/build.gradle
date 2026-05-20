@@ -15,7 +15,7 @@ ext {
     springBootVersion = '4.0.1'
     springLoadedVersion = '1.2.8.RELEASE'
 
-    slf4jVersion = '2.0.17'
+    slf4jVersion = '2.0.18'
 
     p6spyVersion = '3.9.0'
     tomcatJdbcPoolVersion = '10.0.21'
