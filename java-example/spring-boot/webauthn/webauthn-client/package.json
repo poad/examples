@@ -35,7 +35,7 @@
     "@eslint/compat": "^2.1.0",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
-    "@next/bundle-analyzer": "^16.2.6",
+    "@next/bundle-analyzer": "^16.2.7",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",

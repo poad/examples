@@ -1,4 +1,4 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
+import { defineConfig, globalIgnores, includeIgnoreFile } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 // @ts-expect-error ignore plugin type
@@ -8,7 +8,6 @@ import nextTs from 'eslint-config-next/typescript';
 import globals from 'globals';
 import { configs, parser } from 'typescript-eslint';
 
-import { includeIgnoreFile } from '@eslint/compat';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
