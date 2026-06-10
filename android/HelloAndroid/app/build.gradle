@@ -1,12 +1,14 @@
-apply plugin: 'com.android.application'
-apply plugin: 'android'
+plugins {
+    id 'com.android.application'
+}
 
 android {
+    compileSdk 36
+
     defaultConfig {
         applicationId "com.poad1010.example.helloandroid"
-        minSdkVersion 36
-        compileSdk = 36
-        targetSdkVersion 36
+        minSdk 36
+        targetSdk 36
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -35,30 +37,15 @@ android {
     namespace = 'com.poad1010.example.helloandroid'
 }
 
-buildscript {
-    ext {
-        retrofitVersion = '3.0.0'
-        junitVersion = '6.1.0'
-        junit4Version = '6.1.0'
-    }
-
-    repositories {
-        mavenCentral()
-        maven {                                  // <-- Add this
-            url = 'https://maven.google.com/'
-            name = 'Google'
-        }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:9.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.9.7'
-    }
+ext {
+    retrofitVersion = '3.0.0'
+    junitVersion = '6.1.0'
+    junit4Version = '6.1.0'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.2.0'
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'androidx.core:core-ktx:1.18.0'
     implementation 'com.google.android.material:material:1.14.0'
