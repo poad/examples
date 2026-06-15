@@ -22,13 +22,13 @@
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^9.0.1",
-    "@mui/material": "^9.0.1",
-    "@mui/system": "^9.0.1",
+    "@mui/icons-material": "^9.1.0",
+    "@mui/material": "^9.1.0",
+    "@mui/system": "^9.1.0",
     "next": "^16.2.7",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-hook-form": "^7.77.0",
+    "react-hook-form": "^7.78.0",
     "web-vitals": "^5.3.0"
   },
   "devDependencies": {
