@@ -4,7 +4,6 @@ import { Button, TextField } from '@mui/material';
 import RestClient from './RestClient';
 
 interface State {
-  id: string;
   text: string;
   comment: string;
 }
@@ -14,12 +13,12 @@ interface Props {
   comment: string;
   text: string;
   client: RestClient;
-  onDelete(id: string): void;
+   
+  onDelete: (id: string) => void;
 }
 
 function ListNode(props: Props) {
   const [state, setState] = useState<State>({
-    id: props.id,
     comment: props.comment,
     text: '',
   });
@@ -30,7 +29,6 @@ function ListNode(props: Props) {
     if (props.id && state.text.length > 0) {
       client.update(props.id, state.text).then(() =>
         setState({
-          id: props.id,
           comment: state.text,
           text: '',
         }),
@@ -53,7 +51,6 @@ function ListNode(props: Props) {
 
   function changeText(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, comment: string): void {
     setState({
-      id: props.id,
       text: event.currentTarget.value,
       comment,
     });

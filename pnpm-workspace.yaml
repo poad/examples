@@ -8,12 +8,13 @@ allowBuilds:
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
-  - pnpm@11.5.3
+  - pnpm@11.7.0
   - postcss@8.5.10
+  - typescript-eslint@8.61.1
 
 overrides:
   chokidar: '>=5'
-  eslint-import-resolver-typescript: '^4.4.4'
+  eslint-import-resolver-typescript: '^4.4.5'
   postcss@<8.5.10: ^8.5.10
   semver: '>=7'
 
