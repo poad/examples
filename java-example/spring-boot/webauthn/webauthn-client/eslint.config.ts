@@ -39,8 +39,6 @@ export default defineConfig(
     ],
   },
   eslint.configs.recommended,
-  ...configs.strict,
-  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -59,6 +57,10 @@ export default defineConfig(
         version: '19.2',
       },
     },
+    extends: [
+      configs.strict,
+      configs.stylistic,
+    ],
     rules: {
       '@stylistic/semi': 'error',
       '@stylistic/indent': ['error', 2],

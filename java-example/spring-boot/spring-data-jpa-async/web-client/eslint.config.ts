@@ -39,8 +39,6 @@ export default defineConfig(
     ],
   },
   eslint.configs.recommended,
-  ...configs.strict,
-  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts', '**/*.tsx'],
@@ -51,6 +49,10 @@ export default defineConfig(
         ...globals.browser,
       },
     },
+    extends: [
+      configs.strict,
+      configs.stylistic,
+    ],
     plugins: {
       '@stylistic': stylistic,
     },
