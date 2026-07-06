@@ -20,13 +20,13 @@ ext {
     p6spyVersion = '3.9.0'
     tomcatJdbcPoolVersion = '10.0.21'
 
-    log4jVersion = '2.26.0'
+    log4jVersion = '2.26.1'
 
     junitVersion = '4.13.2'
     junit4Version        = '4.13.2'
     junitVintageVersion  = '5.7.2'
-    junitPlatformVersion = '6.1.0'
-    junitJupiterVersion  = '6.1.0'
+    junitPlatformVersion = '6.1.1'
+    junitJupiterVersion  = '6.1.1'
 
     xRayBomVersion = '2.9.0'
 }

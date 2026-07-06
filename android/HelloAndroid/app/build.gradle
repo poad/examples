@@ -38,8 +38,8 @@ android {
 
 ext {
     retrofitVersion = '3.0.0'
-    junitVersion = '6.1.0'
-    junit4Version = '6.1.0'
+    junitVersion = '6.1.1'
+    junit4Version = '6.1.1'
 }
 
 dependencies {
