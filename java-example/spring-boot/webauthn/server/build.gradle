@@ -1,11 +1,11 @@
 plugins {
-  id 'org.springframework.boot' version '4.1.0'
+  id 'org.springframework.boot' version '4.1.1'
   id 'io.spring.dependency-management' version '1.1.7'
   id 'java'
 }
 
 ext {
-  tomcatJdbcVersion = "11.0.24"
+  tomcatJdbcVersion = "11.0.25"
   webauthn4jVersion = "0.31.9.RELEASE"
   mysqlConnectorVersion = "26.7.0"
 }
