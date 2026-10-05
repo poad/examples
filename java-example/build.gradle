@@ -7,7 +7,7 @@ ext {
     jacksonVersion = '2.12.3'
     vertxVersion = '4.0.3'
 
-    jdbiVersion = '3.54.0'
+    jdbiVersion = '3.55.0'
     hikariCpVersion = '4.0.3'
     h2Version = '1.4.200'
     mysqlConnectorVersion = '26.7.0'
